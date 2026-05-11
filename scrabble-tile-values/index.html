@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrabble Tile Values â€” Every Letter Score (Aâ€“Z) | WordFindLab</title>
+<meta name="description" content="Complete Scrabble tile point values for every letter Aâ€“Z. Also includes Words With Friends values for comparison. Use this when building your strategy.">
+<link rel="canonical" href="https://wordfindlab.com/scrabble-tile-values/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">Scrabble Tile Values</span></div>
+    
+<div class="page-header">
+  <h1>Scrabble Tile Values: Every Letter Score</h1>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+<section class="card">
+  <h2>Official Scrabble Letter Values</h2>
+  <p>Each Scrabble tile has a point value from 1 (common letters like A, E, I) to 10 (rare letters like Q and Z). Multiply the base tile value by any letter premium square (DL or TL) to calculate your score.</p>
+  <table class="top-words-table">
+    <thead><tr><th>Letter</th><th style="text-align:center">Scrabble</th><th style="text-align:center">WWF</th></tr></thead>
+    <tbody><tr><td><b>A</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>B</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">3</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>C</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">3</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>D</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">2</td><td style="text-align:center;color:var(--muted)">2</td></tr><tr><td><b>E</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>F</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">4</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>G</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">2</td><td style="text-align:center;color:var(--muted)">3</td></tr><tr><td><b>H</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">4</td><td style="text-align:center;color:var(--muted)">3</td></tr><tr><td><b>I</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>J</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">8</td><td style="text-align:center;color:var(--muted)">10</td></tr><tr><td><b>K</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">5</td><td style="text-align:center;color:var(--muted)">5</td></tr><tr><td><b>L</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">2</td></tr><tr><td><b>M</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">3</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>N</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">2</td></tr><tr><td><b>O</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>P</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">3</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>Q</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">10</td><td style="text-align:center;color:var(--muted)">10</td></tr><tr><td><b>R</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>S</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>T</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">1</td></tr><tr><td><b>U</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">1</td><td style="text-align:center;color:var(--muted)">2</td></tr><tr><td><b>V</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">4</td><td style="text-align:center;color:var(--muted)">5</td></tr><tr><td><b>W</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">4</td><td style="text-align:center;color:var(--muted)">4</td></tr><tr><td><b>X</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">8</td><td style="text-align:center;color:var(--muted)">8</td></tr><tr><td><b>Y</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">4</td><td style="text-align:center;color:var(--muted)">3</td></tr><tr><td><b>Z</b></td><td style="text-align:center;font-weight:700;color:var(--accent)">10</td><td style="text-align:center;color:var(--muted)">10</td></tr></tbody>
+  </table>
+</section>
+<section class="card seo">
+  <h2>How Scrabble Scoring Works</h2>
+  <p>Base tile scores are totaled for the word, then multiplied by any Word Score premium squares (DW = Ã—2, TW = Ã—3). Letter premiums (DL, TL) are applied before word multipliers. If you play all 7 tiles in one turn, add 50 bonus points (called a "bingo").</p>
+  <h2>High-Value vs. Low-Value Letters</h2>
+  <p>Q (10 pts) and Z (10 pts) are the highest-value tiles. J (8 pts) and X (8 pts) are next. The most common letters â€” A, E, I, O, U, L, N, R, S, T â€” score just 1 point because they appear frequently and are easier to play.</p>
+  <h2>Scrabble vs. Words With Friends Tile Values</h2>
+  <p>Words With Friends uses a slightly different point system. B, C, M, and V score higher in WWF; H scores lower. The overall strategy is similar but the exact values differ â€” see the table above for a side-by-side comparison.</p>
+  <div class="faq-item"><div class="faq-q">What letters are worth the most in Scrabble?</div><div class="faq-a">Q and Z are each worth 10 points â€” the highest in the game. J and X are worth 8 points each.</div></div>
+  <div class="faq-item"><div class="faq-q">What are blank tiles worth in Scrabble?</div><div class="faq-a">Blank tiles are worth 0 points but can represent any letter. They're strategically valuable because they enable high-scoring bingo plays.</div></div>
+  <div class="faq-item"><div class="faq-q">How many of each tile are in Scrabble?</div><div class="faq-a">A standard Scrabble set has 100 tiles: 98 letter tiles (2 blanks). E has the most tiles (12), while J, K, Q, X, and Z each have only 1.</div></div>
+</section>
+<section class="card">
+  <div class="related-pages">
+    <a href="/scrabble-word-finder/">Scrabble Word Finder â†’</a>
+    <a href="/word-lists/highest-scoring-scrabble-words/">Highest scoring words</a>
+    <a href="/words-with-friends-cheat/">Words With Friends Cheat</a>
+  </div>
+</section>
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

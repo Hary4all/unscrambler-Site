@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://wordfindlab.com/">
+<title>Word Unscrambler — Find Every Word From Your Letters | WordFindLab</title>
+<meta name="description" content="Free word unscrambler. Enter scrambled letters and instantly find every valid English word. Works for Scrabble, Words With Friends, anagrams, crosswords and all word puzzles.">
+<link rel="stylesheet" href="/assets/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Unscrambler",
+  "description": "Free word unscrambler. Enter your letters and instantly find every valid word sorted by Scrabble and WWF score. Blank tile support included.",
+  "url": "https://wordfindlab.com/",
+  "applicationCategory": "Word Games",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ===== TOP ANNOUNCEMENT BAR ===== -->
+<a href="/scrabble-word-finder/" class="announce-bar">
+  🔥 Free Word Finder — Find every high-scoring Scrabble &amp; WWF word instantly<span class="bar-arrow">→</span>
+</a>
+
+<!-- Nav injected by unscrambler.js -->
+
+<!-- ===== HERO ===== -->
+<section class="site-hero">
+
+  <!-- Floating 3D letter tiles -->
+  <div class="hero-tiles" aria-hidden="true">
+    <div class="htile-wrap" style="top:14%;left:2.5%">
+      <div class="htile" style="transform:rotate(-16deg) rotateY(28deg)">W</div>
+    </div>
+    <div class="htile-wrap" style="top:58%;left:5%">
+      <div class="htile" style="transform:rotate(13deg) rotateX(18deg)">Z</div>
+    </div>
+    <div class="htile-wrap" style="top:22%;right:3.5%">
+      <div class="htile" style="transform:rotate(17deg) rotateY(-22deg)">Q</div>
+    </div>
+    <div class="htile-wrap" style="top:64%;right:7%">
+      <div class="htile" style="transform:rotate(-9deg) rotateX(-14deg)">X</div>
+    </div>
+    <div class="htile-wrap" style="top:44%;left:1.2%">
+      <div class="htile" style="transform:rotate(7deg) rotateY(18deg)">J</div>
+    </div>
+    <div class="htile-wrap" style="top:38%;right:2%">
+      <div class="htile" style="transform:rotate(-14deg) rotateY(-18deg)">K</div>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-label">Word Game Command Center</div>
+    <h1 class="hero-title">
+      Find the Word.<br><span class="accent">Win the Board.</span>
+    </h1>
+    <p class="hero-sub">
+      Unscramble letters, solve Wordle clues, crack Jumbles, and find <span style="color:#4ade80;font-weight:700">high-scoring</span> Scrabble words — instantly, for free.
+    </p>
+    <div class="trust-badges">
+      <span class="trust-badge"><span class="trust-check">✓</span> 100% Free</span>
+      <span class="trust-badge"><span class="trust-check">✓</span> No Signup</span>
+      <span class="trust-badge"><span class="trust-check">✓</span> Works on Mobile</span>
+      <span class="trust-badge"><span class="trust-check">✓</span> Instant Results</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERO SEARCH — rises up from hero ===== -->
+<div class="hero-search-wrap">
+  <div class="hero-search-box">
+
+    <div class="hero-search-label">
+      Enter your letters
+      <span class="hsl-hint">(use ? for a blank tile)</span>
+    </div>
+
+    <div class="hero-search-row">
+      <input id="letters" class="input-letters" type="text" autocomplete="off"
+             autocapitalize="characters" spellcheck="false"
+             placeholder="e.g. STARING" maxlength="15">
+      <button id="go" class="btn btn-cta">Find Words</button>
+      <button id="clear" class="btn ghost">Clear</button>
+    </div>
+    <div style="margin:6px 0 2px;font-size:12px;color:var(--muted)">Press <b>Enter</b> to search</div>
+
+    <details class="advanced">
+      <summary>Advanced filters</summary>
+      <div class="row" style="margin-top:12px">
+        <div class="col">
+          <label for="starts">Starts with</label>
+          <input id="starts" type="text" autocomplete="off" placeholder="e.g. PR" maxlength="8">
+        </div>
+        <div class="col">
+          <label for="ends">Ends with</label>
+          <input id="ends" type="text" autocomplete="off" placeholder="e.g. ING" maxlength="8">
+        </div>
+        <div class="col">
+          <label for="contains">Contains</label>
+          <input id="contains" type="text" autocomplete="off" placeholder="e.g. AT" maxlength="8">
+        </div>
+        <div class="col">
+          <label for="length">Length</label>
+          <input id="length" type="number" min="2" max="15" placeholder="any">
+        </div>
+        <div class="col">
+          <label for="dict">Dictionary</label>
+          <select id="dict">
+            <option value="all">All words (370K+)</option>
+            <option value="common">Common words</option>
+          </select>
+        </div>
+      </div>
+    </details>
+
+    <div id="status" class="status"></div>
+
+    <!-- Demo examples — shown before first search -->
+    <div class="demo-box" id="demoBox">
+      <div class="demo-box-title">Try an example</div>
+      <div class="demo-chips">
+        <span class="demo-chip" data-fill="STARING">STARING</span>
+        <span class="demo-chip" data-fill="AELPPS">AELPPS</span>
+        <span class="demo-chip" data-fill="TCA?ER">TCA?ER</span>
+        <span class="demo-chip" data-fill="Q?IZ">Q?IZ</span>
+        <span class="demo-chip" data-fill="AEINRST">AEINRST</span>
+      </div>
+    </div>
+
+    <!-- Results — lives inside search box so it's always visible -->
+    <div id="resultsCard" hidden style="margin-top:18px;border-top:1px solid var(--border);padding-top:16px">
+      <div class="results-head">
+        <h2 style="font-size:16px;margin:0 0 4px">Results</h2>
+        <span class="meta" id="resultsMeta"></span>
+      </div>
+      <div id="results"></div>
+    </div>
+
+  </div><!-- /hero-search-box -->
+</div><!-- /hero-search-wrap -->
+
+<!-- ===== PAGE WRAP ===== -->
+<div class="page-wrap">
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <main class="page-main">
+
+    <!-- Tool Cards -->
+    <div class="tool-cards-section">
+      <div class="section-label">Choose Your Word Tool</div>
+      <div class="tool-cards">
+        <a class="tool-card" href="/">
+          <div class="tool-card-icon">🔀</div>
+          <div class="tool-card-name">Word Unscrambler</div>
+          <div class="tool-card-desc">Find every word hiding in your scrambled letters.</div>
+          <div class="tool-card-cta">Unscramble Now</div>
+        </a>
+        <a class="tool-card" href="/scrabble-word-finder/">
+          <div class="tool-card-icon">🎯</div>
+          <div class="tool-card-name">Scrabble Finder</div>
+          <div class="tool-card-desc">Highest-scoring rack words, sorted by Scrabble points.</div>
+          <div class="tool-card-cta">Find Scrabble Words</div>
+        </a>
+        <a class="tool-card" href="/wordle-solver/">
+          <div class="tool-card-icon">🟩</div>
+          <div class="tool-card-name">Wordle Solver</div>
+          <div class="tool-card-desc">Enter green, yellow, and gray clues — get every possible answer.</div>
+          <div class="tool-card-cta">Solve Wordle</div>
+        </a>
+        <a class="tool-card" href="/anagram-solver/">
+          <div class="tool-card-icon">🔤</div>
+          <div class="tool-card-name">Anagram Solver</div>
+          <div class="tool-card-desc">Find all perfect anagrams that use every single letter.</div>
+          <div class="tool-card-cta">Find Anagrams</div>
+        </a>
+        <a class="tool-card" href="/words-with-friends-cheat/">
+          <div class="tool-card-icon">💬</div>
+          <div class="tool-card-name">Words With Friends</div>
+          <div class="tool-card-desc">Best plays from your rack, scored with real WWF values.</div>
+          <div class="tool-card-cta">Find WWF Words</div>
+        </a>
+        <a class="tool-card" href="/jumble-solver/">
+          <div class="tool-card-icon">🗞️</div>
+          <div class="tool-card-name">Jumble Solver</div>
+          <div class="tool-card-desc">Crack the daily Jumble — unscramble words and solve the punchline.</div>
+          <div class="tool-card-cta">Solve Jumble</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Ad: after tool cards, before results -->
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7302891841207454"
+             data-ad-slot="3800623751"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <!-- SEO content -->
+    <div class="seo-section">
+      <h2>How the word unscrambler works</h2>
+      <p>Enter up to 15 letters — including up to 3 blank wildcards (<b>?</b>). The tool generates every valid combination of those letters and matches them against a dictionary of 370,000+ English words. Results are grouped by length, with Scrabble point values shown on each word so you can spot the highest-scoring plays instantly.</p>
+
+      <h2>Works for every word game</h2>
+      <p>Whether you need a <b>word finder</b>, <b>letter unscrambler</b>, or <b>anagram solver</b>, the same engine handles them all — Scrabble, Words With Friends, Wordscapes, Boggle, crosswords, and daily word puzzles. Use the advanced filters to narrow results by starting letters, ending letters, or exact word length.</p>
+
+      <h2>Tips for best results</h2>
+      <ul>
+        <li>Add <b>?</b> to represent a blank tile — the solver tries all 26 substitutions automatically.</li>
+        <li>Use <b>Starts with</b> + <b>Ends with</b> to find words that fit a crossword slot.</li>
+        <li>Switch to <b>Common words</b> for a faster, cleaner list during casual play.</li>
+        <li>Results within each length group are sorted by Scrabble score — highest value first.</li>
+      </ul>
+
+      <div class="related-tools">
+        <div class="related-tools-label">Explore More Tools</div>
+        <div class="related-links">
+          <a class="related-link" href="/scrabble-word-finder/">🎯 Scrabble Finder</a>
+          <a class="related-link" href="/wordle-solver/">🟩 Wordle Solver</a>
+          <a class="related-link" href="/anagram-solver/">🔤 Anagram Solver</a>
+          <a class="related-link" href="/words-with-friends-cheat/">💬 Words With Friends</a>
+          <a class="related-link" href="/jumble-solver/">🗞️ Jumble Solver</a>
+          <a class="related-link" href="/2-letter-words/">2-Letter Words</a>
+          <a class="related-link" href="/word-lists/q-words-without-u/">Q Words Without U</a>
+          <a class="related-link" href="/word-lists/best-wordle-starting-words/">Best Wordle Starters</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="page-sidebar">
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7302891841207454"
+             data-ad-slot="3800623751"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <div class="card tools-widget">
+      <div class="tools-widget-title">Word Tools</div>
+      <div class="tools-widget-links" id="sidebarToolLinks"></div>
+    </div>
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-sidebar">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7302891841207454"
+             data-ad-slot="3800623751"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 WordFindLab.com &nbsp;·&nbsp;
+      <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp;
+      <span id="dictStat">dictionary loading…</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/unscrambler.js"></script>
+<script>
+/* ---- Sidebar tool links ---- */
+(function buildSidebarLinks() {
+  const wrap = document.getElementById("sidebarToolLinks");
+  if (!wrap) return;
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+  SIDEBAR_TOOLS.forEach(t => {
+    const a = document.createElement("a");
+    a.href = t.href;
+    if (t.href === currentPath || (t.href === "/" && (currentPath === "/" || currentPath === ""))) {
+      a.className = "active";
+    }
+    a.innerHTML = `<span class="ico">${t.icon}</span>${t.label}`;
+    wrap.appendChild(a);
+  });
+})();
+
+/* ---- Demo chips → fill input and search ---- */
+document.getElementById("demoBox").addEventListener("click", e => {
+  const chip = e.target.closest(".demo-chip");
+  if (!chip) return;
+  const val = chip.dataset.fill || chip.textContent;
+  document.getElementById("letters").value = val.replace(/[^A-Za-z?]/g, "");
+  document.getElementById("demoBox").style.display = "none";
+  search();
+});
+
+/* ---- Hide demo box on any input ---- */
+document.getElementById("letters").addEventListener("input", () => {
+  const box = document.getElementById("demoBox");
+  if (box) box.style.display = "none";
+});
+
+/* ---- Search ---- */
+async function search() {
+  // If dictionary isn't ready yet, load it now and wait
+  if (!CURRENT_DICT) {
+    setStatus('<span class="loader"></span> Loading dictionary…');
+    const ok = await loadDictionary("all");
+    if (!ok) {
+      setStatus("Dictionary failed to load. Please check your connection and refresh.", "warn");
+      return;
+    }
+  }
+
+  const rawInput = document.getElementById("letters").value.toUpperCase().replace(/[^A-Z?*]/g, "");
+  if (rawInput.length < 2) {
+    setStatus("Enter at least 2 letters to search.", "warn");
+    document.getElementById("resultsCard").hidden = true;
+    return;
+  }
+
+  const exactLen = parseInt(document.getElementById("length").value, 10);
+  const t0 = performance.now();
+
+  const result = runSearch(rawInput, {
+    minLen:     isFinite(exactLen) ? exactLen : 2,
+    maxLen:     isFinite(exactLen) ? exactLen : rawInput.length,
+    startsWith: document.getElementById("starts").value,
+    endsWith:   document.getElementById("ends").value,
+    contains:   document.getElementById("contains").value,
+  });
+
+  if (result.error === "too_many_wildcards") {
+    setStatus("Too many wildcards — use 3 or fewer ? symbols.", "warn");
+    return;
+  }
+
+  const ms = (performance.now() - t0).toFixed(0);
+  const card = document.getElementById("resultsCard");
+  card.hidden = false;
+  document.getElementById("resultsMeta").textContent =
+    result.words.length.toLocaleString() + " words found · " + ms + " ms";
+
+  renderWordGroups("results", result.words, scrabbleScore);
+  setStatus("");
+}
+
+document.getElementById("go").addEventListener("click", search);
+document.getElementById("clear").addEventListener("click", () => {
+  ["letters","starts","ends","contains","length"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+  document.getElementById("resultsCard").hidden = true;
+  const box = document.getElementById("demoBox");
+  if (box) box.style.display = "";
+  setStatus("");
+  document.getElementById("letters").focus();
+});
+document.getElementById("letters").addEventListener("keydown", e => {
+  if (e.key === "Enter") search();
+});
+document.getElementById("dict").addEventListener("change", () => {
+  CURRENT_DICT = null;
+});
+
+// Kick off dictionary load in background (non-blocking)
+loadDictionary("all");
+</script>
+</body>
+</html>
+

@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Starting With K â€” 3,937 Words | WordFindLab</title>
+<meta name="description" content="Browse all 3,937 English words starting with K. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.">
+<link rel="canonical" href="https://wordfindlab.com/words-starting-with/k/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Starting With K",
+  "description": "Browse all 3,937 English words starting with K. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.",
+  "url": "https://wordfindlab.com/words-starting-with/k/",
+  "numberOfItems": 3937,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "kjeldahlization",
+      "description": "kjeldahlization â€” Scrabble score: 39 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "knickknackatory",
+      "description": "knickknackatory â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "krzysztof",
+      "description": "krzysztof â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "katzenjammer",
+      "description": "katzenjammer â€” Scrabble score: 36 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "knickknackery",
+      "description": "knickknackery â€” Scrabble score: 36 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "knickknackish",
+      "description": "knickknackish â€” Scrabble score: 36 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "kjeldahlize",
+      "description": "kjeldahlize â€” Scrabble score: 35 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "knickerbockered",
+      "description": "knickerbockered â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "knickknacky",
+      "description": "knickknacky â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "kolkhoznik",
+      "description": "kolkhoznik â€” Scrabble score: 34 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words start with K?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 3,937 English words that start with the letter K in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best 5-letter words starting with K for Wordle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 473 five-letter words starting with K. Top picks by Scrabble score: KAZAK, KAFIZ, KHUZI, KNYAZ, KERYX. Use the Wordle Solver to filter by additional clues."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-starting-with/a/">Words Starting With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">K</span></div>
+    
+<div class="page-header">
+  <h1>Words Starting With K</h1>
+  <p>All <b>3,937 English words</b> beginning with <b>K</b> â€” filter by length, ending, or score. Sorted by Scrabble point value.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">3,937</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">473</div><div class="lbl">5-letter (Wordle)</div></div>
+    <div class="stat-pill"><div class="num">39</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+
+  <div class="tab-bar" style="margin-bottom:10px">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(14)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(60)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(248)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(473)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(703)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(676)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(646)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(435)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(294)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(178)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(104)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(64)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(26)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(16)</span></button>
+  </div>
+
+  <div class="hub-filter-bar">
+    <input id="endsInput" type="text" maxlength="3" placeholder="Ends withâ€¦" oninput="HUB.setFilter('ends',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)">
+      <option value="score">Sort: Top score</option>
+      <option value="alpha">Sort: Aâ€“Z</option>
+      <option value="len">Sort: Length</option>
+    </select>
+    <select onchange="HUB.setScoreMode(this.value)">
+      <option value="scrabble">Scrabble pts</option>
+      <option value="wwf">WWF pts</option>
+    </select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+<section class="card">
+  <h2>5-Letter Words Starting With K â€” Wordle</h2>
+  <p>When Wordle's first position shows <b>K</b> as a green clue, all 473 of these words are possible answers. Use our <a href="/wordle-solver/">Wordle Solver</a> to add more clues and narrow it down further.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">KAZAK<span class="sc high">22</span></span><span class="wcard">KAFIZ<span class="sc high">21</span></span><span class="wcard">KHUZI<span class="sc high">21</span></span><span class="wcard">KNYAZ<span class="sc high">21</span></span><span class="wcard">KERYX<span class="sc high">19</span></span><span class="wcard">KHAJA<span class="sc high">19</span></span><span class="wcard">KHOJA<span class="sc high">19</span></span><span class="wcard">KUDZU<span class="sc high">19</span></span><span class="wcard">KYLIX<span class="sc high">19</span></span><span class="wcard">KANZU<span class="sc high">18</span></span><span class="wcard">KAREZ<span class="sc high">18</span></span><span class="wcard">KAZOO<span class="sc high">18</span></span><span class="wcard">KECKY<span class="sc high">18</span></span><span class="wcard">KICKY<span class="sc high">18</span></span><span class="wcard">KIZIL<span class="sc high">18</span></span><span class="wcard">KLUTZ<span class="sc high">18</span></span><span class="wcard">KNEZI<span class="sc high">18</span></span><span class="wcard">KNIAZ<span class="sc high">18</span></span><span class="wcard">KOPJE<span class="sc high">18</span></span><span class="wcard">KOUZA<span class="sc high">18</span></span></div>
+  <p style='margin-top:10px'><a href='/5-letter-words/'>See all 5-letter words â†’</a></p>
+</section>
+
+<section class="card">
+  <h2>Top Scrabble Words Starting With K</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead>
+    <tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+kjeldahlization" rel="nofollow noopener" target="_blank">KJELDAHLIZATION</a></td><td>15</td><td><span class="pts-badge pts-scr">39</span></td><td><span class="pts-badge pts-wwf">43</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+knickknackatory" rel="nofollow noopener" target="_blank">KNICKKNACKATORY</a></td><td>15</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">41</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+krzysztof" rel="nofollow noopener" target="_blank">KRZYSZTOF</a></td><td>9</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+katzenjammer" rel="nofollow noopener" target="_blank">KATZENJAMMER</a></td><td>12</td><td><span class="pts-badge pts-scr">36</span></td><td><span class="pts-badge pts-wwf">41</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+knickknackery" rel="nofollow noopener" target="_blank">KNICKKNACKERY</a></td><td>13</td><td><span class="pts-badge pts-scr">36</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+knickknackish" rel="nofollow noopener" target="_blank">KNICKKNACKISH</a></td><td>13</td><td><span class="pts-badge pts-scr">36</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+kjeldahlize" rel="nofollow noopener" target="_blank">KJELDAHLIZE</a></td><td>11</td><td><span class="pts-badge pts-scr">35</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+knickerbockered" rel="nofollow noopener" target="_blank">KNICKERBOCKERED</a></td><td>15</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+knickknacky" rel="nofollow noopener" target="_blank">KNICKKNACKY</a></td><td>11</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+kolkhoznik" rel="nofollow noopener" target="_blank">KOLKHOZNIK</a></td><td>10</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>K Words by Length</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Category</th><th style="text-align:right">Count</th><th></th></tr></thead>
+    <tbody><tr><td>2-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">14</td><td style="text-align:right"><a href="/words-starting-with/k/?len=2" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>3-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">60</td><td style="text-align:right"><a href="/words-starting-with/k/?len=3" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>4-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">248</td><td style="text-align:right"><a href="/words-starting-with/k/?len=4" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>5-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">473</td><td style="text-align:right"><a href="/words-starting-with/k/?len=5" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>6-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">703</td><td style="text-align:right"><a href="/words-starting-with/k/?len=6" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>7-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">676</td><td style="text-align:right"><a href="/words-starting-with/k/?len=7" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>8-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">646</td><td style="text-align:right"><a href="/words-starting-with/k/?len=8" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>9-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">435</td><td style="text-align:right"><a href="/words-starting-with/k/?len=9" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>10-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">294</td><td style="text-align:right"><a href="/words-starting-with/k/?len=10" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>11-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">178</td><td style="text-align:right"><a href="/words-starting-with/k/?len=11" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>12-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">104</td><td style="text-align:right"><a href="/words-starting-with/k/?len=12" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>13-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">64</td><td style="text-align:right"><a href="/words-starting-with/k/?len=13" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>14-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">26</td><td style="text-align:right"><a href="/words-starting-with/k/?len=14" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>15-letter words starting with K</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">16</td><td style="text-align:right"><a href="/words-starting-with/k/?len=15" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Browse All Letters</h2>
+  <div class="letter-grid-nav"><a href="/words-starting-with/a/">A</a>
+<a href="/words-starting-with/b/">B</a>
+<a href="/words-starting-with/c/">C</a>
+<a href="/words-starting-with/d/">D</a>
+<a href="/words-starting-with/e/">E</a>
+<a href="/words-starting-with/f/">F</a>
+<a href="/words-starting-with/g/">G</a>
+<a href="/words-starting-with/h/">H</a>
+<a href="/words-starting-with/i/">I</a>
+<a href="/words-starting-with/j/">J</a>
+<a href="/words-starting-with/k/" class="curr">K</a>
+<a href="/words-starting-with/l/">L</a>
+<a href="/words-starting-with/m/">M</a>
+<a href="/words-starting-with/n/">N</a>
+<a href="/words-starting-with/o/">O</a>
+<a href="/words-starting-with/p/">P</a>
+<a href="/words-starting-with/q/">Q</a>
+<a href="/words-starting-with/r/">R</a>
+<a href="/words-starting-with/s/">S</a>
+<a href="/words-starting-with/t/">T</a>
+<a href="/words-starting-with/u/">U</a>
+<a href="/words-starting-with/v/">V</a>
+<a href="/words-starting-with/w/">W</a>
+<a href="/words-starting-with/x/">X</a>
+<a href="/words-starting-with/y/">Y</a>
+<a href="/words-starting-with/z/">Z</a></div>
+</section>
+
+<section class="card seo">
+  <h2>Words Starting With K in Word Games</h2>
+  <p>The letter <b>K</b> is worth 5 points in Scrabble. Common letters like K appear in thousands of words, giving you maximum flexibility on any rack.
+  The best strategy for words starting with <b>K</b> is to look for plays that land the first letter on a premium square â€” Double Letter or Triple Letter Score squares boost your points significantly.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How many words start with K?</div><div class="faq-a">There are <b>3,937 English words</b> that start with the letter K in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What are the best 5-letter words starting with K for Wordle?</div><div class="faq-a">There are 473 five-letter words starting with K. Top picks by Scrabble score: KAZAK, KAFIZ, KHUZI, KNYAZ, KERYX. Use the <a href="/wordle-solver/">Wordle Solver</a> to filter by additional clues.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the highest-scoring Scrabble word starting with K?</div><div class="faq-a"><b>KJELDAHLIZATION</b> scores 39 base points in Scrabble â€” the highest-value word starting with K.</div></div>
+</section>
+
+<script>
+HUB.init(["kjeldahlization","knickknackatory","krzysztof","katzenjammer","knickknackery","knickknackish","kjeldahlize","knickerbockered","knickknacky","kolkhoznik","knickknacked","koksaghyz","kaffeeklatsch","khwarazmian","kitkahaxki","knickerbockers","knickknacket","kosteletzkya","kibbutznik","knickerbocker","knickknacks","kolkhozy","kafkaesque","kazachki","kazachok","knickknack","kyphoscoliotic","kabuzuchi","karyochylema","karyopyknosis","karyorrhexis","killickinnick","kinematographic","kinematography","koggelmannetje","koilanaglyphic","koksagyz","kolkhozes","krummholz","kabbeljaws","kamikazes","karyenchyma","kazatsky","keraphyllocele","kerflummox","kevutzoth","khafajeh","khrushchev","kibbutzim","kitkehahki","knuckleheaded","kuvaszok","kymographic","kymography","kyphoscoliosis","kyschtymite","kakistocracy","kakistocratical","kalymmaukion","kalymmocyte","kamikaze","karyologically","karyolymph","karyomicrosome","karyoplasmatic","katakinetomeric","katalyzing","kazatskies","keratinization","keratorrhexis","kevutzah","kickbacks","kilomegacycle","kinematographer","kinesthetically","kirghizean","kizilbash","knockemdown","knowledgeably","knownothingism","kolkhoz","kolkozy","kryptocyanine","kshatriyahood","kupfernickel","kwaznku","kwazoku","kyanization","kakistocracies","kaleidoscopical","kamptomorph","kaolinization","karyotypical","katagelophobia","katalyzed","katathermometer","kathopanishad","katjepiering","keratinizing","keraunographic","keraunography","kevazingo","keypunching","khakanship","khazenim","khevzur","kickback","kinnikinnick","kinorhyncha","kitchenwife","knowledgably","knuckleheads","kolhozy","kujawiak","kulturkampf","kurchatovium","kvutzah","kyanizing","kaffiyehs","kalashnikov","kamarezite","kamavachara","kamchatkan","kaolinizing","karmadharaya","karyochrome","karyokinetic","karyoplasmic","katabolize","katalyzer","katamorphism","kataplexy","kathemoglobin","kathenotheism","kazatske","kazatski","keepworthy","kenogenetically","keratinized","keratinophilic","keratonyxis","ketonization","keypunched","keypunchers","khazarian","kibitzing","kickshaws","kickwheel","kidneylipped","kilbrickenite","killikinick","kilohertz","kindheartedly","kinematograph","kinesitherapy","kinetographic","kinetography","kinnikinick","kitchenwards","kleptophobia","knackaway","knicknack","knockaway","knockoffs","knoxvillite","knuckleballer","knucklehead","kolkozes","kuskwogmiut","kwashiorkor","kyanized","kaffiyeh","kaikawaka","kainozoic","kajawah","kaleidoscopic","kalokagathia","kaolinized","kappellmeister","karakatchan","karyoschisis","karyotypic","katabolically","katachromasis","katalyze","katamorphic","kawchodinne","kazuhiro","kedushshah","keffiyeh","kenspeckled","keraphyllous","keratomycosis","keraunophobia","keraunophonic","ketchcraft","ketohexose","keypuncher","keypunches","khakilike","kibbutz","kibitzed","kibitzers","kickoffs","kickshaw","kickxia","killickinnic","kindheartedness","kinematically","kingdomship","kinkajous","kirghiz","kirschwasser","kitchenward","kleptomaniacal","klockmannite","knackwursts","knappishly","knapsacking","knightlihood","knipperdolling","knockdowns","knockoff","knockwursts","knowledgeable","knowledgement","knucklebones","kokoromiko","kolhozes","komondorock","krakowiak","kreitzman","kyanizes","kymograph","kakawahie","kakortokite","kalandariyah","karyokinesis","karyolysidae","karyomitotic","kasikumuk","katakinetomer","kataphoretic","katholikoses","kemperyman","kennebecker","keratinize","keratohelcosis","keratoleukoma","keratophyre","keraunoscopy","kerchiefed","kestrelkestrels","kettlemaking","keyserlick","khakham","kharijite","kharoshthi","khazens","khediviah","khojah","kibitzer","kibitzes","kickoff","kinesipathy","kinetographer","kinetophobia","kinkajou","kinkcough","kinnikinnik","kitchenmaid","kitchenware","kittycornered","kjeldahl","klaberjass","kleptomaniacs","klutziness","knackebrod","knackwurst","knapsacked","kneecappings","knighthoods","knightship","knockdown","knockwurst","knowability","knowledgable","knoxville","knuckleball","knucklebone","knucklesome","kodakking","koeberliniaceae","koeksotenok","koilonychia","kolkoz","komitadji","kommetje","kopophobia","kornskeppur","korsakoff","kotschubeite","kozuka","krypticism","kumquats","kyanize","kymatology","kyphosidae","kaataplectic","kabeljous","kabirpanthi","kakkak","kaleidophone","kaleidoscopes","kamanichile","kamelaukions","kampuchea","kankrej","kaolinize","karyogamic","karyogamy","karyological","karyolytic","karyomitoic","karyomitome","karyoplasma","kashoubish","katakiribori","kawakawa","kazak","kebbocks","kebbucks","kedjave","kelpfishes","kenspeckle","keratectomy","keratocricoid","keratophyr","keratoscopy","keraunograph","kerchieves","kerfuffle","kermanshah","kerygmatic","ketosuccinic","kettledrummer","keyboarding","keypunch","kharroubah","khazar","khazen","khirkahs","khuskhus","kickboard","kickdown","kidneylike","killjoys","kilmarnock","kilogrammetre","kinchinmort","kindergartening","kinderhook","kindredship","kinetoscopic","kingfishers","kingmaking","kingsize","kinksbush","kinsmanship","kipchak","kirkinhead","kitchendom","kitchenful","kivikivi","kiwikiwi","klaprotholite","kleptomaniac","klezmer","klutziest","klutzy","knavishly","knaydlach","kneadability","kneecapping","knickpoint","knifeproof","knifesmith","knighthead","knighthood","knightlike","knightswort","knisteneaux","knobkerry","knockabout","knowledgeless","knyazi","kodakked","kohekohe","kolhoz","kolkhosy","koniophobia","koolokamba","kornskeppa","kotukutuku","krantzite","kremlinologists","kremlinology","kreutzers","kumquat","kupfferite","kuvasz","kvetching","kvutza","kwanza","kyphotic","kyschty","kabeljou","kachcha","kaempferol","kafiz","kailyardism","kajeputs","kalaazar","kaleidescope","kaleidophon","kaleidoscope","kaliophilite","kamchadal","kamelaukion","kamptulicon","kangaroolike","kapellmeister","karamojo","karwinskia","karyocyte","karyomitosis","karyoplasm","karyotype","kaskaskia","katakinetic","kataphoresis","kataphoric","kataplectic","katharevusa","katharometer","katholikoi","katholikos","kebbock","kebbuck","kechumaran","keelblock","keepership","keepsaky","kelyphite","kennebunker","kenophobia","kentuckians","kentucky","keratectomies","keratomalacia","keratoplastic","keratoplasty","keraulophone","keraunophone","keraunoscopia","kerchiefs","kerchieft","kerchunk","kermanji","ketazine","ketonize","ketoxime","kettlemaker","keweenawite","keyboarded","keynesianism","keystrokes","khalkha","khanjar","khanjee","khankah","khansamah","khediviate","khidmatgar","khidmutgar","khirkah","khodja","khuzi","kibitz","kickplate","kickseys","kickstands","kidderminster","kidnappings","kidneywort","killifishes","killjoy","kiloblock","kilocycles","kinaesthetic","kinesiological","kinetograph","kinetoplastic","kingdomful","kingfisher","kingfishes","kinnikinnic","kinoplasmic","kionectomy","kirkify","kishambala","kitchenettes","kitchenman","kitchenry","kiteflying","kittenhearted","kittenishly","klipdachs","klipspringer","klootchman","klutzier","knackery","knackish","knapsacks","knaveship","knavishness","knifeway","kniphofia","knobstick","knowableness","knowhows","knowledging","knyaz","kojiki","kokerboom","kokumingun","komitaji","kommandatura","komondorok","konjak","koorajong","koreshanity","korzec","kosmokrator","krameriaceous","kremlinologist","kreutzer","kreuzers","kristinaux","kritarchy","kromesky","krouchka","kryokonite","kryptomere","kummerbund","kunzites","kurchicine","kurrajong","kvetched","kwartje","kyklopes","kymograms","kabaragoya","kabbalahs","kaddishim","kaffrarian","kahikatea","kaimakam","kajeput","kajugaru","kakariki","kakogenic","kamachile","kameelthorn","kamelaukia","kampylite","kanamycin","karyologic","karyology","karyolysis","karyolysus","karyomerite","kashyapa","katabothron","kataphrenia","katsuwonidae","keelback","keggmiengg","kellupweed","kelpfish","kemptken","kenotoxin","kenscoff","kenspeck","kentuckian","keratectacia","keratoangioma","keratocentesis","keratohyal","keratolytic","keratometric","keratometry","keratoplasties","keratosropy","keraulophon","kerchief","kerectomy","kerykeion","ketoheptose","kevelhead","keweenawan","keyboarder","keylock","keysmith","keystroke","keyways","khajur","kharaj","khedivate","khedivial","kherwarian","khitmatgar","khitmutgar","kibblerman","kickable","kickapoo","kickball","kickish","kicksorter","kickstand","kiddishness","kidnapping","kikatsik","killbuck","killeekillee","killikinic","kilobuck","kilocycle","kilojoule","kilometrical","kimmeridge","kinaestheic","kinaesthesias","kindergartener","kindergartners","kindhearted","kinepox","kinescoping","kinesically","kinesthetic","kinetically","kinetochore","kinetogenetic","kinetophone","kingmaker","kinkhab","kinkhaust","kinnikinic","kionectomies","kirklike","kirkward","kirkyard","kiskatomas","kiskitomas","kissability","kitchenette","kitchenless","kitcheny","kittenishness","kittiwake","kittycorner","klangfarbe","klephtism","kleptomanist","klipfish","klutzes","knackeries","knapsack","knickered","knifeboard","knifelike","knightliness","knitback","knobkerrie","knockings","knockstone","knowhow","knowingly","knowledged","knuckliest","knuckling","knuckly","kochliarion","koechlinite","kokobeh","kolacky","kolkhoses","kolmogorov","kongsbergite","koninckite","kookaburra","koopbrief","kornephorus","kosotoxin","kowtowing","koyemshi","krameriaceae","kreuzer","krishnaitic","krohnkite","kromskop","krummhorn","kudize","kudzus","kuffieh","kufiyeh","kukuruku","kunzite","kurajong","kurbashing","kvetches","kwarterka","kyabuka","kyklops","kylikec","kymogram","kyphoses","kyphosis","kyriologic","kababish","kabbalah","kaffraria","kaisership","kaiwhiria","kakatoidae","kakemonos","kakidrosis","kakotopia","kalamkari","kalewives","kalmuck","kamarupic","kammererite","kandjar","kanephoros","kapparah","karharbari","karmathian","karyolitic","karyomiton","kashmirian","kashruths","katabothra","katacrotism","katakinesis","kathismata","kayakers","kazoos","keckling","kecksy","kedushah","keelboatman","keelboatmen","keelhauling","keepsakes","kehilloth","kekchi","kelchyn","kemancha","kenningwort","kentishman","keratodermia","keratoglobus","keratoscope","keratotomy","kerseymere","kerwham","kerygmata","keryx","ketchups","kethibh","keyboards","keymove","keypresses","keyway","keywords","khaja","khakied","khalifate","khartoumer","khedival","khedives","khepesh","khoja","khutbah","khutuktu","kiboshing","kickups","kiddingly","kidnapped","kidnappers","kiefekil","kiesselguhr","kikawaeo","kiladja","kilkenny","killifish","kilnstick","kilogramme","kilovoltage","kimberly","kimeridgian","kinaesthesia","kinaesthesis","kindergartens","kindergartner","kindjal","kinematical","kinemometer","kineplasty","kinescoped","kinesiologic","kinesiology","kinesthesias","kinetomeric","kinetonucleus","kinetoscope","kinfolks","kingcraft","kingdomless","kingfish","kingklip","kinglihood","kingships","kinkhost","kinsfolk","kiplingism","kirktown","kiswahili","kithlessness","kitschy","kittenship","klanswoman","kleenebok","klephtic","kleptomania","klipbok","knackiest","knacking","knacky","knaidlach","knappish","knapweeds","kneadingly","kneippism","kniazi","knightling","knightly","knitwork","knocking","knockless","knockouts","knockup","knotwork","knowingness","knuckled","knucklers","knucklier","kodakry","kohathite","kohlrabies","kojima","koldaji","kolinsky","komondoroc","konohiki","kopecks","kopjes","koradji","korsakow","korymboi","korymbos","kowagmiut","kowtowed","kowtowers","krantz","kreplach","kreplech","kriophoros","krishnaism","krisuvigite","kroushka","kryoliths","kryptonite","kshatriya","kubuklion","kudzu","kugelhof","kulturkreis","kumshaw","kurbashed","kwachas","kwakiutl","kyacks","kylix","kymbalon","kyurinish","kaddishes","kadischi","kadishim","kaibartha","kailyarder","kaivalya","kakemono","kalamansanai","kalanchoe","kalekah","kalewife","kalkvis","kallitype","kalsomining","kalumpang","kalyptras","kamachi","kamaloka","kameeldoorn","kamelkia","kamichi","kamleika","kanauji","kanephore","kangayam","kankedort","kanzu","karabagh","karez","karinghota","karyomere","karyosoma","karyosome","kashruth","kashubian","katabolism","katacrotic","katagenetic","katalytic","katchung","kathartic","kathodic","kayaker","kayastha","kayward","kazoo","kecking","keckled","kecksies","kecky","kedlock","keelhaling","keelhauled","keepsake","keeshonden","kefifrel","kehillah","kenogenetic","kenoticism","kephalins","keratectasia","keraterpeton","keratoderma","keratogenic","keratoglossus","keratolysis","keratotomies","kerplunk","kerrikerri","kerseynette","kerystics","ketchup","ketchy","ketembilla","ketogenetic","ketoketene","ketolytic","kettledrums","kexy","keyboard","keybutton","keyholes","keyword","khagiarite","khalifas","khalifat","khamseens","khansaman","khattish","khedahs","khediva","khedive","kherwari","khokani","khubber","khussak","kiboshed","kickiest","kicking","kickless","kicksies","kicktail","kickup","kicky","kiddushes","kiddushin","kidnappee","kidnapper","kidneyroot","kieselguhr","kilderkin","kilhamite","killicks","killocks","kiloampere","kilobytes","kilometrage","kilometric","kiloparsec","kimberlite","kimchee","kimigayo","kindergarten","kindlessly","kindredly","kinematics","kinescopes","kinesiatrics","kinesiologies","kinesiometer","kinestheses","kinesthesia","kinesthesis","kineticism","kinetogenesis","kinetogenic","kinfolk","kingdomed","kinghoods","kinghunter","kingpiece","kingship","kingsnake","kingwoods","kininogenic","kinkable","kinkaider","kinkily","kinosternidae","kinsmanly","kinspeople","kinswoman","kinswomen","kionotomy","kippering","kipskins","kishkas","kishkes","kiskatom","kiskitom","kissableness","kissproof","kitambilla","kitchener","kitchenet","kitching","kittenhood","kittenlike","kiwach","kizil","klatsches","klaxons","kleenex","klendusity","klendusive","kleptistic","klondiker","klutz","knacked","knackers","knackier","knapbottle","knapscap","knapweed","kneebrush","kneelingly","kneiffia","knezi","kniaz","knickers","knifeful","knightage","knighting","knightless","knobbiness","knobbliest","knobbling","knobbly","knoblike","knobweed","knobwood","knocked","knockers","knockout","knopweed","knotberry","knowingest","knowledge","knowperts","knoxian","knubbly","knuckler","knuckles","knuclesome","kodaking","kodashim","koheleth","kojang","kokako","kokowai","kolinskies","kolkhos","kolkka","koluschan","komarch","komatiks","kookery","kopagmiut","kopeck","kopfring","kopje","korahitic","kordax","korimako","koromika","koromiko","korumburra","koulibiaca","koumysses","kouza","kowtower","krocidolite","kromeski","kromogram","kryolith","kryptic","kthibh","kubachi","kukulcan","kulakism","kumbuk","kumkum","kumyk","kurbashes","kurveyor","kvetch","kwacha","kwaiken","kyack","kylikes","kynurenic","kyoodling","kything","kabakas","kabikis","kabukis","kachinas","kadikane","kaffirs","kahawai","kailyards","kainogenesis","kakapos","kakaralli","kakke","kaleyards","kaliform","kalipaya","kalpaks","kalsomined","kalyptra","kamacites","kamboh","kamperite","kampongs","kanawha","kaneelhart","kangarooing","kanjis","kaolinisation","kapeika","kappland","karmouth","kartvelian","kasbeke","kascamiol","kashering","kashmiri","kashmirs","kassabah","katabatic","katabolic","katakanas","katatype","katchina","kathak","kathisma","kathryn","katipuneros","katsunkel","katydids","kavika","kawaka","kawika","kayaks","kayasth","kazi","kecked","keckles","keelhaled","keeshonds","kefiatoid","keilhauite","kelectome","kellick","kellock","kelotomy","kelpware","kelpwort","kenmark","kenmpy","kenseikai","kenticism","kephalin","keratoconus","keratogenous","keratometer","kerchug","kersmash","kerygma","kerystic","ketonimide","kettledrum","ketubahs","ketuboth","keyaki","keyhole","keynoting","keypads","keypress","keystoned","keywrd","khaddars","khahoon","khaiki","khakis","khalifa","khalifs","khalsah","khamseen","khamsins","khansama","kharouba","khartoum","kharwar","khedah","khirka","khlysti","kibbeh","kibbling","kibitka","kiboshes","kicked","kickers","kickier","kickout","kidnaping","kidskins","kieffer","kielbasy","kikki","kikumon","kikuyu","kilampere","killcalf","killick","killingly","killock","kilobyte","kilocalorie","kimberlin","kimbundu","kimchi","kindheart","kindlesome","kindredless","kindredness","kinematic","kinescope","kinesiatric","kinesimeter","kinetogram","kinetoplast","kingbirds","kingcups","kinghead","kinghood","kinglessness","kinglike","kingweed","kingwood","kinkiness","kinkly","kinofluous","kinoplasm","kinships","kionotomies","kiplingese","kippered","kipskin","kirkman","kirkmen","kirsches","kishka","kishke","kiskadee","kissably","kissingly","kitalpha","kitchens","kitmudgar","kitsches","kittatinny","kittock","klatches","klaxon","kleeneboc","klicket","kliphaas","klondike","klucker","kluxer","knacker","knapping","knappy","knapscull","knavery","knavish","kneepiece","knez","knicker","knifeman","knighted","knightess","knobbiest","knobbing","knobbled","knobblier","knobby","knocker","knoppy","knotweeds","knowable","knoweth","knowinger","knubbiest","knubby","knuckle","kochab","kodaked","kodakist","koeberlinia","kohemp","kohlrabi","kojiri","kokumin","komatik","kompow","koniology","koniscope","konomihu","kontakion","konyak","kookiness","koomkie","kootchar","koreishite","korfball","kornerupine","koryak","koshering","koumyses","koupreys","kourbash","kowbird","kowtows","kozo","kratogenic","krauthead","krautweed","kriegspiel","krishnaist","krishnaite","krobyloi","krobylos","krocket","krumhorn","kryptons","kubanka","kumminost","kuomintang","kurchine","kurmburra","kurukh","kurumaya","kushshu","kwamme","kyanising","kyathoi","kyathos","kymation","kymric","kyoodled","kythed","kabaka","kabardian","kabayas","kabbalas","kabiki","kabuki","kachari","kachina","kaddish","kaffir","kafka","kailyard","kaiserdom","kajar","kakapo","kakarali","kalapooian","kalendarial","kaleyard","kaliborite","kalifates","kalimbas","kaliphs","kalmuk","kalpak","kalsominer","kalumpit","kamacite","kamarupa","kamika","kamiks","kammalan","kampong","kampseen","kanaff","kanchil","kaneshite","kanji","kankanai","kantharoi","kantharos","kantianism","kanyaw","kaolinising","kapoks","kapuka","karakule","karakuls","karakurt","kartometer","karyaster","karyatid","karyotins","kashered","kashima","kashmir","kashube","katabanian","katabolite","katagenesis","katakana","katalyses","katalysis","kataplasia","katastatic","katharina","katharine","katharses","katharsis","katherine","kathodal","kathodes","katrinka","katukina","katydid","kayak","kayvan","kebby","keblahs","keckle","keddahs","keeking","keelhales","keelhauls","keelivine","keelrake","keepable","keepering","keeperless","keeshond","keffel","kefiric","kehaya","kekotene","kelchin","kellegk","kelotomies","kemalism","kempster","kempy","kenches","kenipsim","kennebec","kennedya","kenogenesis","kenogeny","kenoticist","kentallenite","kepping","keramics","keratocele","keratoconi","keratoiritis","keratomata","keratoncus","keratotome","kerbaya","kercher","kerchoo","kerflap","kerflop","kermesic","kerugmata","kesslerman","ketches","ketogenesis","ketogenic","ketolyses","ketolysis","ketonaemia","ketonimid","ketonimine","ketosteroid","kettlecase","kettleful","ketubah","ketway","keurboom","kexes","keynesian","keynoted","keynoters","keypad","keyseater","keystoner","keystones","keywd","khaddar","khaki","khaldian","khalif","khamsin","khandait","kharif","kharwa","khayal","khivan","khoka","khorassan","khowar","kiabooca","kibbled","kiblahs","kickee","kicker","kiddish","kiddush","kidhood","kidlike","kidnaped","kidnapers","kidskin","kikongo","kilij","killarney","killcrop","killingness","killoch","killweed","kilodyne","kilograms","kilometers","kilooersted","kilopound","kilovolts","kilowatts","kiloword","kiltlike","kiluck","kimbang","kinchin","kindlily","kinesodic","kineticist","kinetonema","kinetosome","kingbird","kingbolts","kingcob","kingcup","kingdoms","kinghorn","kinglily","kingposts","kinkiest","kinking","kinkled","kinky","kinology","kinotannic","kinship","kiotomy","kioway","kippage","kipperer","kipping","kippy","kipuka","kirigamis","kirking","kischen","kismetic","kiswah","kitchen","kitchie","kiteflier","kitelike","kithogue","kittendom","kittenish","kitthoge","kittlepins","kitunahan","klamath","klaskino","klatsch","klebsiella","klendusic","klephts","klikitat","klootch","klystrons","knacks","knapped","knappers","knaveries","kneadable","kneecaps","kneeholes","knifeless","kniferest","knifings","knightia","knitwears","knitweed","knivey","knobbed","knobbier","knobbler","knocks","knopped","knorhmn","knothead","knotholes","knotlike","knotweed","knowings","knubbier","knucks","knuffe","kodaker","kodkod","koelreuteria","koftgari","kohistani","kokama","kokanees","kokopu","kokstad","koktaite","kolinski","kollergang","kolokolo","kolskite","komondors","komsomol","komtok","konfyt","konstantinos","kontakia","kookeree","kookiest","kooky","koorhmn","kootcha","kopeks","koschei","koshered","kotowing","koumyss","koungmiut","kouprey","kouproh","kowhai","kowtow","krapfen","kremersite","krimmers","krugerism","kryolites","krypsis","kryptol","krypton","kuchean","kuchens","kuehneola","kuichua","kukoline","kukupa","kulack","kulkarni","kumbaloi","kumyses","kurbash","kurikata","kurvey","kusimansel","kutchin","kwatuma","kyanised","kythes","kabaya","kabbala","kabyle","kachin","kadayan","kaferita","kaikara","kaiserism","kaitaka","kakatoe","kalach","kalathoi","kalathos","kalidium","kalifate","kaligenous","kalimba","kaliph","kalmarian","kalsomine","kaltemail","kamaainas","kamahi","kamik","kamiya","kammina","kanawari","kangany","kangarooer","kaolinised","kapok","karabiner","karaburan","karaitism","karakul","karaoke","karshuni","karyotin","kasbah","kashim","kashruts","katabases","katabasis","katabella","katalyst","katatonic","kathleen","kathode","kathy","katinka","katipunan","kauravas","kavaic","kavasses","kayoing","kebbies","keblah","kebyar","kechel","kecks","keddah","kedgerees","keeked","keekers","keelbird","keelboats","keelhale","keelhaul","keeperess","keepings","keewatin","kehoeite","kempite","kennedy","kennelling","kennelly","kennelman","kensington","kenspac","kentledge","keogenesis","kephir","keplerian","kepped","keramic","keratalgia","keratinoid","keratocni","keratoidea","keratomas","keratonosus","keratosic","keratotic","kerbstone","kerfing","kermesite","kermesses","kernelling","kernelly","kernetty","kerslosh","ketapang","kethib","ketimide","ketipic","ketonemia","ketonimin","kevyn","kewpie","keyman","keymen","keynoter","keynotes","keysters","keystone","khamal","khamti","khanates","khanum","khatib","khaya","khutba","khvat","kiack","kialkee","kiaughs","kibbler","kibbles","kiblah","kibosh","kibsey","kichel","kicks","kidnapee","kidnaper","kidneys","kidvid","kielbasas","kiesselgur","killwort","kilnhole","kilocurie","kilogram","kilohm","kilolumen","kilometer","kilometre","kilomoles","kilopoise","kilovolt","kiloware","kilowatt","kimonoed","kindliness","kindlings","kindnesses","kinesalgia","kinetical","kinetomer","kingbolt","kingdom","kingliness","kingpins","kingpost","kingrow","kingsides","kingsman","kinked","kinkier","kinospore","kinosternon","kiotomies","kipfel","kipped","kippeen","kippers","kipsey","kirigami","kirkton","kirmesses","kirmew","kirombo","kirsch","kishy","kisswise","kistfuls","kistvaen","kitharas","kithing","kithless","kitsch","kittlish","kittysol","kiwanian","klaftern","klatch","klaverns","klepht","kleptic","klick","klippen","klooch","kluck","kludging","klystron","knabble","knack","knaggiest","knaggy","knappan","knapper","knapple","knatch","knebelite","kneecap","kneehole","kneepads","knetch","knick","knifing","knights","knitch","knittable","knitwear","knobber","knobble","knobstone","knock","knopper","knoppie","knorhaan","knothole","knothorn","knottily","knotwort","knowing","knox","kobellite","kochia","kodiak","koftgar","kokam","kokanee","koklass","kokoona","kokum","kolach","kominuter","komondor","kompeni","konimeter","konkani","kookier","kooletah","koolooly","koombar","kootenay","kopek","koppies","koppite","korahite","korakan","koreshan","korhmn","korntonder","korrigum","kotowed","kotowers","kotwalee","koumisses","koumys","krageroite","krakens","kraunhia","kraurotic","kreittonite","krieker","krimmer","kryolite","kuchen","kukang","kulanapan","kumhar","kummels","kumrah","kuphar","kuranko","kurdish","kuroshio","kursch","kurumba","kusimanse","kuskite","kutcha","kyak","kyanises","kyanites","kybele","kyke","kymnel","kynurine","kyoodle","kyrielle","kythe","kababs","kabassou","kabistan","kabobs","kabonga","kacha","kadaya","kadish","kafirin","kaftans","kahunas","kaiaks","kaibab","kairotic","kaj","kalamalo","kalamian","kalispel","kallidins","kalogeros","kalysis","kamaaina","kambal","kambou","kamerad","kammeu","kamseens","kanaka","kanamono","kangaroos","kankie","kanteletar","kanthan","kanuka","kaoliangs","kaolinic","kaphs","kappas","kappie","karaka","karch","karluk","karmic","karstenite","karthli","kartvel","kashers","kashga","kashira","kashrut","kassak","kasubian","katuka","kauch","kayoed","keach","kebabs","kebbie","kebobs","keck","kedgeree","kedging","kedgy","keech","keeker","keelbill","keelboat","keeldrag","keelfat","keelvat","keennesses","keeping","keftian","kegful","keglings","kekuna","kelowna","kelping","kelpy","kelvins","kemalist","kempas","kemple","kempts","kenareh","kench","kendyr","kenneling","kennelled","kenneth","kenotism","kentish","kentrogon","kentrolite","kenyans","keppen","keracele","keratinose","keratinous","keratoma","keratome","kerbing","kerch","kerfed","kermises","kerneling","kernelled","kernelless","kernish","kersantite","kerseys","kerugma","ketch","ketimid","ketimine","ketipate","kevalin","kex","keyage","keying","keyless","keynote","keyseat","keysets","keyslot","keyster","khadis","khami","khanate","khanda","khanga","khedas","khellin","khesari","khmer","khotana","khulda","kiaugh","kibber","kibble","kick","kidcote","kidding","kiddy","kidnaps","kidney","kidsman","kiekie","kielbasa","kielbasi","kieselgur","kiesserite","kikori","kikuel","kilhig","killable","killdeers","kilneye","kilobars","kilobits","kilogauss","kilograin","kilomole","kilovar","kimmer","kinabulu","kinch","kincob","kindliest","kindling","kindly","kindreds","kindrend","kinesics","kinetics","kingliest","kingling","kingly","kingpin","kingside","kininogen","kinipetu","kinker","kinkle","kinnery","kintyre","kiosks","kippen","kipper","kippin","kippur","kirby","kirillitsa","kirker","kissable","kistful","kithara","kithed","kittening","kittenless","kitysol","kiwanis","klafter","klansman","klavern","klavier","klipdas","klippe","kludged","knagged","knaggier","knappe","knavess","knawels","kneading","kneepad","kneepans","knifed","knifers","knight","knishes","knittings","knived","knobular","knosped","knotgrass","knottiness","knowers","kobolds","kodak","koff","koimesis","kokila","koklas","kokoon","kolattam","kolobion","kommos","kongolese","konstantin","kookie","kookri","kooliman","koorka","kophs","koppas","koppen","koppie","koreish","korntonde","korntunnur","koshare","koshers","koswite","kotoko","kotower","kottaboi","kottabos","kottigite","kotuku","kotwali","kotylos","koumises","kragerite","kraken","krameria","kravers","kreitonite","kremlins","krennerite","krishna","krispies","krithia","kritrima","krugerite","kufic","kukeri","kulaki","kulaks","kumisses","kummel","kumys","kundalini","kundry","kunkur","kunwari","kupper","kurdistan","kurtosises","kuskos","kuskus","kutch","kvah","kvarner","kvasses","kvinter","kwannon","kwapa","kwhr","kwintra","kyah","kyanise","kyanite","kyaung","kynurin","kyriale","kabab","kabalas","kabard","kabob","kadarite","kafila","kafiri","kafirs","kaftan","kahala","kahili","kahuna","kaiak","kainah","kainyn","kairoline","kaiserins","kaithi","kakan","kakar","kakas","kakis","kaladana","kalendae","kalendar","kalifs","kaliums","kallah","kallidin","kallilite","kallima","kalmias","kalwar","kamalas","kamansi","kamares","kamasin","kamassi","kamba","kamseen","kamsins","kanaima","kandelia","kangaroo","kannume","kantism","kantry","kanwar","kaoliang","kaolinate","kaolinise","kaolinite","kapelle","kaph","kappa","kappe","karacul","karaism","karateist","karaya","karewa","karsha","karstic","kartings","karval","karvar","karwar","karyon","kashan","kashas","kasher","kaska","katastate","katatonia","katcina","kathal","katik","kavass","kayles","kayoes","keacorn","kebab","kebob","kedarite","kedged","keeks","keelages","keelman","keenly","keepers","keepnet","keerogue","keeslip","keeves","kefirs","keftiu","kegelers","kegling","kelek","kellys","keloidal","kelped","kelpies","keltics","kelvin","kemelin","kemps","kempt","kenafs","kendoist","kendy","kenneled","kennings","kenosises","kenotic","kenotrons","kensitite","kenyan","kenyte","keratitis","keratode","keratoid","keratoses","keratosis","keraunion","kerbed","kerewa","kermess","kerneled","kerogens","kerosenes","kerosines","kersey","kerslam","ketimin","ketonic","ketonuria","ketoside","ketotic","kevels","kevils","keyed","keylet","keyset","khadi","khalal","khalat","khalsa","kharia","kharua","khatin","khatri","khatti","kheda","khella","khilat","khitan","khond","khotan","kiaki","kiby","kidded","kidders","kiddier","kiddies","kiddoes","kidling","kidnap","kieserite","kiestless","kikar","kikes","kikoi","kileys","killadar","killdeer","killdees","killings","killinite","killogie","killow","kilnman","kilnrib","kilobar","kilobit","kiloliter","kilolitre","kilorads","kilostere","kiltings","kimbo","kimmo","kimonos","kinboot","kinbote","kindled","kindlers","kindless","kindlier","kindness","kindred","kinemas","kinesic","kinetic","kinetosis","kinging","kingless","kinglets","kinglier","kingston","kinhin","kinks","kinsman","kinsmen","kintlage","kintry","kioko","kiosk","kiotome","kiowan","kipage","kirbies","kirimon","kirks","kirmess","kirsty","kirver","kishen","kishon","kislev","kismats","kismets","kitabis","kitamat","kitbag","kithes","kitish","kitlings","kitlope","kittened","kittereen","kittling","kittly","klanism","kleagles","kleistian","klesha","klingsor","klismoi","klismos","kloofs","klowet","kludges","klunk","knark","knarry","knaves","knawel","kneaded","kneaders","kneeling","kneepan","kneestone","knelling","knevel","knifer","knifes","knitting","knives","knolling","knolly","knopite","knottiest","knotting","knotty","knouting","knower","knowns","knublet","knulling","knurliest","knurling","knurly","knurry","knutty","knysna","kobang","kobird","kobold","kobong","koch","kodurite","koenenite","kohens","kohlan","koipato","koitapu","kokan","kokia","kokil","kokio","kokos","kokra","koleroga","kollaster","kolobia","kolobus","koltunnor","kolush","kombu","konak","kongoese","kooka","kooks","koolah","kopec","koph","koppa","koprino","koranic","korntunna","korova","korrigan","koruny","kosher","kotows","kotwal","kotyle","koumiss","kraaling","krafts","krapina","kratogen","kraurosis","kreatic","kreistag","kremlin","krubuts","kubba","kubong","kuhnia","kukri","kukui","kulak","kuldip","kulimit","kumbi","kunmiut","kurku","kuvera","kuwait","kvases","kwarta","kyang","kyanol","kylies","kylite","kyrial","kyries","kyrine","kyrios","kytoon","kyung","kyurin","kabala","kabars","kaberu","kabiet","kabuli","kadaga","kadder","kadmi","kadsura","kafir","kafta","kahar","kahau","kaifs","kaik","kaiman","kaingin","kainites","kairolin","kaiserin","kaiwi","kaka","kaki","kalams","kaldani","kaleege","kalema","kalends","kalif","kalinga","kalinite","kalium","kallege","kalmia","kalongs","kalpas","kalpis","kamala","kamass","kameel","kamian","kamias","kamsin","kanarese","kaneh","kanesian","kangani","kannada","kanteles","kantians","kantiara","kaolines","kapote","kapp","kaputt","karagan","karamu","karanda","karelian","karling","karmas","karosses","karpas","karrusel","karting","kasha","kashi","kasolite","katalase","katha","katipo","katmon","katogle","katsup","kaury","kavas","kaver","kayan","kayos","kbps","keatsian","keawe","kebars","kedger","kedges","keefs","keek","keelage","keeling","keelless","keelsons","keening","keenness","keeper","keesters","keeve","kefir","kefti","kegeler","keglers","keisters","keith","keitloas","kelebe","keleh","kelima","kelk","kelly","keloids","kelper","kelpie","keltic","kelty","kemb","kemp","kenaf","kenelm","kenema","kenning","kenny","kenotist","kenotron","kenya","keraci","keralite","kerasine","keratins","keratose","keraunia","kerfs","kerman","kermes","kermis","kernella","kerning","kernites","kerogen","kerolite","kerosene","kerosine","kerry","kersanne","keruing","kerve","keslep","kestrels","ketmie","ketogen","ketting","ketty","ketuba","ketupa","ketyl","keuper","kevan","kevel","kever","kevil","kevin","khair","khans","khasa","khasi","khass","khats","khila","khuai","khud","khula","kiangan","kiblas","kidang","kidder","kiddie","kiddle","kiddos","kiefs","kiesters","kieye","kike","kiki","kiku","kilah","kileh","kiley","kilims","killcu","killdee","killing","killy","kilning","kilntree","kiloline","kilorad","kilotons","kilting","kilty","kiluba","kimnel","kimono","kimura","kinah","kinbot","kindest","kindler","kindles","kinema","kinetins","kinged","kinglet","kink","kiowa","kirk","kirman","kirning","kirpan","kirtled","kirundi","kirve","kisaeng","kismat","kismet","kissage","kissing","kissy","kiswa","kitabi","kitcat","kitenge","kithe","kiths","kitling","kitman","kitting","kittisol","kittled","kittlest","kitty","kivas","kiver","kiwai","kiwis","kiyas","klaudia","kleagle","kleinian","kleinite","kloof","klosh","kludge","knaidel","knarred","knave","kneader","kneeing","kneeled","kneelers","knelled","knife","knish","knitster","knitted","knitters","knive","knolled","knollers","knosps","knossian","knotless","knotroot","knotted","knotters","knottier","knouted","knowe","known","knows","knudsen","knurled","knurlier","knuth","kodagu","kodogu","kofta","kogasin","kohen","kohls","kohua","koibal","koinonia","koko","koku","kolami","kolarian","koltunna","komati","konariot","kongoni","koniaga","konilite","koodoos","kook","korah","koranist","koreci","korwa","kosha","kosimo","kossaean","kotow","koumis","kovil","koyan","kph","kpuesi","kraaled","kraft","kraurite","krausite","kreistle","kreosote","krepis","kristian","krivu","krubis","krubut","krullers","kruman","kubera","kuki","kuku","kulah","kullaite","kulmet","kumara","kumari","kumiss","kunk","kurgans","kurilian","kurtosis","kuruba","kuruma","kusha","kustenau","kuttab","kvass","kvint","kwela","kyars","kyats","kylie","kylin","kyloe","kyoto","kyrie","kytes","kaaba","kaama","kabar","kabel","kadein","kadine","kafa","kagura","kaha","kahu","kaif","kaimo","kainga","kainite","kainits","kairine","kaisers","kalam","kalang","kalasie","kalend","kaliana","kalians","kalong","kalpa","kalunti","kamao","kamas","kamel","kames","kamis","kanagi","kanap","kandol","kangla","kangli","kangri","kanred","kansans","kantars","kantela","kantele","kantian","kantist","kaoline","kaolins","kapai","kapas","kapur","kaput","karaite","karatas","karates","karatto","karbi","kareeta","karma","karroos","kasida","kassite","kastura","kath","kations","katrina","katrine","katurai","katy","kauries","kava","kavi","kayo","kays","kebar","kedge","keef","keeled","keelson","keened","keeners","keenest","keeps","keester","kefs","kegler","keister","keitloa","kelder","kelep","kelleg","kellies","kellion","keloid","kelps","kelsons","kelters","kemal","kendal","kendir","kendna","kendos","kenlore","kenned","kennell","kennels","kenosis","kepis","kerasin","keratin","keratol","keratto","kerbs","keresan","kerf","kerned","kernels","kernite","kerrias","kerries","kerrite","kestrel","ketatin","ketenes","ketones","ketoses","ketosis","kettler","kettles","kettrin","keys","kgf","khan","khar","khat","khet","khir","khis","khot","kiangs","kibei","kibes","kibla","kiddo","kidlet","kief","kiester","kiev","kifs","kiho","kildee","kilerg","kiliare","kilim","killed","killeen","killers","killese","killig","kilned","kilom","kiloton","kilted","kilters","kilties","kinases","kindal","kinder","kindle","kineses","kinesis","kinetin","kinic","kinless","kiranti","kirned","kirsten","kirtles","kisang","kish","kissed","kissers","kitab","kith","kiting","kitted","kittens","kitties","kittler","kittles","kittool","kiva","kivu","kiwi","kiyi","klister","kloesse","klongs","klops","klva","kmole","knape","knaps","knaster","knautia","knaw","kneads","kneeler","kneelet","knesset","knew","knitter","knittie","knittle","knobs","knoller","knops","knorria","knosp","knotter","know","knurlin","koasati","koban","kobus","koellia","koft","kohl","kollast","koniga","konrad","konseal","koodoo","kopis","koreans","korec","korma","korunas","kory","kosalan","kosong","kossean","kotoite","koussin","koussos","kpc","krama","kraters","krausen","krebs","krems","krepi","krigia","kristen","kristin","krome","kronion","krubi","kruller","kudrun","kueh","kulaite","kulang","kullani","kulturs","kuman","kumis","kumni","kunbi","kuneste","kurgan","kurmi","kursaal","kurung","kusam","kusum","kutenai","kuttaur","kvar","kvas","kwan","kyar","kyat","kyd","kyle","kylo","kyte","kabs","kadis","kados","kaf","kagos","kagus","kainit","kainsi","kairin","kairos","kaiser","kalian","kama","kame","kami","kanara","kanari","kande","kanga","kannen","kanone","kanoon","kansan","kansas","kantar","kanten","kanuri","kaolin","kapa","karate","karats","kareao","kareau","karela","karite","kariti","karoos","kaross","karree","karren","karroo","karsts","kartel","kartos","karuna","kasm","katana","kation","kauris","kaw","kay","kbar","kcal","keap","kedar","keeler","keelie","keener","keep","keerie","kef","kellet","kellia","kelp","kelson","kelter","keltie","keltoi","kendo","kennel","kenner","kennet","kentia","kentle","kenton","kepi","keps","kept","kerana","kerb","kerite","kernel","kerner","kernes","kernoi","kernos","kerria","kerrie","kerril","ketene","ketine","ketole","ketone","ketose","kettle","keup","key","kha","khi","khu","kialee","kiang","kibe","kieran","kif","killas","killer","kilp","kilter","kiltie","kinase","kinds","kings","kingu","kinins","kinnor","kinone","kinoos","kinsen","kintar","kintra","kinura","kipe","kips","kirsen","kirtle","kissar","kissel","kisser","kisses","kited","kiters","kittar","kittel","kitten","kitter","kittie","kittle","kittul","kiutle","klam","kleig","klieg","kling","klip","klom","klong","klop","klosse","kmel","kmet","knab","knap","knarle","knatte","knead","kneed","kneels","knells","knob","knolls","knop","knouts","knub","knurls","koalas","kobi","kobu","kodro","kogai","kogia","koiari","koilon","koines","koinon","koller","kolsun","kome","komi","konde","kondo","kongo","kongu","konini","koolau","koonti","koorg","koosin","kopi","kops","korait","korana","korari","korean","korero","korona","korrel","koruna","koulan","kouroi","kouros","kousin","kousso","kraals","kraits","krang","krasis","krater","krauts","kreese","krelos","kreng","krills","krises","kristi","kriton","kronen","kroner","kronor","kronos","kronur","krooni","kroons","kuba","kudos","kudus","kugel","kulm","kultur","kurtas","kussos","kuttar","kye","kyl","kyu","kab","kadi","kadu","kago","kagu","kaid","kails","kains","kalan","kales","kalis","kalon","kam","kanae","kanas","kanat","kand","kanes","kang","kannu","kansa","kaons","karat","karel","karen","karns","karoo","karos","karou","karri","karst","karts","kaser","kassu","katar","katat","katie","katun","kauri","kearn","keats","keb","keels","keena","keens","keest","keets","kegs","keid","keirs","keist","keita","keld","kelia","kella","kelts","kenai","kend","kenno","kenos","kente","keout","kep","kerat","kerel","keres","kerne","kerns","keros","kerri","kesar","kesse","ketal","keten","ketol","kette","kiaat","kids","kiers","kilan","kills","kilns","kilos","kilts","kim","kind","kines","king","kinin","kinoo","kinos","kinot","kioea","kip","kirns","kisan","kisra","kists","kitan","kitar","kiter","kites","klans","klaus","klino","knag","knarl","knars","kneel","knees","knell","knelt","knits","knoit","knoll","knorr","knots","knout","knurl","knurs","knute","koala","koali","koans","kob","koda","koels","koeri","koila","koine","kolas","kolea","kolis","kolos","kong","konia","kop","korai","koran","korea","korin","koroa","korun","kosin","kosos","kotal","kotar","kotos","kraal","krag","krait","krans","kraut","kreil","kreis","krill","krina","kriss","krona","krone","kroon","krosa","kudo","kudu","kuge","kulan","kunai","kung","kurd","kurta","kurus","kusan","kusso","kusti","kutta","kv","kw","ky","kaas","kaes","kail","kain","kala","kale","kali","kalo","kana","kane","kans","kant","kaon","kari","karl","karn","karo","kart","kasa","kate","kats","kb","kc","keas","keat","ked","keel","keen","kees","keet","keg","keir","kele","kell","kelt","kenn","keno","kens","kent","kerl","kern","kero","kers","keta","keto","ketu","kgr","kid","kiel","kier","kill","kiln","kilo","kilt","kina","kine","kino","kins","kiri","kirn","kiss","kist","kite","kits","klan","km","knar","knee","knet","knit","knot","knur","knut","koae","koan","koas","koel","koil","kola","koli","kolo","kona","kora","kore","kori","kors","koso","koss","kota","koto","kral","kran","kras","kris","krna","kroo","ksar","kuan","kuar","kuei","kues","kula","kuli","kuri","kurn","kurt","kuru","kusa","kae","kai","kal","kan","kas","kat","kea","kee","ken","ker","ket","kg","kie","kil","kin","kit","kln","koa","koi","kol","kon","kor","kos","kou","kra","krs","kru","ksi","kua","kue","kui","ka","ki","kl","kn","ko","kr","kt"]);
+function filterLen(n){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  HUB.setFilter('len', n);
+}
+// Handle URL param ?len=N
+(function(){
+  var m = location.search.match(/len=(\d+)/);
+  if(m) HUB.setFilter('len', +m[1]);
+})();
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

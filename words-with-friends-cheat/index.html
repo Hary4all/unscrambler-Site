@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://wordfindlab.com/words-with-friends-cheat/">
+<title>Words With Friends Cheat â€” Best Words From Your Tiles</title>
+<meta name="description" content="Free Words With Friends cheat tool. Enter your tiles and instantly find the highest-scoring words using WWF point values. Blank tile support included.">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .wwf-tile {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #4a90d9, #2c6fad);
+    color: white; border-radius: 8px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-weight: 800; font-size: 17px;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(44,111,173,.4), inset 0 1px 0 rgba(255,255,255,.3);
+    user-select: none;
+  }
+  .wwf-tile .tile-pts {
+    position: absolute; bottom: 2px; right: 4px;
+    font-size: 8px; font-weight: 700; color: rgba(255,255,255,.75);
+  }
+  .wwf-tile.blank {
+    background: linear-gradient(135deg, #555, #333);
+  }
+  .tile-preview { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; min-height: 42px; }
+
+  .compare-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 10px; font-size: 13px;
+    color: var(--muted); margin-top: 10px;
+  }
+  .compare-badge b { color: var(--accent-2); }
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Words With Friends Cheat",
+  "description": "Free Words With Friends cheat tool. Enter your tiles and instantly find the highest-scoring words using WWF point values.",
+  "url": "https://wordfindlab.com/words-with-friends-cheat/",
+  "applicationCategory": "Word Games",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
+  }
+}
+</script>
+</head>
+<body>
+<!-- Nav injected by unscrambler.js -->
+
+<div class="page-wrap">
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <main class="page-main">
+
+    <div class="page-header">
+      <h1>Words With Friends Cheat</h1>
+      <p>Enter your tiles and find every valid word â€” sorted by <b>WWF point value</b>, not Scrabble. Because the scoring really is different.</p>
+    </div>
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+
+<section class="card">
+    <label for="letters">Your tiles <span class="hint">(up to 7 letters â€” use <b>?</b> for a blank)</span></label>
+    <input id="letters" class="input-letters" type="text" autocomplete="off"
+           autocapitalize="characters" spellcheck="false"
+           placeholder="e.g. AEINRST" maxlength="7">
+    <div class="tile-preview" id="tilePreview"></div>
+
+    <details class="advanced">
+      <summary>Board filters</summary>
+      <div class="row" style="margin-top:12px">
+        <div class="col">
+          <label for="starts">Starts with</label>
+          <input id="starts" type="text" autocomplete="off" placeholder="e.g. S" maxlength="6">
+        </div>
+        <div class="col">
+          <label for="ends">Ends with</label>
+          <input id="ends" type="text" autocomplete="off" placeholder="e.g. ED" maxlength="6">
+        </div>
+        <div class="col">
+          <label for="contains">Must contain</label>
+          <input id="contains" type="text" autocomplete="off" placeholder="e.g. QU" maxlength="6">
+        </div>
+        <div class="col">
+          <label for="length">Exact length</label>
+          <input id="length" type="number" min="2" max="15" placeholder="any">
+        </div>
+      </div>
+    </details>
+
+    <div class="actions">
+      <button id="go" class="btn teal">Find WWF Words</button>
+      <button id="clear" class="btn ghost">Clear</button>
+      <span class="hint">Press <b>Enter</b> to search</span>
+    </div>
+    <div id="status" class="status"></div>
+  </section>
+
+  <section class="card" id="resultsCard" hidden>
+    <div class="results-head">
+      <h2>Words by WWF Score</h2>
+      <span class="meta" id="resultsMeta"></span>
+    </div>
+    <div id="results"></div>
+  </section>
+
+  <section class="card seo">
+    <h2>WWF vs Scrabble: the scoring difference</h2>
+    <p>Words With Friends uses different tile point values than Scrabble. Notably: <b>B, C, F, M, P</b> are worth 4 points in WWF vs 3 in Scrabble; <b>L</b> is worth 2 in WWF vs 1; <b>U, V</b> score higher in WWF; and <b>N</b> is worth 2 in WWF vs 1. This tool uses WWF values exclusively so your scores match what you'll see in the app.</p>
+    <h2>Words With Friends strategy tips</h2>
+    <ul>
+      <li><b>Triple Letter Score (TL):</b> Place high-value tiles like J, Q, X, Z on TL squares for massive points.</li>
+      <li><b>Bingo bonus:</b> Using all 7 tiles earns 35 bonus points in WWF (vs 50 in Scrabble) â€” still worth chasing.</li>
+      <li><b>Block your opponent:</b> Avoid opening Triple Word Score lanes that your opponent can exploit next turn.</li>
+      <li><b>Two-letter words:</b> WO, ZA, QI, XI, OX â€” knowing these wins tight games.</li>
+      <li><b>Parallel plays:</b> Place a word parallel to an existing one to score multiple small words simultaneously.</li>
+    </ul>
+    <h2>WWF tile point values (quick reference)</h2>
+    <p>
+      <b>10 pts:</b> J, Q &nbsp;|&nbsp;
+      <b>8 pts:</b> X &nbsp;|&nbsp;
+      <b>5 pts:</b> K, V &nbsp;|&nbsp;
+      <b>4 pts:</b> B, C, F, M, P, W &nbsp;|&nbsp;
+      <b>3 pts:</b> G, H, Y &nbsp;|&nbsp;
+      <b>2 pts:</b> D, L, N, U &nbsp;|&nbsp;
+      <b>1 pt:</b> A, E, I, O, R, S, T &nbsp;|&nbsp;
+      <b>0 pts:</b> Blank tile
+    </p>
+
+    <div class="related-tools">
+      <div class="related-tools-label">Related Tools</div>
+      <div class="related-links">
+        <a class="related-link" href="/scrabble-word-finder/">ðŸŽ¯ Scrabble Finder</a>
+        <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
+        <a class="related-link" href="/anagram-solver/">ðŸ”¤ Anagram Solver</a>
+        <a class="related-link" href="/2-letter-words/">2-Letter Words</a>
+        <a class="related-link" href="/words-with-q/">Words With Q</a>
+        <a class="related-link" href="/words-with-z/">Words With Z</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="page-sidebar">
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+    <div class="card tools-widget">
+      <div class="tools-widget-title">More Word Tools</div>
+      <div class="tools-widget-links" id="sidebarToolLinks"></div>
+    </div>
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </aside>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+
+<script src="/assets/unscrambler.js"></script>
+<script>
+
+/* ---- Sidebar tool links ---- */
+(function buildSidebarLinks() {
+  const wrap = document.getElementById("sidebarToolLinks");
+  if (!wrap) return;
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+  SIDEBAR_TOOLS.forEach(t => {
+    const a = document.createElement("a");
+    a.href = t.href;
+    if (t.href === currentPath) a.className = "active";
+    a.innerHTML = '<span class="ico">' + t.icon + '</span>' + t.label;
+    wrap.appendChild(a);
+  });
+})();
+
+/* ---- Tile preview (blue WWF tiles) ---- */
+function updateTilePreview() {
+  const raw = document.getElementById("letters").value.toUpperCase().replace(/[^A-Z?]/g, "");
+  const preview = document.getElementById("tilePreview");
+  preview.innerHTML = "";
+  for (const ch of raw) {
+    const tile = document.createElement("div");
+    tile.className = "wwf-tile" + (ch === "?" ? " blank" : "");
+    if (ch === "?") {
+      tile.textContent = "?";
+    } else {
+      tile.textContent = ch;
+      const ptsEl = document.createElement("span");
+      ptsEl.className = "tile-pts";
+      ptsEl.textContent = WWF_POINTS[ch] || "";
+      tile.appendChild(ptsEl);
+    }
+    preview.appendChild(tile);
+  }
+}
+document.getElementById("letters").addEventListener("input", updateTilePreview);
+
+/* ---- Render grouped by length, sorted by WWF score ---- */
+function renderByWWFScore(containerId, words) {
+  const out = document.getElementById(containerId);
+  out.innerHTML = "";
+
+  if (!words || words.length === 0) {
+    out.innerHTML = '<div class="empty">No words found â€” try adjusting your tiles or filters.</div>';
+    return;
+  }
+
+  const groups = {};
+  for (const w of words) {
+    (groups[w.length] = groups[w.length] || []).push(w);
+  }
+
+  const lengths = Object.keys(groups).map(Number).sort((a, b) => {
+    const topA = Math.max(...groups[a].map(wwfScore));
+    const topB = Math.max(...groups[b].map(wwfScore));
+    return topB - topA || b - a;
+  });
+
+  for (const len of lengths) {
+    groups[len].sort((a, b) => wwfScore(b) - wwfScore(a) || a.localeCompare(b));
+    const topWWF = wwfScore(groups[len][0]);
+    const topScr = scrabbleScore(groups[len][0]);
+
+    const g = document.createElement("div");
+    g.className = "group";
+    const h = document.createElement("h3");
+    h.innerHTML = len + " letters &nbsp;Â·&nbsp; " + groups[len].length +
+      " words &nbsp;<span style='color:var(--accent-2);font-weight:600'>best WWF: " + topWWF + " pts</span>";
+    g.appendChild(h);
+
+    const wrap = document.createElement("div");
+    wrap.className = "words";
+    for (const w of groups[len]) {
+      const pts = wwfScore(w);
+      const el  = document.createElement("span");
+      el.className = "word";
+      el.title = "WWF: " + pts + " pts Â· Scrabble: " + scrabbleScore(w) + " pts Â· Click to copy";
+      el.innerHTML = w + '<span class="pts' + (pts >= 10 ? " pts-high" : "") + '">' + pts + '</span>';
+      el.addEventListener("click", () => copyWord(el, w));
+      wrap.appendChild(el);
+    }
+    g.appendChild(wrap);
+    out.appendChild(g);
+  }
+}
+
+/* ---- Search ---- */
+async function search() {
+  if (!CURRENT_DICT) {
+    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    const ok = await loadDictionary("all");
+    if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
+  }
+
+  const rawInput = document.getElementById("letters").value.toUpperCase().replace(/[^A-Z?*]/g, "");
+  if (rawInput.length < 2) {
+    setStatus("Enter at least 2 tile letters.", "warn");
+    document.getElementById("resultsCard").hidden = true;
+    return;
+  }
+
+  const exactLen = parseInt(document.getElementById("length").value, 10);
+  const t0 = performance.now();
+
+  const result = runSearch(rawInput, {
+    minLen:     isFinite(exactLen) ? exactLen : 2,
+    maxLen:     isFinite(exactLen) ? exactLen : rawInput.length,
+    startsWith: document.getElementById("starts").value,
+    endsWith:   document.getElementById("ends").value,
+    contains:   document.getElementById("contains").value,
+  });
+
+  if (result.error === "too_many_wildcards") {
+    setStatus("Too many wildcards â€” use 2 or fewer ? symbols.", "warn");
+    return;
+  }
+
+  const ms = performance.now() - t0;
+  const card = document.getElementById("resultsCard");
+  card.hidden = false;
+  document.getElementById("resultsMeta").textContent =
+    result.words.length.toLocaleString() + " words Â· " + ms.toFixed(0) + " ms";
+
+  renderByWWFScore("results", result.words);
+  setStatus("");
+}
+
+document.getElementById("go").addEventListener("click", search);
+document.getElementById("clear").addEventListener("click", () => {
+  ["letters","starts","ends","contains","length"].forEach(id => document.getElementById(id).value = "");
+  document.getElementById("tilePreview").innerHTML = "";
+  document.getElementById("resultsCard").hidden = true;
+  setStatus("");
+  document.getElementById("letters").focus();
+});
+document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+
+loadDictionary("all");
+document.getElementById("letters").focus();
+</script>
+</body>
+</html>
+

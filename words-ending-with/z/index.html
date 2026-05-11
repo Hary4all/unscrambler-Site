@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Ending With Z â€” 251 Words | Wordle & Scrabble | WordFindLab</title>
+<meta name="description" content="All 251 English words ending in Z. Filter by length and starting letter. Includes 54 five-letter Wordle words.">
+<link rel="canonical" href="https://wordfindlab.com/words-ending-with/z/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Ending With Z",
+  "description": "All 251 English words ending in Z. Filter by length and starting letter. Includes 54 five-letter Wordle words.",
+  "url": "https://wordfindlab.com/words-ending-with/z/",
+  "numberOfItems": 251,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "razzmatazz",
+      "description": "razzmatazz â€” Scrabble score: 48 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "pizzazz",
+      "description": "pizzazz â€” Scrabble score: 45 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "bezazz",
+      "description": "bezazz â€” Scrabble score: 35 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "pizazz",
+      "description": "pizazz â€” Scrabble score: 35 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "extraquiz",
+      "description": "extraquiz â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "bejazz",
+      "description": "bejazz â€” Scrabble score: 33 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "koksaghyz",
+      "description": "koksaghyz â€” Scrabble score: 33 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "czarowitz",
+      "description": "czarowitz â€” Scrabble score: 32 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "humbuzz",
+      "description": "humbuzz â€” Scrabble score: 32 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "outjazz",
+      "description": "outjazz â€” Scrabble score: 32 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words end with Z?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 251 English words ending with Z in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What 5-letter words end in Z?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 54 five-letter words ending in Z. Top examples: WHIZZ, CHIZZ, FRIZZ, SWIZZ, ZMUDZ, ABUZZ. These are key for Wordle when position 5 shows Z as a green clue."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-ending-with/a/">Words Ending With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">Z</span></div>
+    
+<div class="page-header">
+  <h1>Words Ending With Z</h1>
+  <p>All <b>251 English words</b> ending with <b>Z</b> â€” filter by length, starting letter, or score.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">251</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">54</div><div class="lbl">5-letter words</div></div>
+    <div class="stat-pill"><div class="num">48</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(5)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(24)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(43)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(54)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(41)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(35)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(17)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(20)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(8)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(3)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(1)</span></button>
+  </div>
+  <div class="hub-filter-bar">
+    <input id="startsInput" type="text" maxlength="3" placeholder="Starts withâ€¦" oninput="HUB.setFilter('starts',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)"><option value="score">Sort: Top score</option><option value="alpha">Sort: Aâ€“Z</option><option value="len">Sort: Length</option></select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <h2>5-Letter Words Ending With Z</h2>
+  <p>Use these when Wordle shows position 5 as <b>Z</b> (green). There are <b>54</b> options. Use <a href="/wordle-solver/">Wordle Solver</a> to add more clues.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">WHIZZ<span class="sc">29</span></span><span class="wcard">CHIZZ<span class="sc">28</span></span><span class="wcard">FRIZZ<span class="sc">26</span></span><span class="wcard">SWIZZ<span class="sc">26</span></span><span class="wcard">ZMUDZ<span class="sc">26</span></span><span class="wcard">ABUZZ<span class="sc">25</span></span><span class="wcard">BLIZZ<span class="sc">25</span></span><span class="wcard">BRIZZ<span class="sc">25</span></span><span class="wcard">BRUZZ<span class="sc">25</span></span><span class="wcard">GAZOZ<span class="sc">24</span></span><span class="wcard">VEJOZ<span class="sc">24</span></span><span class="wcard">JEMEZ<span class="sc">23</span></span><span class="wcard">SQUIZ<span class="sc">23</span></span><span class="wcard">JEREZ<span class="sc">21</span></span><span class="wcard">KAFIZ<span class="sc">21</span></span><span class="wcard">KNYAZ<span class="sc">21</span></span><span class="wcard">HAFIZ<span class="sc">20</span></span><span class="wcard">CAFIZ<span class="sc">19</span></span><span class="wcard">CAHIZ<span class="sc">19</span></span><span class="wcard">SCHIZ<span class="sc">19</span></span></div>
+</section>
+<section class="card">
+  <h2>Top Scrabble Words Ending With Z</h2>
+  <table class="top-words-table"><thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead><tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+razzmatazz" rel="nofollow noopener" target="_blank">RAZZMATAZZ</a></td><td>10</td><td><span class="pts-badge pts-scr">48</span></td><td><span class="pts-badge pts-wwf">49</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+pizzazz" rel="nofollow noopener" target="_blank">PIZZAZZ</a></td><td>7</td><td><span class="pts-badge pts-scr">45</span></td><td><span class="pts-badge pts-wwf">46</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+bezazz" rel="nofollow noopener" target="_blank">BEZAZZ</a></td><td>6</td><td><span class="pts-badge pts-scr">35</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+pizazz" rel="nofollow noopener" target="_blank">PIZAZZ</a></td><td>6</td><td><span class="pts-badge pts-scr">35</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+extraquiz" rel="nofollow noopener" target="_blank">EXTRAQUIZ</a></td><td>9</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+bejazz" rel="nofollow noopener" target="_blank">BEJAZZ</a></td><td>6</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+koksaghyz" rel="nofollow noopener" target="_blank">KOKSAGHYZ</a></td><td>9</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">32</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+czarowitz" rel="nofollow noopener" target="_blank">CZAROWITZ</a></td><td>9</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">33</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+humbuzz" rel="nofollow noopener" target="_blank">HUMBUZZ</a></td><td>7</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+outjazz" rel="nofollow noopener" target="_blank">OUTJAZZ</a></td><td>7</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr></tbody></table>
+</section>
+<section class="card">
+  <h2>By Length</h2>
+  <table class="top-words-table"><thead><tr><th>Category</th><th style="text-align:right">Count</th></tr></thead><tbody><tr><td>2-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">5</td></tr><tr><td>3-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">24</td></tr><tr><td>4-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">43</td></tr><tr><td>5-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">54</td></tr><tr><td>6-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">41</td></tr><tr><td>7-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">35</td></tr><tr><td>8-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">17</td></tr><tr><td>9-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">20</td></tr><tr><td>10-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">8</td></tr><tr><td>11-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">3</td></tr><tr><td>13-letter words ending with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">1</td></tr></tbody></table>
+</section>
+<section class="card"><h2>Browse All Letters</h2><div class="letter-grid-nav"><a href="/words-ending-with/a/">A</a>
+<a href="/words-ending-with/b/">B</a>
+<a href="/words-ending-with/c/">C</a>
+<a href="/words-ending-with/d/">D</a>
+<a href="/words-ending-with/e/">E</a>
+<a href="/words-ending-with/f/">F</a>
+<a href="/words-ending-with/g/">G</a>
+<a href="/words-ending-with/h/">H</a>
+<a href="/words-ending-with/i/">I</a>
+<a href="/words-ending-with/j/">J</a>
+<a href="/words-ending-with/k/">K</a>
+<a href="/words-ending-with/l/">L</a>
+<a href="/words-ending-with/m/">M</a>
+<a href="/words-ending-with/n/">N</a>
+<a href="/words-ending-with/o/">O</a>
+<a href="/words-ending-with/p/">P</a>
+<a href="/words-ending-with/q/">Q</a>
+<a href="/words-ending-with/r/">R</a>
+<a href="/words-ending-with/s/">S</a>
+<a href="/words-ending-with/t/">T</a>
+<a href="/words-ending-with/u/">U</a>
+<a href="/words-ending-with/v/">V</a>
+<a href="/words-ending-with/w/">W</a>
+<a href="/words-ending-with/x/">X</a>
+<a href="/words-ending-with/y/">Y</a>
+<a href="/words-ending-with/z/" class="curr">Z</a></div></section>
+<section class="card seo">
+  <h2>Hook Plays: Using -Z Endings in Scrabble</h2>
+  <p>Words ending in <b>Z</b> are valuable for <em>hook plays</em> â€” placing your word so that its last letter connects with or extends an existing board word. This scores multiple words simultaneously. Knowing all 251 words that end in Z gives you the maximum number of available hook positions on any board state.</p>
+  <div class="faq-item"><div class="faq-q">How many words end with Z?</div><div class="faq-a">There are <b>251 English words</b> ending with Z in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What 5-letter words end in Z?</div><div class="faq-a">There are 54 five-letter words ending in Z. Top examples: WHIZZ, CHIZZ, FRIZZ, SWIZZ, ZMUDZ, ABUZZ. These are key for Wordle when position 5 shows Z as a green clue.</div></div>
+</section>
+<script>
+HUB.init(["razzmatazz","pizzazz","bezazz","pizazz","extraquiz","bejazz","koksaghyz","czarowitz","humbuzz","outjazz","quodlibetz","zizz","hakenkreuz","weltschmerz","ballhausplatz","jazz","koksagyz","krummholz","whizz","biquartz","chizz","fackeltanz","roquellorz","tchervonetz","unfrizz","berkowitz","cherchez","chervonetz","kolkhoz","outbuzz","frizz","mustahfiz","sovkhoz","swizz","zmudz","abuzz","aunjetitz","blizz","brizz","bruzz","burkundaz","chaparraz","fizz","fuzz","hizz","huzz","kilohertz","liederkranz","ajimez","bizz","buzz","chattererz","gazoz","kibbutz","kirghiz","megahertz","muzz","pizz","quartz","quilez","requiz","schmaltz","schwarz","slivovitz","vejoz","alpheratz","chametz","dizz","gigahertz","gizz","jemez","kolkoz","rheumatiz","schmalz","schmelz","schmitz","squiz","tauchnitz","thammuz","ballplatz","fahlerz","feramorz","furfooz","gigaherz","kolhoz","kuvasz","mustafuz","quiz","razz","sizz","xyz","barometz","chalutz","cowlitz","crivetz","howitz","jerez","kafiz","kibitz","knyaz","markaz","natchez","schnitz","schultz","shmaltz","tafwiz","terahertz","aprendiz","avestruz","befriz","capataz","ceromez","chintz","hafiz","hametz","jasz","jeez","repondez","rodriguez","schanz","schnoz","shaatnez","shegetz","stapedez","alferez","alveloz","austerlitz","cafiz","cahiz","gutierrez","hayz","krantz","martinez","polladz","schiz","sovenez","tammuz","whiz","whuz","aveloz","bayz","chez","halerz","halutz","karez","klutz","kniaz","megrez","oghuz","phiz","seidlitz","shiraz","suivez","terfez","windz","blintz","bonnaz","cortez","franz","fritz","fultz","garnetz","gernitz","ghuz","heinz","hertz","hienz","knez","mhz","paletz","slepez","smaltz","solonetz","speltz","spritz","strelitz","tabriz","tiwaz","voraz","waltz","wootz","arretez","blitz","bortz","burez","fitz","forz","friz","fruz","laissez","muntz","namaz","oyez","scalz","spitz","swiz","topaz","arrtez","batz","entrez","ersatz","fez","fiz","grosz","putz","rfz","scuz","sfz","siletz","viz","wiz","yez","agaz","allez","arroz","biz","buz","coz","fz","geez","gunz","lanaz","nantz","nertz","poz","snitz","soulz","tenez","tiraz","trooz","adz","bz","doz","gaz","gez","guz","inez","litz","odz","ritz","sitz","suez","untz","dz","isz","laz","liz","suz","tez","az","oz"]);
+function filterLen(n){ document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')}); event.target.classList.add('active'); HUB.setFilter('len',n); }
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

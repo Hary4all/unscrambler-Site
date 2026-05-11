@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Starting With J â€” 2,829 Words | WordFindLab</title>
+<meta name="description" content="Browse all 2,829 English words starting with J. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.">
+<link rel="canonical" href="https://wordfindlab.com/words-starting-with/j/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Starting With J",
+  "description": "Browse all 2,829 English words starting with J. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.",
+  "url": "https://wordfindlab.com/words-starting-with/j/",
+  "numberOfItems": 2829,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "joukerypawkery",
+      "description": "joukerypawkery â€” Scrabble score: 40 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "jackpuddinghood",
+      "description": "jackpuddinghood â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "jazzbow",
+      "description": "jazzbow â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "jazzlike",
+      "description": "jazzlike â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "jazzily",
+      "description": "jazzily â€” Scrabble score: 35 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "jabberwocky",
+      "description": "jabberwocky â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "jacobinization",
+      "description": "jacobinization â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "jazziness",
+      "description": "jazziness â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "jazzman",
+      "description": "jazzman â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "jazzmen",
+      "description": "jazzmen â€” Scrabble score: 34 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words start with J?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 2,829 English words that start with the letter J in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best 5-letter words starting with J for Wordle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 260 five-letter words starting with J. Top picks by Scrabble score: JAZZY, JAPYX, JAZEY, JIZYA, JEMEZ. Use the Wordle Solver to filter by additional clues."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-starting-with/a/">Words Starting With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">J</span></div>
+    
+<div class="page-header">
+  <h1>Words Starting With J</h1>
+  <p>All <b>2,829 English words</b> beginning with <b>J</b> â€” filter by length, ending, or score. Sorted by Scrabble point value.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">2,829</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">260</div><div class="lbl">5-letter (Wordle)</div></div>
+    <div class="stat-pill"><div class="num">40</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+
+  <div class="tab-bar" style="margin-bottom:10px">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(8)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(47)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(168)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(260)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(454)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(550)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(426)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(397)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(250)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(128)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(68)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(49)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(16)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(8)</span></button>
+  </div>
+
+  <div class="hub-filter-bar">
+    <input id="endsInput" type="text" maxlength="3" placeholder="Ends withâ€¦" oninput="HUB.setFilter('ends',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)">
+      <option value="score">Sort: Top score</option>
+      <option value="alpha">Sort: Aâ€“Z</option>
+      <option value="len">Sort: Length</option>
+    </select>
+    <select onchange="HUB.setScoreMode(this.value)">
+      <option value="scrabble">Scrabble pts</option>
+      <option value="wwf">WWF pts</option>
+    </select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+<section class="card">
+  <h2>5-Letter Words Starting With J â€” Wordle</h2>
+  <p>When Wordle's first position shows <b>J</b> as a green clue, all 260 of these words are possible answers. Use our <a href="/wordle-solver/">Wordle Solver</a> to add more clues and narrow it down further.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">JAZZY<span class="sc high">33</span></span><span class="wcard">JAPYX<span class="sc high">24</span></span><span class="wcard">JAZEY<span class="sc high">24</span></span><span class="wcard">JIZYA<span class="sc high">24</span></span><span class="wcard">JEMEZ<span class="sc high">23</span></span><span class="wcard">JACKY<span class="sc high">21</span></span><span class="wcard">JEREZ<span class="sc high">21</span></span><span class="wcard">JIFFY<span class="sc high">21</span></span><span class="wcard">JIQUI<span class="sc high">21</span></span><span class="wcard">JOWPY<span class="sc high">20</span></span><span class="wcard">JUDEX<span class="sc high">20</span></span><span class="wcard">JAKEY<span class="sc high">19</span></span><span class="wcard">JAMMY<span class="sc high">19</span></span><span class="wcard">JEMMY<span class="sc high">19</span></span><span class="wcard">JERKY<span class="sc high">19</span></span><span class="wcard">JIBBY<span class="sc high">19</span></span><span class="wcard">JIMMY<span class="sc high">19</span></span><span class="wcard">JIMPY<span class="sc high">19</span></span><span class="wcard">JINJA<span class="sc high">19</span></span><span class="wcard">JIXIE<span class="sc high">19</span></span></div>
+  <p style='margin-top:10px'><a href='/5-letter-words/'>See all 5-letter words â†’</a></p>
+</section>
+
+<section class="card">
+  <h2>Top Scrabble Words Starting With J</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead>
+    <tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+joukerypawkery" rel="nofollow noopener" target="_blank">JOUKERYPAWKERY</a></td><td>14</td><td><span class="pts-badge pts-scr">40</span></td><td><span class="pts-badge pts-wwf">42</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jackpuddinghood" rel="nofollow noopener" target="_blank">JACKPUDDINGHOOD</a></td><td>15</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">43</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazzbow" rel="nofollow noopener" target="_blank">JAZZBOW</a></td><td>7</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazzlike" rel="nofollow noopener" target="_blank">JAZZLIKE</a></td><td>8</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazzily" rel="nofollow noopener" target="_blank">JAZZILY</a></td><td>7</td><td><span class="pts-badge pts-scr">35</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jabberwocky" rel="nofollow noopener" target="_blank">JABBERWOCKY</a></td><td>11</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jacobinization" rel="nofollow noopener" target="_blank">JACOBINIZATION</a></td><td>14</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazziness" rel="nofollow noopener" target="_blank">JAZZINESS</a></td><td>9</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazzman" rel="nofollow noopener" target="_blank">JAZZMAN</a></td><td>7</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+jazzmen" rel="nofollow noopener" target="_blank">JAZZMEN</a></td><td>7</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>J Words by Length</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Category</th><th style="text-align:right">Count</th><th></th></tr></thead>
+    <tbody><tr><td>2-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">8</td><td style="text-align:right"><a href="/words-starting-with/j/?len=2" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>3-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">47</td><td style="text-align:right"><a href="/words-starting-with/j/?len=3" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>4-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">168</td><td style="text-align:right"><a href="/words-starting-with/j/?len=4" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>5-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">260</td><td style="text-align:right"><a href="/words-starting-with/j/?len=5" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>6-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">454</td><td style="text-align:right"><a href="/words-starting-with/j/?len=6" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>7-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">550</td><td style="text-align:right"><a href="/words-starting-with/j/?len=7" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>8-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">426</td><td style="text-align:right"><a href="/words-starting-with/j/?len=8" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>9-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">397</td><td style="text-align:right"><a href="/words-starting-with/j/?len=9" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>10-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">250</td><td style="text-align:right"><a href="/words-starting-with/j/?len=10" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>11-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">128</td><td style="text-align:right"><a href="/words-starting-with/j/?len=11" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>12-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">68</td><td style="text-align:right"><a href="/words-starting-with/j/?len=12" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>13-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">49</td><td style="text-align:right"><a href="/words-starting-with/j/?len=13" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>14-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">16</td><td style="text-align:right"><a href="/words-starting-with/j/?len=14" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>15-letter words starting with J</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">8</td><td style="text-align:right"><a href="/words-starting-with/j/?len=15" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Browse All Letters</h2>
+  <div class="letter-grid-nav"><a href="/words-starting-with/a/">A</a>
+<a href="/words-starting-with/b/">B</a>
+<a href="/words-starting-with/c/">C</a>
+<a href="/words-starting-with/d/">D</a>
+<a href="/words-starting-with/e/">E</a>
+<a href="/words-starting-with/f/">F</a>
+<a href="/words-starting-with/g/">G</a>
+<a href="/words-starting-with/h/">H</a>
+<a href="/words-starting-with/i/">I</a>
+<a href="/words-starting-with/j/" class="curr">J</a>
+<a href="/words-starting-with/k/">K</a>
+<a href="/words-starting-with/l/">L</a>
+<a href="/words-starting-with/m/">M</a>
+<a href="/words-starting-with/n/">N</a>
+<a href="/words-starting-with/o/">O</a>
+<a href="/words-starting-with/p/">P</a>
+<a href="/words-starting-with/q/">Q</a>
+<a href="/words-starting-with/r/">R</a>
+<a href="/words-starting-with/s/">S</a>
+<a href="/words-starting-with/t/">T</a>
+<a href="/words-starting-with/u/">U</a>
+<a href="/words-starting-with/v/">V</a>
+<a href="/words-starting-with/w/">W</a>
+<a href="/words-starting-with/x/">X</a>
+<a href="/words-starting-with/y/">Y</a>
+<a href="/words-starting-with/z/">Z</a></div>
+</section>
+
+<section class="card seo">
+  <h2>Words Starting With J in Word Games</h2>
+  <p>The letter <b>J</b> is worth 8 points in Scrabble. High-value tiles like J, Q, X, and Z are rare â€” words starting with these letters are powerful but you need the right board position.
+  The best strategy for words starting with <b>J</b> is to look for plays that land the first letter on a premium square â€” Double Letter or Triple Letter Score squares boost your points significantly.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How many words start with J?</div><div class="faq-a">There are <b>2,829 English words</b> that start with the letter J in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What are the best 5-letter words starting with J for Wordle?</div><div class="faq-a">There are 260 five-letter words starting with J. Top picks by Scrabble score: JAZZY, JAPYX, JAZEY, JIZYA, JEMEZ. Use the <a href="/wordle-solver/">Wordle Solver</a> to filter by additional clues.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the highest-scoring Scrabble word starting with J?</div><div class="faq-a"><b>JOUKERYPAWKERY</b> scores 40 base points in Scrabble â€” the highest-value word starting with J.</div></div>
+</section>
+
+<script>
+HUB.init(["joukerypawkery","jackpuddinghood","jazzbow","jazzlike","jazzily","jabberwocky","jacobinization","jazziness","jazzman","jazzmen","jonathanization","jusquaboutisme","jabberwockian","japanesquely","japanesquery","jawbreakingly","jazziest","jazzing","jazzy","jeewhillijers","jimberjawed","judicializing","juxtapyloric","jackknifing","jatrorrhizine","jazzed","jazzers","jazzier","jazzist","jejunectomy","jeopardizing","jonvalization","jovicentrically","judicialized","juxtapositive","jackhammers","jackknifed","jacqueminot","jarovization","jateorhizine","jazzer","jazzes","jejunectomies","jeopardized","jeremejevite","jezebelish","jizzen","jockeyship","jovializing","jusquaboutist","justiciaryship","juxtapositional","juxtatropical","jabberwock","jackhammer","jackknifes","jackknives","jacobinize","jacquemart","japanicize","japanization","japonicize","jargonization","jarovizing","jasperizing","jateorhizin","jeewhillikens","jeffersonianism","jejunoduodenal","jejunostomy","jeopardizes","jimberjaw","jinrickshaw","jockeylike","journalization","journeyworker","jovialized","jubilization","judicialize","jumboesque","juxtapositions","jacamaralcyon","jackanapish","jackbox","jackfishes","jackknife","jackpudding","jacobinically","jacobitically","jacobitishly","japanizing","jargonizing","jarovized","jasperized","jateorhiza","jayhawker","jazz","jehoshaphat","jejunostomies","jejunotomy","jennerization","jeopardize","jobbernowlism","jogjakarta","johnnycake","jonahesque","journalizing","judgmatically","jukeboxes","justifiability","justifyingly","juvenilize","juxtaposition","jacklighter","jackscrews","jackshaft","jacksonville","jackstock","jacquards","jacqueline","japanesque","japanized","japanophobia","jargonesque","jargonized","jarovizes","jawbreaking","jaywalking","jequerity","jequirity","jezebelian","jezekite","jinglejangle","jizyah","jockeydom","jockeyish","jonvalize","journalized","journeywork","jovialize","judaeophilism","judaization","judophobism","justiciability","justificative","justificatory","juvenocracy","juxtaposing","jackanapeses","jacketlike","jackfish","jacknifing","jackrabbit","jackscrew","jackshay","jacksmith","jackyarder","jacquard","jacquerie","jampacked","janizary","japanizes","japanophobe","japonizer","jargonizer","jarovize","jasperize","jasponyx","jawbreakers","jayhawk","jaywalked","jaywalkers","jazyges","jejunoileitis","jellyfishes","jellylikeness","jequirities","jerrybuilding","jewelfishes","jicaquean","jimmyweed","jingoistically","jipijapas","jockeyism","johannisberger","journalizer","journalizes","journeycake","journeywoman","journeywomen","jovicentrical","joypopping","judaeophobia","jukebox","justiciarship","justifiableness","juxtalittoral","juxtamarine","juxtaposed","juxtaspinal","jabberingly","jackassery","jackbooted","jacketwise","jacklight","jacknifed","jackpiling","jackstraws","jambeaux","janizarian","janizaries","japanize","japonize","jargonize","jawbreaker","jaywalker","jecorize","jeffersonians","jestingstock","jesuitocracy","jezebels","jezreelite","jinnywink","jinricksha","jipijapa","joaquinite","jockeying","jogglework","jollifications","journalize","joviniamish","joypopped","jubilize","judaeomancy","judaeophobe","judaistically","julyflower","jumprocks","juncaginaceous","justifiably","justifications","juvenescence","juvenilify","juxtaposes","juxtaposit","jacameropine","jackanapes","jackarooing","jackassism","jackboy","jackdaws","jackerooing","jackfruit","jackhead","jacknives","jackrolling","jackslave","jacksmelts","jacksnipes","jackstays","jackstraw","jackweed","jackwood","jackyard","jacques","jansenize","japanophile","japonically","jaqueline","jaquesian","jaquima","jawcrusher","jawfishes","jaywalks","jazeys","jeffersonian","jeffersonite","jehovistic","jejunely","jejunity","jellification","jellyfish","jennerize","jeopardously","jeopardying","jerahmeelites","jerkinhead","jerquing","jesuitize","jewelfish","jewelsmith","jewfishes","jezebel","jeziah","jicaque","jimcrack","jimjams","jimjums","jinrikishas","jitterbugging","jnanashakti","jockeyed","jockstraps","jocoque","jocoqui","jocoseriosity","johannesburg","johnnydom","johnsonianism","johnsonianly","jokebook","jokeproof","jokesmith","jokesomeness","jollification","jonquille","josephinism","jovicentric","joypopper","joysticks","judaizer","judophobia","juggernautish","jumblingly","jumbucks","jumpoffs","jumprock","jumpscrape","juncaginaceae","jungermanniales","junoesque","jurisdictive","jurisprudence","jurisprudential","justiceship","justifably","justification","justifiedly","juxtapose","jabbernowl","jabbingly","jackarooed","jackassness","jackbird","jackboots","jackdaw","jackerooed","jackplane","jackrolled","jackshea","jacksmelt","jacksnipe","jackstay","jacobinical","jacobitely","jacobitical","jacobitish","jaculiferous","jahvistic","jailbreaker","japyx","jaquette","jasminelike","jasminewood","jaspachate","jawbreak","jaywalk","jazerant","jazey","jefferisite","jeffersonia","jejuneness","jejunities","jejunums","jellifying","jenequen","jeopardousness","jerkingly","jerqued","jesuitically","jewelweeds","jewishly","jiggumbob","jimjam","jinrikisha","jitterbugged","jizya","joachimite","jobbernowl","jockstrap","johnadreams","johnstrupite","jollifying","jolterheaded","jonquils","joyfully","joystick","judaeophile","judaize","judgeships","judgmatical","judiciality","judiciarily","judiciously","juglandaceous","jujuisms","jumbuck","jumpingly","jumpoff","junkyards","juramentally","juridically","jurisdictional","juristically","jurywoman","jurywomen","justicehood","justicelike","justiceweed","justificator","justifying","juvenolatry","jabberment","jaboticaba","jacamerops","jackash","jackboot","jacketing","jacketless","jackety","jackpile","jackpots","jacksaw","jacksonian","jacksonite","jackstones","jacobinism","jacobitism","jagghery","jailbreaks","jailkeeper","jambalaya","janitorship","japaconitine","japanolatry","japanology","japishly","japygidae","jatrophic","jawfish","jawfooted","jawsmith","jawtwister","jazeran","jazy","jedcock","jeffery","jeffrey","jehovah","jehovism","jejunator","jejunitis","jejunum","jellylike","jemez","jemmying","jeopardising","jerkwater","jerquer","jerrybuild","jettyhead","jewelhouse","jewellike","jewelweed","jewfish","jewishness","jezails","jimmying","jimpricute","jimsonweed","jinniwink","jinrikiman","jinrikimen","jinriksha","jitterbugger","jiujitsus","jiujutsus","jobholders","jockeys","jockteleg","jojobas","jokingly","jollyhead","jonquil","josephinite","josephism","jovialistic","joyfullest","joyfulness","joyproof","jozy","jubilancy","judaically","judcock","judgeship","judicative","judicatory","judicially","judiciousness","jugglingly","juglandaceae","jujubes","jujuism","jumblement","jumpmaster","junciform","junectomy","juneflower","junglegym","junglewards","juniperaceae","junkboard","junkerdom","junkerish","junkyard","jurisdictions","juryrigged","justifiable","juvenescent","juvenilely","juvenility","jackaroos","jackasses","jackeroos","jacketed","jackey","jacklegs","jackman","jackmen","jackpot","jackrolls","jacksonia","jackstone","jackye","jacobinic","jacobitiana","jacobitic","jactancy","jaculative","jaculatory","jadishly","jagamohan","jaggheries","jagheerdar","jaghiredar","jahveh","jahvism","jailbreak","jailership","jajman","jakfruit","jammedness","janitrix","jansenistical","janthinidae","japaconitin","japanesery","japanologist","japheth","japhetic","japhetide","japishness","japygoid","jasminaceae","jasperware","jaundiceroot","jawboning","jawfallen","jazies","jebusitical","jebusitish","jedburgh","jeddock","jefferson","jehovic","jellybeans","jellyleaf","jeopardised","jeronymite","jerque","jerrybuilt","jettywise","jewbush","jewellery","jewship","jezail","jimigaki","jinglingly","jinxing","jiujitsu","jiujutsu","jnanendriya","jobholder","jobmistress","jobsmith","jockettes","jockey","jocularity","joculatory","jocundity","johnathan","johnsonism","jojoba","joltheaded","jonque","jotunnheim","journeyings","journeyman","journeymen","joviality","joyancy","joyfuller","joylessly","jubhahs","jubilantly","jubilatory","jucundity","juddock","judgelike","judgemental","judgingly","judgmatic","judgmetic","judgship","judicatorial","judicatories","judiciable","judicialness","judiciary","juicehead","juicelessness","jujitsus","jujube","jujuists","jujutsus","jumperism","juncagineous","jungermannia","junglewood","juniorship","junkdealer","junkerism","juramentados","jurisdiction","jurisprudent","justaucorps","justiciable","justiciary","juvenileness","juvenilism","juvenilities","jabbering","jacchus","jacinthes","jackaroo","jackeroo","jacking","jackleg","jackrod","jackroll","jacky","jactitating","jaculatorial","jadeship","jadishness","jagannatha","jaggedly","jaghirdar","jaloppy","jambiya","jambonneau","jamestown","janghey","japaconine","japannery","japannish","japhetite","japingly","japonaiserie","japygid","jargonisation","jargonistic","jaspilyte","jaundicing","jauntingly","javelining","jawbation","jawboned","jawlike","jaybirds","jeerproof","jehovist","jejunal","jellybean","jellydom","jemmily","jeopardied","jeoparding","jeopardious","jeopardy","jerahmeel","jeremianic","jerez","jerfalcon","jerkily","jerkish","jerksome","jerrycans","jerseyman","jessakeed","jestbook","jestproof","jettisonable","jewhood","jewlike","jibbooms","jibingly","jiffy","jiggermast","jigsawing","jimminy","jinglebob","jinjili","jinniyeh","jinxed","jiqui","jitneyman","joachim","jobbery","jobbish","jobmonger","jockette","jocularities","jocularly","jocundities","jocundly","jocundry","jocunoity","jodhpurs","jogtrottism","johnboats","johnsoniana","jointworm","jokesome","jolleyman","jolterhead","joltproof","josephine","josephite","jossakeed","joukery","journalistic","journeying","jovially","jovialty","jovianly","jovinianist","joyhop","joyhouse","joylessness","joyously","joypops","joyridden","joyriding","joyweed","jubbahs","jubhah","judaslike","judgements","judgmental","judicable","judicatures","judiciaries","jugglement","jugurthine","jujitsu","jujuist","jujutsu","jumboism","jumpable","jumpily","jumpsome","juncaceous","juneberry","junefish","junketeers","junketing","juramentado","juramentum","jurisconsult","justiciaries","jutlandish","juvavian","jynx","jabbered","jabberers","jaborandis","jacalteca","jacarandas","jacinthe","jacinths","jackals","jackass","jacked","jackeen","jackers","jackets","jackies","jackson","jacktan","jacktar","jacobaean","jacobic","jacobinia","jacobsite","jacobuses","jacoby","jactitated","jactitation","jactivus","jaculating","jadelike","jadesheen","jagannath","jaggedness","jaguarundis","jahvist","jailhouses","jaloppies","jamaicans","jambolana","jamborees","jamboy","jambstone","jamlike","jamshid","jamwood","janiculum","janiform","jannock","jansenistic","januslike","japaconin","japanesy","japonicas","jararacussu","jargonish","jargonising","jarkman","jarlship","jarringly","jarveys","jasperated","jaspideous","jasz","jatropha","jaundiced","javahai","javelined","javelineer","jawbones","jawfall","jawfeet","jawfoot","jawhole","jaybird","jayvees","jebusitic","jeepneys","jeeringly","jeez","jejuna","jejune","jekyll","jellified","jellify","jemminess","jeoparded","jeopardies","jeopardise","jeopardous","jeremiah","jerkined","jerkiness","jerkings","jeroboams","jerrycan","jerryism","jerseyites","jestingly","jestmonger","jethronian","jettingly","jewbird","jewelling","jewelly","jewelry","jhvh","jibbah","jibbeh","jibbings","jibboom","jibhead","jiffies","jiggerman","jigsawed","jimply","jingkoes","jingoistic","jinxes","jitneying","jitterbugs","jnanamarga","jnanayoga","jobberies","joblessness","jobmaster","jocatory","jocosely","jocoserious","jocosity","jocularness","jocundness","jodhpur","jogglety","johnboat","johnsmas","johnsonese","johnsonian","joiningly","jointedly","jointlessness","jointweed","jointwood","jokesters","jokish","joktaleg","jollified","jollify","joltingly","jonahism","jonnick","jonnock","journalary","journalish","journalising","journeyed","journeyers","jovialness","jovialties","jovilabe","jowlish","jowpy","joyances","joyleaf","joyousness","joypop","joyriders","jubardy","jubbah","jubilance","jubilating","jubilations","juckies","judex","judgeable","judgement","judgments","judication","judicature","judicialis","judicium","juggernauts","jugglery","jugheads","juglandales","juiceful","jumbling","jumbly","jumpiness","jumpseed","jumpsuits","juncaceae","junctive","jundying","junketed","junketeer","junketers","junketter","junkman","junkmen","juridicial","jurisprude","justiceless","justiciatus","justified","justifiers","justify","juttingly","juvenalian","juventude","juza","jabberer","jabbing","jaborandi","jacaltec","jacamars","jacanidae","jacaranda","jacarandi","jacconet","jacconot","jacinth","jackal","jacker","jacket","jackie","jacobaea","jacobean","jacobian","jacobins","jacobite","jacobson","jaconace","jacounce","jactance","jaculated","jaculation","jacutinga","jadedly","jaggary","jaggedest","jaggery","jaguarondi","jaguarundi","jailbirds","jailhouse","jaillike","jailward","jailyard","jakey","jamaican","jambarts","jambing","jambolan","jamboree","jamesonite","jamming","jammy","jamoke","jampanee","jamrosade","jangkar","janglery","janiceps","janissary","japanism","japanning","japonica","japonism","jardinieres","jarfly","jargonised","jargonium","jargonnelle","jarringness","jarvey","jasminum","jaspagate","jasperoid","jaspery","jaspidean","jaspopal","jauking","jaundices","javelinas","jawbone","jawrope","jaycees","jayesh","jaypiet","jayvee","jealously","jeanpaulia","jeepney","jeffie","jelick","jelliedness","jellifies","jellying","jellyroll","jemmied","jemmy","jentacular","jeoparder","jeremiads","jericho","jerkiest","jerking","jerky","jeroboam","jerseyed","jerseyite","jessamy","jestword","jesuitical","jesuitish","jetavator","jettisoning","jettying","jewdom","jeweling","jewelled","jewellers","jewelless","jewelries","jewely","jewish","jibbing","jibby","jibstay","jiffle","jigamaree","jiggety","jiggish","jiglike","jikungu","jillflirt","jimbang","jimmied","jimmy","jimpness","jimpy","jimsedge","jincamas","jinchao","jingbang","jingodom","jingoish","jingoisms","jinja","jinking","jinshang","jirkinet","jitneyed","jitterbug","jivatma","jixie","jobbing","jobnames","jocelyn","jocker","jockos","jocooserie","jocoseness","jocosities","joebush","johannean","johannine","johannist","johannite","johnny","joinhand","jointedness","jointureless","jokeless","jokester","jokey","jollifies","jollying","jollytail","jolthead","jonglery","jookerie","jophiel","josepha","josephs","jostlement","jouissance","jouking","joulemeter","journalised","journalism","journalling","journeyer","jovialist","jowery","joyance","joycean","joyful","joyrider","joyrides","joysome","juamave","jubilarian","jubilated","jubilation","juchart","judahite","judaistic","juddering","judgment","judicatio","judicator","judicious","judokas","juffer","juggernaut","juggleries","jugglings","jughead","jugoslav","jugulary","jugulating","juicily","jujus","jumbled","jumblers","jumby","jumpiest","jumping","jumpness","jumpsuit","jumpy","juncoides","junctional","junctly","jungleside","juniority","junketer","junkiest","junking","junky","juramental","juridical","juridicus","juristical","juryman","jurymen","justicing","justifier","justifies","justinianeus","justinianian","justinianist","jutelike","juttying","juveniles","juvenilia","juxta","jwahar","jymold","jynginae","jabbed","jabbers","jacamar","jacamin","jacko","jacks","jacobin","jacobus","jactation","jacteleg","jactitate","jaculates","jaculator","jadedness","jagataic","jaggaries","jaggeder","jaggeries","jagheer","jaghire","jahannan","jahve","jailbird","jakarta","jakob","jalapenos","jalapic","jalloped","jalopy","jamaica","jambart","jambeau","jambed","jambone","jambool","jambosa","jamdanee","jammed","jammers","jampani","jamtland","janapum","janiculan","janisary","janitresses","jankers","jansenism","janthina","japanned","japanners","japery","japish","japonic","jardiniere","jargonelle","jargonic","jargoning","jarhead","jarldoms","jarvy","jaseyed","jasmined","jaspered","jasperite","jaspilite","jatamansi","jauked","jauncing","jaundice","jauntily","javanese","javanine","javelina","javeline","javelins","javitero","jawlines","jaycee","jaygees","jaypie","jealousness","jealousy","jemadars","jemidars","jemmies","jennifer","jeopards","jeremiad","jeremy","jerked","jerkers","jerkier","jerkies","jerkins","jermoonal","jeropiga","jerricans","jerseyan","jerusalem","jessamies","jessamine","jestwise","jesuitism","jesuitry","jetbeads","jetstream","jettisoned","jeux","jeweled","jewelers","jeweller","jewism","jewling","jewry","jewstone","jibbed","jibbers","jibbons","jiboya","jicamas","jicarilla","jiffs","jigaboos","jiggered","jigginess","jiggliest","jiggling","jiggly","jigsawn","jigsaws","jiminy","jimmies","jimpest","jingko","jingoism","jinked","jinkers","jinriki","jinx","jisheng","jitteriness","jivaroan","jobarbe","jobbed","jobbers","jobname","jochen","jocko","jocks","jocteleg","joculator","joewood","joggling","joggly","johannes","johnnies","jointuring","jokelet","jokiest","joking","joky","jolliment","jollitry","jolloped","jonathan","jordanians","josefite","joseph","joshing","joubarb","jouisance","jouked","jounciest","jouncing","jouncy","journaling","journalists","journalled","journeys","jovinian","jowliest","jowlop","jowly","joyride","joyrode","jubilates","jubilatio","judaical","juddered","judgeless","judicata","judicate","judicial","judoka","jugfuls","jugginses","juggling","juglandin","jugsful","jugulated","jugulation","juiceless","juiciness","juju","juking","julaceous","julolidine","jumbals","jumbler","jumbles","jumentous","jumfru","jumillite","jumped","jumpers","jumpier","junctions","junctural","junctures","juniperus","junked","junkers","junkets","junkier","junkies","juramenta","jurative","juratory","jurupaite","juryless","jusshell","jussives","justiced","justicial","justiciar","justicier","justicies","justicoat","justments","juvenals","juvenate","juvenile","juventas","jyngine","jabalina","jabarite","jabber","jabble","jaborine","jacami","jacht","jacitara","jack","jacolatt","jaconets","jaculate","jacunda","jadding","jadery","jadestone","jadish","jaditic","jagath","jaggiest","jagging","jaggy","jaghir","jagirdar","jaguarete","jaguey","jailbait","jaildom","jailering","jailish","jailmate","jailoring","jalapeno","jalapins","jalkar","jalopies","jalousied","jalousing","jalpaite","jamadar","jambee","jamber","jambes","jambon","jambos","jambul","jamdani","jamesian","jamesina","jammer","jampan","jangling","jangly","janisaries","janitorial","janker","january","japanese","japanner","japeries","jararaca","jarbird","jarfuls","jargogle","jargoned","jargoneer","jargonels","jargonise","jargonist","jarldom","jarrahs","jarsful","jarvies","jasmines","jaspoid","jataka","jaunced","jauntiness","jauping","javanee","javelin","javelot","jawab","jawing","jawless","jawline","jawy","jaygee","jealousies","jebusite","jedding","jeff","jehads","jehup","jellabas","jellily","jelske","jelutongs","jemadar","jemble","jemidar","jemima","jenkin","jenneting","jeofail","jeopard","jeremian","jeremias","jerker","jerkin","jermonal","jeromian","jerrican","jerseys","jervina","jervine","jestful","jesuitic","jesuitries","jetbead","jetports","jetware","jeweler","jewing","jewless","jewy","jhow","jianyun","jibber","jibman","jibmen","jicama","jiff","jigaboo","jiggerer","jigging","jiggled","jigglier","jiggy","jigsaw","jihads","jiltish","jimmer","jimper","jingbai","jingliest","jingling","jingly","jingoing","jingoists","jinker","jinket","jinkle","jipper","jirgah","jitneys","jittering","jittery","jivaran","jiveass","jiving","jobation","jobber","jobbet","jobble","jobman","jobmen","joceline","jock","jocuma","jogging","joggled","jogglers","johanna","johnian","johnnie","johnson","joinable","joinering","joinery","jointly","jointured","jointuress","joked","jokers","jokier","jokist","jollily","jollity","jollyer","joltily","jonglem","jongleurs","jordanian","jordanite","joshed","joshers","joskin","jounced","jouncier","journaled","journalese","journalise","journalist","journey","jovy","jowing","jowled","jowlier","joyce","joying","joyless","jubarb","jubartas","jubartes","juberous","jubilant","jubilate","jubileal","jubilean","jubilees","jubilist","juck","judaica","judaism","judging","judical","judices","judicia","judith","jugerum","jugful","jugging","juggled","jugglers","jugulares","jugulates","jugulum","juiciest","juicing","juicy","juked","juloidian","julolidin","jumbal","jumbie","jumble","jumbos","jumper","junction","juncture","juneating","junebud","jungliest","jungly","junipers","junker","junket","junkie","jurally","jurament","jurassic","juratorial","jurevis","juridic","juristic","juslik","jussive","jussory","justicer","justices","justicia","justment","justnesses","jutlander","juvenal","juverna","jabirus","jaborin","jabules","jaburan","jacales","jacanas","jacatoo","jacob","jaconet","jactant","jactura","jacture","jacuaru","jadded","jadeites","jagged","jaggers","jaggier","jaileress","jainism","jaipuri","jakes","jakos","jakun","jalalaean","jalapin","jaloused","jalousies","jambe","jambo","jambs","jameson","janapan","jangada","jangled","janglers","janitress","jansenist","januaries","januarius","japanee","japetus","japing","jarful","jargonal","jargonel","jargoner","jargoons","jarosites","jarrah","jarvie","jarvis","jaseys","jasmine","jasmins","jasmone","jaspers","jassidae","jatki","jauks","jaunces","jaunders","jauntiest","jaunting","jaunty","jauped","javali","jawans","jawed","jawp","jayant","jeannette","jecoral","jecorin","jeepers","jehad","jelerang","jellaba","jellica","jellico","jelotong","jelutong","jembe","jerboas","jerican","jerks","jerreeds","jersey","jervia","jervin","jessica","jestings","jesuited","jesuitess","jesuitist","jethro","jetliners","jetport","jetsams","jetsoms","jettatore","jettatura","jettiness","jettisons","jewed","jewels","jewess","jharal","jhuria","jibba","jibbs","jibing","jigged","jiggers","jiggler","jiggles","jigman","jigmen","jihad","jimbo","jingalls","jingled","jinglers","jinglier","jingoed","jingoist","jinks","jinnestan","jinsha","jitendra","jitney","jittered","jivaro","jived","jobade","jobless","joblots","jobsite","jocasta","jocelin","joch","jocular","jocum","jocund","joeyes","jogged","joggers","joggler","joggles","johann","johnin","joinders","joinered","joineries","joinings","jointage","jointing","jointless","jointress","jointures","jointy","joisting","joistless","joker","jokes","jokul","jolliness","jollities","joltiness","jonahs","jongleur","jonsonian","jonval","jordanon","jornadas","joropos","josher","joshes","joshua","josiah","jostling","jottings","joubert","jough","jouks","jounces","jousting","jovial","jovian","jovite","jowari","jowars","jowed","jowler","jowser","jowter","joyant","joyed","joylet","joyous","jubbe","jubilar","jubilee","jubiles","jubilus","judah","judaic","judaiser","judders","judged","judgers","judica","judice","judoists","jugated","jugation","jugged","juggins","juggler","juggles","jugulars","jugulate","jugums","juiced","juicers","juicier","jukes","julianist","julienite","juliennes","juloidea","jumada","jumba","jumbo","jumelle","jumma","jumps","juncite","juncoes","juncous","junctor","jundied","jundy","jungled","junglier","juniorate","juniper","junks","jupard","jupiter","jussiaean","jussieuan","justice","justico","justinian","justling","justly","jutish","jutka","juvent","juvite","juwise","jabers","jabiru","jabots","jacals","jacana","jacare","jacate","jacens","jacent","jactus","jadder","jadeite","jading","jady","jaegars","jaegers","jagatai","jaggar","jagger","jagless","jagong","jagrata","jaguars","jailage","jailing","jailless","jake","jako","jalapa","jalaps","jalops","jalousie","jamb","jamnia","jamnut","janapa","janders","jangler","jangles","janice","janitors","jank","janty","japans","japed","japers","jarabe","jaragua","jarble","jarbot","jardini","jargons","jargoon","jark","jarosite","jarring","jarry","jasey","jasmin","jasper","jaspis","jassids","jassoid","jataco","jatha","jatoba","jatulian","jauk","jaunce","jaunder","jaunted","jauntier","javan","javas","javel","javer","jawan","jealouse","jeames","jeanette","jeany","jebels","jebusi","jeering","jeery","jefes","jehus","jellab","jellib","jellied","jelling","jelloid","jelly","jenny","jerbil","jerboa","jereeds","jerk","jerome","jerreed","jerrids","jerry","jesper","jessing","jesting","jetliner","jetsam","jetsom","jettage","jettied","jetting","jettison","jetty","jeunesse","jewel","jewis","jheel","jhool","jibb","jibed","jibers","jicara","jigger","jigget","jiggit","jiggle","jillaroo","jilling","jillions","jilting","jimp","jimson","jincan","jingall","jingals","jingler","jingles","jinglet","jingoes","jink","jinny","jinsing","jirble","jissom","jitneuse","jives","joannite","jobson","jocant","jocose","jocote","jocuno","joeys","jogger","joggle","jogtrot","johan","johns","joinder","joining","jointed","jointers","jointist","jointure","joisted","joke","jollied","jolliest","jollop","jolly","joltiest","jolting","joltless","jolty","jonah","jonesian","jook","jorams","jordans","jornada","joropo","jorram","jorums","josey","joshi","jostled","jostlers","jotation","jotisaru","jotting","jotty","jouk","jounce","journals","jousted","jousters","jowar","jowel","jower","jowls","jubate","jubile","jubili","jucuna","judaist","judases","judder","judger","judges","judogi","judoist","judy","jueces","juergen","jufti","jufts","jugatae","jugger","juggle","juglans","juglone","jugular","jugum","juicer","juices","juke","juleps","julianto","julidae","julidan","julienne","julietta","juloline","jumana","jumart","jument","jump","juncat","juncos","juncus","jundies","jungian","jungles","junk","junonian","jupati","jupons","juration","jurisp","juslted","jussiaea","justing","justitia","justled","justness","juttied","jutting","jutty","juvia","juyas","jabia","jabot","jabul","jacal","jaded","jaeger","jageer","jagers","jaggs","jagras","jaguar","jailed","jailers","jailors","jaime","jainist","jak","jalap","jalop","jalouse","jaman","james","jamie","janeiro","jangar","jangle","janitor","japan","japer","japes","jardin","jardon","jareed","jargle","jargon","jarinas","jarless","jarlite","jarmo","jarred","jasione","jaspe","jassid","jasy","jaudie","jauntie","jaups","java","jawn","jaws","jays","jealous","jeannie","jebat","jebel","jebus","jeeing","jeeps","jeered","jeerers","jefe","jehu","jelab","jelib","jelled","jellies","jennets","jennier","jennies","jerald","jereed","jerib","jerids","jerrid","jerries","jessant","jessean","jessed","jested","jesters","jesuate","jesuist","jesuits","jetteau","jetted","jetties","jettons","jews","jiber","jibes","jiboa","jigote","jillion","jilted","jilters","jingal","jingle","jinnies","jisms","jitneur","jitters","jiva","jive","joannes","jodelr","joey","john","joinant","joined","joiners","jointer","jollier","jollies","joloano","jolted","jolters","joltier","jomon","jondla","joneses","joram","jordan","jorden","jorum","joseite","josh","josip","jostler","jostles","jotnian","jotted","jotters","joulean","journal","jouster","jova","jove","jowl","jows","joys","jubas","jubes","jubus","judean","judge","jugale","jugate","juglar","jugula","juha","juice","julep","juletta","juliana","juliane","juliett","juliott","juloid","julolin","july","junco","jundie","jungle","jungli","juniata","juniors","junonia","jupes","jupon","jurants","jurator","juring","jurists","jury","jussion","justed","justers","justest","justina","justine","justler","justles","jutic","jutted","jutties","juturna","jaalin","jaap","jabs","jacu","jades","jagat","jager","jagg","jagir","jagla","jagra","jagua","jah","jailer","jailor","jama","jami","jams","janner","jantee","jaob","jape","jarana","jarde","jared","jarina","jarnut","jarool","jarp","jarret","jasies","jasp","jauner","jaunts","jaup","jaw","jay","jctn","jeanie","jeanne","jeep","jeerer","jeetee","jef","jenine","jennet","jennie","jenoar","jenson","jerid","jerm","jernie","jerrie","jesses","jessie","jessur","jestee","jester","jesuit","jetons","jetter","jetton","jettru","jew","jibe","jibi","jibs","jillet","jiltee","jilter","jinete","jingo","jingu","jinnee","jirga","jism","jitter","jnanas","joanna","joanne","jobe","jobo","jobs","jocu","jodel","joiner","joints","joists","jolter","joom","jorge","jorist","josser","josses","jostle","jotisi","jotter","jotunn","jouals","jougs","joules","journo","jousts","joutes","jow","joy","juang","juba","jube","judas","judos","jugal","juger","julian","julid","julien","julies","juliet","julius","julole","junc","juneau","junior","junius","juntas","juntos","jupe","jurane","jurant","jurara","jurare","jurata","jurats","jurels","juries","jurist","jurors","jussal","jussel","justen","juster","justin","justle","justus","juv","jab","jade","jaga","jags","jails","jaina","jalee","jalet","jalor","jalur","jam","janes","janet","janos","jantu","janua","janus","jap","jarg","jarls","jarra","jason","jatni","jatos","jaunt","jcl","jct","jeans","jeed","jeers","jello","jells","jem","jenna","jesse","jests","jesus","jetes","jeton","jger","jib","jigs","jills","jilts","jim","jing","jinni","jinns","jitro","jms","jnana","job","jodo","jogs","joins","joint","joist","joles","jolts","jonas","jones","jong","joola","joree","josie","jotas","joual","joug","joule","journ","jours","joust","juans","jude","judo","juga","jugs","juise","jules","julia","julie","julio","julus","junta","junto","jural","jurat","jurel","juris","juror","jussi","justo","justs","jutes","jad","jag","jail","jain","jane","jann","jant","jara","jarl","jars","jass","jati","jato","jaun","jean","jear","jed","jeel","jeer","jees","jeg","jell","jeon","jere","jerl","jert","jess","jest","jesu","jete","jets","jiao","jig","jill","jilt","jina","jinn","jins","jiri","jiti","jnd","joan","joel","joes","jog","joie","join","jole","joll","jolt","joni","joon","jose","joss","jota","jots","joul","jour","juan","jud","jug","jule","june","juno","junt","jura","jure","juri","just","jute","juts","jai","jan","jar","jat","jee","jen","jer","jet","jeu","jg","jin","jnt","joe","jon","jos","jot","jun","jur","jus","jut","ja","ji","jo","jr","js","jt","ju"]);
+function filterLen(n){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  HUB.setFilter('len', n);
+}
+// Handle URL param ?len=N
+(function(){
+  var m = location.search.match(/len=(\d+)/);
+  if(m) HUB.setFilter('len', +m[1]);
+})();
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

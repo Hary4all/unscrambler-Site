@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Ending With X â€” 1,017 Words | Wordle & Scrabble | WordFindLab</title>
+<meta name="description" content="All 1,017 English words ending in X. Filter by length and starting letter. Includes 116 five-letter Wordle words.">
+<link rel="canonical" href="https://wordfindlab.com/words-ending-with/x/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Ending With X",
+  "description": "All 1,017 English words ending in X. Filter by length and starting letter. Includes 116 five-letter Wordle words.",
+  "url": "https://wordfindlab.com/words-ending-with/x/",
+  "numberOfItems": 1017,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "cheiropompholyx",
+      "description": "cheiropompholyx â€” Scrabble score: 39 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "chiropompholyx",
+      "description": "chiropompholyx â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "hydrohemothorax",
+      "description": "hydrohemothorax â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "hypopharynx",
+      "description": "hypopharynx â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "pneumopyothorax",
+      "description": "pneumopyothorax â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "pyopneumothorax",
+      "description": "pyopneumothorax â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "hypercomplex",
+      "description": "hypercomplex â€” Scrabble score: 33 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "laryngopharynx",
+      "description": "laryngopharynx â€” Scrabble score: 33 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "pyohemothorax",
+      "description": "pyohemothorax â€” Scrabble score: 33 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "chartophylax",
+      "description": "chartophylax â€” Scrabble score: 32 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words end with X?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 1,017 English words ending with X in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What 5-letter words end in X?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 116 five-letter words ending in X. Top examples: JAPYX, JUDEX, AMPYX, EXLEX, KERYX, KYLIX. These are key for Wordle when position 5 shows X as a green clue."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-ending-with/a/">Words Ending With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">X</span></div>
+    
+<div class="page-header">
+  <h1>Words Ending With X</h1>
+  <p>All <b>1,017 English words</b> ending with <b>X</b> â€” filter by length, starting letter, or score.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">1,017</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">116</div><div class="lbl">5-letter words</div></div>
+    <div class="stat-pill"><div class="num">39</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(10)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(57)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(64)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(116)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(135)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(143)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(135)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(100)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(91)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(89)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(43)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(22)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(7)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(5)</span></button>
+  </div>
+  <div class="hub-filter-bar">
+    <input id="startsInput" type="text" maxlength="3" placeholder="Starts withâ€¦" oninput="HUB.setFilter('starts',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)"><option value="score">Sort: Top score</option><option value="alpha">Sort: Aâ€“Z</option><option value="len">Sort: Length</option></select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <h2>5-Letter Words Ending With X</h2>
+  <p>Use these when Wordle shows position 5 as <b>X</b> (green). There are <b>116</b> options. Use <a href="/wordle-solver/">Wordle Solver</a> to add more clues.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">JAPYX<span class="sc">24</span></span><span class="wcard">JUDEX<span class="sc">20</span></span><span class="wcard">AMPYX<span class="sc">19</span></span><span class="wcard">EXLEX<span class="sc">19</span></span><span class="wcard">KERYX<span class="sc">19</span></span><span class="wcard">KYLIX<span class="sc">19</span></span><span class="wcard">XEROX<span class="sc">19</span></span><span class="wcard">AFFIX<span class="sc">18</span></span><span class="wcard">HYRAX<span class="sc">18</span></span><span class="wcard">VIVAX<span class="sc">18</span></span><span class="wcard">BERYX<span class="sc">17</span></span><span class="wcard">CALYX<span class="sc">17</span></span><span class="wcard">CHOUX<span class="sc">17</span></span><span class="wcard">CYLIX<span class="sc">17</span></span><span class="wcard">HAPAX<span class="sc">17</span></span><span class="wcard">PHLOX<span class="sc">17</span></span><span class="wcard">PYREX<span class="sc">17</span></span><span class="wcard">SPHEX<span class="sc">17</span></span><span class="wcard">UPWAX<span class="sc">17</span></span><span class="wcard">VIBEX<span class="sc">17</span></span></div>
+</section>
+<section class="card">
+  <h2>Top Scrabble Words Ending With X</h2>
+  <table class="top-words-table"><thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead><tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+cheiropompholyx" rel="nofollow noopener" target="_blank">CHEIROPOMPHOLYX</a></td><td>15</td><td><span class="pts-badge pts-scr">39</span></td><td><span class="pts-badge pts-wwf">41</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+chiropompholyx" rel="nofollow noopener" target="_blank">CHIROPOMPHOLYX</a></td><td>14</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+hydrohemothorax" rel="nofollow noopener" target="_blank">HYDROHEMOTHORAX</a></td><td>15</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">34</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+hypopharynx" rel="nofollow noopener" target="_blank">HYPOPHARYNX</a></td><td>11</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">33</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+pneumopyothorax" rel="nofollow noopener" target="_blank">PNEUMOPYOTHORAX</a></td><td>15</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+pyopneumothorax" rel="nofollow noopener" target="_blank">PYOPNEUMOTHORAX</a></td><td>15</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+hypercomplex" rel="nofollow noopener" target="_blank">HYPERCOMPLEX</a></td><td>12</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+laryngopharynx" rel="nofollow noopener" target="_blank">LARYNGOPHARYNX</a></td><td>14</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+pyohemothorax" rel="nofollow noopener" target="_blank">PYOHEMOTHORAX</a></td><td>13</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">32</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+chartophylax" rel="nofollow noopener" target="_blank">CHARTOPHYLAX</a></td><td>12</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">32</span></td></tr></tbody></table>
+</section>
+<section class="card">
+  <h2>By Length</h2>
+  <table class="top-words-table"><thead><tr><th>Category</th><th style="text-align:right">Count</th></tr></thead><tbody><tr><td>2-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">10</td></tr><tr><td>3-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">57</td></tr><tr><td>4-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">64</td></tr><tr><td>5-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">116</td></tr><tr><td>6-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">135</td></tr><tr><td>7-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">143</td></tr><tr><td>8-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">135</td></tr><tr><td>9-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">100</td></tr><tr><td>10-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">91</td></tr><tr><td>11-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">89</td></tr><tr><td>12-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">43</td></tr><tr><td>13-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">22</td></tr><tr><td>14-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">7</td></tr><tr><td>15-letter words ending with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">5</td></tr></tbody></table>
+</section>
+<section class="card"><h2>Browse All Letters</h2><div class="letter-grid-nav"><a href="/words-ending-with/a/">A</a>
+<a href="/words-ending-with/b/">B</a>
+<a href="/words-ending-with/c/">C</a>
+<a href="/words-ending-with/d/">D</a>
+<a href="/words-ending-with/e/">E</a>
+<a href="/words-ending-with/f/">F</a>
+<a href="/words-ending-with/g/">G</a>
+<a href="/words-ending-with/h/">H</a>
+<a href="/words-ending-with/i/">I</a>
+<a href="/words-ending-with/j/">J</a>
+<a href="/words-ending-with/k/">K</a>
+<a href="/words-ending-with/l/">L</a>
+<a href="/words-ending-with/m/">M</a>
+<a href="/words-ending-with/n/">N</a>
+<a href="/words-ending-with/o/">O</a>
+<a href="/words-ending-with/p/">P</a>
+<a href="/words-ending-with/q/">Q</a>
+<a href="/words-ending-with/r/">R</a>
+<a href="/words-ending-with/s/">S</a>
+<a href="/words-ending-with/t/">T</a>
+<a href="/words-ending-with/u/">U</a>
+<a href="/words-ending-with/v/">V</a>
+<a href="/words-ending-with/w/">W</a>
+<a href="/words-ending-with/x/" class="curr">X</a>
+<a href="/words-ending-with/y/">Y</a>
+<a href="/words-ending-with/z/">Z</a></div></section>
+<section class="card seo">
+  <h2>Hook Plays: Using -X Endings in Scrabble</h2>
+  <p>Words ending in <b>X</b> are valuable for <em>hook plays</em> â€” placing your word so that its last letter connects with or extends an existing board word. This scores multiple words simultaneously. Knowing all 1,017 words that end in X gives you the maximum number of available hook positions on any board state.</p>
+  <div class="faq-item"><div class="faq-q">How many words end with X?</div><div class="faq-a">There are <b>1,017 English words</b> ending with X in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What 5-letter words end in X?</div><div class="faq-a">There are 116 five-letter words ending in X. Top examples: JAPYX, JUDEX, AMPYX, EXLEX, KERYX, KYLIX. These are key for Wordle when position 5 shows X as a green clue.</div></div>
+</section>
+<script>
+HUB.init(["cheiropompholyx","chiropompholyx","hydrohemothorax","hypopharynx","pneumopyothorax","pyopneumothorax","hypercomplex","laryngopharynx","pyohemothorax","chartophylax","hyperorthodox","phyllopteryx","psychoreflex","cytopharynx","equiconvex","hyperothodox","saccopharynx","archaeopteryx","cephalothorax","chickenpox","hieracosphinx","hyperclimax","pachymeninx","rhinopharynx","trophothylax","xylanthrax","aphanapteryx","archeopteryx","chaffwax","chalcedonyx","chrysothrix","chylothorax","coexecutrix","erysipelothrix","eurypharynx","exterminatrix","jackbox","phalacrocorax","quadruplex","rickettsialpox","sacrococcyx","sequestratrix","arquifoux","cerebellocortex","chemoreflex","coccothrinax","dacryosyrinx","expenditrix","hydrosalpinx","hydrothorax","kerflummox","objurgatrix","oxylabrax","pentaphylax","philorthodox","pompholyx","projectrix","pseudophoenix","sceuophylax","schistothorax","thoroughwax","versificatrix","anomalopteryx","cerviciplex","coadjutrix","englerophoenix","epipharynx","exonarthex","gymnothorax","hematosalpinx","hematothorax","inquisitrix","jasponyx","jukebox","micropteryx","nomophylax","overcomplex","quadplex","quadratrix","skeezix","supercomplex","acanthopanax","archosyrinx","chafewax","chronomastix","circumflex","counterparadox","cryptoglaux","cystosyrinx","dendrohyrax","geococcyx","haemothorax","homeromastix","impropriatrix","iridomyrmex","jambeaux","mesoappendix","nasopharynx","photosyntax","plagioclimax","pneumothorax","quincunx","significatrix","arthrosyrinx","benefactrix","captivatrix","chilomastix","coxendix","echinopanax","executrix","hemosalpinx","hemothorax","histriomastix","microthorax","odontopteryx","oropharynx","packwax","paxwax","planoconvex","pompholix","primogenetrix","saxifrax","semiorthodox","sextuplex","shadowbox","siphonoplax","ultracomplex","vindemiatrix","administratrix","androsphinx","anticomplex","blennothorax","bucculatrix","cacanthrax","chalumeaux","chatterbox","competitrix","conservatrix","criosphinx","dicrostonyx","extispex","fricandeaux","impersonatrix","japyx","launchplex","lithanthrax","lophortyx","mantappeaux","matchbox","nectocalyx","nycticorax","palapteryx","pepperbox","phantoplex","pseudocortex","pyosalpinx","pyothorax","sermocinatrix","streptothrix","thriftbox","trichoplax","ultraorthodox","vaticinatrix","xxx","zelatrix","adjutrix","advocatrix","antiorthodox","appomattox","billywix","cheesebox","cladothrix","counterflux","decemplex","decomplex","demultiplex","desmoscolex","equinox","flambeaux","fornicatrix","glossanthrax","medithorax","merveilleux","metrosalpinx","monilethrix","multireflex","myeloplax","pemphix","perpetratrix","perturbatrix","phonoplex","portmanteaux","postclimax","pterothorax","scleromeninx","scombresox","smokebox","snuffbox","subconvex","taxwax","thunderbox","unimultiplex","vasoreflex","wheelbox","workbox","appomatox","biconvex","bijoux","bombyx","cakebox","callithrix","carbonnieux","chapeaux","chevaux","clarencieux","clonothrix","coccyx","counterfix","crenothrix","crucifix","dispensatrix","electroplax","epicalyx","fowlpox","galloperdix","gonocalyx","incomplex","interlocutrix","janitrix","knisteneaux","leptomeninx","leptothrix","lockbox","megalonyx","merveileux","mesosalpinx","mesothorax","metathorax","microvax","neoorthodox","nonorthodox","overprolix","persecutrix","pharynx","phorminx","praehallux","preclimax","proclimax","procreatrix","procuratrix","prolocutrix","proprietrix","prosecutrix","rixatrix","semiduplex","semireflex","speculatrix","subclimax","suffrutex","superhelix","theomastix","thiothrix","touchbox","uncomplex","accusatrix","antianthrax","anticlimax","auxotox","calothrix","candlebox","cashbox","chamoix","chartreux","chedreux","clarenceux","contraplex","deutoscolex","dipteryx","disclimax","empidonax","endothorax","evocatrix","flummox","gogglebox","googolplex","gubernatrix","haybox","idioreflex","imperatrix","inspectrix","interrogatrix","jynx","kristinaux","lepothrix","liferentrix","microsorex","optomeninx","outjinx","panchax","philodox","pickax","pigeonpox","playbox","precentrix","prehallux","progenitrix","protectrix","prothorax","pseudolarix","sialosyrinx","sneakbox","spectatrix","stenothorax","stereomatrix","subbureaux","superflux","unorthodox","woadwax","woodwax","admonitrix","affreux","antispadix","appendix","arbitratrix","autocratrix","azox","bisectrix","boombox","bordereaux","breadbox","breakax","butterbox","capiteaux","carnifex","chateaux","cheneaux","clavilux","complex","consolatrix","cowpox","cristineaux","daemonelix","dorsiflex","endocortex","endothrix","entothorax","esonarthex","fabliaux","feedbox","fundatrix","giambeux","gonyaulax","halifax","haruspex","headbox","heterodox","homodox","horsebox","horsepox","hystrix","impostrix","indicatrix","inheritrix","inspiratrix","judex","kinepox","lagothrix","leucoryx","moderatrix","multiplex","oleothorax","overfix","paybox","perionyx","pontifex","prepollex","promotrix","proscolex","pseudodox","reaffix","regeneratrix","reperplex","scramasax","semiflex","sinkbox","spinifex","stimulatrix","subcortex","submatrix","superfix","sweatbox","swinepox","trithrinax","unperplex","veniplex","werefox","woodbox","aboideaux","acronyx","afflux","ampyx","antihelix","apteryx","bandbox","beeswax","bembex","bombax","bostryx","carefox","choenix","cicatrix","commix","conflux","contumax","creditrix","dicebox","dictatrix","directrix","efflux","exlex","factrix","fellatrix","firebox","forfex","genuflex","gladiatrix","glommox","greenwax","hellbox","heterosex","ictonyx","instigatrix","interflux","introflex","keryx","kylix","legislatrix","leiothrix","liberatrix","mediatrix","mesonyx","microlux","mirepoix","morceaux","mousepox","muskox","negotiatrix","nominatrix","octuplex","opopanax","opoponax","orthodox","osculatrix","otosalpinx","overmix","overrelax","paintbox","pappox","perborax","petrosilex","phalanx","phoenix","postfix","precieux","priedieux","retroflex","retroflux","sardonyx","saucebox","scolopax","separatrix","servitrix","smallpox","solicitrix","spillbox","spinturnix","spondulix","strongbox","suffix","tetrapanax","tinderbox","toadflax","transflux","trisectrix","tubifex","unparadox","victrix","videotex","volvox","xerox","zax","aboiteaux","affix","aftertax","ajax","anthelix","antiflux","apoplex","astyanax","aviatrix","bandeaux","bellatrix","biflex","boisseaux","bordeaux","boyaux","carapax","carfax","casebox","cervix","coalbox","colfox","confix","convex","corebox","debitrix","deedbox","demodex","exrx","generatrix","gobiesox","hatbox","heretrix","heritrix","hotbox","hyrax","imitatrix","institutrix","jeux","jinx","kleenex","kordax","liothrix","mailbox","minimax","mystax","neocortex","nonprolix","nouveaux","novatrix","nulliplex","obstetrix","operatrix","opifex","oreortyx","pegbox","perfix","perplex","phenix","pillbox","postbox","praecox","prefix","princox","proplex","rattlebox","setpfx","simplex","soapbox","soundbox","sphinx","spitbox","subfix","subindex","transfix","translatrix","ulothrix","underbox","uromastix","vaudoux","vermix","visitrix","vivax","agitatrix","amplex","antefix","anthrax","approx","artifex","atriplex","aurifex","autoindex","batteaux","beryx","broadax","calyx","choux","climax","coturnix","couteaux","creatrix","curatrix","curtalax","cylix","deflex","deflux","diaplex","doctrix","dustbox","entredeux","gearbox","goatpox","hapax","icebox","imbrex","implex","initiatrix","intermix","loosebox","lummox","lxx","manteaux","margaux","meretrix","millilux","monitrix","mortreux","mousseux","narthex","nonflux","notiosorex","outflux","overlax","overtax","paintrix","paradox","parallax","perdrix","permix","phlox","plateaux","preannex","precox","premix","pyrex","religieux","rinceaux","sandbox","sandyx","scandix","seedbox","sidebox","sonovox","spandex","sphex","supellex","supersex","supertax","tableaux","televox","thrinax","tractrix","trionyx","trousseaux","trumeaux","unprolix","upwax","vibex","vibix","vindex","vitraux","xix","abrasax","adfix","antapex","aruspex","aspalax","assertrix","bateaux","beatrix","bemix","benelux","bureaux","capax","caudex","celotex","centrex","ceyx","cimex","ciseaux","coannex","comox","cordax","coteaux","curtlax","defix","demiox","devex","dewax","diplex","disannex","dropax","duplex","earwax","embox","fornax","fornix","frutex","genetrix","hallex","hallux","immix","inflex","influx","larnyx","larynx","martrix","milieux","narratrix","npfx","outfox","perdix","pistrix","pnyx","pumex","rectrix","reflex","reflux","rondeaux","saindoux","salpinx","saltbox","silvex","spadix","styrax","syntax","syrinx","tamarix","tectrix","testatrix","thorax","toolbox","triplex","undertax","uniplex","upmix","vernix","vertex","vortex","xx","admix","admrx","agneaux","auspex","bollix","bollox","caranx","codex","connex","contex","cornix","cortex","distrix","faulx","felix","ferox","filix","forex","gateaux","helix","infix","interrex","intersex","intertex","knox","marnix","mastax","mastix","matrix","meninx","neosorex","nohex","notaulix","ortyx","outbox","patrix","pfx","podex","poleax","pollex","pollux","pretax","prolix","prorex","protax","pyx","radeaux","refix","reindex","relatrix","rewax","rouleaux","salteaux","scolex","senatrix","smilax","spalax","spninx","stupex","subnex","suplex","tarbox","teabox","thrax","tonneaux","torpex","torteaux","tremex","unfix","unhex","unwax","varix","acrux","addax","adieux","alpax","antisex","antitax","beaux","borax","bronx","calix","carex","culex","darnex","darnix","dentex","eryx","falx","faux","flax","flex","flix","flux","hoax","irpex","kex","limax","lynx","malax","matax","mirex","monax","murex","onyx","oratrix","oryx","panax","pbx","pinax","plotx","preux","pulex","ramex","reannex","rebox","remex","remix","reseaux","rumex","sandix","scalx","styx","teletex","tortrix","unannex","unbox","unmix","wrox","abox","adnex","amex","anatox","apex","calx","coax","coix","crax","crex","crux","desex","detax","direx","donax","durax","fax","fix","fox","galax","glaux","gulix","hex","hox","ibex","index","isolex","larnax","lastex","manx","marx","maux","minx","natrix","nontax","obex","pinx","plex","prex","prix","prox","radix","redox","redux","rollix","spex","storax","surtax","sussex","tetrix","tettix","turnix","tutrix","unisex","vax","vex","vox","wax","yex","yox","annex","apx","box","cox","deux","doux","essex","grex","larix","latax","latex","max","mix","mlx","mtx","mux","ninox","odax","pax","pix","pox","relax","resex","retax","salix","senex","silex","sioux","sirex","sorex","soulx","strix","telex","unlax","unsex","untax","alex","alix","anax","bx","dex","dix","dux","eaux","elix","esox","gox","grx","ilex","lanx","noex","noix","olax","roux","seax","trix","ulex","unix","aix","arx","aux","dx","lax","lex","lox","lux","nix","nox","rax","rex","rix","rox","rux","sax","sex","six","sox","tax","tex","tox","tux","ax","ex","ix","lx","ox","tx","ux"]);
+function filterLen(n){ document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')}); event.target.classList.add('active'); HUB.setFilter('len',n); }
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

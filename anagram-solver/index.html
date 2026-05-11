@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://wordfindlab.com/anagram-solver/">
+<title>Anagram Solver â€” Find Perfect Anagrams of Any Word</title>
+<meta name="description" content="Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters. Great for crossword clues and word puzzles.">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .anagram-count {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent-2);
+    margin: 0;
+    line-height: 1;
+  }
+  .anagram-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .stat-block {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num  { font-size: 24px; font-weight: 800; color: var(--accent-2); }
+  .stat-lbl  { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+  .anagram-word {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color .15s, transform .1s;
+    margin: 4px;
+  }
+  .anagram-word:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+  .anagram-words { display: flex; flex-wrap: wrap; }
+
+  .letter-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 4px;
+    min-height: 32px;
+  }
+  .letter-chip {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Anagram Solver",
+  "description": "Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters.",
+  "url": "https://wordfindlab.com/anagram-solver/",
+  "applicationCategory": "Word Games",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
+  }
+}
+</script>
+</head>
+<body>
+<!-- Nav injected by unscrambler.js -->
+
+<div class="page-wrap">
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <main class="page-main">
+
+    <div class="page-header">
+      <h1>Anagram Solver</h1>
+      <p>Enter any word or set of letters and find every anagram that uses <em>all</em> of your letters â€” perfect for crossword clues and word puzzles.</p>
+    </div>
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+
+<section class="card">
+    <label for="letters">Your letters or word <span class="hint">(spaces are ignored)</span></label>
+    <input id="letters" class="input-letters" type="text" autocomplete="off"
+           autocapitalize="characters" spellcheck="false"
+           placeholder="e.g. LISTEN or SILENT or INLETS" maxlength="15">
+    <div class="letter-display" id="letterDisplay"></div>
+
+    <div class="actions">
+      <button id="go" class="btn">Find Anagrams</button>
+      <button id="clear" class="btn ghost">Clear</button>
+      <span class="hint">Press <b>Enter</b> to search</span>
+    </div>
+    <div id="status" class="status"></div>
+  </section>
+
+  <section class="card" id="resultsCard" hidden>
+    <div class="results-head">
+      <h2>Anagrams Found</h2>
+      <span class="meta" id="resultsMeta"></span>
+    </div>
+    <div class="stat-block" id="statBlock"></div>
+    <div class="anagram-words" id="results"></div>
+  </section>
+
+  <section class="card seo">
+    <h2>What is an anagram?</h2>
+    <p>An anagram is a word or phrase formed by rearranging all the letters of another word or phrase. Unlike a general word unscrambler, an anagram solver only shows words that use <em>every single letter</em> exactly once. For example, the letters in <b>LISTEN</b> rearrange into <b>SILENT</b>, <b>ENLIST</b>, and <b>TINSEL</b>.</p>
+    <h2>Famous anagram pairs</h2>
+    <ul>
+      <li><b>ASTRONOMER</b> â†’ MOON STARER</li>
+      <li><b>DORMITORY</b> â†’ DIRTY ROOM</li>
+      <li><b>CONVERSATION</b> â†’ VOICES RANT ON</li>
+      <li><b>SCHOOL MASTER</b> â†’ THE CLASSROOM</li>
+      <li><b>ELECTION RESULTS</b> â†’ LIES, LET'S RECOUNT</li>
+    </ul>
+    <h2>Using anagrams in crosswords</h2>
+    <p>Cryptic crossword clues often include an anagram indicator â€” words like <em>scrambled, confused, rearranged, mixed, wild,</em> or <em>around</em>. When you spot one of these signal words next to a cluster of letters, enter them here to find the answer word instantly.</p>
+
+    <div class="related-tools">
+      <div class="related-tools-label">Related Tools</div>
+      <div class="related-links">
+        <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
+        <a class="related-link" href="/scrabble-word-finder/">ðŸŽ¯ Scrabble Finder</a>
+        <a class="related-link" href="/wordle-solver/">ðŸŸ© Wordle Solver</a>
+        <a class="related-link" href="/words-with-friends-cheat/">ðŸ’¬ Words With Friends</a>
+        <a class="related-link" href="/jumble-solver/">ðŸ—žï¸ Jumble Solver</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="page-sidebar">
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+    <div class="card tools-widget">
+      <div class="tools-widget-title">More Word Tools</div>
+      <div class="tools-widget-links" id="sidebarToolLinks"></div>
+    </div>
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </aside>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+
+<script src="/assets/unscrambler.js"></script>
+<script>
+
+/* ---- Sidebar tool links ---- */
+(function buildSidebarLinks() {
+  const wrap = document.getElementById("sidebarToolLinks");
+  if (!wrap) return;
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+  SIDEBAR_TOOLS.forEach(t => {
+    const a = document.createElement("a");
+    a.href = t.href;
+    if (t.href === currentPath) a.className = "active";
+    a.innerHTML = '<span class="ico">' + t.icon + '</span>' + t.label;
+    wrap.appendChild(a);
+  });
+})();
+
+/* ---- Letter chip preview ---- */
+function updateLetterDisplay() {
+  const raw = document.getElementById("letters").value.toUpperCase().replace(/[^A-Z]/g, "");
+  const display = document.getElementById("letterDisplay");
+  display.innerHTML = "";
+  for (const ch of raw) {
+    const chip = document.createElement("span");
+    chip.className = "letter-chip";
+    chip.textContent = ch;
+    display.appendChild(chip);
+  }
+}
+document.getElementById("letters").addEventListener("input", updateLetterDisplay);
+
+/* ---- Search ---- */
+async function search() {
+  if (!CURRENT_DICT) {
+    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    const ok = await loadDictionary("all");
+    if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
+  }
+
+  const rawInput = document.getElementById("letters").value.toUpperCase().replace(/[^A-Z]/g, "");
+  if (rawInput.length < 2) {
+    setStatus("Enter at least 2 letters to find anagrams.", "warn");
+    document.getElementById("resultsCard").hidden = true;
+    return;
+  }
+  if (rawInput.length > 12) {
+    setStatus("Anagram search works best with 12 letters or fewer.", "warn");
+    // still proceed
+  }
+
+  const t0 = performance.now();
+
+  // Exact anagram: must use ALL letters
+  const sortedKey = rawInput.split("").sort().join("");
+  const matches = DICT_INDEX[sortedKey] || [];
+
+  const ms = performance.now() - t0;
+  const card = document.getElementById("resultsCard");
+  card.hidden = false;
+
+  document.getElementById("resultsMeta").textContent =
+    matches.length + " perfect anagram" + (matches.length !== 1 ? "s" : "") + " Â· " + ms.toFixed(1) + " ms";
+
+  // Stats
+  const statBlock = document.getElementById("statBlock");
+  statBlock.innerHTML = "";
+  if (matches.length > 0) {
+    const topScore = Math.max(...matches.map(scrabbleScore));
+    [
+      { num: rawInput.length,     lbl: "letters"           },
+      { num: matches.length,      lbl: "anagrams found"    },
+      { num: topScore,            lbl: "best Scrabble pts" },
+    ].forEach(({ num, lbl }) => {
+      const item = document.createElement("div");
+      item.className = "stat-item";
+      item.innerHTML = `<div class="stat-num">${num}</div><div class="stat-lbl">${lbl}</div>`;
+      statBlock.appendChild(item);
+    });
+  }
+
+  // Render words
+  const out = document.getElementById("results");
+  out.innerHTML = "";
+
+  if (matches.length === 0) {
+    out.innerHTML = `<div class="empty" style="width:100%">No perfect anagrams found for <b>${rawInput}</b>.<br>
+      Try the <a href="/index.html">Word Unscrambler</a> to find shorter words using a subset of these letters.</div>`;
+    setStatus("");
+    return;
+  }
+
+  // Sort by Scrabble score desc
+  const sorted = [...matches].sort((a, b) => scrabbleScore(b) - scrabbleScore(a) || a.localeCompare(b));
+  for (const w of sorted) {
+    const pts = scrabbleScore(w);
+    const el  = document.createElement("span");
+    el.className = "anagram-word";
+    el.title = "Click to copy Â· " + pts + " pts";
+    el.textContent = w;
+    el.addEventListener("click", () => copyWord(el, w));
+    out.appendChild(el);
+  }
+
+  setStatus("");
+}
+
+document.getElementById("go").addEventListener("click", search);
+document.getElementById("clear").addEventListener("click", () => {
+  document.getElementById("letters").value = "";
+  document.getElementById("letterDisplay").innerHTML = "";
+  document.getElementById("resultsCard").hidden = true;
+  setStatus("");
+  document.getElementById("letters").focus();
+});
+document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+
+loadDictionary("all");
+document.getElementById("letters").focus();
+</script>
+</body>
+</html>
+

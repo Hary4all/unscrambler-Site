@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://wordfindlab.com/jumble-solver/">
+<title>Jumble Solver â€” Solve Daily Jumble Puzzles Instantly</title>
+<meta name="description" content="Free Jumble solver. Unscramble the daily newspaper Jumble words instantly and solve the final answer using your circled letters. Works for USA Today Jumble and all daily Jumbles.">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .jumble-section { margin-bottom: 20px; }
+  .jumble-section h3 {
+    font-size: 14px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--accent-2); margin: 0 0 12px;
+  }
+
+  .scramble-slot {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .scramble-num {
+    width: 26px; height: 26px;
+    border-radius: 50%; background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: var(--muted);
+    flex-shrink: 0;
+  }
+  .scramble-input {
+    flex: 1; min-width: 140px; max-width: 220px;
+  }
+  .scramble-arrow {
+    color: var(--muted); font-size: 18px; flex-shrink: 0;
+  }
+  .scramble-answers {
+    display: flex; flex-wrap: wrap; gap: 6px; flex: 2; min-width: 120px;
+  }
+  .scramble-answer {
+    display: inline-flex; align-items: center;
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 7px 12px; border-radius: 8px;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: .06em; text-transform: uppercase;
+    cursor: pointer; transition: border-color .15s, transform .1s;
+  }
+  .scramble-answer:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .scramble-answer.selected {
+    border-color: var(--accent-2); background: rgba(57,214,198,.12); color: var(--accent-2);
+  }
+  .scramble-answer.no-answers { color: var(--warn); font-weight: 400; font-size: 13px; cursor: default; }
+  .scramble-answer.no-answers:hover { transform: none; border-color: var(--border); }
+
+  /* Circled letters / final answer */
+  .circles-row {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px;
+  }
+  .circle-input {
+    width: 44px; height: 44px;
+    background: var(--bg);
+    border: 2px solid var(--accent-2);
+    border-radius: 50%;
+    font-size: 18px; font-weight: 700;
+    text-align: center; text-transform: uppercase; color: var(--accent-2);
+    outline: none; transition: border-color .15s;
+    caret-color: transparent;
+  }
+  .circle-input:focus { border-color: var(--accent); }
+  .circle-plus {
+    font-size: 22px; color: var(--muted); cursor: pointer;
+    background: none; border: 0; line-height: 1;
+    padding: 4px;
+  }
+  .circle-plus:hover { color: var(--accent-2); }
+
+  .final-answers { display: flex; flex-wrap: wrap; gap: 8px; }
+  .final-word {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(57,214,198,.12);
+    border: 1px solid var(--accent-2);
+    padding: 10px 18px; border-radius: 10px;
+    font-weight: 800; font-size: 18px;
+    letter-spacing: .1em; text-transform: uppercase;
+    cursor: pointer; transition: opacity .15s, transform .1s;
+    color: var(--accent-2);
+  }
+  .final-word:hover { opacity: .85; transform: translateY(-1px); }
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Jumble Solver",
+  "description": "Free Jumble solver. Unscramble the daily Jumble puzzle letters and cartoon clue letters to find every possible answer word.",
+  "url": "https://wordfindlab.com/jumble-solver/",
+  "applicationCategory": "Word Games",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
+  }
+}
+</script>
+</head>
+<body>
+<!-- Nav injected by unscrambler.js -->
+
+<div class="page-wrap">
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <main class="page-main">
+
+    <div class="page-header">
+      <h1>Jumble Solver</h1>
+      <p>Solve the daily newspaper Jumble in two steps: unscramble each word, then use the circled letters to crack the final punchline.</p>
+    </div>
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+
+<section class="card">
+
+    <!-- Step 1: individual scrambles -->
+    <div class="jumble-section">
+      <h3>Step 1 â€” Unscramble the Jumble words</h3>
+      <div id="scrambleSlots"></div>
+      <button class="btn ghost" id="addSlot" style="font-size:13px;padding:8px 16px;margin-top:4px">ï¼‹ Add word</button>
+    </div>
+
+    <!-- Step 2: final answer from circled letters -->
+    <div class="jumble-section">
+      <h3>Step 2 â€” Enter the circled letters</h3>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 10px">Type each circled letter from Step 1 below. Click âŠ• to add more circles.</p>
+      <div class="circles-row" id="circlesRow">
+        <button class="circle-plus" id="addCircle" title="Add circle">âŠ•</button>
+      </div>
+      <div class="actions" style="margin-top:10px">
+        <button id="solveAll" class="btn">Solve Everything</button>
+        <button id="clearAll" class="btn ghost">Clear All</button>
+      </div>
+      <div id="status" class="status"></div>
+    </div>
+  </section>
+
+  <!-- Results: Step 1 per-word answers -->
+  <section class="card" id="step1Card" hidden>
+    <h2 style="margin:0 0 14px;font-size:18px">Word Solutions</h2>
+    <div id="step1Results"></div>
+  </section>
+
+  <!-- Results: Final answer -->
+  <section class="card" id="step2Card" hidden>
+    <div class="results-head">
+      <h2>Final Answer</h2>
+      <span class="meta" id="step2Meta"></span>
+    </div>
+    <div class="final-answers" id="step2Results"></div>
+  </section>
+
+  <section class="card seo">
+    <h2>How to solve the daily Jumble</h2>
+    <p>The daily Jumble puzzle (found in USA Today and hundreds of newspapers) gives you four scrambled words. Unscramble each one, then circle specific letters as directed by the puzzle. Those circled letters are rearranged to spell the answer to a cartoon caption or punchline.</p>
+    <h2>Tips for solving Jumbles by hand</h2>
+    <ul>
+      <li><b>Look for common endings first:</b> -ING, -ED, -ER, -LY. Spotted one? Work backward from there.</li>
+      <li><b>Find the vowels:</b> Every Jumble word has at least one vowel â€” group vowels and consonants mentally before guessing.</li>
+      <li><b>Common prefixes:</b> UN-, RE-, PRE-, OUT- appear in many Jumble words. Try tacking them on.</li>
+      <li><b>Say it out loud:</b> Sometimes hearing the letters helps your brain snap to the answer faster than staring at it.</li>
+    </ul>
+    <h2>About the Jumble puzzle</h2>
+    <p>The Jumble was created by Martin Naydel in 1954 and is syndicated by Tribune Content Agency. It runs daily in print and online at Jumble.com. Each puzzle features four scrambled words and a cartoon with a punchline hidden in the circled letters.</p>
+
+    <div class="related-tools">
+      <div class="related-tools-label">Related Tools</div>
+      <div class="related-links">
+        <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
+        <a class="related-link" href="/anagram-solver/">ðŸ”¤ Anagram Solver</a>
+        <a class="related-link" href="/wordle-solver/">ðŸŸ© Wordle Solver</a>
+        <a class="related-link" href="/scrabble-word-finder/">ðŸŽ¯ Scrabble Finder</a>
+        <a class="related-link" href="/words-with-friends-cheat/">ðŸ’¬ Words With Friends</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="page-sidebar">
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+    <div class="card tools-widget">
+      <div class="tools-widget-title">More Word Tools</div>
+      <div class="tools-widget-links" id="sidebarToolLinks"></div>
+    </div>
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </aside>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+
+<script src="/assets/unscrambler.js"></script>
+<script>
+
+/* ---- Sidebar tool links ---- */
+(function buildSidebarLinks() {
+  const wrap = document.getElementById("sidebarToolLinks");
+  if (!wrap) return;
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+  SIDEBAR_TOOLS.forEach(t => {
+    const a = document.createElement("a");
+    a.href = t.href;
+    if (t.href === currentPath) a.className = "active";
+    a.innerHTML = '<span class="ico">' + t.icon + '</span>' + t.label;
+    wrap.appendChild(a);
+  });
+})();
+
+/* ===== Jumble Solver ===== */
+
+const MAX_SLOTS   = 6;
+const MAX_CIRCLES = 12;
+
+let slotCount   = 4; // default 4 Jumble words
+let circleCount = 6; // default 6 circled letters
+
+/* ---- Build scramble slots ---- */
+function buildSlots() {
+  const container = document.getElementById("scrambleSlots");
+  container.innerHTML = "";
+  for (let i = 0; i < slotCount; i++) {
+    const slot = document.createElement("div");
+    slot.className = "scramble-slot";
+
+    const num = document.createElement("div");
+    num.className = "scramble-num";
+    num.textContent = i + 1;
+
+    const inputWrap = document.createElement("div");
+    inputWrap.className = "scramble-input";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.style.textTransform = "uppercase";
+    input.style.letterSpacing = ".12em";
+    input.style.fontWeight = "700";
+    input.maxLength = 10;
+    input.placeholder = "scrambled word";
+    input.id = "slot" + i;
+    input.addEventListener("keydown", e => { if (e.key === "Enter") solveAll(); });
+    inputWrap.appendChild(input);
+
+    const arrow = document.createElement("span");
+    arrow.className = "scramble-arrow";
+    arrow.textContent = "â†’";
+
+    const answers = document.createElement("div");
+    answers.className = "scramble-answers";
+    answers.id = "slotAnswers" + i;
+
+    slot.appendChild(num);
+    slot.appendChild(inputWrap);
+    slot.appendChild(arrow);
+    slot.appendChild(answers);
+    container.appendChild(slot);
+  }
+  document.getElementById("addSlot").style.display =
+    slotCount >= MAX_SLOTS ? "none" : "";
+}
+
+document.getElementById("addSlot").addEventListener("click", () => {
+  if (slotCount < MAX_SLOTS) { slotCount++; buildSlots(); }
+});
+
+/* ---- Build circle inputs ---- */
+function buildCircles() {
+  const row = document.getElementById("circlesRow");
+  // Remove existing circle inputs (keep the + button)
+  row.querySelectorAll(".circle-input").forEach(el => el.remove());
+
+  const btn = document.getElementById("addCircle");
+  for (let i = 0; i < circleCount; i++) {
+    const inp = document.createElement("input");
+    inp.type = "text";
+    inp.maxLength = 1;
+    inp.className = "circle-input";
+    inp.id = "circle" + i;
+    inp.addEventListener("input", e => {
+      const val = e.target.value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(-1);
+      e.target.value = val;
+      if (val && i < circleCount - 1) {
+        const next = document.getElementById("circle" + (i + 1));
+        if (next) next.focus();
+      }
+    });
+    inp.addEventListener("keydown", e => {
+      if (e.key === "Backspace" && !e.target.value && i > 0) {
+        const prev = document.getElementById("circle" + (i - 1));
+        if (prev) { prev.value = ""; prev.focus(); }
+      }
+    });
+    row.insertBefore(inp, btn);
+  }
+  btn.style.display = circleCount >= MAX_CIRCLES ? "none" : "";
+}
+
+document.getElementById("addCircle").addEventListener("click", () => {
+  if (circleCount < MAX_CIRCLES) { circleCount++; buildCircles(); }
+});
+
+/* ---- Unscramble one word ---- */
+function unscrambleWord(raw) {
+  if (!raw) return [];
+  const letters = raw.toUpperCase().replace(/[^A-Z]/g, "");
+  if (letters.length < 2) return [];
+
+  // Look for exact-length matches first (Jumble answers are always same length as scramble)
+  const targetLen = letters.length;
+  const result = runSearch(letters, { minLen: targetLen, maxLen: targetLen });
+  if (result.error) return [];
+  return result.words.sort((a, b) => scrabbleScore(b) - scrabbleScore(a));
+}
+
+/* ---- Render inline slot answers ---- */
+function renderSlotAnswers(slotIdx, words) {
+  const container = document.getElementById("slotAnswers" + slotIdx);
+  container.innerHTML = "";
+  if (words.length === 0) {
+    const span = document.createElement("span");
+    span.className = "scramble-answer no-answers";
+    span.textContent = "no matches";
+    container.appendChild(span);
+    return;
+  }
+  // Show up to 4 answers inline
+  words.slice(0, 4).forEach(w => {
+    const span = document.createElement("span");
+    span.className = "scramble-answer";
+    span.textContent = w;
+    span.title = "Click to copy";
+    span.addEventListener("click", () => {
+      // Deselect siblings, select this one
+      container.querySelectorAll(".scramble-answer").forEach(el => el.classList.remove("selected"));
+      span.classList.add("selected");
+      copyWord(span, w);
+    });
+    container.appendChild(span);
+  });
+}
+
+/* ---- Solve all ---- */
+async function solveAll() {
+  if (!CURRENT_DICT) {
+    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    const ok = await loadDictionary("all");
+    if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
+  }
+
+  // Step 1
+  let anyWord = false;
+  for (let i = 0; i < slotCount; i++) {
+    const raw = (document.getElementById("slot" + i).value || "").trim();
+    if (raw.length >= 2) anyWord = true;
+    const answers = unscrambleWord(raw);
+    renderSlotAnswers(i, answers);
+  }
+
+  // Step 2: circles
+  const circleLetters = [];
+  for (let i = 0; i < circleCount; i++) {
+    const val = (document.getElementById("circle" + i).value || "").toUpperCase().replace(/[^A-Z]/g, "");
+    if (val) circleLetters.push(val);
+  }
+
+  const step1Card = document.getElementById("step1Card");
+  const step2Card = document.getElementById("step2Card");
+
+  if (!anyWord && circleLetters.length === 0) {
+    setStatus("Enter at least one scrambled word or some circled letters.", "warn");
+    return;
+  }
+
+  step1Card.hidden = !anyWord;
+  if (anyWord) {
+    // Rebuild step1 results summary
+    document.getElementById("step1Results").innerHTML = "";
+    for (let i = 0; i < slotCount; i++) {
+      const raw = (document.getElementById("slot" + i).value || "").trim();
+      if (!raw) continue;
+      const answers = unscrambleWord(raw);
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;";
+      row.innerHTML = '<span style="font-size:13px;color:var(--muted);min-width:90px">Word ' + (i+1) + ': <b style="color:var(--ink);letter-spacing:.1em;text-transform:uppercase">' + raw.toUpperCase() + '</b></span>';
+      const aWrap = document.createElement("div");
+      aWrap.style.cssText = "display:flex;flex-wrap:wrap;gap:6px;";
+      if (answers.length === 0) {
+        aWrap.innerHTML = '<span style="color:var(--warn);font-size:13px">No matches found</span>';
+      } else {
+        answers.slice(0, 5).forEach(w => {
+          const el = document.createElement("span");
+          el.className = "scramble-answer";
+          el.textContent = w;
+          el.addEventListener("click", () => { copyWord(el, w); el.style.borderColor="var(--good)"; setTimeout(()=>el.style.borderColor="",600); });
+          aWrap.appendChild(el);
+        });
+      }
+      row.appendChild(aWrap);
+      document.getElementById("step1Results").appendChild(row);
+    }
+  }
+
+  // Step 2
+  if (circleLetters.length >= 2) {
+    const t0 = performance.now();
+    const finalResult = runSearch(circleLetters.join(""), {
+      minLen: circleLetters.length,
+      maxLen: circleLetters.length,
+    });
+    const ms = performance.now() - t0;
+
+    step2Card.hidden = false;
+    document.getElementById("step2Meta").textContent =
+      (finalResult.words ? finalResult.words.length : 0) + " matches Â· " + ms.toFixed(0) + " ms";
+
+    const out = document.getElementById("step2Results");
+    out.innerHTML = "";
+    if (!finalResult.words || finalResult.words.length === 0) {
+      out.innerHTML = '<div class="empty" style="width:100%">No exact matches â€” try adding a letter or check for typos in the circles.</div>';
+    } else {
+      finalResult.words.sort((a, b) => scrabbleScore(b) - scrabbleScore(a)).forEach(w => {
+        const el = document.createElement("span");
+        el.className = "final-word";
+        el.title = "Click to copy";
+        el.textContent = w;
+        el.addEventListener("click", () => copyWord(el, w));
+        out.appendChild(el);
+      });
+    }
+  } else {
+    step2Card.hidden = true;
+  }
+
+  setStatus("");
+}
+
+document.getElementById("solveAll").addEventListener("click", solveAll);
+document.getElementById("clearAll").addEventListener("click", () => {
+  buildSlots();
+  buildCircles();
+  document.getElementById("step1Card").hidden = true;
+  document.getElementById("step2Card").hidden = true;
+  setStatus("");
+  document.getElementById("slot0").focus();
+});
+
+buildSlots();
+buildCircles();
+loadDictionary("all");
+document.getElementById("slot0").focus();
+</script>
+</body>
+</html>
+

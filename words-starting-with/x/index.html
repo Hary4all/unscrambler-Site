@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Starting With X â€” 504 Words | WordFindLab</title>
+<meta name="description" content="Browse all 504 English words starting with X. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.">
+<link rel="canonical" href="https://wordfindlab.com/words-starting-with/x/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Starting With X",
+  "description": "Browse all 504 English words starting with X. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.",
+  "url": "https://wordfindlab.com/words-starting-with/x/",
+  "numberOfItems": 504,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "xylopyrography",
+      "description": "xylopyrography â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "xylotypographic",
+      "description": "xylotypographic â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "xylotypography",
+      "description": "xylotypography â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "xylographically",
+      "description": "xylographically â€” Scrabble score: 36 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "xylopyrographer",
+      "description": "xylopyrographer â€” Scrabble score: 36 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "xanthocyanopsy",
+      "description": "xanthocyanopsy â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "xanthorrhiza",
+      "description": "xanthorrhiza â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "xenomorphically",
+      "description": "xenomorphically â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "xerophytically",
+      "description": "xerophytically â€” Scrabble score: 34 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "xanthocyanopy",
+      "description": "xanthocyanopy â€” Scrabble score: 33 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words start with X?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 504 English words that start with the letter X in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best 5-letter words starting with X for Wordle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 27 five-letter words starting with X. Top picks by Scrabble score: XEROX, XXIII, XICAK, XYLYL, XYLEM. Use the Wordle Solver to filter by additional clues."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-starting-with/a/">Words Starting With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">X</span></div>
+    
+<div class="page-header">
+  <h1>Words Starting With X</h1>
+  <p>All <b>504 English words</b> beginning with <b>X</b> â€” filter by length, ending, or score. Sorted by Scrabble point value.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">504</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">27</div><div class="lbl">5-letter (Wordle)</div></div>
+    <div class="stat-pill"><div class="num">38</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+
+  <div class="tab-bar" style="margin-bottom:10px">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(8)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(12)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(18)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(27)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(29)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(47)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(59)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(72)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(71)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(62)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(39)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(32)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(18)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(10)</span></button>
+  </div>
+
+  <div class="hub-filter-bar">
+    <input id="endsInput" type="text" maxlength="3" placeholder="Ends withâ€¦" oninput="HUB.setFilter('ends',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)">
+      <option value="score">Sort: Top score</option>
+      <option value="alpha">Sort: Aâ€“Z</option>
+      <option value="len">Sort: Length</option>
+    </select>
+    <select onchange="HUB.setScoreMode(this.value)">
+      <option value="scrabble">Scrabble pts</option>
+      <option value="wwf">WWF pts</option>
+    </select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+<section class="card">
+  <h2>5-Letter Words Starting With X â€” Wordle</h2>
+  <p>When Wordle's first position shows <b>X</b> as a green clue, all 27 of these words are possible answers. Use our <a href="/wordle-solver/">Wordle Solver</a> to add more clues and narrow it down further.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">XEROX<span class="sc high">19</span></span><span class="wcard">XXIII<span class="sc high">19</span></span><span class="wcard">XICAK<span class="sc high">18</span></span><span class="wcard">XYLYL<span class="sc high">18</span></span><span class="wcard">XYLEM<span class="sc high">17</span></span><span class="wcard">XYLIC<span class="sc high">17</span></span><span class="wcard">XEBEC<span class="sc high">16</span></span><span class="wcard">XYRID<span class="sc high">16</span></span><span class="wcard">XENYL<span class="sc high">15</span></span><span class="wcard">XVIII<span class="sc high">15</span></span><span class="wcard">XYLAN<span class="sc high">15</span></span><span class="wcard">XYLIA<span class="sc high">15</span></span><span class="wcard">XYLOL<span class="sc high">15</span></span><span class="wcard">XYLON<span class="sc high">15</span></span><span class="wcard">XYRIS<span class="sc high">15</span></span><span class="wcard">XYSTI<span class="sc high">15</span></span><span class="wcard">XYSTS<span class="sc high">15</span></span><span class="wcard">XENIC<span class="sc high">14</span></span><span class="wcard">XERIC<span class="sc high">14</span></span><span class="wcard">XINCA<span class="sc high">14</span></span></div>
+  <p style='margin-top:10px'><a href='/5-letter-words/'>See all 5-letter words â†’</a></p>
+</section>
+
+<section class="card">
+  <h2>Top Scrabble Words Starting With X</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead>
+    <tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xylopyrography" rel="nofollow noopener" target="_blank">XYLOPYROGRAPHY</a></td><td>14</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xylotypographic" rel="nofollow noopener" target="_blank">XYLOTYPOGRAPHIC</a></td><td>15</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xylotypography" rel="nofollow noopener" target="_blank">XYLOTYPOGRAPHY</a></td><td>14</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xylographically" rel="nofollow noopener" target="_blank">XYLOGRAPHICALLY</a></td><td>15</td><td><span class="pts-badge pts-scr">36</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xylopyrographer" rel="nofollow noopener" target="_blank">XYLOPYROGRAPHER</a></td><td>15</td><td><span class="pts-badge pts-scr">36</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xanthocyanopsy" rel="nofollow noopener" target="_blank">XANTHOCYANOPSY</a></td><td>14</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xanthorrhiza" rel="nofollow noopener" target="_blank">XANTHORRHIZA</a></td><td>12</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">33</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xenomorphically" rel="nofollow noopener" target="_blank">XENOMORPHICALLY</a></td><td>15</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">38</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xerophytically" rel="nofollow noopener" target="_blank">XEROPHYTICALLY</a></td><td>14</td><td><span class="pts-badge pts-scr">34</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+xanthocyanopy" rel="nofollow noopener" target="_blank">XANTHOCYANOPY</a></td><td>13</td><td><span class="pts-badge pts-scr">33</span></td><td><span class="pts-badge pts-wwf">34</span></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>X Words by Length</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Category</th><th style="text-align:right">Count</th><th></th></tr></thead>
+    <tbody><tr><td>2-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">8</td><td style="text-align:right"><a href="/words-starting-with/x/?len=2" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>3-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">12</td><td style="text-align:right"><a href="/words-starting-with/x/?len=3" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>4-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">18</td><td style="text-align:right"><a href="/words-starting-with/x/?len=4" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>5-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">27</td><td style="text-align:right"><a href="/words-starting-with/x/?len=5" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>6-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">29</td><td style="text-align:right"><a href="/words-starting-with/x/?len=6" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>7-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">47</td><td style="text-align:right"><a href="/words-starting-with/x/?len=7" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>8-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">59</td><td style="text-align:right"><a href="/words-starting-with/x/?len=8" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>9-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">72</td><td style="text-align:right"><a href="/words-starting-with/x/?len=9" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>10-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">71</td><td style="text-align:right"><a href="/words-starting-with/x/?len=10" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>11-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">62</td><td style="text-align:right"><a href="/words-starting-with/x/?len=11" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>12-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">39</td><td style="text-align:right"><a href="/words-starting-with/x/?len=12" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>13-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">32</td><td style="text-align:right"><a href="/words-starting-with/x/?len=13" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>14-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">18</td><td style="text-align:right"><a href="/words-starting-with/x/?len=14" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>15-letter words starting with X</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">10</td><td style="text-align:right"><a href="/words-starting-with/x/?len=15" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Browse All Letters</h2>
+  <div class="letter-grid-nav"><a href="/words-starting-with/a/">A</a>
+<a href="/words-starting-with/b/">B</a>
+<a href="/words-starting-with/c/">C</a>
+<a href="/words-starting-with/d/">D</a>
+<a href="/words-starting-with/e/">E</a>
+<a href="/words-starting-with/f/">F</a>
+<a href="/words-starting-with/g/">G</a>
+<a href="/words-starting-with/h/">H</a>
+<a href="/words-starting-with/i/">I</a>
+<a href="/words-starting-with/j/">J</a>
+<a href="/words-starting-with/k/">K</a>
+<a href="/words-starting-with/l/">L</a>
+<a href="/words-starting-with/m/">M</a>
+<a href="/words-starting-with/n/">N</a>
+<a href="/words-starting-with/o/">O</a>
+<a href="/words-starting-with/p/">P</a>
+<a href="/words-starting-with/q/">Q</a>
+<a href="/words-starting-with/r/">R</a>
+<a href="/words-starting-with/s/">S</a>
+<a href="/words-starting-with/t/">T</a>
+<a href="/words-starting-with/u/">U</a>
+<a href="/words-starting-with/v/">V</a>
+<a href="/words-starting-with/w/">W</a>
+<a href="/words-starting-with/x/" class="curr">X</a>
+<a href="/words-starting-with/y/">Y</a>
+<a href="/words-starting-with/z/">Z</a></div>
+</section>
+
+<section class="card seo">
+  <h2>Words Starting With X in Word Games</h2>
+  <p>The letter <b>X</b> is worth 8 points in Scrabble. High-value tiles like J, Q, X, and Z are rare â€” words starting with these letters are powerful but you need the right board position.
+  The best strategy for words starting with <b>X</b> is to look for plays that land the first letter on a premium square â€” Double Letter or Triple Letter Score squares boost your points significantly.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How many words start with X?</div><div class="faq-a">There are <b>504 English words</b> that start with the letter X in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What are the best 5-letter words starting with X for Wordle?</div><div class="faq-a">There are 27 five-letter words starting with X. Top picks by Scrabble score: XEROX, XXIII, XICAK, XYLYL, XYLEM. Use the <a href="/wordle-solver/">Wordle Solver</a> to filter by additional clues.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the highest-scoring Scrabble word starting with X?</div><div class="faq-a"><b>XYLOPYROGRAPHY</b> scores 38 base points in Scrabble â€” the highest-value word starting with X.</div></div>
+</section>
+
+<script>
+HUB.init(["xylopyrography","xylotypographic","xylotypography","xylographically","xylopyrographer","xanthocyanopsy","xanthorrhiza","xenomorphically","xerophytically","xanthocyanopy","xanthophyceae","xanthophyllic","xanthopsydracia","xerographically","xiphophyllous","xanthochromic","xanthocyanopsia","xanthophyllite","xanthophyllous","xerophthalmic","xerophthalmy","xyloglyphy","xanthocephalus","xanthocyanopia","xanthoxylin","xiphihumeralis","xylographical","xyrichthys","xanthochroism","xanthochromia","xanthocobaltic","xanthomyeloma","xenophthalmia","xenorhynchus","xerophthalmia","xerophthalmos","xylanthrax","xyloquinone","xanthochroic","xanthophyll","xanthoproteinic","xanthoxenite","xanthrochroid","xiphydriidae","xylographic","xylography","xylophagidae","xanthelasmoidea","xanthochroid","xanthochroous","xanthodermatous","xanthogenamic","xanthogenamide","xanthophyl","xanthopurpurin","xanthorhamnin","xanthospermous","xanthoxalis","xerophyllum","xerophytism","xylobalsamum","xanthocarpous","xanthochroia","xanthopicrite","xanthoproteic","xenomorphic","xenomorphosis","xenophobism","xeromorphic","xeromorphy","xerophytic","xiphiiform","xiphiplastral","xiphiplastron","xiphodontidae","xiphopagic","xiphydriid","xylographer","xylophagid","xylophagous","xylophonic","xylophonists","xylostromatoid","xanthelasmic","xanthochroi","xanthomelanous","xanthophane","xanthophore","xanthophose","xanthopicrin","xenodochium","xenophobic","xenophoby","xenopterygian","xerographic","xerography","xeromorphous","xiphiplastra","xiphisternum","xiphodynia","xiphopagous","xiphosternum","xylocopidae","xylomancy","xylophagan","xylophagus","xylophilous","xylophonist","xalostockite","xanthomatosis","xanthomelanoi","xanthoprotein","xanthorrhoea","xanthosiderite","xenocrystic","xenodiagnostic","xenodocheion","xenodochy","xenoparasitism","xenophilism","xenophobian","xenophontic","xenophoridae","xenopterygii","xeranthemum","xerophagy","xerophobous","xerothermic","xicaque","xiphocostal","xiphopagus","xiphosuridae","xiphydria","xylocarpous","xylograph","xylophaga","xylophage","xylophones","xyloplastic","xylotomical","xanthindaba","xanthoconite","xanthoderma","xanthodontous","xanthogenic","xanthomatous","xanthopterin","xanthydrol","xenacanthine","xenacanthini","xenobiology","xenomorpha","xenophobes","xenophobia","xenophonic","xenophontean","xenophontian","xenophontine","xerodermatic","xerographer","xerophagies","xerophily","xerophyte","xiphisternal","xxx","xylocopid","xylophone","xylostromata","xyridaceous","xanthamic","xanthamide","xanthelasma","xanthidium","xanthippe","xanthoceras","xanthoderm","xanthogenate","xanthometer","xanthomonas","xenobiologies","xenodochia","xenophanean","xenophilous","xenophobe","xenophya","xerodermatous","xeromorph","xeromyrum","xerophagia","xerophilous","xeroxing","xiphisterna","xiphoidian","xiphosterna","xiphosurous","xylariaceae","xylocarps","xylotomic","xylotomy","xyphoid","xyridaceae","xanthamid","xanthocone","xanthomata","xanthopsia","xanthopsin","xanthosoma","xarque","xenodiagnosis","xenolithic","xenopeltidae","xenophoran","xenoplastic","xenopodidae","xenopsylla","xenylamine","xerodermic","xeroprinting","xeroxed","xiphiidae","xiphisuran","xiphoidal","xiphosuran","xiphosurus","xiraxara","xylocarp","xylocopa","xylology","xylopolist","xylorcinol","xylostroma","xylotomies","xylotomist","xylotomous","xylylic","xyz","xanthinuria","xanthisma","xanthodont","xanthomas","xanthopia","xanthotic","xenarthrous","xenically","xenocratic","xenocryst","xenogamy","xenogenetic","xenomaniac","xenoparasite","xenophile","xenophora","xenopodoid","xenotropic","xerically","xeromyron","xerophile","xerotherm","xeroxes","xiphioid","xiphistna","xiphisura","xiphodon","xiphoids","xiphosura","xiphosure","xxiv","xyleborus","xylometer","xylonitrile","xylotrya","xylylene","xanthaline","xanthation","xanthism","xanthium","xanthiuria","xanthogen","xanthoma","xanthyl","xenagogy","xenarchi","xenarthral","xenochia","xenocratean","xenocyst","xenogamies","xenogamous","xenogeneic","xenograft","xenopeltid","xenopodid","xenosauridae","xeraphin","xerodermia","xerophil","xerotripsis","xiphiid","xiphiura","xiphoid","xiphuous","xxv","xylenyl","xylidic","xylidines","xylindein","xyloidine","xylomata","xylorcin","xyridales","xanthates","xantheins","xanthenes","xanthic","xanthide","xanthines","xanthione","xanthones","xanthosis","xanthoura","xanthuria","xantippe","xenarthra","xenicidae","xenobiosis","xenogenesis","xenogenic","xenogeny","xenoglossia","xenoliths","xenopteran","xenosauroid","xerarch","xeriff","xeroderma","xerostomia","xerox","xiphias","xiphius","xiphura","xxiii","xyletic","xylidine","xylidins","xyloidin","xylomas","xylonic","xylopia","xyloside","xylosma","xyloyl","xylyls","xanthane","xanthans","xanthate","xanthein","xanthene","xanthian","xanthid","xanthine","xanthins","xanthite","xanthone","xanthous","xaverian","xenagogue","xenelasy","xenoblast","xenoderm","xenogenies","xenogenous","xenolith","xenomania","xenopteri","xenosaurid","xerocline","xeromenia","xerostoma","xerotocia","xicak","xxii","xylems","xylidin","xylinid","xylitols","xylitone","xylogen","xyloma","xylonite","xylosid","xylotile","xylyl","xystum","xanthan","xanthin","xebecs","xenosaurus","xenotime","xerafin","xerantic","xeromata","xix","xxi","xylaria","xylem","xylenes","xylenol","xylic","xylitol","xyloid","xyloses","xysters","xebec","xenelasia","xenicus","xenopus","xeronic","xeroseres","xerotic","ximenia","xonotlite","xx","xylans","xylate","xylene","xylina","xylite","xylols","xylose","xyrid","xyster","xystoi","xystos","xystus","xdiv","xenium","xenolite","xenomi","xenyl","xeransis","xerogel","xeroma","xeronate","xerosere","xmases","xviii","xylan","xylia","xylol","xylon","xyris","xysti","xysts","xenic","xenurus","xerasia","xeric","xeroses","xerosis","xerotes","xeruses","xinca","xoanona","xray","xref","xvii","xyla","xylo","xyst","xctl","xema","xeme","xenial","xenian","xenias","xenons","xipe","xiv","xmas","xoanon","xvi","xcl","xenia","xenon","xenos","xeres","xerus","xoana","xurel","xw","xc","xed","xiii","xina","xint","xosa","xat","xd","xii","xis","xi","xr","xs","xu"]);
+function filterLen(n){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  HUB.setFilter('len', n);
+}
+// Handle URL param ?len=N
+(function(){
+  var m = location.search.match(/len=(\d+)/);
+  if(m) HUB.setFilter('len', +m[1]);
+})();
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

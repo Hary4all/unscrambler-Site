@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Ending With F â€” 1,170 Words | Wordle & Scrabble | WordFindLab</title>
+<meta name="description" content="All 1,170 English words ending in F. Filter by length and starting letter. Includes 101 five-letter Wordle words.">
+<link rel="canonical" href="https://wordfindlab.com/words-ending-with/f/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Ending With F",
+  "description": "All 1,170 English words ending in F. Filter by length and starting letter. Includes 101 five-letter Wordle words.",
+  "url": "https://wordfindlab.com/words-ending-with/f/",
+  "numberOfItems": 1170,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "krzysztof",
+      "description": "krzysztof â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "chiffchaff",
+      "description": "chiffchaff â€” Scrabble score: 32 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "hlidhskjalf",
+      "description": "hlidhskjalf â€” Scrabble score: 32 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "hlithskjalf",
+      "description": "hlithskjalf â€” Scrabble score: 31 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "mynpachtbrief",
+      "description": "mynpachtbrief â€” Scrabble score: 30 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "quibbleproof",
+      "description": "quibbleproof â€” Scrabble score: 30 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "mosquitoproof",
+      "description": "mosquitoproof â€” Scrabble score: 29 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "squeakproof",
+      "description": "squeakproof â€” Scrabble score: 29 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "handkerchief",
+      "description": "handkerchief â€” Scrabble score: 28 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "headkerchief",
+      "description": "headkerchief â€” Scrabble score: 28 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words end with F?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 1,170 English words ending with F in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What 5-letter words end in F?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 101 five-letter words ending in F. Top examples: QUAFF, QUIFF, HOWFF, WHIFF, WHUFF, CHAFF. These are key for Wordle when position 5 shows F as a green clue."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-ending-with/a/">Words Ending With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">F</span></div>
+    
+<div class="page-header">
+  <h1>Words Ending With F</h1>
+  <p>All <b>1,170 English words</b> ending with <b>F</b> â€” filter by length, starting letter, or score.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">1,170</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">101</div><div class="lbl">5-letter words</div></div>
+    <div class="stat-pill"><div class="num">37</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(14)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(57)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(137)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(101)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(92)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(114)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(126)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(180)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(153)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(105)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(65)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(20)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(5)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(1)</span></button>
+  </div>
+  <div class="hub-filter-bar">
+    <input id="startsInput" type="text" maxlength="3" placeholder="Starts withâ€¦" oninput="HUB.setFilter('starts',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)"><option value="score">Sort: Top score</option><option value="alpha">Sort: Aâ€“Z</option><option value="len">Sort: Length</option></select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <h2>5-Letter Words Ending With F</h2>
+  <p>Use these when Wordle shows position 5 as <b>F</b> (green). There are <b>101</b> options. Use <a href="/wordle-solver/">Wordle Solver</a> to add more clues.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">QUAFF<span class="sc">20</span></span><span class="wcard">QUIFF<span class="sc">20</span></span><span class="wcard">HOWFF<span class="sc">17</span></span><span class="wcard">WHIFF<span class="sc">17</span></span><span class="wcard">WHUFF<span class="sc">17</span></span><span class="wcard">CHAFF<span class="sc">16</span></span><span class="wcard">CHUFF<span class="sc">16</span></span><span class="wcard">SKAFF<span class="sc">15</span></span><span class="wcard">SKIFF<span class="sc">15</span></span><span class="wcard">WAKIF<span class="sc">15</span></span><span class="wcard">FEOFF<span class="sc">14</span></span><span class="wcard">FLAFF<span class="sc">14</span></span><span class="wcard">FLUFF<span class="sc">14</span></span><span class="wcard">SHUFF<span class="sc">14</span></span><span class="wcard">WHARF<span class="sc">14</span></span><span class="wcard">WHOOF<span class="sc">14</span></span><span class="wcard">YOUFF<span class="sc">14</span></span><span class="wcard">ABAFF<span class="sc">13</span></span><span class="wcard">BANFF<span class="sc">13</span></span><span class="wcard">BARFF<span class="sc">13</span></span></div>
+</section>
+<section class="card">
+  <h2>Top Scrabble Words Ending With F</h2>
+  <table class="top-words-table"><thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead><tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+krzysztof" rel="nofollow noopener" target="_blank">KRZYSZTOF</a></td><td>9</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">36</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+chiffchaff" rel="nofollow noopener" target="_blank">CHIFFCHAFF</a></td><td>10</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">32</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+hlidhskjalf" rel="nofollow noopener" target="_blank">HLIDHSKJALF</a></td><td>11</td><td><span class="pts-badge pts-scr">32</span></td><td><span class="pts-badge pts-wwf">34</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+hlithskjalf" rel="nofollow noopener" target="_blank">HLITHSKJALF</a></td><td>11</td><td><span class="pts-badge pts-scr">31</span></td><td><span class="pts-badge pts-wwf">33</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+mynpachtbrief" rel="nofollow noopener" target="_blank">MYNPACHTBRIEF</a></td><td>13</td><td><span class="pts-badge pts-scr">30</span></td><td><span class="pts-badge pts-wwf">33</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+quibbleproof" rel="nofollow noopener" target="_blank">QUIBBLEPROOF</a></td><td>12</td><td><span class="pts-badge pts-scr">30</span></td><td><span class="pts-badge pts-wwf">35</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+mosquitoproof" rel="nofollow noopener" target="_blank">MOSQUITOPROOF</a></td><td>13</td><td><span class="pts-badge pts-scr">29</span></td><td><span class="pts-badge pts-wwf">32</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+squeakproof" rel="nofollow noopener" target="_blank">SQUEAKPROOF</a></td><td>11</td><td><span class="pts-badge pts-scr">29</span></td><td><span class="pts-badge pts-wwf">31</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+handkerchief" rel="nofollow noopener" target="_blank">HANDKERCHIEF</a></td><td>12</td><td><span class="pts-badge pts-scr">28</span></td><td><span class="pts-badge pts-wwf">28</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+headkerchief" rel="nofollow noopener" target="_blank">HEADKERCHIEF</a></td><td>12</td><td><span class="pts-badge pts-scr">28</span></td><td><span class="pts-badge pts-wwf">27</span></td></tr></tbody></table>
+</section>
+<section class="card">
+  <h2>By Length</h2>
+  <table class="top-words-table"><thead><tr><th>Category</th><th style="text-align:right">Count</th></tr></thead><tbody><tr><td>2-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">14</td></tr><tr><td>3-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">57</td></tr><tr><td>4-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">137</td></tr><tr><td>5-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">101</td></tr><tr><td>6-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">92</td></tr><tr><td>7-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">114</td></tr><tr><td>8-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">126</td></tr><tr><td>9-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">180</td></tr><tr><td>10-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">153</td></tr><tr><td>11-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">105</td></tr><tr><td>12-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">65</td></tr><tr><td>13-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">20</td></tr><tr><td>14-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">5</td></tr><tr><td>15-letter words ending with F</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">1</td></tr></tbody></table>
+</section>
+<section class="card"><h2>Browse All Letters</h2><div class="letter-grid-nav"><a href="/words-ending-with/a/">A</a>
+<a href="/words-ending-with/b/">B</a>
+<a href="/words-ending-with/c/">C</a>
+<a href="/words-ending-with/d/">D</a>
+<a href="/words-ending-with/e/">E</a>
+<a href="/words-ending-with/f/" class="curr">F</a>
+<a href="/words-ending-with/g/">G</a>
+<a href="/words-ending-with/h/">H</a>
+<a href="/words-ending-with/i/">I</a>
+<a href="/words-ending-with/j/">J</a>
+<a href="/words-ending-with/k/">K</a>
+<a href="/words-ending-with/l/">L</a>
+<a href="/words-ending-with/m/">M</a>
+<a href="/words-ending-with/n/">N</a>
+<a href="/words-ending-with/o/">O</a>
+<a href="/words-ending-with/p/">P</a>
+<a href="/words-ending-with/q/">Q</a>
+<a href="/words-ending-with/r/">R</a>
+<a href="/words-ending-with/s/">S</a>
+<a href="/words-ending-with/t/">T</a>
+<a href="/words-ending-with/u/">U</a>
+<a href="/words-ending-with/v/">V</a>
+<a href="/words-ending-with/w/">W</a>
+<a href="/words-ending-with/x/">X</a>
+<a href="/words-ending-with/y/">Y</a>
+<a href="/words-ending-with/z/">Z</a></div></section>
+<section class="card seo">
+  <h2>Hook Plays: Using -F Endings in Scrabble</h2>
+  <p>Words ending in <b>F</b> are valuable for <em>hook plays</em> â€” placing your word so that its last letter connects with or extends an existing board word. This scores multiple words simultaneously. Knowing all 1,170 words that end in F gives you the maximum number of available hook positions on any board state.</p>
+  <div class="faq-item"><div class="faq-q">How many words end with F?</div><div class="faq-a">There are <b>1,170 English words</b> ending with F in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What 5-letter words end in F?</div><div class="faq-a">There are 101 five-letter words ending in F. Top examples: QUAFF, QUIFF, HOWFF, WHIFF, WHUFF, CHAFF. These are key for Wordle when position 5 shows F as a green clue.</div></div>
+</section>
+<script>
+HUB.init(["krzysztof","chiffchaff","hlidhskjalf","hlithskjalf","mynpachtbrief","quibbleproof","mosquitoproof","squeakproof","handkerchief","headkerchief","quakeproof","skewwhiff","whiffenpoof","humidityproof","punishmentproof","quarterstaff","rhythmproof","semiflashproof","shrinkageproof","squatterproof","squirrelproof","flickerproof","freckleproof","kulturkampf","qualmproof","quarrelproof","checkoff","jokeproof","neckerchief","quiverleaf","sneezeproof","whisperproof","archpontiff","bekerchief","handycuff","hippogriff","hoaxproof","jumpoff","knockoff","lightningproof","powderpuff","rebuffproof","scratchproof","shandygaff","shockproof","sicknessproof","sprinkleproof","twinkleproof","vampireproof","wrinkleproof","backstaff","bullyhuff","coverchief","feedingstuff","foxproof","fractureproof","frictionproof","hitchproof","joyproof","kickoff","korsakoff","mecrobeproof","microbeproof","mistakeproof","offenseproof","outquaff","packstaff","pecksniff","ploughstaff","prickproof","rhymeproof","scorchproof","shriekproof","shrinkproof","speckproof","utfangenethef","weatherproof","whipstaff","whirlpuff","zealproof","archchief","bumbailiff","cambricleaf","copperproof","counterscoff","creekstuff","dummkopf","enkerchief","giffgaff","heresyproof","interwhiff","jellyleaf","knifeproof","mercyproof","mildewproof","musketproof","outfangthief","parodyproof","pepperproof","philterproof","pickproof","pimpleproof","poultryproof","punchproof","punctureproof","racketproof","rebukeproof","roughscuff","rowdyproof","shakeproof","shiverproof","showerproof","splendourproof","stretchproof","sulphurproof","tickleproof","undersheriff","unhandcuff","weevilproof","wheelswarf","wisdomproof","backoff","bookshelf","childproof","chipproof","churnstaff","coffeeleaf","coplaintiff","corrosionproof","counterbuff","flashproof","follyproof","handicuff","hippocerf","hurryproof","infangthief","interchaff","jeerproof","jestproof","joltproof","marriageproof","pickoff","pikestaff","profitproof","promiseproof","reformproof","rockstaff","romanceproof","salvageproof","sarcasmproof","slumberproof","smokeproof","snatchproof","sparkproof","splashproof","splendorproof","stockproof","subenfeoff","subsheriff","systemproof","theftproof","thickleaf","thiefproof","thunderproof","trickproof","underbailiff","utfangethef","utfangthief","vampproof","verminproof","warningproof","weaponproof","worryproof","aboveproof","archthief","bombproof","breakoff","broomstaff","brushproof","burglarproof","cowlstaff","crashproof","crushproof","dauerschlaf","drinkproof","featherleaf","fisticuff","fixatif","flameproof","frayproof","handcuff","humorproof","hungerproof","infangthef","joyleaf","kenscoff","kerchief","koopbrief","maliceproof","moistureproof","muddleproof","neglectproof","nonfireproof","overchief","petitionproof","pleasureproof","plowstaff","plunderproof","pressureproof","quaff","quiff","rabbitproof","rabbleproof","rackproof","rewardproof","riffraff","robberproof","roughstuff","scandalproof","scowlproof","screamproof","shameproof","shatterproof","smudgeproof","solventproof","spittlestaff","splinterproof","sprayproof","subbailiff","summerproof","sundayproof","surpriseproof","tackproof","tamperproof","tarnishproof","thistleproof","throwoff","tickproof","torpedoproof","utfangthef","venomproof","villainproof","washproof","waveproof","witchleaf","womanproof","wringstaff","yawnproof","blowproof","bowstaff","breadstuff","brushoff","bukeyef","bumpoff","charshaf","copperleaf","counterproof","crimeproof","daggerproof","dampproof","draftproof","entfaoilff","feedstuff","flagstaff","floodproof","flowoff","flyproof","foodstuff","fraudproof","graftproof","halterproof","handstaff","harmproof","hircocerf","hoodsheaf","intrigueproof","itchproof","kugelhof","lectureproof","lightproof","lobsterproof","malariaproof","mantelshelf","measlesproof","missileproof","mothproof","musicproof","overpuff","overtariff","passionproof","patchleaf","photorelief","pityproof","plagueproof","radiumproof","relapseproof","remorseproof","repulseproof","shortstaff","showoff","sightproof","skidproof","sliverproof","slumpproof","snakeproof","sorrowproof","spatterproof","spongeproof","strifeproof","sunburnproof","swordproof","thirstproof","threatproof","thrillproof","troubleproof","underchief","undercliff","unfireproof","velvetleaf","virtueproof","visionproof","washoff","waveoff","winterproof","worldproof","wormproof","wrainstaff","xeriff","ziff","afterproof","blowoff","bocstaff","bonchief","bulletproof","calctuff","cannonproof","capsheaf","cloverleaf","dyestuff","faceoff","filesniff","flyoff","forestaff","frostproof","hasteproof","headscarf","hollyleaf","horsehoof","insectproof","kissproof","leakproof","macduff","masterproof","mischief","nerveproof","odiumproof","opiateproof","outrageproof","overbelief","overstaff","overstiff","overstuff","pistolproof","playoff","poisonproof","pollenproof","praiseproof","pryproof","rancorproof","ravelproof","rchauff","rifleproof","riskproof","schtoff","scumproof","sermonproof","shellproof","slanderproof","solaceproof","soldierproof","spyproof","staticproof","stickleaf","subchief","superbelief","superstuff","sweatproof","tasheriff","thornproof","toothproof","tornadoproof","towerproof","trumpetleaf","unsheriff","veinstuff","videruff","wasteproof","waterproof","weedproof","windproof","woodruff","acidproof","acrestaff","aftergrief","antihuff","armorproof","bedstaff","boarstaff","bodysurf","chincof","cochief","coldproof","crossruff","curchef","demiwolf","dragstaff","drawoff","dripproof","evilproof","fingerleaf","fireproof","flannelleaf","fogproof","foolproof","forehalf","forehoof","germproof","gibstaff","greaseproof","greenstuff","hailproof","hairhoof","handoff","heartgrief","heatproof","hintproof","hissproof","holeproof","hopoff","howff","jeff","jiff","killcalf","lanceproof","leatherleaf","loveproof","misgraff","mobproof","moldproof","mouseproof","needleproof","overhalf","overproof","overruff","overscurf","paintproof","payoff","pennyleaf","plaintiff","pretariff","prodproof","protariff","rakeoff","rebelproof","rodentproof","rumorproof","saberproof","scaleproof","scareproof","scentproof","scornproof","semistiff","shotproof","sleepproof","smellproof","smileproof","snowproof","spearproof","spellproof","spillproof","spiteproof","steamproof","stormproof","stroganoff","subdwarf","takeoff","tangleproof","tongueproof","tortureproof","touristproof","treasonproof","understaff","understuff","underthief","wartproof","wearproof","werewolf","whiff","whuff","wileproof","wiltproof","woodcraf","writeoff","writproof","affloof","ballproof","bedwarf","bepuff","bielbrief","blastoff","bugproof","bullhoof","chaff","chuff","colstaff","dandriff","dandruff","demirelief","doubleleaf","endrumpf","enfeoff","falloff","flyleaf","glareproof","infeoff","insultproof","kanaff","khalif","kharif","latticeleaf","lawproof","liftoff","lodestuff","mealproof","midriff","misbelief","miteproof","moleproof","moonproof","mudproof","nauseaproof","outbluff","painproof","palstaff","pestproof","pleaproof","plotproof","prebelief","rattleproof","reasonproof","sailorproof","satireproof","scarproof","seacliff","seepproof","semiproof","sheriff","shutoff","silverleaf","slideproof","slipproof","slumproof","smutproof","snakeleaf","snubproof","soundproof","spinproof","spurproof","stabproof","stingproof","stouthrief","strainproof","surgeproof","tartarproof","terrorproof","thyself","tigerproof","timeproof","tipstaff","underproof","uppuff","warproof","warwolf","werecalf","werwolf","wetproof","whereof","zarf","aardwolf","agueproof","algarsyf","alikuluf","arrowleaf","bailiff","bedaff","beowulf","besnuff","bloodleaf","boiloff","broadleaf","caitiff","castoff","catproof","cobelief","disbelief","dogproof","dualmutef","dustproof","earmuff","faroff","flagleaf","frogleaf","galeproof","gingerleaf","gnatproof","hdkf","heartleaf","hemself","himself","layoff","leadproof","liverleaf","mastiff","mooncalf","munsiff","mutessarif","noiseproof","nontariff","odorproof","pinproof","pontiff","punproof","qaf","rageproof","raidproof","rebluff","roundoff","runestaff","saddleleaf","sandproof","saucerleaf","semirelief","shroff","shruff","skaff","skiff","sleetproof","sobproof","spinoff","spiritleaf","stainproof","standoff","steelproof","subfief","subproof","sweetleaf","taintproof","tipproof","titleproof","tradeoff","typesof","upstaff","wakif","waterleaf","windsurf","winedraf","woodroof","approof","behalf","behoof","bescarf","bescurf","chetif","cobloaf","cordleaf","cutoff","destuff","disproof","distaff","dollarleaf","embelif","engraff","feoff","fernleaf","fineleaf","flaff","fluff","gasproof","improof","koff","lanternleaf","lawnleaf","leadoff","leitmotif","lifeleaf","lionproof","lossproof","mutesarif","myself","nailproof","nonbelief","orangeleaf","overleaf","overroof","palsgraf","pilaff","putoff","rainproof","rebuff","recitatif","repuff","rerefief","restproof","retariff","riotproof","ripoff","rudloff","ruinproof","rustproof","scharf","sclaff","scliff","scroff","scruff","semideaf","sendoff","shadoof","shinleaf","shuff","signoff","soilproof","sootproof","tanstuff","tashreef","tearproof","temseloaf","tinstuff","tipoff","toneproof","twinleaf","ungruff","unpuff","vacouf","vingolf","wakf","waldorf","wharf","whoof","xref","youff","yourself","abaff","airproof","alehoof","antproof","aperitif","bagreef","banff","barff","blaff","bluff","chief","cliff","cloff","cluff","coeff","dauerlauf","debrief","digestif","faff","fanleaf","feff","fuff","greenleaf","haff","herself","hisself","howf","huff","imperf","jef","laceleaf","letterleaf","lieproof","littleleaf","logoff","oilproof","ownself","pluff","pouff","ratproof","rebelief","restaff","restiff","restuff","rotproof","runproof","scaff","scoff","scuff","semiserf","shaduf","shareef","shereef","sinproof","specif","spiff","sugarloaf","sunproof","tanproof","tashrif","thereof","tunhoof","turnoff","unbelief","underleaf","underroof","underturf","unsheaf","unstiff","unstuff","waff","witloof","wuff","yaff","apritif","ashraf","baff","bedeaf","begulf","biff","boff","buff","caff","cantref","centref","chef","coff","corosif","cuff","disgulf","draff","dwarf","enfief","geoff","gliff","gnoff","graff","griff","groff","gruff","hairif","hairof","hastif","hereof","iceleaf","infeof","interleaf","kalif","kenaf","kloof","lampf","langlauf","letoff","longleaf","looseleaf","miff","moff","moonsif","muff","outrelief","piff","plupf","positif","puff","reproof","runoff","sageleaf","satinleaf","seedleaf","setoff","sharif","sherif","skeif","skelf","tariff","telegraf","unbrief","unwoof","whf","beleaf","belief","bumf","caitif","certif","daff","diff","disleaf","disroof","doff","dowf","duff","endleaf","gaff","goff","gowf","guff","hanif","hcf","impf","kaif","keef","kerf","kgf","kief","massif","modif","munsif","nondeaf","nonserif","recusf","rosbif","sanserif","sheaf","shelf","shilf","shraf","shurf","skef","sluff","snaff","sniff","snuff","staff","staplf","stiff","stoff","stuff","swarf","tharf","thief","triumf","truff","uncoif","unicef","wolof","woolf","aeronef","agleaf","agrief","agroof","agruif","bcf","brief","calef","calif","cloof","engulf","feif","fief","gorraf","haaf","half","heaf","hoof","hurf","ingulf","isodef","kaf","kef","kif","luff","manuf","mcf","metif","mmf","motif","netleaf","niff","nonself","notself","oneself","ourself","pcf","pilaf","proof","raff","riff","rudolf","ruff","scalf","scarf","scruf","scurf","sowf","spoof","suff","sunroof","teff","thof","tiff","toff","tuff","undeaf","waif","warf","wauf","welf","werf","wolf","woof","wouf","wraf","adolf","aff","asself","barf","beef","boof","calf","carf","cauf","cdf","clef","clof","coef","coif","conf","coof","corf","cuif","curf","daraf","eff","enleaf","enlief","enserf","estrif","ganef","ganof","gonif","gonof","grief","groof","grouf","guelf","haf","iff","indef","itself","off","pelf","perf","poof","pouf","pref","prof","relief","reroof","reself","returf","sarraf","soueef","spif","transf","unleaf","unroof","unself","unturf","usself","waf","wef","aloof","bef","bnf","bsf","caf","cif","ctf","dalf","deaf","delf","derf","dolf","drof","emf","ff","goaf","golf","goof","graf","gruf","gulf","hf","lbf","plf","prf","psf","saraf","sarif","scf","serif","stoof","taraf","wf","alef","alif","atef","bf","cf","def","dif","enif","gif","grf","leaf","leef","leif","lief","loaf","loof","mf","naif","neaf","neif","olaf","olof","pf","raif","ralf","reef","reif","rolf","roof","sauf","seif","self","serf","stof","surf","tref","turf","alf","arf","auf","elf","eof","erf","inf","iof","lif","lof","naf","nef","oaf","oof","orf","ouf","ref","suf","tef","trf","urf","af","ef","if","lf","of","rf","sf"]);
+function filterLen(n){ document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')}); event.target.classList.add('active'); HUB.setFilter('len',n); }
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

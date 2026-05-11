@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://wordfindlab.com/wordle-solver/">
+<title>Wordle Solver â€” Find Today's Answer Fast</title>
+<meta name="description" content="Free Wordle solver. Enter your green, yellow, and gray clues and get a list of every possible answer word. Solve Wordle in 2â€“3 guesses.">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  /* Wordle UI overrides */
+  .clue-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .clue-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .clue-row-label {
+    font-size: 12px;
+    color: var(--muted);
+    width: 52px;
+    flex-shrink: 0;
+    padding-top: 16px;
+    text-align: right;
+  }
+  .clue-cells {
+    display: flex;
+    gap: 8px;
+  }
+  .clue-cell-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .clue-input {
+    width: 50px; height: 50px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s, background .15s;
+    caret-color: transparent;
+  }
+  .clue-input:focus { border-color: var(--accent); }
+  .clue-input.green  { border-color: var(--good);  background: #dcfce7; color: var(--good);  }
+  .clue-input.yellow { border-color: var(--warn);  background: #fef3c7; color: var(--warn);  }
+  .clue-input.gray   { border-color: #9ca3af;         background: #f3f4f6; color: #6b7280; }
+
+  .state-bar {
+    display: flex;
+    gap: 3px;
+  }
+  .state-dot {
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform .1s;
+  }
+  .state-dot:hover { transform: scale(1.15); }
+  .state-dot.green-dot  { background: var(--good); }
+  .state-dot.yellow-dot { background: var(--warn); }
+  .state-dot.gray-dot   { background: #555; }
+  .state-dot.empty-dot  { background: var(--bg); border-color: var(--border); }
+  .state-dot.active-dot { outline: 2px solid var(--ink); outline-offset: 1px; }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px;
+    font-size: 13px; color: var(--muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch {
+    width: 14px; height: 14px; border-radius: 3px;
+  }
+
+  .guess-count {
+    font-size: 13px; color: var(--muted); margin-top: 6px;
+  }
+  .add-guess-btn {
+    font-size: 13px; color: var(--accent-2); cursor: pointer;
+    background: none; border: 0; padding: 4px 0; display: inline-flex; align-items: center; gap: 4px;
+  }
+  .add-guess-btn:hover { text-decoration: underline; }
+
+  .result-word {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color .15s, transform .1s;
+  }
+  .result-word:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .result-word .freq { font-size: 10px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
+
+  .words-flat { display: flex; flex-wrap: wrap; gap: 8px; }
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Wordle Solver",
+  "description": "Free Wordle solver and helper. Enter your green, yellow, and gray clues and get a ranked list of the best possible answers.",
+  "url": "https://wordfindlab.com/wordle-solver/",
+  "applicationCategory": "Word Games",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
+  }
+}
+</script>
+</head>
+<body>
+<!-- Nav injected by unscrambler.js -->
+
+<div class="page-wrap">
+
+  <!-- ===== MAIN COLUMN ===== -->
+  <main class="page-main">
+
+    <div class="page-header">
+      <h1>Wordle Solver</h1>
+      <p>Enter your guesses, mark each letter green Â· yellow Â· gray, and get every word that could still be the answer.</p>
+    </div>
+
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+
+<section class="card">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--good)"></div> Green = correct position</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:var(--warn)"></div> Yellow = wrong position</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#555"></div> Gray = not in word</div>
+    </div>
+
+    <div class="clue-grid" id="clueGrid"></div>
+    <button class="add-guess-btn" id="addGuessBtn">ï¼‹ Add another guess row</button>
+
+    <div class="actions" style="margin-top:18px">
+      <button id="go" class="btn">Find Answers</button>
+      <button id="clear" class="btn ghost">Reset</button>
+    </div>
+    <div id="status" class="status"></div>
+    <div class="guess-count" id="guessCount"></div>
+  </section>
+
+  <section class="card" id="resultsCard" hidden>
+    <div class="results-head">
+      <h2>Possible Answers</h2>
+      <span class="meta" id="resultsMeta"></span>
+    </div>
+    <div class="words-flat" id="results"></div>
+  </section>
+
+  <section class="card seo">
+    <h2>How to use the Wordle solver</h2>
+    <p>Type each letter you guessed into the row, then click the coloured dots below each letter to set its clue state. Green means the letter is in the right position; yellow means it's in the word but in the wrong spot; gray means it's not in the word at all. Hit <b>Find Answers</b> to see every word that still fits.</p>
+    <h2>Best opening words for Wordle</h2>
+    <p>Good opening guesses cover common letters. Top picks include <b>CRANE</b>, <b>SLATE</b>, <b>AUDIO</b>, <b>RAISE</b>, and <b>STARE</b> â€” each hits high-frequency letters across multiple positions. If your opener reveals 2â€“3 greens, you've usually got it in 3 guesses.</p>
+    <h2>Wordle strategy tips</h2>
+    <ul>
+      <li>Use your second guess to eliminate as many letters as possible, even if it doesn't build on green clues.</li>
+      <li>Common endings: <b>-ING</b>, <b>-ED</b>, <b>-ER</b>, <b>-LY</b> â€” worth targeting if yellow letters suggest them.</li>
+      <li>Double letters do appear (ABBEY, ALLEY, VIVID) â€” don't rule them out if you're stuck.</li>
+      <li>The answer is always a common English word â€” obscure words almost never appear.</li>
+    </ul>
+
+    <div class="related-tools">
+      <div class="related-tools-label">Related Tools &amp; Resources</div>
+      <div class="related-links">
+        <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
+        <a class="related-link" href="/anagram-solver/">ðŸ”¤ Anagram Solver</a>
+        <a class="related-link" href="/scrabble-word-finder/">ðŸŽ¯ Scrabble Finder</a>
+        <a class="related-link" href="/5-letter-words/">5-Letter Words</a>
+        <a class="related-link" href="/word-lists/best-wordle-starting-words/">Best Wordle Starters</a>
+        <a class="related-link" href="/wordle-strategy/">Wordle Strategy Guide</a>
+        <a class="related-link" href="/5-letter-words-starting-with/c/">Words Starting With C</a>
+        <a class="related-link" href="/5-letter-words-ending-with/e/">5-Letter Words Ending E</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="page-sidebar">
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+    <div class="card tools-widget">
+      <div class="tools-widget-title">More Word Tools</div>
+      <div class="tools-widget-links" id="sidebarToolLinks"></div>
+    </div>
+    <div class="ad-wrap">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7302891841207454"
+       data-ad-slot="3800623751"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </aside>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+
+<script src="/assets/unscrambler.js"></script>
+<script>
+
+/* ---- Sidebar tool links ---- */
+(function buildSidebarLinks() {
+  const wrap = document.getElementById("sidebarToolLinks");
+  if (!wrap) return;
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+  SIDEBAR_TOOLS.forEach(t => {
+    const a = document.createElement("a");
+    a.href = t.href;
+    if (t.href === currentPath) a.className = "active";
+    a.innerHTML = '<span class="ico">' + t.icon + '</span>' + t.label;
+    wrap.appendChild(a);
+  });
+})();
+
+/* ===== Wordle solver logic ===== */
+
+const WORD_LENGTH = 5;
+const MAX_GUESSES = 6;
+const STATES = ["empty", "green", "yellow", "gray"];
+
+let rows = []; // [{letters:[...], states:[...]}]
+
+function makeRow() {
+  return {
+    letters: Array(WORD_LENGTH).fill(""),
+    states:  Array(WORD_LENGTH).fill("empty")
+  };
+}
+
+function buildGrid() {
+  const grid = document.getElementById("clueGrid");
+  grid.innerHTML = "";
+
+  rows.forEach((row, ri) => {
+    const rowEl = document.createElement("div");
+    rowEl.className = "clue-row";
+
+    const lbl = document.createElement("div");
+    lbl.className = "clue-row-label";
+    lbl.textContent = "Guess " + (ri + 1);
+    rowEl.appendChild(lbl);
+
+    const cells = document.createElement("div");
+    cells.className = "clue-cells";
+
+    for (let ci = 0; ci < WORD_LENGTH; ci++) {
+      const wrap = document.createElement("div");
+      wrap.className = "clue-cell-wrap";
+
+      // Letter input
+      const input = document.createElement("input");
+      input.className = "clue-input " + row.states[ci];
+      input.type = "text";
+      input.maxLength = 1;
+      input.value = row.letters[ci];
+      input.setAttribute("data-row", ri);
+      input.setAttribute("data-col", ci);
+      input.addEventListener("input", e => {
+        const val = e.target.value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(-1);
+        e.target.value = val;
+        rows[ri].letters[ci] = val;
+        if (val && ci < WORD_LENGTH - 1) {
+          // Advance to next input
+          const next = grid.querySelector(`[data-row="${ri}"][data-col="${ci+1}"]`);
+          if (next) next.focus();
+        }
+      });
+      input.addEventListener("keydown", e => {
+        if (e.key === "Backspace" && !rows[ri].letters[ci] && ci > 0) {
+          const prev = grid.querySelector(`[data-row="${ri}"][data-col="${ci-1}"]`);
+          if (prev) { prev.focus(); rows[ri].letters[ci-1] = ""; prev.value = ""; }
+        }
+        if (e.key === "Enter") solve();
+      });
+
+      wrap.appendChild(input);
+
+      // State dots
+      const bar = document.createElement("div");
+      bar.className = "state-bar";
+      ["green", "yellow", "gray"].forEach(state => {
+        const dot = document.createElement("div");
+        dot.className = "state-dot " + state + "-dot" + (rows[ri].states[ci] === state ? " active-dot" : "");
+        dot.title = state;
+        dot.addEventListener("click", () => {
+          rows[ri].states[ci] = rows[ri].states[ci] === state ? "empty" : state;
+          buildGrid();
+        });
+        bar.appendChild(dot);
+      });
+
+      wrap.appendChild(bar);
+      cells.appendChild(wrap);
+    }
+
+    rowEl.appendChild(cells);
+    grid.appendChild(rowEl);
+  });
+
+  // Re-focus last active cell
+  document.getElementById("addGuessBtn").style.display =
+    rows.length >= MAX_GUESSES ? "none" : "";
+}
+
+function initRows() {
+  rows = [makeRow()];
+  buildGrid();
+}
+
+document.getElementById("addGuessBtn").addEventListener("click", () => {
+  if (rows.length < MAX_GUESSES) {
+    rows.push(makeRow());
+    buildGrid();
+    // Focus first cell of new row
+    const newRowIdx = rows.length - 1;
+    const firstCell = document.querySelector(`[data-row="${newRowIdx}"][data-col="0"]`);
+    if (firstCell) firstCell.focus();
+  }
+});
+
+/* ---- Solve ---- */
+async function solve() {
+  if (!CURRENT_DICT) {
+    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    const ok = await loadDictionary("common");
+    if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
+  }
+
+  // Collect constraints from all rows
+  const greenAt   = Array(WORD_LENGTH).fill(null); // position -> letter
+  const yellowAt  = []; // {letter, position} - letter present but NOT at this position
+  const grays     = new Set();
+
+  let hasInput = false;
+  for (const row of rows) {
+    const word = row.letters.join("").toUpperCase();
+    if (word.replace(/\s/g, "").length === 0) continue;
+    hasInput = true;
+    for (let i = 0; i < WORD_LENGTH; i++) {
+      const ch = row.letters[i].toUpperCase();
+      if (!ch) continue;
+      const state = row.states[i];
+      if (state === "green") {
+        greenAt[i] = ch;
+      } else if (state === "yellow") {
+        yellowAt.push({ letter: ch, pos: i });
+      } else if (state === "gray") {
+        grays.add(ch);
+      }
+    }
+  }
+
+  if (!hasInput) {
+    setStatus("Enter at least one guess above.", "warn");
+    return;
+  }
+
+  // Yellow letters that are also green elsewhere shouldn't be fully excluded
+  const yellowLetters = new Set(yellowAt.map(y => y.letter));
+  // Remove gray letters that are green/yellow (double-letter case)
+  for (const ch of [...grays]) {
+    if (greenAt.includes(ch) || yellowLetters.has(ch)) grays.delete(ch);
+  }
+
+  const t0 = performance.now();
+  const matches = [];
+
+  for (const word of DICT_SET) {
+    if (word.length !== WORD_LENGTH) continue;
+
+    // Check greens
+    let ok = true;
+    for (let i = 0; i < WORD_LENGTH; i++) {
+      if (greenAt[i] && word[i] !== greenAt[i]) { ok = false; break; }
+    }
+    if (!ok) continue;
+
+    // Check grays (letter not in word at all â€” unless also green/yellow)
+    for (const ch of grays) {
+      if (word.includes(ch)) { ok = false; break; }
+    }
+    if (!ok) continue;
+
+    // Check yellows (letter must be in word, but NOT at that position)
+    for (const { letter, pos } of yellowAt) {
+      if (!word.includes(letter) || word[pos] === letter) { ok = false; break; }
+    }
+    if (!ok) continue;
+
+    matches.push(word);
+  }
+
+  const ms = performance.now() - t0;
+  const card = document.getElementById("resultsCard");
+  card.hidden = false;
+  document.getElementById("resultsMeta").textContent =
+    matches.length.toLocaleString() + " possible answers Â· " + ms.toFixed(0) + " ms";
+
+  renderWordResults(matches);
+  setStatus("", "");
+  document.getElementById("guessCount").textContent =
+    matches.length === 0 ? "No matches â€” check your clues for typos." :
+    matches.length <= 3  ? "ðŸŽ¯ Almost there â€” only " + matches.length + " word(s) left!" :
+    "";
+}
+
+function renderWordResults(words) {
+  const out = document.getElementById("results");
+  out.innerHTML = "";
+
+  if (words.length === 0) {
+    out.innerHTML = '<div class="empty">No matching words â€” double-check your green/yellow/gray clues.</div>';
+    return;
+  }
+
+  // Sort alphabetically (frequency data unavailable, but all equally valid)
+  words.sort();
+  for (const w of words) {
+    const el = document.createElement("span");
+    el.className = "result-word";
+    el.title = "Click to copy";
+    el.textContent = w;
+    el.addEventListener("click", () => copyWord(el, w));
+    out.appendChild(el);
+  }
+}
+
+document.getElementById("go").addEventListener("click", solve);
+document.getElementById("clear").addEventListener("click", () => {
+  initRows();
+  document.getElementById("resultsCard").hidden = true;
+  document.getElementById("guessCount").textContent = "";
+  setStatus("");
+});
+
+loadDictionary("common");
+initRows();
+</script>
+</body>
+</html>
+

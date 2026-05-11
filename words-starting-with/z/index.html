@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Words Starting With Z â€” 1,368 Words | WordFindLab</title>
+<meta name="description" content="Browse all 1,368 English words starting with Z. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.">
+<link rel="canonical" href="https://wordfindlab.com/words-starting-with/z/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Words Starting With Z",
+  "description": "Browse all 1,368 English words starting with Z. Filter by length, score, or ending. Great for Scrabble, Wordle, and word puzzles.",
+  "url": "https://wordfindlab.com/words-starting-with/z/",
+  "numberOfItems": 1368,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "zyzzyvas",
+      "description": "zyzzyvas â€” Scrabble score: 44 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "zyzzyva",
+      "description": "zyzzyva â€” Scrabble score: 43 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "zyzzogeton",
+      "description": "zyzzogeton â€” Scrabble score: 41 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "zoophytography",
+      "description": "zoophytography â€” Scrabble score: 40 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "zanthoxylaceae",
+      "description": "zanthoxylaceae â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "zulhijjah",
+      "description": "zulhijjah â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "zygomaxillary",
+      "description": "zygomaxillary â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "zygophyllaceous",
+      "description": "zygophyllaceous â€” Scrabble score: 38 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "zygophyllaceae",
+      "description": "zygophyllaceae â€” Scrabble score: 37 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "zymochemistry",
+      "description": "zymochemistry â€” Scrabble score: 37 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many words start with Z?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 1,368 English words that start with the letter Z in the standard dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best 5-letter words starting with Z for Wordle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 112 five-letter words starting with Z. Top picks by Scrabble score: ZMUDZ, ZANZA, ZANZE, ZAQUE, ZAZEN. Use the Wordle Solver to filter by additional clues."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <a href="/words-starting-with/a/">Words Starting With</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">Z</span></div>
+    
+<div class="page-header">
+  <h1>Words Starting With Z</h1>
+  <p>All <b>1,368 English words</b> beginning with <b>Z</b> â€” filter by length, ending, or score. Sorted by Scrabble point value.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">1,368</div><div class="lbl">Total words</div></div>
+    <div class="stat-pill"><div class="num">112</div><div class="lbl">5-letter (Wordle)</div></div>
+    <div class="stat-pill"><div class="num">44</div><div class="lbl">Best Scrabble score</div></div>
+  </div>
+
+  <div class="tab-bar" style="margin-bottom:10px">
+    <button class="tab-btn active" onclick="filterLen(0)">All lengths</button>
+    <button class="tab-btn" onclick="filterLen(2)">2 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(4)</span></button><button class="tab-btn" onclick="filterLen(3)">3 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(24)</span></button><button class="tab-btn" onclick="filterLen(4)">4 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(60)</span></button><button class="tab-btn" onclick="filterLen(5)">5 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(112)</span></button><button class="tab-btn" onclick="filterLen(6)">6 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(167)</span></button><button class="tab-btn" onclick="filterLen(7)">7 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(249)</span></button><button class="tab-btn" onclick="filterLen(8)">8 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(189)</span></button><button class="tab-btn" onclick="filterLen(9)">9 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(209)</span></button><button class="tab-btn" onclick="filterLen(10)">10 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(123)</span></button><button class="tab-btn" onclick="filterLen(11)">11 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(84)</span></button><button class="tab-btn" onclick="filterLen(12)">12 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(63)</span></button><button class="tab-btn" onclick="filterLen(13)">13 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(47)</span></button><button class="tab-btn" onclick="filterLen(14)">14 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(25)</span></button><button class="tab-btn" onclick="filterLen(15)">15 letters <span style="font-size:11px;color:var(--muted);font-weight:400">(12)</span></button>
+  </div>
+
+  <div class="hub-filter-bar">
+    <input id="endsInput" type="text" maxlength="3" placeholder="Ends withâ€¦" oninput="HUB.setFilter('ends',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦" oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)">
+      <option value="score">Sort: Top score</option>
+      <option value="alpha">Sort: Aâ€“Z</option>
+      <option value="len">Sort: Length</option>
+    </select>
+    <select onchange="HUB.setScoreMode(this.value)">
+      <option value="scrabble">Scrabble pts</option>
+      <option value="wwf">WWF pts</option>
+    </select>
+    <button onclick="HUB.clearAll();filterLen(0)" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+<section class="card">
+  <h2>5-Letter Words Starting With Z â€” Wordle</h2>
+  <p>When Wordle's first position shows <b>Z</b> as a green clue, all 112 of these words are possible answers. Use our <a href="/wordle-solver/">Wordle Solver</a> to add more clues and narrow it down further.</p>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">ZMUDZ<span class="sc high">26</span></span><span class="wcard">ZANZA<span class="sc high">23</span></span><span class="wcard">ZANZE<span class="sc high">23</span></span><span class="wcard">ZAQUE<span class="sc high">23</span></span><span class="wcard">ZAZEN<span class="sc high">23</span></span><span class="wcard">ZIZEL<span class="sc high">23</span></span><span class="wcard">ZIZIA<span class="sc high">23</span></span><span class="wcard">ZIZIT<span class="sc high">23</span></span><span class="wcard">ZOQUE<span class="sc high">23</span></span><span class="wcard">ZAKAH<span class="sc high">21</span></span><span class="wcard">ZAXES<span class="sc high">21</span></span><span class="wcard">ZIMMY<span class="sc high">21</span></span><span class="wcard">ZINKY<span class="sc high">21</span></span><span class="wcard">ZIPPY<span class="sc high">21</span></span><span class="wcard">ZOHAK<span class="sc high">21</span></span><span class="wcard">ZYMIC<span class="sc high">21</span></span><span class="wcard">ZHMUD<span class="sc high">20</span></span><span class="wcard">ZIFFS<span class="sc high">20</span></span><span class="wcard">ZILCH<span class="sc high">19</span></span><span class="wcard">ZINCY<span class="sc high">19</span></span></div>
+  <p style='margin-top:10px'><a href='/5-letter-words/'>See all 5-letter words â†’</a></p>
+</section>
+
+<section class="card">
+  <h2>Top Scrabble Words Starting With Z</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Word</th><th>Length</th><th>Scrabble</th><th>WWF</th></tr></thead>
+    <tbody><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zyzzyvas" rel="nofollow noopener" target="_blank">ZYZZYVAS</a></td><td>8</td><td><span class="pts-badge pts-scr">44</span></td><td><span class="pts-badge pts-wwf">43</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zyzzyva" rel="nofollow noopener" target="_blank">ZYZZYVA</a></td><td>7</td><td><span class="pts-badge pts-scr">43</span></td><td><span class="pts-badge pts-wwf">42</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zyzzogeton" rel="nofollow noopener" target="_blank">ZYZZOGETON</a></td><td>10</td><td><span class="pts-badge pts-scr">41</span></td><td><span class="pts-badge pts-wwf">42</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zoophytography" rel="nofollow noopener" target="_blank">ZOOPHYTOGRAPHY</a></td><td>14</td><td><span class="pts-badge pts-scr">40</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zanthoxylaceae" rel="nofollow noopener" target="_blank">ZANTHOXYLACEAE</a></td><td>14</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zulhijjah" rel="nofollow noopener" target="_blank">ZULHIJJAH</a></td><td>9</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">42</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zygomaxillary" rel="nofollow noopener" target="_blank">ZYGOMAXILLARY</a></td><td>13</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">40</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zygophyllaceous" rel="nofollow noopener" target="_blank">ZYGOPHYLLACEOUS</a></td><td>15</td><td><span class="pts-badge pts-scr">38</span></td><td><span class="pts-badge pts-wwf">41</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zygophyllaceae" rel="nofollow noopener" target="_blank">ZYGOPHYLLACEAE</a></td><td>14</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">39</span></td></tr><tr><td><a class="word-link" href="https://www.google.com/search?q=define+zymochemistry" rel="nofollow noopener" target="_blank">ZYMOCHEMISTRY</a></td><td>13</td><td><span class="pts-badge pts-scr">37</span></td><td><span class="pts-badge pts-wwf">37</span></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Z Words by Length</h2>
+  <table class="top-words-table">
+    <thead><tr><th>Category</th><th style="text-align:right">Count</th><th></th></tr></thead>
+    <tbody><tr><td>2-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">4</td><td style="text-align:right"><a href="/words-starting-with/z/?len=2" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>3-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">24</td><td style="text-align:right"><a href="/words-starting-with/z/?len=3" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>4-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">60</td><td style="text-align:right"><a href="/words-starting-with/z/?len=4" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>5-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">112</td><td style="text-align:right"><a href="/words-starting-with/z/?len=5" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>6-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">167</td><td style="text-align:right"><a href="/words-starting-with/z/?len=6" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>7-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">249</td><td style="text-align:right"><a href="/words-starting-with/z/?len=7" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>8-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">189</td><td style="text-align:right"><a href="/words-starting-with/z/?len=8" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>9-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">209</td><td style="text-align:right"><a href="/words-starting-with/z/?len=9" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>10-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">123</td><td style="text-align:right"><a href="/words-starting-with/z/?len=10" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>11-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">84</td><td style="text-align:right"><a href="/words-starting-with/z/?len=11" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>12-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">63</td><td style="text-align:right"><a href="/words-starting-with/z/?len=12" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>13-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">47</td><td style="text-align:right"><a href="/words-starting-with/z/?len=13" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>14-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">25</td><td style="text-align:right"><a href="/words-starting-with/z/?len=14" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr><tr><td>15-letter words starting with Z</td><td style="text-align:right;font-weight:700;color:var(--accent-2)">12</td><td style="text-align:right"><a href="/words-starting-with/z/?len=15" style="font-size:12px;color:var(--muted)">filter â†’</a></td></tr></tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Browse All Letters</h2>
+  <div class="letter-grid-nav"><a href="/words-starting-with/a/">A</a>
+<a href="/words-starting-with/b/">B</a>
+<a href="/words-starting-with/c/">C</a>
+<a href="/words-starting-with/d/">D</a>
+<a href="/words-starting-with/e/">E</a>
+<a href="/words-starting-with/f/">F</a>
+<a href="/words-starting-with/g/">G</a>
+<a href="/words-starting-with/h/">H</a>
+<a href="/words-starting-with/i/">I</a>
+<a href="/words-starting-with/j/">J</a>
+<a href="/words-starting-with/k/">K</a>
+<a href="/words-starting-with/l/">L</a>
+<a href="/words-starting-with/m/">M</a>
+<a href="/words-starting-with/n/">N</a>
+<a href="/words-starting-with/o/">O</a>
+<a href="/words-starting-with/p/">P</a>
+<a href="/words-starting-with/q/">Q</a>
+<a href="/words-starting-with/r/">R</a>
+<a href="/words-starting-with/s/">S</a>
+<a href="/words-starting-with/t/">T</a>
+<a href="/words-starting-with/u/">U</a>
+<a href="/words-starting-with/v/">V</a>
+<a href="/words-starting-with/w/">W</a>
+<a href="/words-starting-with/x/">X</a>
+<a href="/words-starting-with/y/">Y</a>
+<a href="/words-starting-with/z/" class="curr">Z</a></div>
+</section>
+
+<section class="card seo">
+  <h2>Words Starting With Z in Word Games</h2>
+  <p>The letter <b>Z</b> is worth 10 points in Scrabble. High-value tiles like J, Q, X, and Z are rare â€” words starting with these letters are powerful but you need the right board position.
+  The best strategy for words starting with <b>Z</b> is to look for plays that land the first letter on a premium square â€” Double Letter or Triple Letter Score squares boost your points significantly.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q">How many words start with Z?</div><div class="faq-a">There are <b>1,368 English words</b> that start with the letter Z in the standard dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What are the best 5-letter words starting with Z for Wordle?</div><div class="faq-a">There are 112 five-letter words starting with Z. Top picks by Scrabble score: ZMUDZ, ZANZA, ZANZE, ZAQUE, ZAZEN. Use the <a href="/wordle-solver/">Wordle Solver</a> to filter by additional clues.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the highest-scoring Scrabble word starting with Z?</div><div class="faq-a"><b>ZYZZYVAS</b> scores 44 base points in Scrabble â€” the highest-value word starting with Z.</div></div>
+</section>
+
+<script>
+HUB.init(["zyzzyvas","zyzzyva","zyzzogeton","zoophytography","zanthoxylaceae","zulhijjah","zygomaxillary","zygophyllaceous","zygophyllaceae","zymochemistry","zymophosphate","zanthorrhiza","zepharovichite","zigzaggedly","zigzagways","zinziberaceous","zizzling","zoomorphize","zoopsychology","zygapophyseal","zygapophysial","zygozoospore","zaklohpakap","zanthoxylum","zaqqum","zigzaggedness","zilchviticetum","zinziberaceae","zizzled","zoophytological","zoopraxiscope","zoopsychologist","zygapophyses","zygapophysis","zygomaxillare","zygophyceous","zigzaggery","zinjanthropus","zizyphus","zizzles","zoographically","zoophysiology","zygobranchiata","zygobranchiate","zygodactylism","zygomorphism","zygophyceae","zygophyllum","zygosporophore","zymotechnical","zigzagwise","zincographical","zinjanthropi","zizzle","zomotherapeutic","zoogeographical","zoophytology","zygodactylic","zygomorphic","zygomorphy","zymotechnics","zyzomys","zephyranthes","zeugobranchiata","zigzagging","zigzaggy","zoopathological","zoopharmacy","zoophytologist","zooxanthellae","zubeneschamali","zygobranchia","zygodactylous","zygomorphous","zygomycetous","zygosporangium","zymotechnic","zymotechny","zymotoxic","zambezian","zeolitization","zephyrlike","zeuctocoelomic","zigzagged","zincographic","zincography","zizz","zoisitization","zoochemistry","zoogeographic","zoogeography","zoologizing","zoomechanical","zoophysicist","zootaxonomist","zooxanthella","zugzwang","zwanziger","zygnemataceous","zygodactylae","zygomycetes","zymophoric","zymophyte","zymotize","zavijava","zenographical","zeolitizing","zephyranth","zeuctocoelomata","zeugmatically","zeugobranchia","zigzagger","zimmerwaldian","zimmerwaldist","zinkifying","zirconifluoride","zirconofluoride","zomotherapy","zoogeographies","zoologized","zoomechanics","zoopaleontology","zoopathology","zoophysical","zoophytical","zoophytish","zooplanktonic","zygnemataceae","zygobranch","zygodactyle","zygodactyli","zygomaticum","zygomycete","zygophoric","zygophyte","zygopteraceae","zymosthenic","zymotically","zambezi","zanzibari","zeaxanthin","zeolitized","zeuzeridae","zincification","zincographer","zoanthodemic","zoochemical","zoogeographer","zoographical","zooidiophilous","zoomorphism","zoopathologies","zoopathologist","zoophysics","zootechnician","zooxanthin","zophophori","zwiebacks","zygnemaceous","zygodactyl","zygosphenal","zygotaxis","zygotically","zymoplastic","zaddickim","zalambdodonta","zanzibar","zebrafishes","zenographic","zenography","ziczac","zincifying","zingiberaceous","zircofluoride","zitzith","zoidiophilous","zonoplacentalia","zoocoenocyte","zoodynamics","zoologize","zoomorphic","zoomorphy","zoophytic","zoophytoid","zoosporiferous","zoosporocyst","zootechnical","zootomically","zortzico","zwieback","zygnemaceae","zygomaticus","zygopterides","zygosphene","zygosphere","zygosporange","zymological","zymolytic","zymophore","zabajones","zalambdodont","zanclodontidae","zantedeschia","zanzalian","zaphrentidae","zarathustrism","zarzuelas","zenithwards","zenzuic","zeolitize","zephyrless","zephyry","zermahbub","zeuzerian","zigzags","zincize","zincograph","zingiberaceae","zinkiferous","zirconiferous","zizany","zizith","zoanthropy","zodiophilous","zolaesque","zombielike","zoobenthoic","zoocecidium","zoochemy","zoodynamic","zoographic","zoography","zoologically","zoonerythrin","zoophagineae","zoophilitic","zoospermatic","zoosporangium","zootechnics","zootherapy","zwinglianism","zygnematales","zygocactus","zygogenetic","zygolabialis","zygophore","zygosporic","zygotactic","zymoscope","zymosimeter","zabajone","zachariah","zalamboodont","zamboorak","zannichellia","zaphrentoid","zarzuela","zebrafish","zechariah","zelophobia","zenithward","zephaniah","zephyrean","zephyrian","zephyrous","zeuglodontidae","zigamorph","zigzag","zikkurats","zimbabwe","zinkified","zinkify","zippingly","zmudz","zoanthodeme","zonochlorite","zonoplacental","zoochlorella","zooerythrin","zooflagellate","zoogeological","zoographist","zoomagnetism","zoophiliac","zoophilism","zoophobous","zoophytal","zoophytes","zooplankton","zoospermium","zootaxy","zootechnic","zootechny","zoothecium","zootrophic","zootrophy","zucchettos","zumbooruk","zwitterionic","zygomatic","zygopleural","zygopterid","zygopterous","zygosperm","zygotoblast","zymogenesis","zymogenic","zymograms","zymologic","zymology","zymolysis","zaddikim","zambomba","zanyship","zaphrentid","zarathustrian","zauschneria","zecchinos","zephyrus","zeroaxial","zeroize","zeuglodontoid","zeuzera","zietrisikite","zikkurat","zimentwater","zinciferous","zinckenite","zincotype","zindiq","zinkifies","zinyamunga","zizania","zoanthacean","zolaize","zonolimnetic","zonoskeleton","zonotrichia","zoocystic","zoocytium","zoografting","zoographer","zoomagnetic","zoomastigoda","zoomimetic","zoomorphs","zoopantheon","zooparasitic","zoopathy","zoophagous","zoophilic","zoophily","zoophobes","zoophobia","zoophoric","zoophyta","zoophyte","zoosporangial","zootheistic","zoquean","zoroastrianism","zosteriform","zucchetti","zucchetto","zucchinis","zulkadah","zuluize","zwinglianist","zygnemales","zygogenesis","zygopteran","zygopteris","zygopteron","zygostyle","zygotomere","zymogenous","zymogram","zymologies","zymologist","zymolyis","zymometer","zymurgy","zaddick","zakuska","zakuski","zamindary","zanzas","zaphetic","zaphrentis","zazens","zebecks","zebralike","zebrawood","zecchini","zecchino","zecchins","zelatrix","zelkovas","zemindary","zenelophon","zenocentric","zephyrs","zequin","zestfully","zincified","zincify","zincking","zincky","zincolysis","zinnwaldite","zinzar","ziphiidae","zipppiest","zitzit","zlotych","zoanthacea","zoehemerae","zoidogamous","zollpfund","zombiisms","zonaesthesia","zoobenthos","zoodendrium","zoofulvin","zoogeology","zoogonidium","zoomancy","zoomastigina","zoometrical","zoomorph","zoonosology","zoophagan","zoophagus","zoophilies","zoophilist","zoophilite","zoophilous","zoophism","zoophobe","zoophorous","zooscopic","zooscopy","zoosporangia","zoothecial","zoototemism","zootoxin","zootypic","zoozoo","zucchini","zygadenine","zygaenidae","zygantrum","zygoptera","zygosity","zygospore","zymogenes","zymosterol","zymurgies","zakkeu","zanjero","zanjona","zanza","zanze","zaque","zazen","zealproof","zebeck","zecchin","zechstein","zelkova","zelotypia","zelotypie","zemimdari","zendikite","zephyr","zestfulness","zeuglodontia","zeugmatic","zeuxian","zeuxite","zibethone","zincifies","zincked","zingiberene","zingiberone","ziphiinae","ziphioid","zippering","zipppier","zircalloy","zizel","zizia","zizit","zoantharian","zoanthidae","zoanthidea","zoehemera","zombiism","zonesthesia","zoochem","zoochores","zoocytial","zoogeologist","zoolithic","zoomimic","zoonomical","zoonosologist","zoophaga","zoophiles","zoophilia","zoophorus","zooplastic","zooplasty","zoospermia","zoosphere","zoosporange","zoothecia","zootheism","zootomical","zoque","zorotypus","zosteropinae","zugtierlaster","zygadenin","zygadenus","zygomata","zygosities","zymogene","zymogens","zymomin","zymotic","zythem","zythum","zabaglione","zaboglione","zadokite","zaffars","zaffers","zaffirs","zaffree","zaffres","zalophus","zamiaceae","zampogna","zanjon","zantewood","zanyish","zapateados","zapodidae","zaporogian","zapotecan","zaptiahs","zaptiehs","zardushti","zebrinny","zemstvos","zephiran","zeppelins","zeuglodonta","zillionths","zimbaloon","zimocca","zinfandel","zingaresca","zingiberol","zinkenite","zippered","zircaloy","zirconium","zirconyl","zirkelite","zitherists","zoantharia","zoanthoid","zoeaform","zoetropic","zollverein","zoniferous","zonociliate","zoochore","zoocultural","zoogamy","zoological","zoomantic","zoometric","zoometry","zooparasite","zoophile","zoophori","zoosperms","zoosporic","zoothome","zophorus","zoroastrism","zosteraceae","zuccarino","zuchetto","zuffolo","zuurveldt","zuza","zwieselite","zwinglian","zwitterion","zydecos","zygadite","zygaenid","zygnema","zygodont","zygomas","zygoneure","zygotenes","zygotic","zygotoid","zymogen","zymome","zymosans","zacateco","zaddik","zaffar","zaffer","zaffir","zaffre","zakah","zambac","zambians","zamicrus","zamindari","zamindars","zanclidae","zanclodon","zanyism","zapateado","zaphara","zapodinae","zaporogue","zapoteco","zapping","zaptiah","zaptieh","zaptoeca","zarabanda","zarnich","zaxes","zeallessness","zealotical","zealously","zebrinnies","zebulunite","zechins","zemindari","zemindars","zemstroist","zemstva","zemstvo","zendician","zenick","zeoscope","zeppelin","zerumbet","zetacism","zeuglodont","zibeths","ziganka","zikurats","zilches","zillionth","zimbalon","zimmy","zincke","zindabad","zinky","zionward","ziphian","ziphius","zippeite","zippiest","zipping","zippy","zirconic","zirconoid","zitherist","zoanthid","zoarcidae","zoeform","zohak","zolotink","zolotnik","zonelike","zooculture","zoocurrent","zoocyst","zoodendria","zooecium","zoogamete","zoogamous","zoogloeic","zoograft","zoomantist","zoomelanin","zoometries","zoonomic","zoonomy","zoopery","zoosperm","zoosporous","zootheist","zootomic","zootomy","zootype","zophori","zoroastrians","zugtierlast","zydeco","zygantra","zygenid","zygoma","zygotene","zymases","zymic","zymoid","zymosan","zymoses","zymosis","zyryan","zythia","zabaiones","zabaism","zaberma","zacatec","zachun","zambian","zamindar","zaminder","zandmole","zapotec","zapped","zealanders","zealotism","zealotry","zealousness","zealousy","zebraic","zebrasses","zechin","zedoary","zelatrice","zemeism","zemiism","zemindar","zenaidinae","zendik","zenithal","zeuglodon","zhmud","zibelines","zibelline","zibeth","zibetum","ziffs","ziggurats","zikurat","zilpah","zincenite","zingiber","zinked","zionistic","zipped","zippers","zippier","zirconate","zirconian","zirconias","zirkite","zitherns","zoanthus","zobtenite","zoccolo","zodiacal","zoharist","zoharite","zoiatrics","zolaistic","zombies","zonality","zonetimes","zonitoides","zonked","zoocarp","zoogenesis","zoogenic","zoogeny","zoogonic","zoogony","zookers","zoolatry","zoologic","zoologists","zoology","zoomanias","zoonomist","zooperist","zoosmosis","zoospgia","zoospores","zootomies","zootomist","zoraptera","zoroastrian","zosterops","zuleika","zumatic","zurich","zygaena","zygoid","zygoses","zygosis","zygotes","zymase","zymite","zyrenian","zabaione","zabism","zacatons","zack","zaftig","zagging","zaglossus","zaibatsu","zamarras","zamarros","zambal","zambia","zambra","zamorine","zaninesses","zaparoan","zapateos","zapatero","zapupe","zareebas","zaurak","zax","zealander","zealful","zealotic","zealotries","zebecs","zebedee","zebroid","zedoaries","zeekoe","zeelander","zeguha","zeitgeist","zeltinger","zenaidura","zeniths","zeolitic","zeroeth","zestful","zeugmas","zibeline","zibetone","ziff","zigging","ziggurat","zilch","zillahs","zimmis","zincates","zincic","zincide","zincing","zincites","zincode","zincoid","zincum","zincuret","zincy","zingerone","zipper","zirbanit","zirconia","zithern","zithers","zoacum","zodiacs","zoetrope","zoftig","zombie","zombis","zonally","zonetime","zonitidae","zonuridae","zooblast","zooecial","zooerastia","zoogenous","zoogloeae","zoogloeal","zoogloeas","zoogonous","zoolatries","zoolatrous","zoolith","zoolitic","zoologies","zoologist","zoomania","zooming","zoonitic","zoonomia","zoonotic","zooperal","zoospore","zopilote","zorillinae","zouaves","zoysias","zuludom","zunyite","zupanate","zwitter","zygion","zygite","zygose","zygote","zygous","zymes","zymin","zabaean","zaburro","zacaton","zach","zadruga","zafree","zagged","zaitha","zakat","zamang","zamarra","zamarro","zambo","zamenis","zamorin","zamouse","zaniah","zanily","zaparan","zapateo","zaratites","zarebas","zareeba","zaribas","zastruga","zastrugi","zayins","zealotist","zebec","zebrass","zebrina","zebrine","zebrula","zebrule","zebub","zebulun","zeburro","zehner","zeilanite","zelotic","zemmi","zenaidas","zendic","zenith","zenobia","zenonic","zeroth","zestiness","zetetic","zeugma","zeunerite","zigged","zillah","zimarra","zimbi","zimme","zimmi","zincalo","zincate","zinced","zincid","zincite","zincous","zingiest","zinging","zingy","zinke","zinober","zionism","zipless","zirak","zircite","zircons","zirianian","zither","zlotys","zoarces","zoarium","zocco","zodiac","zoilism","zoistic","zokor","zolaism","zollernia","zombi","zonary","zonations","zonuroid","zooecia","zoogeog","zoogleae","zoogleal","zoogleas","zoogloea","zooks","zoolaters","zoolatria","zoologer","zoomed","zoopsia","zoosterol","zootoca","zoroaster","zoroastra","zouave","zoysia","zucco","zufolo","zygal","zygon","zyme","zyrian","zabeta","zabian","zabtie","zacate","zairians","zamias","zanders","zaniness","zantiote","zapara","zaparo","zapota","zapote","zaramo","zaratite","zareba","zarema","zarfs","zariba","zarnec","zayat","zayin","zealand","zealless","zebras","zeke","zeks","zelanian","zenaida","zenonian","zeoidei","zeolites","zereba","zeroing","zestiest","zesting","zestless","zesty","zeugite","ziamet","zibets","zigger","zihar","zillions","zimb","zinebs","zingana","zingani","zingano","zingara","zingare","zingari","zingaro","zinged","zingers","zingier","zink","zinsang","zionists","zionless","zirams","zircon","zloty","zocalo","zoetic","zoiatria","zoisites","zonated","zonation","zoneless","zongora","zonitid","zonurid","zoogene","zooglea","zoogler","zooidal","zoolater","zoonic","zoonoses","zoonosis","zootic","zooty","zorgite","zorillas","zorilles","zorillos","zorrillo","zowie","zulinde","zutugil","zyga","zabra","zabti","zagaie","zaguan","zairian","zak","zaman","zamia","zananas","zander","zanella","zaniest","zanonia","zantiot","zany","zapas","zapus","zarf","zattare","zealed","zealots","zealous","zeatins","zebra","zebus","zeidae","zeism","zek","zelator","zemni","zenaga","zenanas","zendos","zentner","zeolite","zerma","zeroed","zested","zestier","zibet","zieger","zillion","zinco","zincs","zineb","zingel","zinger","zinnias","zionist","zionite","ziram","zittern","zloties","zoarial","zoarite","zoilean","zoilist","zoisite","zoism","zolaist","zonaria","zonelet","zonic","zoning","zonites","zonoid","zontian","zonulae","zonular","zonulas","zonules","zonulet","zonurus","zooids","zoolite","zooms","zoonist","zoonite","zoonule","zorilla","zorille","zorillo","zosma","zostera","zosters","zounds","zudda","zurlite","zaires","zanana","zande","zanier","zanies","zaps","zarp","zealot","zeatin","zebu","zelant","zeme","zemi","zenana","zendo","zerda","zeroes","zho","ziarat","ziega","zigan","zinc","zings","zinnia","zipa","zips","zirian","zitter","zoaria","zobo","zogan","zoic","zoilus","zonate","zonda","zoned","zoners","zonite","zonnar","zonula","zonule","zonure","zooid","zoom","zoonal","zoosis","zooter","zorils","zoster","zubr","zuisin","zunian","zac","zags","zaire","zante","zap","zeals","zeds","zeed","zeins","zeiss","zeist","zend","zep","zeros","zests","zetas","ziara","zigs","zilla","zills","zing","zip","zirai","zitis","zlote","zoaea","zoeae","zoeal","zoeas","zogo","zoid","zoist","zolle","zonal","zonar","zoner","zones","zonta","zoona","zoons","zoril","zoris","zorro","zulus","zunis","zad","zag","zain","zant","zati","zeal","zed","zees","zein","zenu","zero","zest","zeta","zeus","zig","zila","zill","zion","zira","ziti","zits","zod","zoea","zoll","zona","zone","zool","zoon","zoos","zori","zulu","zuni","zan","zar","zat","zea","zee","zel","zen","zer","zit","zoa","zoo","za","zn","zo","zs"]);
+function filterLen(n){
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  HUB.setFilter('len', n);
+}
+// Handle URL param ?len=N
+(function(){
+  var m = location.search.match(/len=(\d+)/);
+  if(m) HUB.setFilter('len', +m[1]);
+})();
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

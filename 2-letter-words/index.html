@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two-Letter Words â€” All 427 Words | Scrabble & Word Games | WordFindLab</title>
+<meta name="description" content="Complete list of all 427 2-letter English words. Filter by starting letter, find top Scrabble plays, and explore every 2-letter word.">
+<link rel="canonical" href="https://wordfindlab.com/2-letter-words/">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* â”€â”€ Hub page styles â”€â”€ */
+.hub-filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center; margin-bottom: 18px;
+}
+.hub-filter-bar input[type=text] {
+  flex: 1; min-width: 140px; max-width: 220px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 12px; font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+}
+.hub-filter-bar input:focus { border-color: var(--accent); }
+.hub-filter-bar select {
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 10px; font-size: 13px; color: var(--ink);
+  background: var(--surface); cursor: pointer;
+}
+.alpha-strip { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 14px; }
+.alpha-strip button {
+  width: 30px; height: 30px; border: 1.5px solid var(--border);
+  border-radius: 5px; background: var(--surface); font-weight: 700;
+  font-size: 12px; color: var(--ink); cursor: pointer; transition: all .15s;
+}
+.alpha-strip button:hover, .alpha-strip button.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.alpha-strip button.clear-btn {
+  width: auto; padding: 0 10px; background: var(--bg);
+  color: var(--muted); font-weight: 600; font-size: 11px;
+}
+.word-grid { display: flex; flex-wrap: wrap; gap: 6px; min-height: 60px; }
+.wcard {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 7px; padding: 6px 12px;
+  font-weight: 700; font-size: 13px; letter-spacing: .05em;
+  cursor: pointer; transition: border-color .15s, transform .1s;
+  text-decoration: none; color: var(--ink);
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--accent); text-decoration: none; }
+.wcard .sc {
+  font-size: 10px; font-weight: 700; color: var(--accent-2);
+  background: rgba(5,150,105,.08); border-radius: 3px; padding: 1px 4px;
+}
+.wcard .sc.high { color: var(--warn); background: rgba(217,119,6,.10); }
+.results-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.load-more-btn {
+  display: block; margin: 18px auto 0;
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 10px 28px;
+  font-size: 14px; font-weight: 600; color: var(--accent);
+  cursor: pointer; transition: border-color .15s;
+}
+.load-more-btn:hover { border-color: var(--accent); }
+.tab-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab-btn {
+  padding: 7px 16px; border: 1.5px solid var(--border);
+  border-radius: 999px; background: var(--surface);
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all .15s;
+}
+.tab-btn:hover, .tab-btn.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.stats-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.stat-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 16px; text-align: center;
+}
+.stat-pill .num { font-size: 22px; font-weight: 800; color: var(--accent-2); }
+.stat-pill .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.06em; }
+.top-words-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.top-words-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.top-words-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.top-words-table tr:hover td { background: var(--bg); }
+.word-link { font-weight: 700; color: var(--ink); text-decoration: none; }
+.word-link:hover { color: var(--accent); }
+.pts-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.pts-scr { background: rgba(37,99,235,.1); color: var(--accent); }
+.pts-wwf { background: rgba(5,150,105,.1); color: var(--accent-2); }
+.letter-grid-nav { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+.letter-grid-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-weight: 700; font-size: 14px; color: var(--ink);
+  text-decoration: none; transition: all .15s;
+}
+.letter-grid-nav a:hover, .letter-grid-nav a.curr {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.faq-item { border-top: 1px solid var(--border); padding: 14px 0; }
+.faq-q { font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 18px; color: var(--accent); }
+.faq-a { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; display: none; }
+.faq-item.open .faq-q::after { content: "âˆ’"; }
+.faq-item.open .faq-a { display: block; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.related-pages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.related-pages a {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 13px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--ink); text-decoration: none;
+  transition: border-color .15s;
+}
+.related-pages a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Two-Letter Words",
+  "description": "Complete list of all 427 2-letter English words. Filter by starting letter, find top Scrabble plays, and explore every 2-letter word.",
+  "url": "https://wordfindlab.com/2-letter-words/",
+  "numberOfItems": 427,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "XX",
+      "description": "XX â€” Scrabble score: 16 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "FZ",
+      "description": "FZ â€” Scrabble score: 14 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HQ",
+      "description": "HQ â€” Scrabble score: 14 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "QH",
+      "description": "QH â€” Scrabble score: 14 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "QV",
+      "description": "QV â€” Scrabble score: 14 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "QY",
+      "description": "QY â€” Scrabble score: 14 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "BZ",
+      "description": "BZ â€” Scrabble score: 13 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "CQ",
+      "description": "CQ â€” Scrabble score: 13 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "PQ",
+      "description": "PQ â€” Scrabble score: 13 points"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "QM",
+      "description": "QM â€” Scrabble score: 13 points"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many 2-letter words are in English?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 427 words that are exactly 2 letters long in the standard English dictionary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I filter 2-letter words?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the filter bar above. Type in \"Starts with\", \"Ends with\", or \"Contains\" to narrow down the list instantly. No page reload needed."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">ðŸ”¤ WordFindLab</a>
+    <div class="nav-links"><a href="/" class="active">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div>
+  </div>
+</nav>
+<div class="page-wrap">
+  <main class="page-main">
+    <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">â€º</span> <span style="color:var(--ink)">Two-Letter Words</span></div>
+    
+<div class="page-header">
+  <h1>Two-Letter Words</h1>
+  <p>All <b>427 2-letter words</b> in the English dictionary. Filter, sort, and score them for Scrabble, Words With Friends, and word puzzles.</p>
+</div>
+<div class="ad-slot ad-slot-banner"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <div class="stats-row">
+    <div class="stat-pill"><div class="num">427</div><div class="lbl">Total 2-letter words</div></div>
+    <div class="stat-pill"><div class="num">16</div><div class="lbl">Best Scrabble score</div></div>
+    <div class="stat-pill"><div class="num">414</div><div class="lbl">Unique letters only</div></div>
+  </div>
+  <div class="hub-filter-bar">
+    <input id="startsInput" type="text" maxlength="3" placeholder="Starts withâ€¦" oninput="HUB.setFilter('starts',this.value)">
+    <input id="endsInput"   type="text" maxlength="3" placeholder="Ends withâ€¦"   oninput="HUB.setFilter('ends',this.value)">
+    <input id="containsInput" type="text" maxlength="3" placeholder="Containsâ€¦"  oninput="HUB.setFilter('contains',this.value)">
+    <select onchange="HUB.setSort(this.value)"><option value="score">Sort: Top score</option><option value="alpha">Sort: Aâ€“Z</option></select>
+    <select onchange="HUB.setScoreMode(this.value)"><option value="scrabble">Scrabble pts</option><option value="wwf">WWF pts</option></select>
+    <button onclick="HUB.clearAll()" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--bg);font-size:13px;cursor:pointer;color:var(--muted)">âœ• Clear</button>
+  </div>
+  <div id="resultsMeta" class="results-meta"></div>
+  <div id="wordGrid" class="word-grid"></div>
+  <button id="loadMoreBtn" class="load-more-btn" onclick="HUB.loadMore()" style="display:none">Load more words</button>
+</section>
+<div class="ad-slot ad-slot-banner" style="margin-top:24px"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+<section class="card">
+  <h2>Highest-Scoring Two-Letter Scrabble Words</h2>
+  <table class="top-words-table"><thead><tr><th>Word</th><th>Scrabble</th><th>WWF</th></tr></thead><tbody><tr><td><b>XX</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">16</td><td style="text-align:right;color:var(--muted)">16</td></tr><tr><td><b>FZ</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">14</td><td style="text-align:right;color:var(--muted)">14</td></tr><tr><td><b>HQ</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">14</td><td style="text-align:right;color:var(--muted)">13</td></tr><tr><td><b>QH</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">14</td><td style="text-align:right;color:var(--muted)">13</td></tr><tr><td><b>QV</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">14</td><td style="text-align:right;color:var(--muted)">15</td></tr><tr><td><b>QY</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">14</td><td style="text-align:right;color:var(--muted)">13</td></tr><tr><td><b>BZ</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">13</td><td style="text-align:right;color:var(--muted)">14</td></tr><tr><td><b>CQ</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">13</td><td style="text-align:right;color:var(--muted)">14</td></tr><tr><td><b>PQ</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">13</td><td style="text-align:right;color:var(--muted)">14</td></tr><tr><td><b>QM</b></td><td style="text-align:right;font-weight:700;color:var(--accent)">13</td><td style="text-align:right;color:var(--muted)">14</td></tr></tbody></table>
+</section>
+<section class="card">
+  <h2>Sample Two-Letter Words</h2>
+  <div class="word-grid" style="margin-top:12px"><span class="wcard">AA<span class="sc">2</span></span><span class="wcard">AB<span class="sc">4</span></span><span class="wcard">AC<span class="sc">4</span></span><span class="wcard">AD<span class="sc">3</span></span><span class="wcard">AE<span class="sc">2</span></span><span class="wcard">AF<span class="sc">5</span></span><span class="wcard">AG<span class="sc">3</span></span><span class="wcard">AH<span class="sc">5</span></span><span class="wcard">AI<span class="sc">2</span></span><span class="wcard">AK<span class="sc">6</span></span><span class="wcard">AL<span class="sc">2</span></span><span class="wcard">AM<span class="sc">4</span></span><span class="wcard">AN<span class="sc">2</span></span><span class="wcard">AO<span class="sc">2</span></span><span class="wcard">AP<span class="sc">4</span></span><span class="wcard">AQ<span class="sc high">11</span></span><span class="wcard">AR<span class="sc">2</span></span><span class="wcard">AS<span class="sc">2</span></span><span class="wcard">AT<span class="sc">2</span></span><span class="wcard">AV<span class="sc">5</span></span><span class="wcard">AW<span class="sc">5</span></span><span class="wcard">AX<span class="sc">9</span></span><span class="wcard">AY<span class="sc">5</span></span><span class="wcard">AZ<span class="sc high">11</span></span><span class="wcard">BA<span class="sc">4</span></span><span class="wcard">BB<span class="sc">6</span></span><span class="wcard">BD<span class="sc">5</span></span><span class="wcard">BE<span class="sc">4</span></span><span class="wcard">BF<span class="sc">7</span></span><span class="wcard">BG<span class="sc">5</span></span></div>
+</section>
+<section class="card seo">
+  <h2>About Two-Letter Words</h2>
+  <p>Two-letter words are short words in English. There are <b>427</b> of them in the standard dictionary. In Scrabble, 2-letter words can score well on premium squares, and words in this range are common on the board.</p>
+  <div class="faq-item"><div class="faq-q">How many 2-letter words are in English?</div><div class="faq-a">There are <b>427 words</b> that are exactly 2 letters long in the standard English dictionary.</div></div>
+  <div class="faq-item"><div class="faq-q">What is the highest-scoring 2-letter word in Scrabble?</div><div class="faq-a"><b>XX</b> scores 16 base points â€” one of the highest-value 2-letter plays available.</div></div>
+  <div class="faq-item"><div class="faq-q">How do I filter 2-letter words?</div><div class="faq-a">Use the filter bar above. Type in "Starts with", "Ends with", or "Contains" to narrow down the list instantly. No page reload needed.</div></div>
+</section>
+<section class="card"><h2>Browse by Starting Letter</h2><div class="letter-grid-nav"><a href="/words-starting-with/a/">A</a>
+<a href="/words-starting-with/b/">B</a>
+<a href="/words-starting-with/c/">C</a>
+<a href="/words-starting-with/d/">D</a>
+<a href="/words-starting-with/e/">E</a>
+<a href="/words-starting-with/f/">F</a>
+<a href="/words-starting-with/g/">G</a>
+<a href="/words-starting-with/h/">H</a>
+<a href="/words-starting-with/i/">I</a>
+<a href="/words-starting-with/j/">J</a>
+<a href="/words-starting-with/k/">K</a>
+<a href="/words-starting-with/l/">L</a>
+<a href="/words-starting-with/m/">M</a>
+<a href="/words-starting-with/n/">N</a>
+<a href="/words-starting-with/o/">O</a>
+<a href="/words-starting-with/p/">P</a>
+<a href="/words-starting-with/q/">Q</a>
+<a href="/words-starting-with/r/">R</a>
+<a href="/words-starting-with/s/">S</a>
+<a href="/words-starting-with/t/">T</a>
+<a href="/words-starting-with/u/">U</a>
+<a href="/words-starting-with/v/">V</a>
+<a href="/words-starting-with/w/">W</a>
+<a href="/words-starting-with/x/">X</a>
+<a href="/words-starting-with/y/">Y</a>
+<a href="/words-starting-with/z/">Z</a></div></section>
+<div class="related-pages" style="margin-top:16px"><a href="/3-letter-words/">3-letter words &rarr;</a></div>
+<script>
+HUB.init(["XX","FZ","HQ","QH","QV","QY","BZ","CQ","PQ","QM","QP","DZ","XW","AQ","AZ","BX","EQ","IQ","OZ","QE","QL","QN","QR","QS","QT","QU","SQ","XC","ZA","ZN","ZO","ZS","DJ","DX","JG","XD","AX","EX","IX","JA","JI","JO","JR","JS","JT","JU","KV","KW","KY","LX","NJ","OX","TX","UX","WK","XI","XR","XS","XU","BK","CK","FF","FV","FW","FY","HF","HV","HW","HY","KB","KC","KM","MK","PK","VV","WF","WH","WY","BF","BV","BY","CF","CH","CV","CY","DK","FB","FC","FM","FP","HB","HM","HP","KG","MF","MH","MV","MW","MY","PF","PH","VB","VC","VP","WB","WC","WM","YM","AK","BB","BM","BP","CB","CC","CM","CP","DY","FG","GV","HD","HG","IK","KA","KI","KL","KN","KO","KR","KT","MB","MC","MM","MP","OK","PC","PM","PP","SK","TK","VD","VG","WD","WG","YD","AF","AH","AV","AW","AY","BD","BG","CD","CG","DB","DC","DM","DP","EF","EH","EW","EY","FA","FE","FI","FL","FN","FO","FR","FS","FT","FU","GM","GP","HA","HE","HI","HL","HO","HR","HS","HT","HU","IF","IV","IW","LF","LH","LV","LY","MD","MG","NV","NY","OF","OH","OW","OY","PD","PG","RF","RH","SF","SH","SV","SW","TH","TV","UH","VA","VI","VL","VO","VR","VS","VT","VU","WA","WE","WI","WL","WO","WR","WS","WT","WU","YA","YE","YI","YN","YO","YR","YS","YT","AB","AC","AM","AP","BA","BE","BI","BL","BN","BO","BR","BS","BT","BU","CA","CE","CL","CO","CR","CS","CT","CU","DD","DG","EC","EM","EP","GD","IB","IC","IM","LB","LC","LM","LP","MA","ME","MI","ML","MN","MO","MR","MS","MT","MU","NB","NM","NP","OB","OC","OM","OP","PA","PE","PI","PL","PO","PR","PS","PT","PU","RC","RM","SB","SC","SM","SP","TB","TC","TM","TP","UC","UM","UP","AD","AG","DA","DE","DI","DL","DN","DO","DR","DS","DT","DU","ED","EG","GA","GE","GI","GL","GN","GO","GR","GS","GT","GU","ID","LD","LG","ND","NG","OD","OG","RD","RG","SD","SG","TD","TG","UD","UG","AA","AE","AI","AL","AN","AO","AR","AS","AT","EA","EE","EL","EN","EO","ER","ES","ET","EU","IA","IE","II","IL","IN","IO","IR","IS","IT","LA","LE","LI","LL","LN","LO","LR","LS","LT","LU","NA","NE","NI","NL","NO","NR","NS","NT","NU","OE","OL","ON","OR","OS","OT","RA","RE","RN","RO","RS","RT","SA","SE","SI","SL","SN","SO","SR","SS","ST","SU","TA","TE","TI","TN","TO","TR","TS","TU","UI","UN","UR","US","UT"]);
+</script>
+
+  </main>
+  <aside class="page-sidebar">
+  <div class="ad-slot ad-slot-rect"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  <div class="card tools-widget">
+    <div class="tools-widget-title">Word Tools</div>
+    <div class="tools-widget-links">
+      <a href="/"><span class="ico">ðŸ”€</span>Word Unscrambler</a>
+      <a href="/scrabble-word-finder/"><span class="ico">ðŸŽ¯</span>Scrabble Finder</a>
+      <a href="/wordle-solver/"><span class="ico">ðŸŸ©</span>Wordle Solver</a>
+      <a href="/anagram-solver/"><span class="ico">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/words-with-friends-cheat/"><span class="ico">ðŸ’¬</span>Words With Friends</a>
+      <a href="/jumble-solver/"><span class="ico">ðŸ—žï¸</span>Jumble Solver</a>
+    </div>
+  </div>
+  <div class="ad-slot ad-slot-sidebar"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7302891841207454"
+     data-ad-slot="3800623751"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+</aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Unscrambler</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/words-with-friends-cheat/">Words With Friends</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      
+    </div>
+    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+  </div>
+</footer>
+<script>
+// Hub page shared JS â€” word filtering, sorting, display
+var HUB = (function(){
+  var allWords = [], filtered = [], shown = 0;
+  var BATCH = 150;
+  var filters = { starts:'', ends:'', contains:'', len:0, sort:'score' };
+  var scoreMode = 'scrabble';
+
+  function init(words){ allWords = words; applyFilters(); }
+
+  function applyFilters(){
+    var f = filters;
+    filtered = allWords.filter(function(w){
+      if(f.starts && !w.startsWith(f.starts.toLowerCase())) return false;
+      if(f.ends   && !w.endsWith(f.ends.toLowerCase()))   return false;
+      if(f.contains && w.indexOf(f.contains.toLowerCase()) < 0) return false;
+      if(f.len && w.length !== f.len) return false;
+      return true;
+    });
+    if(filters.sort === 'score'){
+      filtered.sort(function(a,b){
+        var sa = scoreMode==='wwf'?wwfScore(a):scrScore(a);
+        var sb = scoreMode==='wwf'?wwfScore(b):scrScore(b);
+        return sb-sa || a.localeCompare(b);
+      });
+    } else if(filters.sort === 'alpha'){
+      filtered.sort();
+    } else if(filters.sort === 'len'){
+      filtered.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });
+    }
+    shown = 0;
+    renderWords(true);
+    updateMeta();
+  }
+
+  function renderWords(reset){
+    var grid = document.getElementById('wordGrid');
+    if(!grid) return;
+    if(reset) grid.innerHTML='';
+    var end = Math.min(shown + BATCH, filtered.length);
+    for(var i=shown; i<end; i++){
+      var w = filtered[i];
+      var sc = scoreMode==='wwf'?wwfScore(w):scrScore(w);
+      var high = sc>=10 ? ' high':'';
+      var el = document.createElement('span');
+      el.className = 'wcard';
+      el.title = 'Click to copy Â· Scrabble: '+scrScore(w)+' pts Â· WWF: '+wwfScore(w)+' pts';
+      el.innerHTML = w.toUpperCase()+'<span class="sc'+high+'">'+sc+'</span>';
+      el.onclick = function(){ copyToClipboard(this.querySelector('.sc').previousSibling.textContent || this.textContent.replace(/\d+$/,'')); };
+      grid.appendChild(el);
+    }
+    shown = end;
+    var btn = document.getElementById('loadMoreBtn');
+    if(btn) btn.style.display = shown < filtered.length ? '' : 'none';
+  }
+
+  function updateMeta(){
+    var m = document.getElementById('resultsMeta');
+    if(m) m.textContent = filtered.length.toLocaleString()+' words found'+(shown<filtered.length?' (showing '+shown+')':'');
+  }
+
+  function copyToClipboard(text){
+    try{ navigator.clipboard.writeText(text); } catch(e){}
+  }
+
+  function scrScore(w){
+    var SP={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(SP[c]||0);},0);
+  }
+  function wwfScore(w){
+    var WP={a:1,b:4,c:4,d:2,e:1,f:4,g:3,h:3,i:1,j:10,k:5,l:2,m:4,n:2,o:1,p:4,q:10,r:1,s:1,t:1,u:2,v:5,w:4,x:8,y:3,z:10};
+    return w.toLowerCase().split('').reduce(function(s,c){return s+(WP[c]||0);},0);
+  }
+
+  return {
+    init: init,
+    loadMore: function(){ renderWords(false); },
+    setFilter: function(k,v){ filters[k]=v; applyFilters(); },
+    setSort: function(v){ filters.sort=v; applyFilters(); },
+    setScoreMode: function(m){ scoreMode=m; applyFilters(); },
+    setStartsWith: function(v){ filters.starts=v; applyFilters(); },
+    setLength: function(n){ filters.len=n; applyFilters(); },
+    clearAll: function(){
+      filters={starts:'',ends:'',contains:'',len:0,sort:'score'};
+      document.querySelectorAll('.alpha-strip button').forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('#startsInput,#endsInput,#containsInput').forEach(function(i){i.value='';});
+      var sel = document.getElementById('lenSelect');
+      if(sel) sel.value='0';
+      applyFilters();
+    },
+    getCount: function(){ return filtered.length; }
+  };
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
