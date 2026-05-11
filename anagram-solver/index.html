@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://wordfindlab.com/anagram-solver/">
-<title>Anagram Solver â€” Find Perfect Anagrams of Any Word</title>
+<title>Anagram Solver — Find Perfect Anagrams of Any Word</title>
 <meta name="description" content="Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters. Great for crossword clues and word puzzles.">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
@@ -101,7 +101,7 @@
 
     <div class="page-header">
       <h1>Anagram Solver</h1>
-      <p>Enter any word or set of letters and find every anagram that uses <em>all</em> of your letters â€” perfect for crossword clues and word puzzles.</p>
+      <p>Enter any word or set of letters and find every anagram that uses <em>all</em> of your letters — perfect for crossword clues and word puzzles.</p>
     </div>
 
     <div class="ad-wrap">
@@ -144,23 +144,23 @@
     <p>An anagram is a word or phrase formed by rearranging all the letters of another word or phrase. Unlike a general word unscrambler, an anagram solver only shows words that use <em>every single letter</em> exactly once. For example, the letters in <b>LISTEN</b> rearrange into <b>SILENT</b>, <b>ENLIST</b>, and <b>TINSEL</b>.</p>
     <h2>Famous anagram pairs</h2>
     <ul>
-      <li><b>ASTRONOMER</b> â†’ MOON STARER</li>
-      <li><b>DORMITORY</b> â†’ DIRTY ROOM</li>
-      <li><b>CONVERSATION</b> â†’ VOICES RANT ON</li>
-      <li><b>SCHOOL MASTER</b> â†’ THE CLASSROOM</li>
-      <li><b>ELECTION RESULTS</b> â†’ LIES, LET'S RECOUNT</li>
+      <li><b>ASTRONOMER</b> → MOON STARER</li>
+      <li><b>DORMITORY</b> → DIRTY ROOM</li>
+      <li><b>CONVERSATION</b> → VOICES RANT ON</li>
+      <li><b>SCHOOL MASTER</b> → THE CLASSROOM</li>
+      <li><b>ELECTION RESULTS</b> → LIES, LET'S RECOUNT</li>
     </ul>
     <h2>Using anagrams in crosswords</h2>
-    <p>Cryptic crossword clues often include an anagram indicator â€” words like <em>scrambled, confused, rearranged, mixed, wild,</em> or <em>around</em>. When you spot one of these signal words next to a cluster of letters, enter them here to find the answer word instantly.</p>
+    <p>Cryptic crossword clues often include an anagram indicator — words like <em>scrambled, confused, rearranged, mixed, wild,</em> or <em>around</em>. When you spot one of these signal words next to a cluster of letters, enter them here to find the answer word instantly.</p>
 
     <div class="related-tools">
       <div class="related-tools-label">Related Tools</div>
       <div class="related-links">
-        <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
-        <a class="related-link" href="/scrabble-word-finder/">ðŸŽ¯ Scrabble Finder</a>
-        <a class="related-link" href="/wordle-solver/">ðŸŸ© Wordle Solver</a>
-        <a class="related-link" href="/words-with-friends-cheat/">ðŸ’¬ Words With Friends</a>
-        <a class="related-link" href="/jumble-solver/">ðŸ—žï¸ Jumble Solver</a>
+        <a class="related-link" href="/">🔀 Word Unscrambler</a>
+        <a class="related-link" href="/scrabble-word-finder/">🎯 Scrabble Finder</a>
+        <a class="related-link" href="/wordle-solver/">🟩 Wordle Solver</a>
+        <a class="related-link" href="/words-with-friends-cheat/">💬 Words With Friends</a>
+        <a class="related-link" href="/jumble-solver/">🗞️ Jumble Solver</a>
       </div>
     </div>
   </section>
@@ -206,7 +206,7 @@
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -244,7 +244,7 @@ document.getElementById("letters").addEventListener("input", updateLetterDisplay
 /* ---- Search ---- */
 async function search() {
   if (!CURRENT_DICT) {
-    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    setStatus('<span class="loader"></span> Loading dictionary…');
     const ok = await loadDictionary("all");
     if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
   }
@@ -271,7 +271,7 @@ async function search() {
   card.hidden = false;
 
   document.getElementById("resultsMeta").textContent =
-    matches.length + " perfect anagram" + (matches.length !== 1 ? "s" : "") + " Â· " + ms.toFixed(1) + " ms";
+    matches.length + " perfect anagram" + (matches.length !== 1 ? "s" : "") + " · " + ms.toFixed(1) + " ms";
 
   // Stats
   const statBlock = document.getElementById("statBlock");
@@ -307,7 +307,7 @@ async function search() {
     const pts = scrabbleScore(w);
     const el  = document.createElement("span");
     el.className = "anagram-word";
-    el.title = "Click to copy Â· " + pts + " pts";
+    el.title = "Click to copy · " + pts + " pts";
     el.textContent = w;
     el.addEventListener("click", () => copyWord(el, w));
     out.appendChild(el);

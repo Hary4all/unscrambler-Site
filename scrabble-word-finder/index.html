@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://wordfindlab.com/scrabble-word-finder/">
-<title>Scrabble Word Finder â€” Best Words From Your Tiles</title>
+<title>Scrabble Word Finder — Best Words From Your Tiles</title>
 <meta name="description" content="Free Scrabble word finder. Enter your rack letters and find every valid Scrabble word sorted by point value. Supports blank tiles and board filters.">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
@@ -67,7 +67,7 @@
 
     <div class="page-header">
       <h1>Scrabble Word Finder</h1>
-      <p>Enter your rack letters and find every legal Scrabble word â€” sorted by point value so the highest-scoring plays are always first.</p>
+      <p>Enter your rack letters and find every legal Scrabble word — sorted by point value so the highest-scoring plays are always first.</p>
     </div>
 
     <div class="ad-wrap">
@@ -84,7 +84,7 @@
     </div>
 
     <section class="card">
-      <label for="letters">Your rack <span class="hint">(up to 7 tiles â€” use <b>?</b> for a blank)</span></label>
+      <label for="letters">Your rack <span class="hint">(up to 7 tiles — use <b>?</b> for a blank)</span></label>
       <input id="letters" class="input-letters" type="text" autocomplete="off"
              autocapitalize="characters" spellcheck="false"
              placeholder="e.g. AEINRST" maxlength="7">
@@ -140,24 +140,24 @@
 
     <section class="card seo">
       <h2>How to use the Scrabble Word Finder</h2>
-      <p>Enter up to 7 letters from your rack. Use <b>?</b> for a blank tile â€” the finder will try all 26 possible letters. Results are sorted by Scrabble point value so you always see the most valuable play first. Use the board filters to match letters already on the board.</p>
+      <p>Enter up to 7 letters from your rack. Use <b>?</b> for a blank tile — the finder will try all 26 possible letters. Results are sorted by Scrabble point value so you always see the most valuable play first. Use the board filters to match letters already on the board.</p>
       <h2>Scrabble tile point values</h2>
       <p>Point values follow the official North American Scrabble distribution: Q and Z are worth 10 points each; J and X score 8; K scores 5; and common letters like A, E, I, O, U, L, N, R, S, T score just 1. Building long words and hitting premium squares multiplies these values.</p>
       <h2>High-value Scrabble strategies</h2>
       <ul>
-        <li><b>7-letter bingo:</b> Using all 7 tiles earns a 50-point bonus â€” look for 7-letter words first.</li>
+        <li><b>7-letter bingo:</b> Using all 7 tiles earns a 50-point bonus — look for 7-letter words first.</li>
         <li><b>Q without U:</b> Words like QI, QOPH, QANAT and QIGONG let you dump a Q without needing a U.</li>
-        <li><b>Two-letter words:</b> AA, AE, AI, OE, XI, XU â€” memorising these unlocks tight board positions.</li>
-        <li><b>Hooks:</b> Adding a single letter to an existing word (e.g. TRAIN â†’ TRAINS) maximises your tiles.</li>
-        <li><b>Save the S:</b> S tiles are versatile hooks â€” don't waste them on low-value plays.</li>
+        <li><b>Two-letter words:</b> AA, AE, AI, OE, XI, XU — memorising these unlocks tight board positions.</li>
+        <li><b>Hooks:</b> Adding a single letter to an existing word (e.g. TRAIN → TRAINS) maximises your tiles.</li>
+        <li><b>Save the S:</b> S tiles are versatile hooks — don't waste them on low-value plays.</li>
       </ul>
 
       <div class="related-tools">
         <div class="related-tools-label">Related Resources</div>
         <div class="related-links">
-          <a class="related-link" href="/">ðŸ”€ Word Unscrambler</a>
-          <a class="related-link" href="/anagram-solver/">ðŸ”¤ Anagram Solver</a>
-          <a class="related-link" href="/words-with-friends-cheat/">ðŸ’¬ Words With Friends</a>
+          <a class="related-link" href="/">🔀 Word Unscrambler</a>
+          <a class="related-link" href="/anagram-solver/">🔤 Anagram Solver</a>
+          <a class="related-link" href="/words-with-friends-cheat/">💬 Words With Friends</a>
           <a class="related-link" href="/2-letter-words/">2-Letter Words</a>
           <a class="related-link" href="/words-with-q/">Words With Q</a>
           <a class="related-link" href="/words-with-z/">Words With Z</a>
@@ -216,7 +216,7 @@
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">Â© 2026 WordFindLab.com &nbsp;Â·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;Â·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;Â·&nbsp; <span id="dictStat">loadingâ€¦</span></div>
+    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -279,7 +279,7 @@ function renderByScore(containerId, words, scoreFn) {
   out.innerHTML = "";
 
   if (!words || words.length === 0) {
-    out.innerHTML = '<div class="empty">No words found â€” try adjusting your rack or filters.</div>';
+    out.innerHTML = '<div class="empty">No words found — try adjusting your rack or filters.</div>';
     return;
   }
 
@@ -301,7 +301,7 @@ function renderByScore(containerId, words, scoreFn) {
     const g = document.createElement("div");
     g.className = "group";
     const h = document.createElement("h3");
-    h.innerHTML = len + " letters &nbsp;Â·&nbsp; " + groups[len].length +
+    h.innerHTML = len + " letters &nbsp;·&nbsp; " + groups[len].length +
       " words &nbsp;<span style='color:var(--warn);font-weight:600'>best: " + topScore + " pts</span>" +
       (isBingo ? ' <span class="badge-bingo">Bingo!</span>' : "");
     g.appendChild(h);
@@ -313,7 +313,7 @@ function renderByScore(containerId, words, scoreFn) {
       const pts = scoreFn(w);
       const el  = document.createElement("span");
       el.className = "word";
-      el.title = "Click to copy Â· " + pts + " pts";
+      el.title = "Click to copy · " + pts + " pts";
       let badge = "";
       if (!bestMarked && pts === topScore && topScore >= 8) {
         badge = '<span class="badge-best">Best</span>';
@@ -331,7 +331,7 @@ function renderByScore(containerId, words, scoreFn) {
 /* ---- Search ---- */
 async function search() {
   if (!CURRENT_DICT) {
-    setStatus('<span class="loader"></span> Loading dictionaryâ€¦');
+    setStatus('<span class="loader"></span> Loading dictionary…');
     const ok = await loadDictionary("all");
     if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
   }
@@ -354,7 +354,7 @@ async function search() {
   });
 
   if (result.error === "too_many_wildcards") {
-    setStatus("Too many wildcards â€” use 2 or fewer ? symbols.", "warn");
+    setStatus("Too many wildcards — use 2 or fewer ? symbols.", "warn");
     return;
   }
 
@@ -362,7 +362,7 @@ async function search() {
   const card = document.getElementById("resultsCard");
   card.hidden = false;
   document.getElementById("resultsMeta").textContent =
-    result.words.length.toLocaleString() + " words Â· " + ms.toFixed(0) + " ms";
+    result.words.length.toLocaleString() + " words · " + ms.toFixed(0) + " ms";
 
   renderByScore("results", result.words, scrabbleScore);
   setStatus("");
