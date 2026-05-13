@@ -356,6 +356,54 @@ details.advanced[open] summary::before { content: "▾ "; }
 .ad-slot-rect    { height: 250px; }
 .ad-slot-sidebar { height: 600px; }
 
+/* ---------- Adsterra slots ---------- */
+.adsterra-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adsterra-shell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.AdsterraDesktopBanner,
+.AdsterraMobileBanner,
+.AdsterraBoxAd,
+.AdsterraNativeBanner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.AdsterraDesktopBanner {
+  max-width: 728px;
+  min-height: 90px;
+}
+.AdsterraMobileBanner {
+  max-width: 320px;
+  min-height: 50px;
+}
+.AdsterraBoxAd {
+  max-width: 300px;
+  min-height: 250px;
+}
+.AdsterraNativeBanner {
+  max-width: 100%;
+  min-height: 90px;
+}
+@media (max-width: 767px) {
+  .AdsterraDesktopBanner { display: none !important; }
+}
+@media (min-width: 768px) {
+  .AdsterraMobileBanner { display: none !important; }
+}
+
 /* ---------- Tool links widget ---------- */
 .tools-widget .tools-widget-title {
   font-size: 11px;
