@@ -1,14 +1,14 @@
-/* ============================================================
-   WordToolbox — Shared Engine
+﻿/* ============================================================
+   WordToolbox â€” Shared Engine
    Loaded by every tool page.
 
    Exports (globals):
      SCRABBLE_POINTS, WWF_POINTS
-     loadDictionary(which)   → Promise<bool>
-     uniqueSortedSubsets(letters, minLen, maxLen) → string[]
-     expandWildcards(letters) → string[][] | null
-     scrabbleScore(word) → number
-     wwfScore(word) → number
+     loadDictionary(which)   â†’ Promise<bool>
+     uniqueSortedSubsets(letters, minLen, maxLen) â†’ string[]
+     expandWildcards(letters) â†’ string[][] | null
+     scrabbleScore(word) â†’ number
+     wwfScore(word) â†’ number
      setStatus(html, cls)
      copyWord(el, word)
      injectNav()
@@ -42,7 +42,7 @@ const DICT_URLS = {
 };
 
 const CACHE_VERSION = "v3";
-let DICT_INDEX  = {};     // sorted-key → [UPPERCASE words]
+let DICT_INDEX  = {};     // sorted-key â†’ [UPPERCASE words]
 let DICT_SET    = new Set();
 let CURRENT_DICT = null;
 
@@ -50,7 +50,7 @@ async function loadDictionary(which) {
   which = which || "all";
   if (CURRENT_DICT === which) return true;
 
-  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionary…");
+  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionaryâ€¦");
 
   const cacheKey = "unscrambler:" + CACHE_VERSION + ":" + which;
   let raw = null;
@@ -74,13 +74,13 @@ async function loadDictionary(which) {
           break; // success
         }
       } catch(err) {
-        // timed out or network error — try next URL
+        // timed out or network error â€” try next URL
       }
     }
   }
 
   if (!raw || raw.length < 100) {
-    setStatus("Couldn't load the dictionary — check your connection and refresh.", "warn");
+    setStatus("Couldn't load the dictionary â€” check your connection and refresh.", "warn");
     return false;
   }
 
@@ -89,7 +89,7 @@ async function loadDictionary(which) {
 
   const el = document.getElementById("dictStat");
   if (el) el.textContent = DICT_SET.size.toLocaleString() + " words loaded";
-  setStatus("Ready — " + DICT_SET.size.toLocaleString() + " words indexed.", "good");
+  setStatus("Ready â€” " + DICT_SET.size.toLocaleString() + " words indexed.", "good");
   return true;
 }
 
@@ -153,7 +153,7 @@ function expandWildcards(letters) {
   return variations;
 }
 
-// Core search — returns filtered word array
+// Core search â€” returns filtered word array
 function runSearch(rawInput, opts) {
   opts = opts || {};
   const minLen    = opts.minLen    !== undefined ? opts.minLen    : 2;
@@ -229,7 +229,7 @@ function renderWordGroups(containerId, words, scoreFn) {
   out.innerHTML = "";
 
   if (!words || words.length === 0) {
-    out.innerHTML = '<div class="empty">No words found — try removing a filter or adding more letters.</div>';
+    out.innerHTML = '<div class="empty">No words found â€” try removing a filter or adding more letters.</div>';
     return;
   }
 
@@ -241,7 +241,7 @@ function renderWordGroups(containerId, words, scoreFn) {
     const g   = document.createElement("div");
     g.className = "group";
     const h = document.createElement("h3");
-    h.textContent = len + " letters · " + groups[len].length;
+    h.textContent = len + " letters Â· " + groups[len].length;
     g.appendChild(h);
     const wrap = document.createElement("div");
     wrap.className = "words";
@@ -250,14 +250,16 @@ function renderWordGroups(containerId, words, scoreFn) {
       const pts = scoreFn(w);
       const el  = document.createElement("span");
       el.className = "word";
-      el.title = "Click to copy · " + pts + " pts";
+      el.title = "Click for definition | Shift-click to copy | " + pts + " pts";
+      el.setAttribute("role", "button");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("data-dictionary-word", w);
       let badge = "";
       if (isBest && pts === topScore && topScore >= 8) {
         badge = '<span class="badge-best">Best</span>';
         isBest = false;
       }
       el.innerHTML = w + '<span class="pts' + (pts >= 10 ? " pts-high" : "") + '">' + pts + '</span>' + badge;
-      el.addEventListener("click", () => copyWord(el, w));
       wrap.appendChild(el);
     }
     g.appendChild(wrap);
@@ -281,16 +283,18 @@ const NAV_LINKS = [
   { href: "/anagram-solver/",          label: "Anagram Solver"     },
   { href: "/words-with-friends-cheat/",label: "Words With Friends" },
   { href: "/jumble-solver/",           label: "Jumble Solver"      },
+  { href: "/dictionary/",              label: "Dictionary"         },
   { href: "/blog/",                    label: "Blog"               },
 ];
 
 const SIDEBAR_TOOLS = [
-  { href: "/",                         icon: "🔀", label: "Word Unscrambler"   },
-  { href: "/scrabble-word-finder/",    icon: "🎯", label: "Scrabble Finder"    },
-  { href: "/wordle-solver/",           icon: "🟩", label: "Wordle Solver"      },
-  { href: "/anagram-solver/",          icon: "🔤", label: "Anagram Solver"     },
-  { href: "/words-with-friends-cheat/",icon: "💬", label: "Words With Friends" },
+  { href: "/",                         icon: "ðŸ”€", label: "Word Unscrambler"   },
+  { href: "/scrabble-word-finder/",    icon: "ðŸŽ¯", label: "Scrabble Finder"    },
+  { href: "/wordle-solver/",           icon: "ðŸŸ©", label: "Wordle Solver"      },
+  { href: "/anagram-solver/",          icon: "ðŸ”¤", label: "Anagram Solver"     },
+  { href: "/words-with-friends-cheat/",icon: "ðŸ’¬", label: "Words With Friends" },
   { href: "/jumble-solver/",           icon: "🗞️",  label: "Jumble Solver"      },
+  { href: "/dictionary/",              icon: "📖", label: "Dictionary"         },
 ];
 
 function injectNav() {
@@ -303,7 +307,7 @@ function injectNav() {
   const logo = document.createElement("a");
   logo.className = "nav-logo";
   logo.href = "/";
-  logo.textContent = "🔤 WordFindLab";
+  logo.textContent = "ðŸ”¤ WordFindLab";
   inner.appendChild(logo);
 
   // Nav links
@@ -328,11 +332,11 @@ function injectNav() {
   toggle.className = "nav-toggle";
   toggle.setAttribute("aria-label", "Open navigation menu");
   toggle.setAttribute("aria-expanded", "false");
-  toggle.innerHTML = "&#9776;"; // ☰
+  toggle.innerHTML = "&#9776;"; // â˜°
   toggle.addEventListener("click", () => {
     const open = links.classList.toggle("nav-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.innerHTML = open ? "&#10005;" : "&#9776;"; // ✕ / ☰
+    toggle.innerHTML = open ? "&#10005;" : "&#9776;"; // âœ• / â˜°
   });
   // Close menu when a link is clicked
   links.addEventListener("click", e => {
@@ -353,3 +357,5 @@ function injectNav() {
 }
 
 document.addEventListener("DOMContentLoaded", injectNav);
+
+

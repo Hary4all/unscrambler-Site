@@ -121,6 +121,13 @@
       <button id="clear" class="btn ghost">Clear</button>
       <span class="hint">Press <b>Enter</b> to search</span>
     </div>
+    <div class="meaningful-toggle" data-meaningful-toggle>
+      <input type="checkbox" id="meaningful-toggle" checked>
+      <div>
+        <strong>Meaningful words only</strong>
+        <span class="toggle-copy">Keep common anagrams at the top and filter out the obscure edge cases.</span>
+      </div>
+    </div>
     <div id="status" class="status"></div>
   </section>
 
@@ -131,6 +138,30 @@
     </div>
     <div class="stat-block" id="statBlock"></div>
     <div class="anagram-words" id="results"></div>
+  </section>
+
+  <section class="card definition-panel" id="definition-panel" hidden>
+    <div class="definition-panel-head">
+      <div>
+        <p class="definition-label">Dictionary definition</p>
+        <h2 class="definition-word" id="definition-word"></h2>
+        <p class="definition-phonetic" id="definition-phonetic"></p>
+      </div>
+      <div class="definition-actions">
+        <button class="btn ghost" type="button" id="definition-copy">Copy</button>
+        <button class="btn ghost" type="button" id="definition-close">Close</button>
+      </div>
+    </div>
+    <div class="definition-meta">
+      <span class="definition-pos" id="definition-pos"></span>
+      <span class="definition-source">Free Dictionary API</span>
+    </div>
+    <p class="definition-primary" id="definition-primary"></p>
+    <p class="definition-example" id="definition-example"></p>
+    <div class="definition-sections" id="definition-sections"></div>
+    <div class="definition-pills" id="definition-synonyms"></div>
+    <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
+    <p class="definition-note" id="definition-note"></p>
   </section>
 
   <section class="card seo">
@@ -195,6 +226,16 @@
       <span class="ad-label">Advertisement</span>
       <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
     </div>
+    <section class="card wotd-widget wotd-widget--compact" data-wotd-widget data-wotd-compact="true">
+      <p class="wotd-label">Word of the Day</p>
+      <div class="wotd-date" data-wotd-date>Loading today's word...</div>
+      <h3 class="wotd-word" data-wotd-word>Loading...</h3>
+      <p class="wotd-phonetic" data-wotd-phonetic></p>
+      <span class="wotd-pos" data-wotd-pos></span>
+      <p class="wotd-definition" data-wotd-definition></p>
+      <p class="wotd-example" data-wotd-example></p>
+      <div class="wotd-synonyms" data-wotd-synonyms></div>
+    </section>
     <div class="card tools-widget">
       <div class="tools-widget-title">More Word Tools</div>
       <div class="tools-widget-links" id="sidebarToolLinks"></div>
@@ -221,6 +262,7 @@
 </footer>
 
 <script src="/assets/unscrambler.js"></script>
+<script src="/assets/js/dictionary.js"></script>
 <script>
 
 /* ---- Sidebar tool links ---- */
@@ -312,14 +354,18 @@ async function search() {
   }
 
   // Sort by Scrabble score desc
-  const sorted = [...matches].sort((a, b) => scrabbleScore(b) - scrabbleScore(a) || a.localeCompare(b));
+  const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
+  const filteredMatches = await WordFindLabDictionary.filterMeaningfulWords(matches, meaningfulOnly);
+  const sorted = [...filteredMatches].sort((a, b) => scrabbleScore(b) - scrabbleScore(a) || a.localeCompare(b));
   for (const w of sorted) {
     const pts = scrabbleScore(w);
     const el  = document.createElement("span");
     el.className = "anagram-word";
-    el.title = "Click to copy · " + pts + " pts";
+    el.title = "Click for definition | Shift-click to copy | " + pts + " pts";
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("data-dictionary-word", w);
     el.textContent = w;
-    el.addEventListener("click", () => copyWord(el, w));
     out.appendChild(el);
   }
 
@@ -337,6 +383,7 @@ document.getElementById("clear").addEventListener("click", () => {
 document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
 
 loadDictionary("all");
+WordFindLabDictionary.preloadMeaningfulWords();
 document.getElementById("letters").focus();
 </script>
 <script src="/assets/adsterra.js"></script>

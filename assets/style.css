@@ -326,6 +326,240 @@ details.advanced[open] summary::before { content: "▾ "; }
   font-size: 14px;
 }
 
+/* ---------- Dictionary widgets ---------- */
+.meaningful-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #f8faff;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.meaningful-toggle input {
+  width: auto;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  accent-color: var(--accent);
+}
+.meaningful-toggle strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.meaningful-toggle .toggle-copy {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.wotd-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wotd-widget .wotd-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.wotd-widget .wotd-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+.wotd-widget .wotd-word {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.05;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+.wotd-widget .wotd-phonetic {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+}
+.wotd-widget .wotd-pos {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: var(--accent);
+  border: 1px solid #c7d2fe;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.wotd-widget .wotd-definition,
+.wotd-widget .wotd-example {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.wotd-widget .wotd-example {
+  font-style: italic;
+}
+.wotd-widget .wotd-synonyms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.homepage-wotd {
+  max-width: 740px;
+  margin: 18px auto 0;
+}
+.wotd-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.wotd-widget--compact .wotd-word {
+  font-size: 22px;
+}
+.wotd-widget--compact .wotd-definition,
+.wotd-widget--compact .wotd-example {
+  font-size: 13px;
+}
+
+.definition-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.definition-panel[hidden] {
+  display: none !important;
+}
+.definition-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.definition-label {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.definition-word {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -.03em;
+}
+.definition-phonetic {
+  margin: 6px 0 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+.definition-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.definition-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.definition-pos {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: var(--accent);
+  border: 1px solid #c7d2fe;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.definition-source {
+  font-size: 12px;
+  color: var(--muted);
+}
+.definition-primary,
+.definition-example,
+.definition-note {
+  margin: 0;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+.definition-example {
+  font-style: italic;
+}
+.definition-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.definition-section {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.definition-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 8px;
+}
+.definition-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink-2);
+}
+.definition-list li + li {
+  margin-top: 6px;
+}
+.definition-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.definition-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #f8faff;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.definition-note {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
 /* ---------- Loader ---------- */
 .loader {
   display: inline-block;

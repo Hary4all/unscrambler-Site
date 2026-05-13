@@ -131,6 +131,14 @@
 
     <div id="status" class="status"></div>
 
+    <div class="meaningful-toggle" data-meaningful-toggle>
+      <input type="checkbox" id="meaningful-toggle" checked>
+      <div>
+        <strong>Meaningful words only</strong>
+        <span class="toggle-copy">Keep everyday words near the top and hide the ultra-obscure entries.</span>
+      </div>
+    </div>
+
     <!-- Demo examples — shown before first search -->
     <div class="demo-box" id="demoBox">
       <div class="demo-box-title">Try an example</div>
@@ -152,8 +160,43 @@
       <div id="results"></div>
     </div>
 
+    <section class="card definition-panel" id="definition-panel" hidden>
+      <div class="definition-panel-head">
+        <div>
+          <p class="definition-label">Dictionary definition</p>
+          <h2 class="definition-word" id="definition-word"></h2>
+          <p class="definition-phonetic" id="definition-phonetic"></p>
+        </div>
+        <div class="definition-actions">
+          <button class="btn ghost" type="button" id="definition-copy">Copy</button>
+          <button class="btn ghost" type="button" id="definition-close">Close</button>
+        </div>
+      </div>
+      <div class="definition-meta">
+        <span class="definition-pos" id="definition-pos"></span>
+        <span class="definition-source">Free Dictionary API</span>
+      </div>
+      <p class="definition-primary" id="definition-primary"></p>
+      <p class="definition-example" id="definition-example"></p>
+      <div class="definition-sections" id="definition-sections"></div>
+      <div class="definition-pills" id="definition-synonyms"></div>
+      <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
+      <p class="definition-note" id="definition-note"></p>
+    </section>
+
   </div><!-- /hero-search-box -->
 </div><!-- /hero-search-wrap -->
+
+<section class="card wotd-widget homepage-wotd" data-wotd-widget>
+  <p class="wotd-label">Word of the Day</p>
+  <div class="wotd-date" data-wotd-date>Loading today's word...</div>
+  <h2 class="wotd-word" data-wotd-word>Loading...</h2>
+  <p class="wotd-phonetic" data-wotd-phonetic></p>
+  <span class="wotd-pos" data-wotd-pos></span>
+  <p class="wotd-definition" data-wotd-definition></p>
+  <p class="wotd-example" data-wotd-example></p>
+  <div class="wotd-synonyms" data-wotd-synonyms></div>
+</section>
 
 <!-- ===== PAGE WRAP ===== -->
 <div class="page-wrap">
@@ -339,6 +382,7 @@
 </footer>
 
 <script src="/assets/unscrambler.js"></script>
+<script src="/assets/js/dictionary.js"></script>
 <script>
 /* ---- Sidebar tool links ---- */
 (function buildSidebarLinks() {
@@ -410,10 +454,13 @@ async function search() {
   const ms = (performance.now() - t0).toFixed(0);
   const card = document.getElementById("resultsCard");
   card.hidden = false;
-  document.getElementById("resultsMeta").textContent =
-    result.words.length.toLocaleString() + " words found · " + ms + " ms";
 
-  renderWordGroups("results", result.words, scrabbleScore);
+  const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
+  const words = await WordFindLabDictionary.filterMeaningfulWords(result.words, meaningfulOnly);
+  document.getElementById("resultsMeta").textContent =
+    words.length.toLocaleString() + " words found · " + ms + " ms";
+
+  renderWordGroups("results", words, scrabbleScore);
   setStatus("");
 }
 
@@ -438,6 +485,7 @@ document.getElementById("dict").addEventListener("change", () => {
 
 // Kick off dictionary load in background (non-blocking)
 loadDictionary("all");
+WordFindLabDictionary.preloadMeaningfulWords();
 </script>
 <script src="/assets/adsterra.js"></script>
 </body>
