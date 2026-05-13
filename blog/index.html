@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Word Game Tips, Guides & Learning | WordFindLab</title>
+<meta name="description" content="Explore guides on word games, learning through scrambled words, kids' education benefits, brain health, and Scrabble strategies at WordFindLab.">
+<link rel="canonical" href="https://wordfindlab.com/blog/">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2340;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --green: #16a34a;
+    --orange: #ea580c;
+    --purple: #7c3aed;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--text); }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 56px;
+  }
+  nav a { color: #cbd5e1; text-decoration: none; font-size: 14px; font-weight: 500; }
+  nav a:first-child { color: #fff; font-size: 18px; font-weight: 700; margin-right: auto; }
+  nav a:hover { color: #fff; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 64px 24px 80px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero p { color: #94a3b8; font-size: 18px; max-width: 520px; margin: 0 auto; }
+
+  /* GRID */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    padding: 64px 0 80px;
+  }
+
+  /* CARD */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
+
+  .card-banner {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0.15;
+  }
+  .banner-blue { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .banner-green { background: linear-gradient(135deg, #15803d, #22c55e); }
+  .banner-purple { background: linear-gradient(135deg, #6d28d9, #a855f7); }
+  .banner-orange { background: linear-gradient(135deg, #c2410c, #f97316); }
+
+  .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+
+  .tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .tag-green { background: #f0fdf4; color: var(--green); }
+  .tag-purple { background: #f5f3ff; color: var(--purple); }
+  .tag-orange { background: #fff7ed; color: var(--orange); }
+
+  .card h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .card p { color: var(--muted); font-size: 14px; line-height: 1.6; flex: 1; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .read-time { margin-left: auto; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: #94a3b8;
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 13px;
+  }
+  footer a { color: #94a3b8; text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://wordfindlab.com/">🔤 WordFindLab</a>
+  <a href="https://wordfindlab.com/">Unscrambler</a>
+  <a href="https://wordfindlab.com/scrabble-word-finder/">Scrabble</a>
+  <a href="https://wordfindlab.com/wordle-solver/">Wordle</a>
+  <a href="https://wordfindlab.com/blog/">Blog</a>
+</nav>
+
+<div class="hero">
+  <h1>Word Game Tips,<br>Guides & Learning</h1>
+  <p>Strategies, education insights, and health benefits of word games — for players of all ages.</p>
+</div>
+
+<div class="container">
+  <div class="blog-grid">
+
+    <a class="card" href="https://wordfindlab.com/blog/benefits-of-learning-through-scrambled-words/">
+      <div class="card-banner banner-blue">🧠</div>
+      <div class="card-body">
+        <span class="tag">Learning</span>
+        <h2>7 Powerful Benefits of Learning Through Scrambled Words</h2>
+        <p>Discover how unscrambling letters builds vocabulary, sharpens critical thinking, and makes language learning genuinely enjoyable for all ages.</p>
+        <div class="card-meta">
+          <span>📅 May 2026</span>
+          <span class="read-time">⏱ 7 min read</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://wordfindlab.com/blog/word-games-benefits-for-kids/">
+      <div class="card-banner banner-green">👧</div>
+      <div class="card-body">
+        <span class="tag tag-green">Kids & Education</span>
+        <h2>How Word Scramble Games Help Kids Learn Faster and Smarter</h2>
+        <p>From spelling skills to classroom confidence — a complete guide to how word games support children's development at every age.</p>
+        <div class="card-meta">
+          <span>📅 May 2026</span>
+          <span class="read-time">⏱ 8 min read</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://wordfindlab.com/blog/word-games-health-benefits/">
+      <div class="card-banner banner-purple">❤️</div>
+      <div class="card-body">
+        <span class="tag tag-purple">Health & Wellness</span>
+        <h2>Word Games and Your Brain: The Surprising Health Benefits</h2>
+        <p>Science-backed reasons why playing word games regularly improves memory, reduces stress, and protects cognitive health as you age.</p>
+        <div class="card-meta">
+          <span>📅 May 2026</span>
+          <span class="read-time">⏱ 9 min read</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="https://wordfindlab.com/">Home</a>
+    <a href="https://wordfindlab.com/privacy-policy/">Privacy Policy</a>
+    <a href="https://wordfindlab.com/terms/">Terms</a>
+    <a href="https://wordfindlab.com/blog/">Blog</a>
+  </p>
+  <p style="margin-top:12px;">© 2026 WordFindLab.com</p>
+</footer>
+
+</body>
+</html>

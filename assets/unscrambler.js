@@ -281,6 +281,7 @@ const NAV_LINKS = [
   { href: "/anagram-solver/",          label: "Anagram Solver"     },
   { href: "/words-with-friends-cheat/",label: "Words With Friends" },
   { href: "/jumble-solver/",           label: "Jumble Solver"      },
+  { href: "/blog/",                    label: "Blog"               },
 ];
 
 const SIDEBAR_TOOLS = [

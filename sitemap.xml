@@ -67,6 +67,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://wordfindlab.com/blog/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/blog/benefits-of-learning-through-scrambled-words/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/blog/word-games-benefits-for-kids/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/blog/word-games-health-benefits/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wordfindlab.com/2-letter-words/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
