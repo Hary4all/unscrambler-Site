@@ -2,39 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://wordfindlab.com/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/scrabble-word-finder/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/wordle-solver/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/anagram-solver/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/words-with-friends-cheat/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/jumble-solver/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/guides/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/anagram-solving-techniques/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/letter-frequency-in-english/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/scrabble-vs-words-with-friends/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/vocabulary-building-for-word-games/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/2-letter-words/</loc>
@@ -512,19 +542,19 @@
   </url>
   <url>
     <loc>https://wordfindlab.com/scrabble-strategy/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/wordle-strategy/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wordfindlab.com/word-lists/best-wordle-starting-words/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
