@@ -1376,3 +1376,237 @@ a.announce-bar:hover .bar-arrow {
 /* ─── Tool card CTA link — use sky blue ─── */
 .tool-card-cta { color: #2563eb; }
 .tool-card:hover .tool-card-cta { color: #38BDF8; }
+
+/* ============================================================
+   Premium homepage refresh
+   These overrides keep the current layout but raise the polish
+   for the homepage hero, navbar, CTA, and announcement bar.
+============================================================ */
+
+.site-nav {
+  background: rgba(10, 10, 20, .72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 30px rgba(2,6,23,.32);
+}
+.nav-inner {
+  min-height: 66px;
+}
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px 0 0;
+}
+.nav-logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #38BDF8 0%, #2563EB 100%);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: .02em;
+  box-shadow: 0 10px 24px rgba(37,99,235,.35), inset 0 1px 0 rgba(255,255,255,.2);
+  flex-shrink: 0;
+}
+.nav-logo-text {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -.35px;
+}
+.nav-links a {
+  padding: 17px 13px 15px;
+  transition: color .15s, border-color .15s, text-shadow .15s;
+}
+.nav-links a.active {
+  text-shadow: 0 0 12px rgba(56,189,248,.25);
+}
+.nav-toggle {
+  color: #dbe7ff;
+}
+@media (max-width: 760px) {
+  .nav-links {
+    background: rgba(10, 10, 20, .95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.38);
+  }
+  .nav-logo-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+  .nav-logo-text {
+    font-size: 15px;
+  }
+}
+
+a.announce-bar {
+  background: linear-gradient(90deg, #f59e0b 0%, #fb923c 55%, #f97316 100%);
+  padding: 8px 20px;
+  font-size: 12.9px;
+  line-height: 1.25;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 2px 14px rgba(249,115,22,.24);
+}
+a.announce-bar:hover {
+  box-shadow: 0 4px 20px rgba(249,115,22,.32);
+}
+@media (max-width: 520px) {
+  a.announce-bar {
+    font-size: 11.9px;
+    padding: 7px 12px;
+  }
+}
+
+.site-hero {
+  padding: 50px 20px 60px;
+}
+.hero-inner {
+  max-width: 720px;
+  animation: heroFadeIn .6s ease-out both;
+}
+.hero-points {
+  list-style: none;
+  padding: 0;
+  margin: 18px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+  max-width: 520px;
+}
+.hero-points li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(15, 23, 42, .28);
+  color: #d7e7f5;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.hero-points li::before {
+  content: "?";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34,197,94,.16);
+  color: #5eead4;
+  flex-shrink: 0;
+  font-size: 10px;
+  line-height: 1;
+  box-shadow: 0 0 0 1px rgba(34,197,94,.2);
+}
+.trust-badges--compact {
+  margin-top: 12px;
+  gap: 10px 14px;
+}
+.trust-badges--compact .trust-badge {
+  font-size: 12px;
+}
+
+.hero-search-wrap {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(56,189,248,.12) 0%, transparent 36%),
+    linear-gradient(to bottom, #171347 0%, var(--bg) 58px);
+  position: relative;
+}
+.hero-search-wrap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  width: min(760px, 92vw);
+  height: 80px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(56,189,248,.16) 0%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+.hero-search-box {
+  border-radius: 20px;
+  box-shadow:
+    0 -6px 0 rgba(56,189,248,.08),
+    0 0 0 1px rgba(0,0,0,.07),
+    0 4px 6px  rgba(0,0,0,.04),
+    0 16px 42px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  animation: heroFadeIn .75s ease-out .04s both;
+}
+.btn-cta {
+  background: linear-gradient(135deg, #38BDF8 0%, #2563EB 100%);
+  box-shadow: 0 2px 16px rgba(37,99,235,.34), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.btn-cta:hover {
+  box-shadow: 0 5px 22px rgba(37,99,235,.48);
+}
+.hero-search-row .btn-cta {
+  box-shadow: 0 3px 16px rgba(37,99,235,.36), inset 0 1px 0 rgba(255,255,255,.18);
+  font-size: 16px;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .site-hero {
+    padding: 32px 16px 46px;
+  }
+  .hero-label {
+    margin-bottom: 14px;
+  }
+  .hero-points {
+    margin-top: 14px;
+    gap: 8px;
+  }
+  .hero-points li {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+  .hero-search-box {
+    padding: 18px 16px 16px;
+    border-radius: 14px;
+    transform: translateY(-32px);
+    margin-bottom: -32px;
+  }
+  .hero-search-row {
+    flex-wrap: wrap;
+  }
+  .hero-search-row .input-letters {
+    flex: 1 1 100%;
+    font-size: 18px;
+  }
+  .hero-search-row .btn-cta {
+    flex: 1;
+  }
+  .hero-search-row .btn.ghost {
+    flex: 0 0 auto;
+  }
+  .trust-badges--compact {
+    gap: 8px 10px;
+  }
+  .trust-badges--compact .trust-badge {
+    font-size: 11.5px;
+  }
+  .htile {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}

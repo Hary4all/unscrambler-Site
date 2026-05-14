@@ -1,5 +1,5 @@
 ﻿/* ============================================================
-   WordToolbox â€” Shared Engine
+   WordToolbox - Shared Engine
    Loaded by every tool page.
 
    Exports (globals):
@@ -50,7 +50,7 @@ async function loadDictionary(which) {
   which = which || "all";
   if (CURRENT_DICT === which) return true;
 
-  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionaryâ€¦");
+  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionary…");
 
   const cacheKey = "unscrambler:" + CACHE_VERSION + ":" + which;
   let raw = null;
@@ -74,13 +74,13 @@ async function loadDictionary(which) {
           break; // success
         }
       } catch(err) {
-        // timed out or network error â€” try next URL
+        // timed out or network error - try next URL
       }
     }
   }
 
   if (!raw || raw.length < 100) {
-    setStatus("Couldn't load the dictionary â€” check your connection and refresh.", "warn");
+    setStatus("Couldn't load the dictionary - check your connection and refresh.", "warn");
     return false;
   }
 
@@ -89,7 +89,7 @@ async function loadDictionary(which) {
 
   const el = document.getElementById("dictStat");
   if (el) el.textContent = DICT_SET.size.toLocaleString() + " words loaded";
-  setStatus("Ready â€” " + DICT_SET.size.toLocaleString() + " words indexed.", "good");
+  setStatus("Ready - " + DICT_SET.size.toLocaleString() + " words indexed.", "good");
   return true;
 }
 
@@ -153,7 +153,7 @@ function expandWildcards(letters) {
   return variations;
 }
 
-// Core search â€” returns filtered word array
+// Core search - returns filtered word array
 function runSearch(rawInput, opts) {
   opts = opts || {};
   const minLen    = opts.minLen    !== undefined ? opts.minLen    : 2;
@@ -229,7 +229,7 @@ function renderWordGroups(containerId, words, scoreFn) {
   out.innerHTML = "";
 
   if (!words || words.length === 0) {
-    out.innerHTML = '<div class="empty">No words found â€” try removing a filter or adding more letters.</div>';
+    out.innerHTML = '<div class="empty">No words found - try removing a filter or adding more letters.</div>';
     return;
   }
 
@@ -241,7 +241,7 @@ function renderWordGroups(containerId, words, scoreFn) {
     const g   = document.createElement("div");
     g.className = "group";
     const h = document.createElement("h3");
-    h.textContent = len + " letters Â· " + groups[len].length;
+    h.textContent = len + " letters · " + groups[len].length;
     g.appendChild(h);
     const wrap = document.createElement("div");
     wrap.className = "words";
@@ -288,13 +288,13 @@ const NAV_LINKS = [
 ];
 
 const SIDEBAR_TOOLS = [
-  { href: "/",                         icon: "ðŸ”€", label: "Word Unscrambler"   },
-  { href: "/scrabble-word-finder/",    icon: "ðŸŽ¯", label: "Scrabble Finder"    },
-  { href: "/wordle-solver/",           icon: "ðŸŸ©", label: "Wordle Solver"      },
-  { href: "/anagram-solver/",          icon: "ðŸ”¤", label: "Anagram Solver"     },
-  { href: "/words-with-friends-cheat/",icon: "ðŸ’¬", label: "Words With Friends" },
-  { href: "/jumble-solver/",           icon: "🗞️",  label: "Jumble Solver"      },
-  { href: "/dictionary/",              icon: "📖", label: "Dictionary"         },
+  { href: "/",                         badge: "WF",  label: "Word Unscrambler"   },
+  { href: "/scrabble-word-finder/",    badge: "SF",  label: "Scrabble Finder"    },
+  { href: "/wordle-solver/",           badge: "WL",  label: "Wordle Solver"      },
+  { href: "/anagram-solver/",          badge: "AN",  label: "Anagram Solver"     },
+  { href: "/words-with-friends-cheat/",badge: "WWF", label: "Words With Friends" },
+  { href: "/jumble-solver/",           badge: "JS",  label: "Jumble Solver"      },
+  { href: "/dictionary/",              badge: "D",   label: "Dictionary"         },
 ];
 
 function injectNav() {
@@ -307,7 +307,7 @@ function injectNav() {
   const logo = document.createElement("a");
   logo.className = "nav-logo";
   logo.href = "/";
-  logo.textContent = "ðŸ”¤ WordFindLab";
+  logo.innerHTML = '<span class="nav-logo-mark">WF</span><span class="nav-logo-text">WordFindLab</span>';
   inner.appendChild(logo);
 
   // Nav links
@@ -332,11 +332,11 @@ function injectNav() {
   toggle.className = "nav-toggle";
   toggle.setAttribute("aria-label", "Open navigation menu");
   toggle.setAttribute("aria-expanded", "false");
-  toggle.innerHTML = "&#9776;"; // â˜°
+  toggle.innerHTML = "&#9776;"; // menu
   toggle.addEventListener("click", () => {
     const open = links.classList.toggle("nav-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.innerHTML = open ? "&#10005;" : "&#9776;"; // âœ• / â˜°
+    toggle.innerHTML = open ? "&#10005;" : "&#9776;"; // close / menu
   });
   // Close menu when a link is clicked
   links.addEventListener("click", e => {
