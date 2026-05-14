@@ -419,9 +419,13 @@ details.advanced[open] summary::before { content: "▾ "; }
   flex-wrap: wrap;
   gap: 6px;
 }
+.wotd-widget .wotd-state {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
 .homepage-wotd {
-  max-width: 740px;
-  margin: 18px auto 0;
+  max-width: none;
 }
 .wotd-pill {
   display: inline-flex;
@@ -440,6 +444,146 @@ details.advanced[open] summary::before { content: "▾ "; }
 .wotd-widget--compact .wotd-definition,
 .wotd-widget--compact .wotd-example {
   font-size: 13px;
+}
+
+.homepage-wotd--featured {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(148,163,184,.18);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(59,130,246,.12), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(34,197,94,.10), transparent 20%),
+    linear-gradient(135deg, #ffffff 0%, #f8fbff 54%, #eef4ff 100%);
+  box-shadow: 0 18px 44px rgba(15,23,42,.07);
+}
+.homepage-wotd--featured::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -80px -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(37,99,235,.14) 0%, rgba(37,99,235,0) 72%);
+  pointer-events: none;
+}
+.homepage-wotd--featured::after {
+  content: "";
+  position: absolute;
+  inset: 18px 18px auto auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(251,191,36,.12) 0%, rgba(251,191,36,0) 68%);
+  pointer-events: none;
+}
+.wotd-featured-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: 18px;
+  align-items: stretch;
+  padding: 22px;
+}
+.wotd-featured-main {
+  min-width: 0;
+}
+.wotd-featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 14px;
+}
+.wotd-featured-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.wotd-featured-aside {
+  display: flex;
+  min-width: 0;
+}
+.wotd-featured-panel {
+  width: 100%;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(191,219,254,.95);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 14px 30px rgba(37,99,235,.08);
+}
+.wotd-featured-panel-title {
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+.wotd-featured-copy {
+  margin: 8px 0 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.wotd-featured-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.wotd-featured-list li {
+  position: relative;
+  padding-left: 26px;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.wotd-featured-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  box-shadow: 0 0 0 3px rgba(34,197,94,.14);
+}
+.wotd-featured-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.wotd-featured-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 8px 16px rgba(37,99,235,.08);
+}
+.wotd-featured-links a:hover {
+  background: #dbeafe;
+  text-decoration: none;
 }
 
 .definition-panel {
@@ -2768,6 +2912,22 @@ a.announce-bar:hover {
   }
   .hero-visual {
     display: none;
+  }
+  .homepage-wotd--featured {
+    border-radius: 22px;
+  }
+  .wotd-featured-layout {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .wotd-featured-panel {
+    border-radius: 20px;
+  }
+  .wotd-featured-links {
+    gap: 8px;
+  }
+  .wotd-featured-links a {
+    width: 100%;
   }
   .hero-feature-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
