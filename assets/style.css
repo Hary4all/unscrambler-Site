@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
 /* ============================================================
    WordFindLab — Shared Stylesheet
    Clean light theme, minimal, tool-focused
@@ -32,7 +34,7 @@ html, body {
   margin: 0; padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -1103,19 +1105,22 @@ details.advanced[open] summary::before { content: "▾ "; }
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--accent);
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: .07em;
+  letter-spacing: .03em;
   cursor: pointer;
-  transition: border-color .12s, background .12s;
+  transition: border-color .12s, background .12s, box-shadow .12s, transform .12s;
   user-select: none;
   text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
 }
 .demo-chip:hover {
-  border-color: var(--accent);
+  border-color: rgba(37,99,235,.28);
   background: #eff6ff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37,99,235,.10);
 }
 
 /* ─── Ad label wrapper (AdSense-safe) ─── */
@@ -2760,3 +2765,190 @@ a.announce-bar:hover {
     left: 20px;
   }
 }
+
+@media (max-width: 760px) {
+  html, body {
+    background: #f8fafc;
+  }
+  .site-nav {
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 4px 12px rgba(15,23,42,.06);
+    backdrop-filter: none;
+  }
+  .announce-bar {
+    min-height: 44px;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+  .hero-shell {
+    padding: 16px 14px 8px;
+  }
+  .hero-shell::before {
+    opacity: .24;
+  }
+  .hero-kicker {
+    padding: 9px 12px;
+    box-shadow: 0 8px 18px rgba(15,23,42,.04);
+  }
+  .hero-title {
+    font-size: clamp(36px, 11vw, 48px);
+    line-height: .95;
+  }
+  .hero-subcopy {
+    font-size: 16px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .hero-feature-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .hero-feature {
+    padding: 12px;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(15,23,42,.05);
+  }
+  .hero-feature-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .hero-search-card {
+    padding: 14px;
+    border-radius: 22px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15,23,42,.05);
+  }
+  .hero-search-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-search-row .input-letters {
+    width: 100%;
+    height: 54px;
+    background: #fff;
+    border: 2px solid #cbd5e1;
+    color: #0f172a;
+    letter-spacing: .08em;
+    font-size: 16px;
+  }
+  .hero-search-row .input-letters::placeholder {
+    color: #94a3b8;
+  }
+  .hero-search-row .btn {
+    width: 100%;
+    height: 52px;
+    min-width: 0;
+    border-radius: 16px;
+  }
+  .hero-search-row .btn-cta {
+    box-shadow: 0 8px 20px rgba(59,130,246,.25);
+  }
+  .hero-search-row .btn.ghost {
+    border-color: #cbd5e1;
+    background: #fff;
+    color: #334155;
+  }
+  .hero-enter-hint {
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 12px;
+  }
+  .trust-badges--compact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .trust-badge {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(15,23,42,.05);
+  }
+  .trust-check {
+    background: #dcfce7;
+    border-color: #bbf7d0;
+    color: #16a34a;
+  }
+  .demo-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15,23,42,.05);
+  }
+  .demo-chip {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+  .feature-hub-title {
+    text-align: left;
+    font-size: 20px;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-card {
+    min-height: 0;
+    padding: 14px;
+  }
+  .stats-strip {
+    grid-template-columns: 1fr;
+  }
+  .stats-item + .stats-item {
+    border-left: 0;
+    border-top: 1px solid #e2e8f0;
+  }
+  .stats-item {
+    padding: 16px;
+  }
+  .page-wrap {
+    padding: 14px 14px 30px;
+    gap: 14px;
+  }
+  .page-sidebar {
+    grid-template-columns: 1fr;
+  }
+  .proof-panel,
+  .tools-widget,
+  .wotd-widget,
+  .card {
+    border-radius: 20px;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15,23,42,.05);
+  }
+  .proof-panel-title {
+    font-size: 16px;
+  }
+  .proof-avatar-row {
+    margin-top: 14px;
+  }
+  .proof-pill {
+    margin-left: 0;
+  }
+  .tools-widget-title {
+    color: #64748b;
+  }
+  .wotd-widget {
+    padding: 16px;
+  }
+  .seo-section,
+  #why-wordfindlab,
+  .related-tools,
+  .blog-section {
+    border-radius: 20px;
+  }
+  .site-footer {
+    background: #fff;
+  }
+  .footer-copy {
+    color: #64748b;
+  }
+  .hero-visual {
+    display: none !important;
+  }
+}
+
