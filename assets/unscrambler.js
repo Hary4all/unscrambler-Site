@@ -4,11 +4,11 @@
 
    Exports (globals):
      SCRABBLE_POINTS, WWF_POINTS
-     loadDictionary(which)   â†’ Promise<bool>
-     uniqueSortedSubsets(letters, minLen, maxLen) â†’ string[]
-     expandWildcards(letters) â†’ string[][] | null
-     scrabbleScore(word) â†’ number
-     wwfScore(word) â†’ number
+     loadDictionary(which)   -> Promise<bool>
+     uniqueSortedSubsets(letters, minLen, maxLen) -> string[]
+     expandWildcards(letters) -> string[][] | null
+     scrabbleScore(word) -> number
+     wwfScore(word) -> number
      setStatus(html, cls)
      copyWord(el, word)
      injectNav()
@@ -42,7 +42,7 @@ const DICT_URLS = {
 };
 
 const CACHE_VERSION = "v3";
-let DICT_INDEX  = {};     // sorted-key â†’ [UPPERCASE words]
+let DICT_INDEX  = {};     // sorted-key -> [UPPERCASE words]
 let DICT_SET    = new Set();
 let CURRENT_DICT = null;
 
@@ -50,7 +50,7 @@ async function loadDictionary(which) {
   which = which || "all";
   if (CURRENT_DICT === which) return true;
 
-  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionary…");
+  setStatus('<span class="loader"></span> Loading ' + (which === "all" ? "full" : "common") + " dictionary...");
 
   const cacheKey = "unscrambler:" + CACHE_VERSION + ":" + which;
   let raw = null;
@@ -241,7 +241,7 @@ function renderWordGroups(containerId, words, scoreFn) {
     const g   = document.createElement("div");
     g.className = "group";
     const h = document.createElement("h3");
-    h.textContent = len + " letters · " + groups[len].length;
+    h.textContent = len + " letters - " + groups[len].length;
     g.appendChild(h);
     const wrap = document.createElement("div");
     wrap.className = "words";

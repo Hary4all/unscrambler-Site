@@ -1496,21 +1496,6 @@ a.announce-bar:hover {
   letter-spacing: .01em;
   box-shadow: 0 10px 24px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.05);
 }
-.hero-points li::before {
-  content: "?";
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(34,197,94,.16);
-  color: #5eead4;
-  flex-shrink: 0;
-  font-size: 10px;
-  line-height: 1;
-  box-shadow: 0 0 0 1px rgba(34,197,94,.2);
-}
 .trust-badges--compact {
   margin-top: 12px;
   gap: 10px 14px;
@@ -1608,5 +1593,255 @@ a.announce-bar:hover {
     width: 36px;
     height: 36px;
     font-size: 16px;
+  }
+}
+
+/* ============================================================
+   Premium cleanup pass
+   Low-noise icons, calmer glow, stronger CTA, cleaner mobile.
+============================================================ */
+
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.ui-icon {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.site-hero {
+  padding: 46px 20px 56px;
+}
+.site-hero::before {
+  background:
+    radial-gradient(ellipse at 18% 55%, rgba(56,189,248,.14) 0%, transparent 48%),
+    radial-gradient(ellipse at 80% 20%, rgba(99,102,241,.12) 0%, transparent 42%),
+    radial-gradient(ellipse at 50% 88%, rgba(34,197,94,.06) 0%, transparent 38%);
+}
+.site-hero::after {
+  opacity: .6;
+}
+.hero-tiles .htile-wrap:nth-child(n+4) {
+  display: none;
+}
+.htile {
+  opacity: .35;
+  box-shadow:
+    3px 7px 16px rgba(0,0,0,.5),
+    1px 2px 4px  rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.68),
+    inset 0 -2px 0 rgba(0,0,0,.34);
+}
+
+.hero-inner {
+  max-width: 700px;
+}
+.hero-label {
+  background: rgba(56,189,248,.12);
+  border-color: rgba(56,189,248,.28);
+  color: #93c5fd;
+}
+.hero-title {
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.08),
+    0 2px 8px rgba(0,0,0,.5),
+    0 10px 22px rgba(0,0,0,.35);
+}
+.hero-title .accent {
+  text-shadow:
+    0 0 22px rgba(56,189,248,.36),
+    0 2px 8px rgba(0,0,0,.5);
+}
+.hero-points {
+  max-width: 620px;
+  gap: 12px 14px;
+  margin-top: 16px;
+}
+.hero-points li {
+  background: rgba(15,23,42,.30);
+  border-color: rgba(255,255,255,.06);
+  color: #e2e8f0;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.hero-points li::before {
+  content: none !important;
+  display: none !important;
+}
+.hero-point-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34,197,94,.16);
+  color: #5eead4;
+  box-shadow: 0 0 0 1px rgba(34,197,94,.15);
+}
+.hero-point-icon .ui-icon {
+  width: 11px;
+  height: 11px;
+}
+.trust-badges--compact {
+  margin-top: 10px;
+  gap: 10px 12px;
+}
+.trust-badge {
+  color: #dbe7f5;
+}
+.trust-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(34,197,94,.16);
+  border: 1px solid rgba(34,197,94,.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #5eead4;
+  box-shadow: 0 0 0 1px rgba(34,197,94,.08);
+}
+.trust-check .ui-icon {
+  width: 11px;
+  height: 11px;
+}
+
+.announce-bar {
+  min-height: 48px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #f59e0b 0%, #fb923c 100%);
+  color: #111827;
+  font-size: 13px;
+  letter-spacing: .01em;
+  box-shadow: 0 2px 12px rgba(249,115,22,.18);
+}
+.announce-bar .bar-arrow {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  color: #111827;
+}
+.announce-bar:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 16px rgba(249,115,22,.24);
+}
+
+.hero-search-wrap {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(56,189,248,.08) 0%, transparent 34%),
+    linear-gradient(to bottom, #171347 0%, var(--bg) 58px);
+}
+.hero-search-wrap::before {
+  opacity: .55;
+}
+.hero-search-box {
+  border: 1px solid rgba(148,163,184,.10);
+  box-shadow:
+    0 -6px 0 rgba(56,189,248,.06),
+    0 0 0 1px rgba(0,0,0,.05),
+    0 10px 28px rgba(15,23,42,.10),
+    inset 0 1px 0 rgba(255,255,255,.84);
+}
+.hero-search-label {
+  color: #44506a;
+}
+.hero-search-label .hsl-hint {
+  color: #7c88a1;
+}
+.hero-search-row .input-letters {
+  background: linear-gradient(180deg, rgba(15,23,42,.97) 0%, rgba(30,41,59,.92) 100%);
+  border: 1px solid rgba(56,189,248,.18);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 -1px 0 rgba(0,0,0,.30);
+}
+.hero-search-row .input-letters::placeholder {
+  color: #94a3b8;
+}
+.hero-search-row .input-letters:focus {
+  border-color: rgba(56,189,248,.55);
+  box-shadow: 0 0 0 4px rgba(56,189,248,.16), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.btn-cta,
+.hero-search-row .btn-cta {
+  background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
+  box-shadow:
+    0 6px 18px rgba(37,99,235,.34),
+    0 0 0 1px rgba(255,255,255,.04),
+    inset 0 1px 0 rgba(255,255,255,.16);
+  animation: ctaPulse 4.2s ease-in-out infinite;
+}
+.btn-cta:hover,
+.hero-search-row .btn-cta:hover {
+  filter: brightness(1.08);
+  box-shadow:
+    0 8px 22px rgba(56,189,248,.42),
+    0 0 0 1px rgba(255,255,255,.05),
+    inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.tool-card-icon {
+  width: 24px;
+  height: 24px;
+  color: #38BDF8;
+  margin-bottom: 8px;
+}
+.related-link-icon {
+  width: 14px;
+  height: 14px;
+  color: #60a5fa;
+  margin-right: 6px;
+  display: inline-flex;
+  vertical-align: -2px;
+}
+
+@keyframes ctaPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+@media (max-width: 600px) {
+  .site-hero {
+    padding: 32px 16px 42px;
+  }
+  .hero-points {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hero-points li {
+    justify-content: flex-start;
+    padding: 8px 12px;
+    font-size: 12.5px;
+  }
+  .hero-search-box {
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+  }
+  .hero-search-row {
+    gap: 8px;
+  }
+  .hero-search-row .input-letters {
+    font-size: 17px;
+  }
+  .hero-search-row .btn-cta {
+    flex: 1;
+  }
+  .hero-search-row .btn.ghost {
+    padding: 12px 14px;
   }
 }
