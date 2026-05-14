@@ -327,7 +327,6 @@ function injectNav() {
   const actions = document.createElement("div");
   actions.className = "nav-actions";
   actions.innerHTML = `
-    <span class="nav-action nav-action--ghost">Login</span>
     <a class="nav-action nav-action--primary" href="#search">Try Now Free</a>
   `;
 

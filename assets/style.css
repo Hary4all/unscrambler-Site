@@ -2407,6 +2407,83 @@ a.announce-bar:hover {
 .hero-sidecard-tags span:nth-child(1) { background: linear-gradient(90deg, #7bd46d, #5fb85a); }
 .hero-sidecard-tags span:nth-child(2) { background: linear-gradient(90deg, #ffcc52, #f7b930); }
 .hero-sidecard-tags span:nth-child(3) { background: linear-gradient(90deg, #86d26d, #6fc45d); }
+.hero-playbook {
+  position: absolute;
+  left: 24px;
+  top: 214px;
+  width: 274px;
+  padding: 18px 18px 16px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(248,250,252,.98) 100%);
+  border: 1px solid rgba(148,163,184,.18);
+  box-shadow: 0 18px 48px rgba(15,23,42,.10);
+  backdrop-filter: blur(10px);
+}
+.hero-playbook-eyebrow {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.hero-playbook-title {
+  margin-top: 6px;
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+.hero-playbook-step {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-top: 14px;
+}
+.hero-playbook-step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 10px 20px rgba(37,99,235,.22);
+}
+.hero-playbook-step strong {
+  display: block;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+.hero-playbook-step p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.hero-playbook-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.hero-playbook-meta span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 800;
+}
 .hero-lens {
   position: absolute;
   right: -18px;
