@@ -1,14 +1,19 @@
 (function () {
   "use strict";
 
-  const DICTIONARY_API = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+  const DICTIONARY_API_URLS = [
+    "/api/dictionary?word=",
+    "https://api.dictionaryapi.dev/api/v2/entries/en/",
+  ];
   const COMMON_WORDS_URLS = [
+    "/api/meaningful-words?format=text",
     "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english@master/google-10000-english-usa-no-swears.txt",
   ];
   const COMMON_WORDS_CACHE_KEY = "wordfindlab:meaningful-words:v1";
   const COMMON_WORDS_LIMIT = 2000;
+  const WOTD_API_URL = "/api/wotd";
 
   const WOTD_LIST = [
     "serendipity", "ephemeral", "melancholy", "eloquent", "resilience",
@@ -108,38 +113,50 @@
     }
   }
 
+  async function fetchJson(url, timeoutMs) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs || 8000);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (err) {
+      return null;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   async function fetchDefinition(word) {
     const normalized = normalizeWord(word);
     if (!normalized) return null;
     if (defCache.has(normalized)) return defCache.get(normalized);
 
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 5000);
-    try {
-      const res = await fetch(DICTIONARY_API + encodeURIComponent(normalized), {
-        signal: ctrl.signal,
-      });
-      if (!res.ok) {
-        defCache.set(normalized, null);
-        return null;
-      }
+    for (const baseUrl of DICTIONARY_API_URLS) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 5000);
+      try {
+        const res = await fetch(baseUrl + encodeURIComponent(normalized), {
+          signal: ctrl.signal,
+        });
+        if (!res.ok) continue;
 
-      const data = await res.json();
-      const entry = Array.isArray(data) ? data[0] : null;
-      if (!entry) {
-        defCache.set(normalized, null);
-        return null;
-      }
+        const data = await res.json();
+        const entry = Array.isArray(data) ? data[0] : null;
+        if (!entry) continue;
 
-      const result = normalizeEntry(entry);
-      defCache.set(normalized, result);
-      return result;
-    } catch (err) {
-      defCache.set(normalized, null);
-      return null;
-    } finally {
-      clearTimeout(timer);
+        const result = normalizeEntry(entry);
+        defCache.set(normalized, result);
+        return result;
+      } catch (err) {
+        // Try the next source.
+      } finally {
+        clearTimeout(timer);
+      }
     }
+
+    defCache.set(normalized, null);
+    return null;
   }
 
   function normalizeEntry(entry) {
@@ -459,8 +476,6 @@
 
   async function populateWordOfTheDayWidget(widget) {
     if (!widget) return;
-    const word = getWordOfTheDay();
-    const date = formatWordOfTheDayDate();
 
     const dateEl = widget.querySelector("[data-wotd-date]");
     const wordEl = widget.querySelector("[data-wotd-word]");
@@ -471,8 +486,7 @@
     const synonymsEl = widget.querySelector("[data-wotd-synonyms]");
     const stateEl = widget.querySelector("[data-wotd-state]");
 
-    if (dateEl) dateEl.textContent = `Word of the Day — ${date}`;
-    if (wordEl) wordEl.textContent = word;
+    if (wordEl) wordEl.textContent = "Loading...";
     if (phoneticEl) phoneticEl.textContent = "Loading...";
     if (posEl) posEl.textContent = "";
     if (definitionEl) definitionEl.textContent = "Fetching a definition...";
@@ -480,6 +494,29 @@
     if (synonymsEl) synonymsEl.innerHTML = "";
     if (stateEl) stateEl.textContent = "";
 
+    const dateLabel = `Word of the Day — ${formatWordOfTheDayDate()}`;
+    if (dateEl) dateEl.textContent = dateLabel;
+
+    const apiEntry = await fetchJson(WOTD_API_URL, 5000);
+    if (apiEntry && apiEntry.word) {
+      if (wordEl) wordEl.textContent = apiEntry.word;
+      if (phoneticEl) phoneticEl.textContent = apiEntry.phonetic || "";
+      if (posEl) posEl.textContent = apiEntry.primaryPartOfSpeech || "noun";
+      if (definitionEl) definitionEl.textContent = apiEntry.primaryDefinition || "Definition unavailable.";
+      if (exampleEl) {
+        exampleEl.textContent = apiEntry.primaryExample
+          ? `Example: ${apiEntry.primaryExample}`
+          : "";
+      }
+      if (synonymsEl) {
+        const pills = (apiEntry.synonyms || []).slice(0, widget.dataset.wotdCompact === "true" ? 3 : 4);
+        synonymsEl.innerHTML = pills.map(item => `<span class="wotd-pill">${escapeHtml(item)}</span>`).join("");
+      }
+      if (stateEl) stateEl.textContent = apiEntry.source === "db" ? "Synced from database" : "Live dictionary lookup";
+      return;
+    }
+
+    const word = getWordOfTheDay();
     const entry = await fetchDefinition(word);
     if (!entry) {
       if (phoneticEl) phoneticEl.textContent = "";
