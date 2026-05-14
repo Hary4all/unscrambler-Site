@@ -88,155 +88,196 @@
 
 <!-- Nav injected by unscrambler.js -->
 
-<!-- ===== HERO ===== -->
-<section class="site-hero">
+<section class="hero-shell" id="hero">
+  <div class="hero-shell__inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">
+        <span class="hero-kicker-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></span>
+        <span>THE #1 WORD FINDER TOOL</span>
+      </div>
+      <h1 class="hero-title">
+        Find the Word.<br><span class="accent">Win the Board.</span>
+      </h1>
+      <p class="hero-subcopy">Unscramble letters, solve Wordle clues, and find high-scoring words in seconds.</p>
 
-  <!-- Floating 3D letter tiles -->
-  <div class="hero-tiles" aria-hidden="true">
-    <div class="htile-wrap" style="top:14%;left:2.5%">
-      <div class="htile" style="transform:rotate(-16deg) rotateY(28deg)">W</div>
+      <div class="hero-feature-row" aria-label="Core benefits">
+        <article class="hero-feature hero-feature--green">
+          <span class="hero-feature-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span>
+          <div>
+            <h3>Solve Wordle Faster</h3>
+            <p>Find the hidden words in seconds.</p>
+          </div>
+        </article>
+        <article class="hero-feature hero-feature--gold">
+          <span class="hero-feature-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-target"></use></svg></span>
+          <div>
+            <h3>Find Scrabble Winners</h3>
+            <p>Discover score-heavy plays instantly.</p>
+          </div>
+        </article>
+        <article class="hero-feature hero-feature--violet">
+          <span class="hero-feature-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-shuffle"></use></svg></span>
+          <div>
+            <h3>Unscramble Any Letters</h3>
+            <p>Turn jumbles into real words.</p>
+          </div>
+        </article>
+        <article class="hero-feature hero-feature--blue">
+          <span class="hero-feature-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-puzzle"></use></svg></span>
+          <div>
+            <h3>Beat Jumbles Instantly</h3>
+            <p>Never get stuck on a puzzle.</p>
+          </div>
+        </article>
+      </div>
+
+      <section class="hero-search-card card" id="search">
+        <div class="hero-search-label">
+          Enter your letters
+          <span class="hsl-hint">(use ? for a blank tile)</span>
+        </div>
+        <div class="hero-search-row">
+          <input id="letters" class="input-letters" type="text" autocomplete="off"
+                 autocapitalize="characters" spellcheck="false"
+                 placeholder="Enter letters here" maxlength="15">
+          <button id="go" class="btn btn-cta">Find Words</button>
+          <button id="clear" class="btn ghost">Clear</button>
+        </div>
+        <div class="trust-badges trust-badges--compact" aria-label="Trust signals">
+          <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Free Forever</span>
+          <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> No Signup Required</span>
+          <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Instant Results</span>
+          <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> 359K+ Words Indexed</span>
+        </div>
+        <div class="hero-enter-hint">Press <b>Enter</b> to search</div>
+
+        <details class="advanced">
+          <summary>Advanced filters</summary>
+          <div class="row" style="margin-top:12px">
+            <div class="col">
+              <label for="starts">Starts with</label>
+              <input id="starts" type="text" autocomplete="off" placeholder="e.g. PR" maxlength="8">
+            </div>
+            <div class="col">
+              <label for="ends">Ends with</label>
+              <input id="ends" type="text" autocomplete="off" placeholder="e.g. ING" maxlength="8">
+            </div>
+            <div class="col">
+              <label for="contains">Contains</label>
+              <input id="contains" type="text" autocomplete="off" placeholder="e.g. AT" maxlength="8">
+            </div>
+            <div class="col">
+              <label for="length">Length</label>
+              <input id="length" type="number" min="2" max="15" placeholder="any">
+            </div>
+            <div class="col">
+              <label for="dict">Dictionary</label>
+              <select id="dict">
+                <option value="all">All words (370K+)</option>
+                <option value="common">Common words</option>
+              </select>
+            </div>
+          </div>
+        </details>
+
+        <div id="status" class="status"></div>
+
+        <div class="meaningful-toggle" data-meaningful-toggle>
+          <input type="checkbox" id="meaningful-toggle" checked>
+          <div>
+            <strong>Meaningful words only</strong>
+            <span class="toggle-copy">Keep everyday words near the top and hide the ultra-obscure entries.</span>
+          </div>
+        </div>
+
+        <div class="demo-box" id="demoBox">
+          <div class="demo-box-title">Try an example</div>
+          <div class="demo-chips">
+            <span class="demo-chip" data-fill="STARING">STARING</span>
+            <span class="demo-chip" data-fill="AELPPS">AELPPS</span>
+            <span class="demo-chip" data-fill="TCA?ER">TCA?ER</span>
+            <span class="demo-chip" data-fill="Q?IZ">Q?IZ</span>
+            <span class="demo-chip" data-fill="AEINRST">AEINRST</span>
+          </div>
+        </div>
+
+        <div id="resultsCard" hidden style="margin-top:18px;border-top:1px solid var(--border);padding-top:16px">
+          <div class="results-head">
+            <h2 style="font-size:16px;margin:0 0 4px">Results</h2>
+            <span class="meta" id="resultsMeta"></span>
+          </div>
+          <div id="results"></div>
+        </div>
+
+        <section class="card definition-panel" id="definition-panel" hidden>
+          <div class="definition-panel-head">
+            <div>
+              <p class="definition-label">Dictionary definition</p>
+              <h2 class="definition-word" id="definition-word"></h2>
+              <p class="definition-phonetic" id="definition-phonetic"></p>
+            </div>
+            <div class="definition-actions">
+              <button class="btn ghost" type="button" id="definition-copy">Copy</button>
+              <button class="btn ghost" type="button" id="definition-close">Close</button>
+            </div>
+          </div>
+          <div class="definition-meta">
+            <span class="definition-pos" id="definition-pos"></span>
+            <span class="definition-source">Free Dictionary API</span>
+          </div>
+          <p class="definition-primary" id="definition-primary"></p>
+          <p class="definition-example" id="definition-example"></p>
+          <div class="definition-sections" id="definition-sections"></div>
+          <div class="definition-pills" id="definition-synonyms"></div>
+          <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
+          <p class="definition-note" id="definition-note"></p>
+        </section>
+      </section>
     </div>
-    <div class="htile-wrap" style="top:22%;right:3.5%">
-      <div class="htile" style="transform:rotate(17deg) rotateY(-22deg)">Q</div>
-    </div>
-    <div class="htile-wrap" style="top:64%;right:7%">
-      <div class="htile" style="transform:rotate(-9deg) rotateX(-14deg)">X</div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-orb hero-orb--one"></div>
+      <div class="hero-orb hero-orb--two"></div>
+      <div class="hero-orb hero-orb--three"></div>
+
+      <div class="hero-tile hero-tile--w">W<span>4</span></div>
+      <div class="hero-tile hero-tile--k">K<span>5</span></div>
+      <div class="hero-tile hero-tile--q">Q<span>10</span></div>
+      <div class="hero-tile hero-tile--z">Z<span>10</span></div>
+
+      <div class="hero-board">
+        <div class="hero-board-top">YOUR LETTERS</div>
+        <div class="hero-letter-row">
+          <span>S</span><span>T</span><span>A</span><span>R</span><span>I</span><span>N</span><span>G</span>
+        </div>
+        <div class="hero-board-subtop">TOP RESULTS</div>
+        <div class="hero-result hero-result--a"><span>RATING</span><strong>12</strong></div>
+        <div class="hero-result hero-result--b"><span>STARING</span><strong>11</strong></div>
+        <div class="hero-result hero-result--c"><span>RINGS</span><strong>10</strong></div>
+        <div class="hero-result hero-result--d"><span>STING</span><strong>9</strong></div>
+        <div class="hero-result hero-result--e"><span>TRAINS</span><strong>9</strong></div>
+        <a class="hero-board-link" href="/word-lists/highest-scoring-scrabble-words/">View All Results <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+      <div class="hero-sidecard">
+        <div class="hero-sidecard-title">WORDLE HELPER</div>
+        <div class="hero-wordle-grid" aria-hidden="true">
+          <span class="g-green"></span><span class="g-gray"></span><span class="g-gray"></span><span class="g-gray"></span><span class="g-gray"></span>
+          <span class="g-yellow"></span><span class="g-yellow"></span><span class="g-gray"></span><span class="g-green"></span><span class="g-gray"></span>
+          <span class="g-gray"></span><span class="g-green"></span><span class="g-green"></span><span class="g-gray"></span><span class="g-yellow"></span>
+        </div>
+        <div class="hero-sidecard-subtitle">Best Words to Try</div>
+        <div class="hero-sidecard-tags">
+          <span>STAIR</span>
+          <span>TRAIN</span>
+          <span>RATING</span>
+        </div>
+        <a class="hero-sidecard-link" href="/wordle-solver/">View More <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+
+      <div class="hero-lens"></div>
     </div>
   </div>
-
-  <div class="hero-inner">
-    <div class="hero-label">Word Game Command Center</div>
-    <h1 class="hero-title">
-      Find the Word.<br><span class="accent">Win the Board.</span>
-    </h1>
-    <ul class="hero-points" aria-label="Key benefits">
-      <li><span class="hero-point-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span><span>Unscramble words</span></li>
-      <li><span class="hero-point-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span><span>Solve Wordle faster</span></li>
-      <li><span class="hero-point-icon" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span><span>Find Scrabble winners</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== HERO SEARCH - rises up from hero ===== -->
-<div class="hero-search-wrap">
-  <div class="hero-search-box">
-
-    <div class="hero-search-label">
-      Enter your letters
-      <span class="hsl-hint">(use ? for a blank tile)</span>
-    </div>
-
-    <div class="hero-search-row">
-      <input id="letters" class="input-letters" type="text" autocomplete="off"
-             autocapitalize="characters" spellcheck="false"
-             placeholder="Enter letters here" maxlength="15">
-      <button id="go" class="btn btn-cta">Find Words</button>
-      <button id="clear" class="btn ghost">Clear</button>
-    </div>
-    <div class="trust-badges trust-badges--compact" aria-label="Trust signals">
-      <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Free Forever</span>
-      <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> No Signup Required</span>
-      <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Instant Results</span>
-      <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> 359K+ Words Indexed</span>
-    </div>
-    <div style="margin:6px 0 2px;font-size:12px;color:var(--muted)">Press <b>Enter</b> to search</div>
-
-    <details class="advanced">
-      <summary>Advanced filters</summary>
-      <div class="row" style="margin-top:12px">
-        <div class="col">
-          <label for="starts">Starts with</label>
-          <input id="starts" type="text" autocomplete="off" placeholder="e.g. PR" maxlength="8">
-        </div>
-        <div class="col">
-          <label for="ends">Ends with</label>
-          <input id="ends" type="text" autocomplete="off" placeholder="e.g. ING" maxlength="8">
-        </div>
-        <div class="col">
-          <label for="contains">Contains</label>
-          <input id="contains" type="text" autocomplete="off" placeholder="e.g. AT" maxlength="8">
-        </div>
-        <div class="col">
-          <label for="length">Length</label>
-          <input id="length" type="number" min="2" max="15" placeholder="any">
-        </div>
-        <div class="col">
-          <label for="dict">Dictionary</label>
-          <select id="dict">
-            <option value="all">All words (370K+)</option>
-            <option value="common">Common words</option>
-          </select>
-        </div>
-      </div>
-    </details>
-
-    <div id="status" class="status"></div>
-
-    <div class="meaningful-toggle" data-meaningful-toggle>
-      <input type="checkbox" id="meaningful-toggle" checked>
-      <div>
-        <strong>Meaningful words only</strong>
-        <span class="toggle-copy">Keep everyday words near the top and hide the ultra-obscure entries.</span>
-      </div>
-    </div>
-
-    <!-- Demo examples - shown before first search -->
-    <div class="demo-box" id="demoBox">
-      <div class="demo-box-title">Try an example</div>
-      <div class="demo-chips">
-        <span class="demo-chip" data-fill="STARING">STARING</span>
-        <span class="demo-chip" data-fill="AELPPS">AELPPS</span>
-        <span class="demo-chip" data-fill="TCA?ER">TCA?ER</span>
-        <span class="demo-chip" data-fill="Q?IZ">Q?IZ</span>
-        <span class="demo-chip" data-fill="AEINRST">AEINRST</span>
-      </div>
-    </div>
-
-    <!-- Results - lives inside search box so it's always visible -->
-    <div id="resultsCard" hidden style="margin-top:18px;border-top:1px solid var(--border);padding-top:16px">
-      <div class="results-head">
-        <h2 style="font-size:16px;margin:0 0 4px">Results</h2>
-        <span class="meta" id="resultsMeta"></span>
-      </div>
-      <div id="results"></div>
-    </div>
-
-    <section class="card definition-panel" id="definition-panel" hidden>
-      <div class="definition-panel-head">
-        <div>
-          <p class="definition-label">Dictionary definition</p>
-          <h2 class="definition-word" id="definition-word"></h2>
-          <p class="definition-phonetic" id="definition-phonetic"></p>
-        </div>
-        <div class="definition-actions">
-          <button class="btn ghost" type="button" id="definition-copy">Copy</button>
-          <button class="btn ghost" type="button" id="definition-close">Close</button>
-        </div>
-      </div>
-      <div class="definition-meta">
-        <span class="definition-pos" id="definition-pos"></span>
-        <span class="definition-source">Free Dictionary API</span>
-      </div>
-      <p class="definition-primary" id="definition-primary"></p>
-      <p class="definition-example" id="definition-example"></p>
-      <div class="definition-sections" id="definition-sections"></div>
-      <div class="definition-pills" id="definition-synonyms"></div>
-      <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
-      <p class="definition-note" id="definition-note"></p>
-    </section>
-
-  </div><!-- /hero-search-box -->
-</div><!-- /hero-search-wrap -->
-
-<section class="card wotd-widget homepage-wotd" data-wotd-widget>
-  <p class="wotd-label">Word of the Day</p>
-  <div class="wotd-date" data-wotd-date>Loading today's word...</div>
-  <h2 class="wotd-word" data-wotd-word>Loading...</h2>
-  <p class="wotd-phonetic" data-wotd-phonetic></p>
-  <span class="wotd-pos" data-wotd-pos></span>
-  <p class="wotd-definition" data-wotd-definition></p>
-  <p class="wotd-example" data-wotd-example></p>
-  <div class="wotd-synonyms" data-wotd-synonyms></div>
 </section>
 
 <!-- ===== PAGE WRAP ===== -->
@@ -245,56 +286,79 @@
   <!-- ===== MAIN COLUMN ===== -->
   <main class="page-main">
 
-    <!-- Tool Cards -->
-    <div class="tool-cards-section">
-      <div class="section-label">Choose Your Word Tool</div>
-      <div class="tool-cards">
-        <a class="tool-card" href="/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shuffle"></use></svg>
-          <div class="tool-card-name">Word Unscrambler</div>
-          <div class="tool-card-desc">Find every word hiding in your scrambled letters.</div>
-          <div class="tool-card-cta">Unscramble Now</div>
+    <div class="feature-hub" id="more-tools">
+      <div class="feature-hub-title">Powerful Tools to Win Every Word Game</div>
+      <div class="feature-grid">
+        <a class="feature-card" href="/">
+          <span class="feature-icon feature-icon--blue" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-shuffle"></use></svg></span>
+          <div class="feature-card-title">Word Finder</div>
+          <div class="feature-card-copy">Find words from any letters instantly.</div>
+          <div class="feature-card-link">Try Now <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
-        <a class="tool-card" href="/scrabble-word-finder/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-target"></use></svg>
-          <div class="tool-card-name">Scrabble Finder</div>
-          <div class="tool-card-desc">Highest-scoring rack words, sorted by Scrabble points.</div>
-          <div class="tool-card-cta">Find Scrabble Words</div>
+        <a class="feature-card" href="/anagram-solver/">
+          <span class="feature-icon feature-icon--violet" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-wand"></use></svg></span>
+          <div class="feature-card-title">Anagram Solver</div>
+          <div class="feature-card-copy">Unscramble letters and reveal all words.</div>
+          <div class="feature-card-link">Try Now <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
-        <a class="tool-card" href="/wordle-solver/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-grid"></use></svg>
-          <div class="tool-card-name">Wordle Solver</div>
-          <div class="tool-card-desc">Enter green, yellow, and gray clues &mdash; get every possible answer.</div>
-          <div class="tool-card-cta">Solve Wordle</div>
+        <a class="feature-card" href="/5-letter-words/">
+          <span class="feature-icon feature-icon--green" aria-hidden="true">5</span>
+          <div class="feature-card-title">5 Letter Words</div>
+          <div class="feature-card-copy">Find all 5 letter words for any game.</div>
+          <div class="feature-card-link">Try Now <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
-        <a class="tool-card" href="/anagram-solver/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-wand"></use></svg>
-          <div class="tool-card-name">Anagram Solver</div>
-          <div class="tool-card-desc">Find all perfect anagrams that use every single letter.</div>
-          <div class="tool-card-cta">Find Anagrams</div>
+        <a class="feature-card" href="/words-starting-with/">
+          <span class="feature-icon feature-icon--gold" aria-hidden="true">A</span>
+          <div class="feature-card-title">Words Starting With</div>
+          <div class="feature-card-copy">Explore words that start with any letter.</div>
+          <div class="feature-card-link">Try Now <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
-        <a class="tool-card" href="/words-with-friends-cheat/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-message"></use></svg>
-          <div class="tool-card-name">Words With Friends</div>
-          <div class="tool-card-desc">Best plays from your rack, scored with real WWF values.</div>
-          <div class="tool-card-cta">Find WWF Words</div>
+        <a class="feature-card" href="/words-ending-with/">
+          <span class="feature-icon feature-icon--red" aria-hidden="true">Z</span>
+          <div class="feature-card-title">Words Ending With</div>
+          <div class="feature-card-copy">Find words that end with any letter.</div>
+          <div class="feature-card-link">Try Now <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
-        <a class="tool-card" href="/jumble-solver/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-puzzle"></use></svg>
-          <div class="tool-card-name">Jumble Solver</div>
-          <div class="tool-card-desc">Crack the daily Jumble &mdash; unscramble words and solve the punchline.</div>
-          <div class="tool-card-cta">Solve Jumble</div>
-        </a>
-        <a class="tool-card" href="/blog/">
-          <svg class="tool-card-icon ui-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-book"></use></svg>
-          <div class="tool-card-name">Word Game Blog</div>
-          <div class="tool-card-desc">Read the learning, kids, and brain-health articles you added.</div>
-          <div class="tool-card-cta">Open Blog</div>
+        <a class="feature-card feature-card--all" href="/guides/">
+          <span class="feature-icon feature-icon--all" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-grid"></use></svg></span>
+          <div class="feature-card-title">All Tools</div>
+          <div class="feature-card-copy">Explore every word game tool and guide.</div>
+          <div class="feature-card-link">View All <svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></div>
         </a>
       </div>
     </div>
 
-    <!-- Ad: after tool cards, before results -->
+    <div class="stats-strip" aria-label="Site stats">
+      <div class="stats-item">
+        <strong>2M+</strong>
+        <span>Happy Players Worldwide</span>
+      </div>
+      <div class="stats-item">
+        <strong>359K+</strong>
+        <span>Words Indexed</span>
+      </div>
+      <div class="stats-item">
+        <strong>Fast</strong>
+        <span>Results in Seconds</span>
+      </div>
+      <div class="stats-item">
+        <strong>100%</strong>
+        <span>Safe &amp; Secure</span>
+      </div>
+    </div>
+
+    <section class="card homepage-wotd" data-wotd-widget>
+      <p class="wotd-label">Word of the Day</p>
+      <div class="wotd-date" data-wotd-date>Loading today's word...</div>
+      <h2 class="wotd-word" data-wotd-word>Loading...</h2>
+      <p class="wotd-phonetic" data-wotd-phonetic></p>
+      <span class="wotd-pos" data-wotd-pos></span>
+      <p class="wotd-definition" data-wotd-definition></p>
+      <p class="wotd-example" data-wotd-example></p>
+      <div class="wotd-synonyms" data-wotd-synonyms></div>
+    </section>
+
+    <!-- Ad: after tools, before content -->
     <div class="ad-wrap">
       <span class="ad-label">Advertisement</span>
       <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
@@ -382,6 +446,20 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="page-sidebar">
+
+    <div class="card proof-panel">
+      <div class="proof-panel-title">Loved by Millions of Word Game Players</div>
+      <div class="proof-avatar-row" aria-hidden="true">
+        <span class="proof-avatar proof-avatar--one">A</span>
+        <span class="proof-avatar proof-avatar--two">M</span>
+        <span class="proof-avatar proof-avatar--three">J</span>
+        <span class="proof-avatar proof-avatar--four">K</span>
+        <span class="proof-avatar proof-avatar--five">S</span>
+        <span class="proof-pill">2M+</span>
+      </div>
+      <div class="proof-stars" aria-hidden="true">★★★★★</div>
+      <div class="proof-rating">4.9/5 from 30,000+ reviews</div>
+    </div>
 
     <div class="ad-wrap">
       <span class="ad-label">Advertisement</span>

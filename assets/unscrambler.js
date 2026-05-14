@@ -277,14 +277,11 @@ function copyWord(el, word) {
 /* ---------- Nav injection ---------- */
 
 const NAV_LINKS = [
-  { href: "/",                         label: "Word Unscrambler"   },
-  { href: "/scrabble-word-finder/",    label: "Scrabble Finder"    },
-  { href: "/wordle-solver/",           label: "Wordle Solver"      },
-  { href: "/anagram-solver/",          label: "Anagram Solver"     },
-  { href: "/words-with-friends-cheat/",label: "Words With Friends" },
-  { href: "/jumble-solver/",           label: "Jumble Solver"      },
-  { href: "/dictionary/",              label: "Dictionary"         },
-  { href: "/blog/",                    label: "Blog"               },
+  { href: "/",                label: "Word Finder", caret: true },
+  { href: "/anagram-solver/", label: "Anagram Solver" },
+  { href: "/5-letter-words/", label: "5 Letter Words" },
+  { href: "/guides/",         label: "More Tools", caret: true },
+  { href: "/blog/",           label: "Blog" },
 ];
 
 const SIDEBAR_TOOLS = [
@@ -307,7 +304,7 @@ function injectNav() {
   const logo = document.createElement("a");
   logo.className = "nav-logo";
   logo.href = "/";
-  logo.innerHTML = '<span class="nav-logo-mark">WF</span><span class="nav-logo-text">WordFindLab</span>';
+  logo.innerHTML = '<span class="nav-logo-mark">WF</span><span class="nav-logo-copy"><span class="nav-logo-text">WordFindLab</span><span class="nav-logo-sub">Find the Word. Win the Board.</span></span>';
   inner.appendChild(logo);
 
   // Nav links
@@ -320,12 +317,19 @@ function injectNav() {
   NAV_LINKS.forEach(item => {
     const a = document.createElement("a");
     a.href  = item.href;
-    a.textContent = item.label;
+    a.innerHTML = item.label + (item.caret ? '<span class="nav-caret" aria-hidden="true"></span>' : "");
     const isHome  = item.href === "/" && (currentPath === "/" || currentPath === "");
     const isMatch = item.href !== "/" && currentPath.startsWith(item.href);
     if (isHome || isMatch) a.className = "active";
     links.appendChild(a);
   });
+
+  const actions = document.createElement("div");
+  actions.className = "nav-actions";
+  actions.innerHTML = `
+    <span class="nav-action nav-action--ghost">Login</span>
+    <a class="nav-action nav-action--primary" href="#search">Try Now Free</a>
+  `;
 
   // Mobile hamburger toggle
   const toggle = document.createElement("button");
@@ -348,6 +352,7 @@ function injectNav() {
   });
 
   inner.appendChild(links);
+  inner.appendChild(actions);
   inner.appendChild(toggle);
   nav.appendChild(inner);
 
