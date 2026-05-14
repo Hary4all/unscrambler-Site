@@ -1,0 +1,4976 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/5-letter-words-ending-with/k.html",
+      "destination": "/5-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/m.html",
+      "destination": "/words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/scrabble-word-finder.html",
+      "destination": "/scrabble-word-finder/",
+      "permanent": true
+    },
+    {
+      "source": "/wordle-solver.html",
+      "destination": "/wordle-solver/",
+      "permanent": true
+    },
+    {
+      "source": "/anagram-solver.html",
+      "destination": "/anagram-solver/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-friends-cheat.html",
+      "destination": "/words-with-friends-cheat/",
+      "permanent": true
+    },
+    {
+      "source": "/jumble-solver.html",
+      "destination": "/jumble-solver/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/a.html",
+      "destination": "/10-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/b.html",
+      "destination": "/10-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/c.html",
+      "destination": "/10-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/d.html",
+      "destination": "/10-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/e.html",
+      "destination": "/10-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/f.html",
+      "destination": "/10-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/g.html",
+      "destination": "/10-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/h.html",
+      "destination": "/10-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/i.html",
+      "destination": "/10-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/j.html",
+      "destination": "/10-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/k.html",
+      "destination": "/10-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/l.html",
+      "destination": "/10-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/m.html",
+      "destination": "/10-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/n.html",
+      "destination": "/10-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/o.html",
+      "destination": "/10-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/p.html",
+      "destination": "/10-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/q.html",
+      "destination": "/10-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/r.html",
+      "destination": "/10-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/s.html",
+      "destination": "/10-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/t.html",
+      "destination": "/10-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/u.html",
+      "destination": "/10-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/v.html",
+      "destination": "/10-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/w.html",
+      "destination": "/10-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/x.html",
+      "destination": "/10-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/y.html",
+      "destination": "/10-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/10-letter-words-starting-with/z.html",
+      "destination": "/10-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/a.html",
+      "destination": "/11-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/b.html",
+      "destination": "/11-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/c.html",
+      "destination": "/11-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/d.html",
+      "destination": "/11-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/e.html",
+      "destination": "/11-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/f.html",
+      "destination": "/11-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/g.html",
+      "destination": "/11-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/h.html",
+      "destination": "/11-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/i.html",
+      "destination": "/11-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/j.html",
+      "destination": "/11-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/k.html",
+      "destination": "/11-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/l.html",
+      "destination": "/11-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/m.html",
+      "destination": "/11-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/n.html",
+      "destination": "/11-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/o.html",
+      "destination": "/11-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/p.html",
+      "destination": "/11-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/q.html",
+      "destination": "/11-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/r.html",
+      "destination": "/11-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/s.html",
+      "destination": "/11-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/t.html",
+      "destination": "/11-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/u.html",
+      "destination": "/11-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/v.html",
+      "destination": "/11-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/w.html",
+      "destination": "/11-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/x.html",
+      "destination": "/11-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/y.html",
+      "destination": "/11-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/11-letter-words-starting-with/z.html",
+      "destination": "/11-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/a.html",
+      "destination": "/12-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/b.html",
+      "destination": "/12-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/c.html",
+      "destination": "/12-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/d.html",
+      "destination": "/12-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/e.html",
+      "destination": "/12-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/f.html",
+      "destination": "/12-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/g.html",
+      "destination": "/12-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/h.html",
+      "destination": "/12-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/i.html",
+      "destination": "/12-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/j.html",
+      "destination": "/12-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/k.html",
+      "destination": "/12-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/l.html",
+      "destination": "/12-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/m.html",
+      "destination": "/12-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/n.html",
+      "destination": "/12-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/o.html",
+      "destination": "/12-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/p.html",
+      "destination": "/12-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/q.html",
+      "destination": "/12-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/r.html",
+      "destination": "/12-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/s.html",
+      "destination": "/12-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/t.html",
+      "destination": "/12-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/u.html",
+      "destination": "/12-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/v.html",
+      "destination": "/12-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/w.html",
+      "destination": "/12-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/x.html",
+      "destination": "/12-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/y.html",
+      "destination": "/12-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/12-letter-words-starting-with/z.html",
+      "destination": "/12-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/a.html",
+      "destination": "/13-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/b.html",
+      "destination": "/13-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/c.html",
+      "destination": "/13-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/d.html",
+      "destination": "/13-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/e.html",
+      "destination": "/13-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/f.html",
+      "destination": "/13-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/g.html",
+      "destination": "/13-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/h.html",
+      "destination": "/13-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/i.html",
+      "destination": "/13-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/j.html",
+      "destination": "/13-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/k.html",
+      "destination": "/13-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/l.html",
+      "destination": "/13-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/m.html",
+      "destination": "/13-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/n.html",
+      "destination": "/13-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/o.html",
+      "destination": "/13-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/p.html",
+      "destination": "/13-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/q.html",
+      "destination": "/13-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/r.html",
+      "destination": "/13-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/s.html",
+      "destination": "/13-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/t.html",
+      "destination": "/13-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/u.html",
+      "destination": "/13-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/v.html",
+      "destination": "/13-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/w.html",
+      "destination": "/13-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/x.html",
+      "destination": "/13-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/y.html",
+      "destination": "/13-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/13-letter-words-starting-with/z.html",
+      "destination": "/13-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/a.html",
+      "destination": "/2-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/b.html",
+      "destination": "/2-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/c.html",
+      "destination": "/2-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/d.html",
+      "destination": "/2-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/e.html",
+      "destination": "/2-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/f.html",
+      "destination": "/2-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/g.html",
+      "destination": "/2-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/h.html",
+      "destination": "/2-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/i.html",
+      "destination": "/2-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/j.html",
+      "destination": "/2-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/k.html",
+      "destination": "/2-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/l.html",
+      "destination": "/2-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/m.html",
+      "destination": "/2-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/n.html",
+      "destination": "/2-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/o.html",
+      "destination": "/2-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/p.html",
+      "destination": "/2-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/q.html",
+      "destination": "/2-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/r.html",
+      "destination": "/2-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/s.html",
+      "destination": "/2-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/t.html",
+      "destination": "/2-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/u.html",
+      "destination": "/2-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/v.html",
+      "destination": "/2-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/w.html",
+      "destination": "/2-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/x.html",
+      "destination": "/2-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/y.html",
+      "destination": "/2-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/2-letter-words-starting-with/z.html",
+      "destination": "/2-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/a.html",
+      "destination": "/3-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/b.html",
+      "destination": "/3-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/c.html",
+      "destination": "/3-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/d.html",
+      "destination": "/3-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/e.html",
+      "destination": "/3-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/f.html",
+      "destination": "/3-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/g.html",
+      "destination": "/3-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/h.html",
+      "destination": "/3-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/i.html",
+      "destination": "/3-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/j.html",
+      "destination": "/3-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/k.html",
+      "destination": "/3-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/l.html",
+      "destination": "/3-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/m.html",
+      "destination": "/3-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/n.html",
+      "destination": "/3-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/o.html",
+      "destination": "/3-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/p.html",
+      "destination": "/3-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/q.html",
+      "destination": "/3-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/r.html",
+      "destination": "/3-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/s.html",
+      "destination": "/3-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/t.html",
+      "destination": "/3-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/u.html",
+      "destination": "/3-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/v.html",
+      "destination": "/3-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/w.html",
+      "destination": "/3-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/x.html",
+      "destination": "/3-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/y.html",
+      "destination": "/3-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-ending-with/z.html",
+      "destination": "/3-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/a.html",
+      "destination": "/3-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/b.html",
+      "destination": "/3-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/c.html",
+      "destination": "/3-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/d.html",
+      "destination": "/3-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/e.html",
+      "destination": "/3-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/f.html",
+      "destination": "/3-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/g.html",
+      "destination": "/3-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/h.html",
+      "destination": "/3-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/i.html",
+      "destination": "/3-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/j.html",
+      "destination": "/3-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/k.html",
+      "destination": "/3-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/l.html",
+      "destination": "/3-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/m.html",
+      "destination": "/3-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/n.html",
+      "destination": "/3-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/o.html",
+      "destination": "/3-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/p.html",
+      "destination": "/3-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/q.html",
+      "destination": "/3-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/r.html",
+      "destination": "/3-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/s.html",
+      "destination": "/3-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/t.html",
+      "destination": "/3-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/u.html",
+      "destination": "/3-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/v.html",
+      "destination": "/3-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/w.html",
+      "destination": "/3-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/x.html",
+      "destination": "/3-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/y.html",
+      "destination": "/3-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-starting-with/z.html",
+      "destination": "/3-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/a.html",
+      "destination": "/3-letter-words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/b.html",
+      "destination": "/3-letter-words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/c.html",
+      "destination": "/3-letter-words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/d.html",
+      "destination": "/3-letter-words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/e.html",
+      "destination": "/3-letter-words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/f.html",
+      "destination": "/3-letter-words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/g.html",
+      "destination": "/3-letter-words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/h.html",
+      "destination": "/3-letter-words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/i.html",
+      "destination": "/3-letter-words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/j.html",
+      "destination": "/3-letter-words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/k.html",
+      "destination": "/3-letter-words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/l.html",
+      "destination": "/3-letter-words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/m.html",
+      "destination": "/3-letter-words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/n.html",
+      "destination": "/3-letter-words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/o.html",
+      "destination": "/3-letter-words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/p.html",
+      "destination": "/3-letter-words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/q.html",
+      "destination": "/3-letter-words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/r.html",
+      "destination": "/3-letter-words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/s.html",
+      "destination": "/3-letter-words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/t.html",
+      "destination": "/3-letter-words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/u.html",
+      "destination": "/3-letter-words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/v.html",
+      "destination": "/3-letter-words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/w.html",
+      "destination": "/3-letter-words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/x.html",
+      "destination": "/3-letter-words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/y.html",
+      "destination": "/3-letter-words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/3-letter-words-with/z.html",
+      "destination": "/3-letter-words-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/a.html",
+      "destination": "/4-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/b.html",
+      "destination": "/4-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/c.html",
+      "destination": "/4-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/d.html",
+      "destination": "/4-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/e.html",
+      "destination": "/4-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/f.html",
+      "destination": "/4-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/g.html",
+      "destination": "/4-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/h.html",
+      "destination": "/4-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/i.html",
+      "destination": "/4-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/j.html",
+      "destination": "/4-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/k.html",
+      "destination": "/4-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/l.html",
+      "destination": "/4-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/m.html",
+      "destination": "/4-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/n.html",
+      "destination": "/4-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/o.html",
+      "destination": "/4-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/p.html",
+      "destination": "/4-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/q.html",
+      "destination": "/4-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/r.html",
+      "destination": "/4-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/s.html",
+      "destination": "/4-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/t.html",
+      "destination": "/4-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/u.html",
+      "destination": "/4-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/v.html",
+      "destination": "/4-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/w.html",
+      "destination": "/4-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/x.html",
+      "destination": "/4-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/y.html",
+      "destination": "/4-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-ending-with/z.html",
+      "destination": "/4-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/a.html",
+      "destination": "/4-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/b.html",
+      "destination": "/4-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/c.html",
+      "destination": "/4-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/d.html",
+      "destination": "/4-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/e.html",
+      "destination": "/4-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/f.html",
+      "destination": "/4-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/g.html",
+      "destination": "/4-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/h.html",
+      "destination": "/4-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/i.html",
+      "destination": "/4-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/j.html",
+      "destination": "/4-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/k.html",
+      "destination": "/4-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/l.html",
+      "destination": "/4-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/m.html",
+      "destination": "/4-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/n.html",
+      "destination": "/4-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/o.html",
+      "destination": "/4-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/p.html",
+      "destination": "/4-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/q.html",
+      "destination": "/4-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/r.html",
+      "destination": "/4-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/s.html",
+      "destination": "/4-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/t.html",
+      "destination": "/4-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/u.html",
+      "destination": "/4-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/v.html",
+      "destination": "/4-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/w.html",
+      "destination": "/4-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/x.html",
+      "destination": "/4-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/y.html",
+      "destination": "/4-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-starting-with/z.html",
+      "destination": "/4-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/a.html",
+      "destination": "/4-letter-words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/b.html",
+      "destination": "/4-letter-words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/c.html",
+      "destination": "/4-letter-words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/d.html",
+      "destination": "/4-letter-words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/e.html",
+      "destination": "/4-letter-words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/f.html",
+      "destination": "/4-letter-words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/g.html",
+      "destination": "/4-letter-words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/h.html",
+      "destination": "/4-letter-words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/i.html",
+      "destination": "/4-letter-words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/j.html",
+      "destination": "/4-letter-words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/k.html",
+      "destination": "/4-letter-words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/l.html",
+      "destination": "/4-letter-words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/m.html",
+      "destination": "/4-letter-words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/n.html",
+      "destination": "/4-letter-words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/o.html",
+      "destination": "/4-letter-words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/p.html",
+      "destination": "/4-letter-words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/q.html",
+      "destination": "/4-letter-words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/r.html",
+      "destination": "/4-letter-words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/s.html",
+      "destination": "/4-letter-words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/t.html",
+      "destination": "/4-letter-words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/u.html",
+      "destination": "/4-letter-words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/v.html",
+      "destination": "/4-letter-words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/w.html",
+      "destination": "/4-letter-words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/x.html",
+      "destination": "/4-letter-words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/y.html",
+      "destination": "/4-letter-words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/4-letter-words-with/z.html",
+      "destination": "/4-letter-words-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/a.html",
+      "destination": "/5-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/b.html",
+      "destination": "/5-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/c.html",
+      "destination": "/5-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/d.html",
+      "destination": "/5-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/e.html",
+      "destination": "/5-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/f.html",
+      "destination": "/5-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/g.html",
+      "destination": "/5-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/h.html",
+      "destination": "/5-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/i.html",
+      "destination": "/5-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/j.html",
+      "destination": "/5-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/l.html",
+      "destination": "/5-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/m.html",
+      "destination": "/5-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/n.html",
+      "destination": "/5-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/o.html",
+      "destination": "/5-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/p.html",
+      "destination": "/5-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/q.html",
+      "destination": "/5-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/r.html",
+      "destination": "/5-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/s.html",
+      "destination": "/5-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/t.html",
+      "destination": "/5-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/u.html",
+      "destination": "/5-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/v.html",
+      "destination": "/5-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/w.html",
+      "destination": "/5-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/x.html",
+      "destination": "/5-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/y.html",
+      "destination": "/5-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-ending-with/z.html",
+      "destination": "/5-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/a.html",
+      "destination": "/5-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/b.html",
+      "destination": "/5-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/c.html",
+      "destination": "/5-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/d.html",
+      "destination": "/5-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/e.html",
+      "destination": "/5-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/f.html",
+      "destination": "/5-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/g.html",
+      "destination": "/5-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/h.html",
+      "destination": "/5-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/i.html",
+      "destination": "/5-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/j.html",
+      "destination": "/5-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/k.html",
+      "destination": "/5-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/l.html",
+      "destination": "/5-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/m.html",
+      "destination": "/5-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/n.html",
+      "destination": "/5-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/o.html",
+      "destination": "/5-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/p.html",
+      "destination": "/5-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/q.html",
+      "destination": "/5-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/r.html",
+      "destination": "/5-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/s.html",
+      "destination": "/5-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/t.html",
+      "destination": "/5-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/u.html",
+      "destination": "/5-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/v.html",
+      "destination": "/5-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/w.html",
+      "destination": "/5-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/x.html",
+      "destination": "/5-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/y.html",
+      "destination": "/5-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with/z.html",
+      "destination": "/5-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/a.html",
+      "destination": "/5-letter-words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/b.html",
+      "destination": "/5-letter-words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/c.html",
+      "destination": "/5-letter-words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/d.html",
+      "destination": "/5-letter-words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/e.html",
+      "destination": "/5-letter-words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/f.html",
+      "destination": "/5-letter-words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/g.html",
+      "destination": "/5-letter-words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/h.html",
+      "destination": "/5-letter-words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/i.html",
+      "destination": "/5-letter-words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/j.html",
+      "destination": "/5-letter-words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/k.html",
+      "destination": "/5-letter-words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/l.html",
+      "destination": "/5-letter-words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/m.html",
+      "destination": "/5-letter-words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/n.html",
+      "destination": "/5-letter-words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/o.html",
+      "destination": "/5-letter-words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/p.html",
+      "destination": "/5-letter-words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/q.html",
+      "destination": "/5-letter-words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/r.html",
+      "destination": "/5-letter-words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/s.html",
+      "destination": "/5-letter-words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/t.html",
+      "destination": "/5-letter-words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/u.html",
+      "destination": "/5-letter-words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/v.html",
+      "destination": "/5-letter-words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/w.html",
+      "destination": "/5-letter-words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/x.html",
+      "destination": "/5-letter-words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/y.html",
+      "destination": "/5-letter-words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-with/z.html",
+      "destination": "/5-letter-words-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/a.html",
+      "destination": "/6-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/b.html",
+      "destination": "/6-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/c.html",
+      "destination": "/6-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/d.html",
+      "destination": "/6-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/e.html",
+      "destination": "/6-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/f.html",
+      "destination": "/6-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/g.html",
+      "destination": "/6-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/h.html",
+      "destination": "/6-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/i.html",
+      "destination": "/6-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/j.html",
+      "destination": "/6-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/k.html",
+      "destination": "/6-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/l.html",
+      "destination": "/6-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/m.html",
+      "destination": "/6-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/n.html",
+      "destination": "/6-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/o.html",
+      "destination": "/6-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/p.html",
+      "destination": "/6-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/q.html",
+      "destination": "/6-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/r.html",
+      "destination": "/6-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/s.html",
+      "destination": "/6-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/t.html",
+      "destination": "/6-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/u.html",
+      "destination": "/6-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/v.html",
+      "destination": "/6-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/w.html",
+      "destination": "/6-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/x.html",
+      "destination": "/6-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/y.html",
+      "destination": "/6-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-ending-with/z.html",
+      "destination": "/6-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/a.html",
+      "destination": "/6-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/b.html",
+      "destination": "/6-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/c.html",
+      "destination": "/6-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/d.html",
+      "destination": "/6-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/e.html",
+      "destination": "/6-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/f.html",
+      "destination": "/6-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/g.html",
+      "destination": "/6-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/h.html",
+      "destination": "/6-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/i.html",
+      "destination": "/6-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/j.html",
+      "destination": "/6-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/k.html",
+      "destination": "/6-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/l.html",
+      "destination": "/6-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/m.html",
+      "destination": "/6-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/n.html",
+      "destination": "/6-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/o.html",
+      "destination": "/6-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/p.html",
+      "destination": "/6-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/q.html",
+      "destination": "/6-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/r.html",
+      "destination": "/6-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/s.html",
+      "destination": "/6-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/t.html",
+      "destination": "/6-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/u.html",
+      "destination": "/6-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/v.html",
+      "destination": "/6-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/w.html",
+      "destination": "/6-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/x.html",
+      "destination": "/6-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/y.html",
+      "destination": "/6-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-starting-with/z.html",
+      "destination": "/6-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/a.html",
+      "destination": "/6-letter-words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/b.html",
+      "destination": "/6-letter-words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/c.html",
+      "destination": "/6-letter-words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/d.html",
+      "destination": "/6-letter-words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/e.html",
+      "destination": "/6-letter-words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/f.html",
+      "destination": "/6-letter-words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/g.html",
+      "destination": "/6-letter-words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/h.html",
+      "destination": "/6-letter-words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/i.html",
+      "destination": "/6-letter-words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/j.html",
+      "destination": "/6-letter-words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/k.html",
+      "destination": "/6-letter-words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/l.html",
+      "destination": "/6-letter-words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/m.html",
+      "destination": "/6-letter-words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/n.html",
+      "destination": "/6-letter-words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/o.html",
+      "destination": "/6-letter-words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/p.html",
+      "destination": "/6-letter-words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/q.html",
+      "destination": "/6-letter-words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/r.html",
+      "destination": "/6-letter-words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/s.html",
+      "destination": "/6-letter-words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/t.html",
+      "destination": "/6-letter-words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/u.html",
+      "destination": "/6-letter-words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/v.html",
+      "destination": "/6-letter-words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/w.html",
+      "destination": "/6-letter-words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/x.html",
+      "destination": "/6-letter-words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/y.html",
+      "destination": "/6-letter-words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/6-letter-words-with/z.html",
+      "destination": "/6-letter-words-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/a.html",
+      "destination": "/7-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/b.html",
+      "destination": "/7-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/c.html",
+      "destination": "/7-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/d.html",
+      "destination": "/7-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/e.html",
+      "destination": "/7-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/f.html",
+      "destination": "/7-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/g.html",
+      "destination": "/7-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/h.html",
+      "destination": "/7-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/i.html",
+      "destination": "/7-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/j.html",
+      "destination": "/7-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/k.html",
+      "destination": "/7-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/l.html",
+      "destination": "/7-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/m.html",
+      "destination": "/7-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/n.html",
+      "destination": "/7-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/o.html",
+      "destination": "/7-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/p.html",
+      "destination": "/7-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/q.html",
+      "destination": "/7-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/r.html",
+      "destination": "/7-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/s.html",
+      "destination": "/7-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/t.html",
+      "destination": "/7-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/u.html",
+      "destination": "/7-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/v.html",
+      "destination": "/7-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/w.html",
+      "destination": "/7-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/x.html",
+      "destination": "/7-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/y.html",
+      "destination": "/7-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-ending-with/z.html",
+      "destination": "/7-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/a.html",
+      "destination": "/7-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/b.html",
+      "destination": "/7-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/c.html",
+      "destination": "/7-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/d.html",
+      "destination": "/7-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/e.html",
+      "destination": "/7-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/f.html",
+      "destination": "/7-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/g.html",
+      "destination": "/7-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/h.html",
+      "destination": "/7-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/i.html",
+      "destination": "/7-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/j.html",
+      "destination": "/7-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/k.html",
+      "destination": "/7-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/l.html",
+      "destination": "/7-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/m.html",
+      "destination": "/7-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/n.html",
+      "destination": "/7-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/o.html",
+      "destination": "/7-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/p.html",
+      "destination": "/7-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/q.html",
+      "destination": "/7-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/r.html",
+      "destination": "/7-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/s.html",
+      "destination": "/7-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/t.html",
+      "destination": "/7-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/u.html",
+      "destination": "/7-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/v.html",
+      "destination": "/7-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/w.html",
+      "destination": "/7-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/x.html",
+      "destination": "/7-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/y.html",
+      "destination": "/7-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-starting-with/z.html",
+      "destination": "/7-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/a.html",
+      "destination": "/7-letter-words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/b.html",
+      "destination": "/7-letter-words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/c.html",
+      "destination": "/7-letter-words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/d.html",
+      "destination": "/7-letter-words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/e.html",
+      "destination": "/7-letter-words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/f.html",
+      "destination": "/7-letter-words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/g.html",
+      "destination": "/7-letter-words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/h.html",
+      "destination": "/7-letter-words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/i.html",
+      "destination": "/7-letter-words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/j.html",
+      "destination": "/7-letter-words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/k.html",
+      "destination": "/7-letter-words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/l.html",
+      "destination": "/7-letter-words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/m.html",
+      "destination": "/7-letter-words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/n.html",
+      "destination": "/7-letter-words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/o.html",
+      "destination": "/7-letter-words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/p.html",
+      "destination": "/7-letter-words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/q.html",
+      "destination": "/7-letter-words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/r.html",
+      "destination": "/7-letter-words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/s.html",
+      "destination": "/7-letter-words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/t.html",
+      "destination": "/7-letter-words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/u.html",
+      "destination": "/7-letter-words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/v.html",
+      "destination": "/7-letter-words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/w.html",
+      "destination": "/7-letter-words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/x.html",
+      "destination": "/7-letter-words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/y.html",
+      "destination": "/7-letter-words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/7-letter-words-with/z.html",
+      "destination": "/7-letter-words-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/a.html",
+      "destination": "/8-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/b.html",
+      "destination": "/8-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/c.html",
+      "destination": "/8-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/d.html",
+      "destination": "/8-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/e.html",
+      "destination": "/8-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/f.html",
+      "destination": "/8-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/g.html",
+      "destination": "/8-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/h.html",
+      "destination": "/8-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/i.html",
+      "destination": "/8-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/j.html",
+      "destination": "/8-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/k.html",
+      "destination": "/8-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/l.html",
+      "destination": "/8-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/m.html",
+      "destination": "/8-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/n.html",
+      "destination": "/8-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/o.html",
+      "destination": "/8-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/p.html",
+      "destination": "/8-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/q.html",
+      "destination": "/8-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/r.html",
+      "destination": "/8-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/s.html",
+      "destination": "/8-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/t.html",
+      "destination": "/8-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/u.html",
+      "destination": "/8-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/v.html",
+      "destination": "/8-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/w.html",
+      "destination": "/8-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/x.html",
+      "destination": "/8-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/y.html",
+      "destination": "/8-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-ending-with/z.html",
+      "destination": "/8-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/a.html",
+      "destination": "/8-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/b.html",
+      "destination": "/8-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/c.html",
+      "destination": "/8-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/d.html",
+      "destination": "/8-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/e.html",
+      "destination": "/8-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/f.html",
+      "destination": "/8-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/g.html",
+      "destination": "/8-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/h.html",
+      "destination": "/8-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/i.html",
+      "destination": "/8-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/j.html",
+      "destination": "/8-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/k.html",
+      "destination": "/8-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/l.html",
+      "destination": "/8-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/m.html",
+      "destination": "/8-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/n.html",
+      "destination": "/8-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/o.html",
+      "destination": "/8-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/p.html",
+      "destination": "/8-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/q.html",
+      "destination": "/8-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/r.html",
+      "destination": "/8-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/s.html",
+      "destination": "/8-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/t.html",
+      "destination": "/8-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/u.html",
+      "destination": "/8-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/v.html",
+      "destination": "/8-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/w.html",
+      "destination": "/8-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/x.html",
+      "destination": "/8-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/y.html",
+      "destination": "/8-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/8-letter-words-starting-with/z.html",
+      "destination": "/8-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/a.html",
+      "destination": "/9-letter-words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/b.html",
+      "destination": "/9-letter-words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/c.html",
+      "destination": "/9-letter-words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/d.html",
+      "destination": "/9-letter-words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/e.html",
+      "destination": "/9-letter-words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/f.html",
+      "destination": "/9-letter-words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/g.html",
+      "destination": "/9-letter-words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/h.html",
+      "destination": "/9-letter-words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/i.html",
+      "destination": "/9-letter-words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/j.html",
+      "destination": "/9-letter-words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/k.html",
+      "destination": "/9-letter-words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/l.html",
+      "destination": "/9-letter-words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/m.html",
+      "destination": "/9-letter-words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/n.html",
+      "destination": "/9-letter-words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/o.html",
+      "destination": "/9-letter-words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/p.html",
+      "destination": "/9-letter-words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/q.html",
+      "destination": "/9-letter-words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/r.html",
+      "destination": "/9-letter-words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/s.html",
+      "destination": "/9-letter-words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/t.html",
+      "destination": "/9-letter-words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/u.html",
+      "destination": "/9-letter-words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/v.html",
+      "destination": "/9-letter-words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/w.html",
+      "destination": "/9-letter-words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/x.html",
+      "destination": "/9-letter-words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/y.html",
+      "destination": "/9-letter-words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-ending-with/z.html",
+      "destination": "/9-letter-words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/a.html",
+      "destination": "/9-letter-words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/b.html",
+      "destination": "/9-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/c.html",
+      "destination": "/9-letter-words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/d.html",
+      "destination": "/9-letter-words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/e.html",
+      "destination": "/9-letter-words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/f.html",
+      "destination": "/9-letter-words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/g.html",
+      "destination": "/9-letter-words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/h.html",
+      "destination": "/9-letter-words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/i.html",
+      "destination": "/9-letter-words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/j.html",
+      "destination": "/9-letter-words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/k.html",
+      "destination": "/9-letter-words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/l.html",
+      "destination": "/9-letter-words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/m.html",
+      "destination": "/9-letter-words-starting-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/n.html",
+      "destination": "/9-letter-words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/o.html",
+      "destination": "/9-letter-words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/p.html",
+      "destination": "/9-letter-words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/q.html",
+      "destination": "/9-letter-words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/r.html",
+      "destination": "/9-letter-words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/s.html",
+      "destination": "/9-letter-words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/t.html",
+      "destination": "/9-letter-words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/u.html",
+      "destination": "/9-letter-words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/v.html",
+      "destination": "/9-letter-words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/w.html",
+      "destination": "/9-letter-words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/x.html",
+      "destination": "/9-letter-words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/y.html",
+      "destination": "/9-letter-words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/9-letter-words-starting-with/z.html",
+      "destination": "/9-letter-words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/5-letter-words-ending-in-vowel.html",
+      "destination": "/word-lists/5-letter-words-ending-in-vowel/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/5-letter-words-no-repeating-letters.html",
+      "destination": "/word-lists/5-letter-words-no-repeating-letters/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/5-letter-words-starting-with-vowel.html",
+      "destination": "/word-lists/5-letter-words-starting-with-vowel/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/5-letter-words-with-double-letters.html",
+      "destination": "/word-lists/5-letter-words-with-double-letters/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/best-short-scrabble-words.html",
+      "destination": "/word-lists/best-short-scrabble-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/best-wordle-starting-words.html",
+      "destination": "/word-lists/best-wordle-starting-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/high-scoring-scrabble-words.html",
+      "destination": "/word-lists/highest-scoring-scrabble-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/high-value-3-letter-words.html",
+      "destination": "/word-lists/high-value-3-letter-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/palindromes.html",
+      "destination": "/word-lists/palindromes/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/q-without-u.html",
+      "destination": "/word-lists/q-words-without-u/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/scrabble-bingo-words.html",
+      "destination": "/word-lists/best-scrabble-bingo-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/two-letter-words.html",
+      "destination": "/word-lists/two-letter-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/vowel-heavy-words.html",
+      "destination": "/word-lists/vowel-heavy-words/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-b.html",
+      "destination": "/word-lists/words-ending-in-double-b/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-d.html",
+      "destination": "/word-lists/words-ending-in-double-d/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-e.html",
+      "destination": "/word-lists/words-ending-in-double-e/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-f.html",
+      "destination": "/word-lists/words-ending-in-double-f/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-l.html",
+      "destination": "/word-lists/words-ending-in-double-l/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-m.html",
+      "destination": "/word-lists/words-ending-in-double-m/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-n.html",
+      "destination": "/word-lists/words-ending-in-double-n/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-o.html",
+      "destination": "/word-lists/words-ending-in-double-o/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-p.html",
+      "destination": "/word-lists/words-ending-in-double-p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-r.html",
+      "destination": "/word-lists/words-ending-in-double-r/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-s.html",
+      "destination": "/word-lists/words-ending-in-double-s/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-t.html",
+      "destination": "/word-lists/words-ending-in-double-t/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-x.html",
+      "destination": "/word-lists/words-ending-in-double-x/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-ending-in-double-z.html",
+      "destination": "/word-lists/words-ending-in-double-z/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-all-five-vowels.html",
+      "destination": "/word-lists/words-with-all-five-vowels/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-ck.html",
+      "destination": "/word-lists/words-with-ck/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-b.html",
+      "destination": "/word-lists/words-with-double-b/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-c.html",
+      "destination": "/word-lists/words-with-double-c/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-f.html",
+      "destination": "/word-lists/words-with-double-f/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-g.html",
+      "destination": "/word-lists/words-with-double-g/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-h.html",
+      "destination": "/word-lists/words-with-double-h/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-j.html",
+      "destination": "/word-lists/words-with-double-j/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-k.html",
+      "destination": "/word-lists/words-with-double-k/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-m.html",
+      "destination": "/word-lists/words-with-double-m/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-p.html",
+      "destination": "/word-lists/words-with-double-p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-q.html",
+      "destination": "/word-lists/words-with-double-q/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-v.html",
+      "destination": "/word-lists/words-with-double-v/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-w.html",
+      "destination": "/word-lists/words-with-double-w/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-x.html",
+      "destination": "/word-lists/words-with-double-x/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-double-z.html",
+      "destination": "/word-lists/words-with-double-z/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-j-and-z.html",
+      "destination": "/word-lists/words-with-j-and-z/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-no-vowels.html",
+      "destination": "/word-lists/words-with-no-vowels/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-ph.html",
+      "destination": "/word-lists/words-with-ph/",
+      "permanent": true
+    },
+    {
+      "source": "/word-lists/words-with-z-and-x.html",
+      "destination": "/word-lists/words-with-z-and-x/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/10.html",
+      "destination": "/words-by-length/10/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/11.html",
+      "destination": "/words-by-length/11/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/12.html",
+      "destination": "/words-by-length/12/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/13.html",
+      "destination": "/words-by-length/13/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/14.html",
+      "destination": "/words-by-length/14/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/15.html",
+      "destination": "/words-by-length/15/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/2.html",
+      "destination": "/words-by-length/2/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/3.html",
+      "destination": "/words-by-length/3/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/4.html",
+      "destination": "/words-by-length/4/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/5.html",
+      "destination": "/words-by-length/5/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/6.html",
+      "destination": "/words-by-length/6/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/7.html",
+      "destination": "/words-by-length/7/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/8.html",
+      "destination": "/words-by-length/8/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-length/9.html",
+      "destination": "/words-by-length/9/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/1-1.html",
+      "destination": "/words-by-score/1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/10-10.html",
+      "destination": "/words-by-score/10-10/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/10-12.html",
+      "destination": "/words-by-score/10-12/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/11-11.html",
+      "destination": "/words-by-score/11-11/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/13-15.html",
+      "destination": "/words-by-score/13-15/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/14-14.html",
+      "destination": "/words-by-score/14-14/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/15-15.html",
+      "destination": "/words-by-score/15-15/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/16-19.html",
+      "destination": "/words-by-score/16-19/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/18-18.html",
+      "destination": "/words-by-score/18-18/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/19-19.html",
+      "destination": "/words-by-score/19-19/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/2-3.html",
+      "destination": "/words-by-score/2-3/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/20-24.html",
+      "destination": "/words-by-score/20-24/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/25-29.html",
+      "destination": "/words-by-score/25-29/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/3-3.html",
+      "destination": "/words-by-score/3-3/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/30-39.html",
+      "destination": "/words-by-score/30-39/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/4-4.html",
+      "destination": "/words-by-score/4-4/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/4-5.html",
+      "destination": "/words-by-score/4-5/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/40-99.html",
+      "destination": "/words-by-score/40-99/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/5-5.html",
+      "destination": "/words-by-score/5-5/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/6-6.html",
+      "destination": "/words-by-score/6-6/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/6-7.html",
+      "destination": "/words-by-score/6-7/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/7-7.html",
+      "destination": "/words-by-score/7-7/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/8-8.html",
+      "destination": "/words-by-score/8-8/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/8-9.html",
+      "destination": "/words-by-score/8-9/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-score/9-9.html",
+      "destination": "/words-by-score/9-9/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/0.html",
+      "destination": "/words-by-vowel-count/0/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/1.html",
+      "destination": "/words-by-vowel-count/1/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/2.html",
+      "destination": "/words-by-vowel-count/2/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/3.html",
+      "destination": "/words-by-vowel-count/3/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/4.html",
+      "destination": "/words-by-vowel-count/4/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/5.html",
+      "destination": "/words-by-vowel-count/5/",
+      "permanent": true
+    },
+    {
+      "source": "/words-by-vowel-count/6.html",
+      "destination": "/words-by-vowel-count/6/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/al.html",
+      "destination": "/words-ending-in-combo/al/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/an.html",
+      "destination": "/words-ending-in-combo/an/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ar.html",
+      "destination": "/words-ending-in-combo/ar/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/aw.html",
+      "destination": "/words-ending-in-combo/aw/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ay.html",
+      "destination": "/words-ending-in-combo/ay/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ck.html",
+      "destination": "/words-ending-in-combo/ck/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/en.html",
+      "destination": "/words-ending-in-combo/en/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/er.html",
+      "destination": "/words-ending-in-combo/er/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ew.html",
+      "destination": "/words-ending-in-combo/ew/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ff.html",
+      "destination": "/words-ending-in-combo/ff/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/gh.html",
+      "destination": "/words-ending-in-combo/gh/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/in.html",
+      "destination": "/words-ending-in-combo/in/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ll.html",
+      "destination": "/words-ending-in-combo/ll/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/mm.html",
+      "destination": "/words-ending-in-combo/mm/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/nd.html",
+      "destination": "/words-ending-in-combo/nd/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ng.html",
+      "destination": "/words-ending-in-combo/ng/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/nt.html",
+      "destination": "/words-ending-in-combo/nt/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/on.html",
+      "destination": "/words-ending-in-combo/on/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/or.html",
+      "destination": "/words-ending-in-combo/or/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ow.html",
+      "destination": "/words-ending-in-combo/ow/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/oy.html",
+      "destination": "/words-ending-in-combo/oy/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/rr.html",
+      "destination": "/words-ending-in-combo/rr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/ss.html",
+      "destination": "/words-ending-in-combo/ss/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/st.html",
+      "destination": "/words-ending-in-combo/st/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in-combo/tt.html",
+      "destination": "/words-ending-in-combo/tt/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/able.html",
+      "destination": "/words-ending-in/able/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/age.html",
+      "destination": "/words-ending-in/age/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/al.html",
+      "destination": "/words-ending-in/al/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ance.html",
+      "destination": "/words-ending-in/ance/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ant.html",
+      "destination": "/words-ending-in/ant/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/archy.html",
+      "destination": "/words-ending-in/archy/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ary.html",
+      "destination": "/words-ending-in/ary/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ate.html",
+      "destination": "/words-ending-in/ate/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ation.html",
+      "destination": "/words-ending-in/ation/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/cide.html",
+      "destination": "/words-ending-in/cide/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ed.html",
+      "destination": "/words-ending-in/ed/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ence.html",
+      "destination": "/words-ending-in/ence/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ent.html",
+      "destination": "/words-ending-in/ent/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/er.html",
+      "destination": "/words-ending-in/er/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ful.html",
+      "destination": "/words-ending-in/ful/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/graph.html",
+      "destination": "/words-ending-in/graph/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/graphy.html",
+      "destination": "/words-ending-in/graphy/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ible.html",
+      "destination": "/words-ending-in/ible/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ic.html",
+      "destination": "/words-ending-in/ic/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ify.html",
+      "destination": "/words-ending-in/ify/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ing.html",
+      "destination": "/words-ending-in/ing/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ish.html",
+      "destination": "/words-ending-in/ish/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ism.html",
+      "destination": "/words-ending-in/ism/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ist.html",
+      "destination": "/words-ending-in/ist/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ition.html",
+      "destination": "/words-ending-in/ition/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ity.html",
+      "destination": "/words-ending-in/ity/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ive.html",
+      "destination": "/words-ending-in/ive/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ize.html",
+      "destination": "/words-ending-in/ize/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/less.html",
+      "destination": "/words-ending-in/less/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/logy.html",
+      "destination": "/words-ending-in/logy/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ly.html",
+      "destination": "/words-ending-in/ly/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/mania.html",
+      "destination": "/words-ending-in/mania/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ment.html",
+      "destination": "/words-ending-in/ment/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/meter.html",
+      "destination": "/words-ending-in/meter/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ness.html",
+      "destination": "/words-ending-in/ness/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ocracy.html",
+      "destination": "/words-ending-in/ocracy/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ology.html",
+      "destination": "/words-ending-in/ology/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ory.html",
+      "destination": "/words-ending-in/ory/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ous.html",
+      "destination": "/words-ending-in/ous/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/path.html",
+      "destination": "/words-ending-in/path/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/phile.html",
+      "destination": "/words-ending-in/phile/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/phobia.html",
+      "destination": "/words-ending-in/phobia/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/phone.html",
+      "destination": "/words-ending-in/phone/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/scope.html",
+      "destination": "/words-ending-in/scope/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/tion.html",
+      "destination": "/words-ending-in/tion/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ture.html",
+      "destination": "/words-ending-in/ture/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ure.html",
+      "destination": "/words-ending-in/ure/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/vore.html",
+      "destination": "/words-ending-in/vore/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-in/ward.html",
+      "destination": "/words-ending-in/ward/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/a.html",
+      "destination": "/words-ending-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/b.html",
+      "destination": "/words-ending-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/c.html",
+      "destination": "/words-ending-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/d.html",
+      "destination": "/words-ending-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/e.html",
+      "destination": "/words-ending-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/f.html",
+      "destination": "/words-ending-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/g.html",
+      "destination": "/words-ending-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/h.html",
+      "destination": "/words-ending-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/i.html",
+      "destination": "/words-ending-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/j.html",
+      "destination": "/words-ending-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/k.html",
+      "destination": "/words-ending-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/l.html",
+      "destination": "/words-ending-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/m.html",
+      "destination": "/words-ending-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/n.html",
+      "destination": "/words-ending-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/o.html",
+      "destination": "/words-ending-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/p.html",
+      "destination": "/words-ending-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/q.html",
+      "destination": "/words-ending-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/r.html",
+      "destination": "/words-ending-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/s.html",
+      "destination": "/words-ending-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/t.html",
+      "destination": "/words-ending-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/u.html",
+      "destination": "/words-ending-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/v.html",
+      "destination": "/words-ending-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/w.html",
+      "destination": "/words-ending-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/x.html",
+      "destination": "/words-ending-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/y.html",
+      "destination": "/words-ending-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/words-ending-with/z.html",
+      "destination": "/words-ending-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/ant.html",
+      "destination": "/words-starting-with-3letters/ant/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/aut.html",
+      "destination": "/words-starting-with-3letters/aut/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/chr.html",
+      "destination": "/words-starting-with-3letters/chr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/com.html",
+      "destination": "/words-starting-with-3letters/com/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/dis.html",
+      "destination": "/words-starting-with-3letters/dis/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/exc.html",
+      "destination": "/words-starting-with-3letters/exc/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/exp.html",
+      "destination": "/words-starting-with-3letters/exp/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/ext.html",
+      "destination": "/words-starting-with-3letters/ext/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/imp.html",
+      "destination": "/words-starting-with-3letters/imp/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/int.html",
+      "destination": "/words-starting-with-3letters/int/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/mis.html",
+      "destination": "/words-starting-with-3letters/mis/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/out.html",
+      "destination": "/words-starting-with-3letters/out/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/ove.html",
+      "destination": "/words-starting-with-3letters/ove/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/per.html",
+      "destination": "/words-starting-with-3letters/per/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/phr.html",
+      "destination": "/words-starting-with-3letters/phr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/pre.html",
+      "destination": "/words-starting-with-3letters/pre/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/pro.html",
+      "destination": "/words-starting-with-3letters/pro/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/sch.html",
+      "destination": "/words-starting-with-3letters/sch/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/scr.html",
+      "destination": "/words-starting-with-3letters/scr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/spl.html",
+      "destination": "/words-starting-with-3letters/spl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/spr.html",
+      "destination": "/words-starting-with-3letters/spr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/squ.html",
+      "destination": "/words-starting-with-3letters/squ/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/str.html",
+      "destination": "/words-starting-with-3letters/str/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/tel.html",
+      "destination": "/words-starting-with-3letters/tel/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/thr.html",
+      "destination": "/words-starting-with-3letters/thr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/und.html",
+      "destination": "/words-starting-with-3letters/und/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/wha.html",
+      "destination": "/words-starting-with-3letters/wha/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/whi.html",
+      "destination": "/words-starting-with-3letters/whi/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-3letters/who.html",
+      "destination": "/words-starting-with-3letters/who/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/bl.html",
+      "destination": "/words-starting-with-combo/bl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/br.html",
+      "destination": "/words-starting-with-combo/br/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/ch.html",
+      "destination": "/words-starting-with-combo/ch/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/cl.html",
+      "destination": "/words-starting-with-combo/cl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/cr.html",
+      "destination": "/words-starting-with-combo/cr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/dr.html",
+      "destination": "/words-starting-with-combo/dr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/fl.html",
+      "destination": "/words-starting-with-combo/fl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/fr.html",
+      "destination": "/words-starting-with-combo/fr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/gl.html",
+      "destination": "/words-starting-with-combo/gl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/gn.html",
+      "destination": "/words-starting-with-combo/gn/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/gr.html",
+      "destination": "/words-starting-with-combo/gr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/kn.html",
+      "destination": "/words-starting-with-combo/kn/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/ph.html",
+      "destination": "/words-starting-with-combo/ph/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/pl.html",
+      "destination": "/words-starting-with-combo/pl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/pr.html",
+      "destination": "/words-starting-with-combo/pr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/qu.html",
+      "destination": "/words-starting-with-combo/qu/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sc.html",
+      "destination": "/words-starting-with-combo/sc/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sh.html",
+      "destination": "/words-starting-with-combo/sh/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sk.html",
+      "destination": "/words-starting-with-combo/sk/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sl.html",
+      "destination": "/words-starting-with-combo/sl/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sm.html",
+      "destination": "/words-starting-with-combo/sm/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sn.html",
+      "destination": "/words-starting-with-combo/sn/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sp.html",
+      "destination": "/words-starting-with-combo/sp/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/st.html",
+      "destination": "/words-starting-with-combo/st/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/sw.html",
+      "destination": "/words-starting-with-combo/sw/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/th.html",
+      "destination": "/words-starting-with-combo/th/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/tr.html",
+      "destination": "/words-starting-with-combo/tr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/tw.html",
+      "destination": "/words-starting-with-combo/tw/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/wh.html",
+      "destination": "/words-starting-with-combo/wh/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-combo/wr.html",
+      "destination": "/words-starting-with-combo/wr/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/anti.html",
+      "destination": "/words-starting-with-prefix/anti/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/bi.html",
+      "destination": "/words-starting-with-prefix/bi/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/bio.html",
+      "destination": "/words-starting-with-prefix/bio/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/cent.html",
+      "destination": "/words-starting-with-prefix/cent/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/co.html",
+      "destination": "/words-starting-with-prefix/co/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/de.html",
+      "destination": "/words-starting-with-prefix/de/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/dec.html",
+      "destination": "/words-starting-with-prefix/dec/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/dis.html",
+      "destination": "/words-starting-with-prefix/dis/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/eco.html",
+      "destination": "/words-starting-with-prefix/eco/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/en.html",
+      "destination": "/words-starting-with-prefix/en/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/ex.html",
+      "destination": "/words-starting-with-prefix/ex/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/fore.html",
+      "destination": "/words-starting-with-prefix/fore/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/geo.html",
+      "destination": "/words-starting-with-prefix/geo/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/hept.html",
+      "destination": "/words-starting-with-prefix/hept/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/hex.html",
+      "destination": "/words-starting-with-prefix/hex/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/hydro.html",
+      "destination": "/words-starting-with-prefix/hydro/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/inter.html",
+      "destination": "/words-starting-with-prefix/inter/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/kilo.html",
+      "destination": "/words-starting-with-prefix/kilo/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/mega.html",
+      "destination": "/words-starting-with-prefix/mega/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/micro.html",
+      "destination": "/words-starting-with-prefix/micro/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/mid.html",
+      "destination": "/words-starting-with-prefix/mid/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/mis.html",
+      "destination": "/words-starting-with-prefix/mis/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/multi.html",
+      "destination": "/words-starting-with-prefix/multi/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/nano.html",
+      "destination": "/words-starting-with-prefix/nano/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/non.html",
+      "destination": "/words-starting-with-prefix/non/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/oct.html",
+      "destination": "/words-starting-with-prefix/oct/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/out.html",
+      "destination": "/words-starting-with-prefix/out/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/over.html",
+      "destination": "/words-starting-with-prefix/over/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/pre.html",
+      "destination": "/words-starting-with-prefix/pre/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/pro.html",
+      "destination": "/words-starting-with-prefix/pro/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/quad.html",
+      "destination": "/words-starting-with-prefix/quad/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/quint.html",
+      "destination": "/words-starting-with-prefix/quint/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/re.html",
+      "destination": "/words-starting-with-prefix/re/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/semi.html",
+      "destination": "/words-starting-with-prefix/semi/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/sub.html",
+      "destination": "/words-starting-with-prefix/sub/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/super.html",
+      "destination": "/words-starting-with-prefix/super/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/thermo.html",
+      "destination": "/words-starting-with-prefix/thermo/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/trans.html",
+      "destination": "/words-starting-with-prefix/trans/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/tri.html",
+      "destination": "/words-starting-with-prefix/tri/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/un.html",
+      "destination": "/words-starting-with-prefix/un/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/under.html",
+      "destination": "/words-starting-with-prefix/under/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with-prefix/uni.html",
+      "destination": "/words-starting-with-prefix/uni/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/a.html",
+      "destination": "/words-starting-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/b.html",
+      "destination": "/words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/c.html",
+      "destination": "/words-starting-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/d.html",
+      "destination": "/words-starting-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/e.html",
+      "destination": "/words-starting-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/f.html",
+      "destination": "/words-starting-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/g.html",
+      "destination": "/words-starting-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/h.html",
+      "destination": "/words-starting-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/i.html",
+      "destination": "/words-starting-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/j.html",
+      "destination": "/words-starting-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/k.html",
+      "destination": "/words-starting-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/l.html",
+      "destination": "/words-starting-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/n.html",
+      "destination": "/words-starting-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/o.html",
+      "destination": "/words-starting-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/p.html",
+      "destination": "/words-starting-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/q.html",
+      "destination": "/words-starting-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/r.html",
+      "destination": "/words-starting-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/s.html",
+      "destination": "/words-starting-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/t.html",
+      "destination": "/words-starting-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/u.html",
+      "destination": "/words-starting-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/v.html",
+      "destination": "/words-starting-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/w.html",
+      "destination": "/words-starting-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/x.html",
+      "destination": "/words-starting-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/y.html",
+      "destination": "/words-starting-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/words-starting-with/z.html",
+      "destination": "/words-starting-with/z/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ae.html",
+      "destination": "/words-with-vowel-pair/ae/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ai.html",
+      "destination": "/words-with-vowel-pair/ai/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/au.html",
+      "destination": "/words-with-vowel-pair/au/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/aw.html",
+      "destination": "/words-with-vowel-pair/aw/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ea.html",
+      "destination": "/words-with-vowel-pair/ea/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ee.html",
+      "destination": "/words-with-vowel-pair/ee/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ei.html",
+      "destination": "/words-with-vowel-pair/ei/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/eu.html",
+      "destination": "/words-with-vowel-pair/eu/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ia.html",
+      "destination": "/words-with-vowel-pair/ia/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ie.html",
+      "destination": "/words-with-vowel-pair/ie/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/io.html",
+      "destination": "/words-with-vowel-pair/io/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/oa.html",
+      "destination": "/words-with-vowel-pair/oa/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/oi.html",
+      "destination": "/words-with-vowel-pair/oi/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/oo.html",
+      "destination": "/words-with-vowel-pair/oo/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ou.html",
+      "destination": "/words-with-vowel-pair/ou/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ow.html",
+      "destination": "/words-with-vowel-pair/ow/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ue.html",
+      "destination": "/words-with-vowel-pair/ue/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/ui.html",
+      "destination": "/words-with-vowel-pair/ui/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with-vowel-pair/uo.html",
+      "destination": "/words-with-vowel-pair/uo/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/a.html",
+      "destination": "/words-with/a/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/b.html",
+      "destination": "/words-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/c.html",
+      "destination": "/words-with/c/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/d.html",
+      "destination": "/words-with/d/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/e.html",
+      "destination": "/words-with/e/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/f.html",
+      "destination": "/words-with/f/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/g.html",
+      "destination": "/words-with/g/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/h.html",
+      "destination": "/words-with/h/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/i.html",
+      "destination": "/words-with/i/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/j.html",
+      "destination": "/words-with/j/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/k.html",
+      "destination": "/words-with/k/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/l.html",
+      "destination": "/words-with/l/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/m.html",
+      "destination": "/words-with/m/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/n.html",
+      "destination": "/words-with/n/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/o.html",
+      "destination": "/words-with/o/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/p.html",
+      "destination": "/words-with/p/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/q.html",
+      "destination": "/words-with/q/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/r.html",
+      "destination": "/words-with/r/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/s.html",
+      "destination": "/words-with/s/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/t.html",
+      "destination": "/words-with/t/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/u.html",
+      "destination": "/words-with/u/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/v.html",
+      "destination": "/words-with/v/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/w.html",
+      "destination": "/words-with/w/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/x.html",
+      "destination": "/words-with/x/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/y.html",
+      "destination": "/words-with/y/",
+      "permanent": true
+    },
+    {
+      "source": "/words-with/z.html",
+      "destination": "/words-with/z/",
+      "permanent": true
+    }
+  ]
+}
