@@ -23,6 +23,13 @@
       width: 300,
       height: 250,
       wrapperClass: "AdsterraBoxAd"
+    },
+    mobileSticky: {
+      key: "41a12246620488db5d5241a65f9b3372",
+      src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
+      width: 320,
+      height: 50,
+      wrapperClass: "AdsterraMobileStickyBanner"
     }
   };
 
@@ -150,6 +157,48 @@
     await waitForScript(script, 5000);
   }
 
+  async function mountMobileSticky(slot) {
+    if (!isMobileWidth()) {
+      slot.hidden = true;
+      slot.innerHTML = "";
+      return;
+    }
+
+    clearSlot(slot, HPF.mobileSticky.height);
+    slot.style.height = "auto";
+    slot.style.overflow = "visible";
+    slot.style.position = "sticky";
+    slot.style.bottom = "8px";
+    slot.style.zIndex = "120";
+
+    const shell = document.createElement("div");
+    shell.className = HPF.mobileSticky.wrapperClass;
+    shell.style.width = "100%";
+    shell.style.maxWidth = HPF.mobileSticky.width + "px";
+    shell.style.minHeight = HPF.mobileSticky.height + "px";
+    shell.style.margin = "0 auto";
+    shell.style.display = "flex";
+    shell.style.justifyContent = "center";
+    shell.style.alignItems = "center";
+    shell.style.overflow = "hidden";
+
+    slot.appendChild(shell);
+
+    window.atOptions = {
+      key: HPF.mobileSticky.key,
+      format: "iframe",
+      height: HPF.mobileSticky.height,
+      width: HPF.mobileSticky.width,
+      params: {}
+    };
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = HPF.mobileSticky.src;
+    shell.appendChild(script);
+    await waitForScript(script, 5000);
+  }
+
   function mountGrowMe() {
     if (growBooted) return;
     growBooted = true;
@@ -210,6 +259,11 @@
 
     if (placement === "lower") {
       await mountNative(slot);
+      return;
+    }
+
+    if (placement === "mobile-bottom") {
+      await mountMobileSticky(slot);
       return;
     }
 

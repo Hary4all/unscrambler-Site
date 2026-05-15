@@ -777,11 +777,35 @@ details.advanced[open] summary::before { content: "▾ "; }
   max-width: 100%;
   min-height: 90px;
 }
+.AdsterraMobileStickyBanner {
+  max-width: 320px;
+  min-height: 50px;
+}
 @media (max-width: 767px) {
   .AdsterraDesktopBanner { display: none !important; }
 }
 @media (min-width: 768px) {
   .AdsterraMobileBanner { display: none !important; }
+}
+@media (min-width: 768px) {
+  .ad-mobile-bottom { display: none !important; }
+}
+@media (max-width: 767px) {
+  .ad-slot-mobile-bottom,
+  .AdsterraMobileStickyBanner {
+    display: flex !important;
+  }
+  .ad-mobile-bottom {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    bottom: 8px;
+    z-index: 120;
+    margin: 16px auto 28px;
+  }
+  .ad-mobile-bottom .ad-label {
+    align-self: center;
+  }
 }
 
 /* ---------- Tool links widget ---------- */
@@ -3217,6 +3241,111 @@ a.announce-bar:hover {
   width: 100%;
   max-width: 336px;
   height: 280px;
+}
+
+/* ---------- Programmatic SEO pages ---------- */
+.programmatic-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+  align-items: start;
+}
+.programmatic-main {
+  min-width: 0;
+}
+.programmatic-hero {
+  padding: 24px;
+}
+.programmatic-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: var(--accent);
+  border: 1px solid #c7d2fe;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+}
+.programmatic-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+}
+.programmatic-hero .lede {
+  margin: 0;
+  font-size: 16px;
+  color: var(--ink-2);
+  max-width: 72ch;
+}
+.programmatic-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.summary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.programmatic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.programmatic-grid .card {
+  margin-bottom: 0;
+}
+.pattern-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pattern-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.pattern-link:hover {
+  background: #eff6ff;
+  color: var(--accent);
+  text-decoration: none;
+  border-color: #bfdbfe;
+}
+.programmatic-sidebar .card {
+  margin-bottom: 16px;
+}
+.programmatic-faq .faq-item {
+  padding: 12px 0;
+}
+@media (max-width: 900px) {
+  .programmatic-shell {
+    grid-template-columns: 1fr;
+  }
+  .programmatic-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 

@@ -266,6 +266,35 @@ function renderWordGroups(containerId, words, scoreFn) {
   }
 }
 
+function collectWordsByPattern(opts) {
+  opts = opts || {};
+  const startsWith = (opts.startsWith || "").toUpperCase().replace(/[^A-Z]/g, "");
+  const endsWith = (opts.endsWith || "").toUpperCase().replace(/[^A-Z]/g, "");
+  const contains = (opts.contains || "").toUpperCase().replace(/[^A-Z]/g, "");
+  const minLen = opts.minLen !== undefined ? opts.minLen : 2;
+  const maxLen = opts.maxLen !== undefined ? opts.maxLen : 15;
+  const limit = opts.limit !== undefined ? opts.limit : 120;
+  const scoreFn = opts.scoreFn === "wwf" ? wwfScore : scrabbleScore;
+  const extraFilter = typeof opts.extraFilter === "function" ? opts.extraFilter : null;
+
+  const words = [];
+  DICT_SET.forEach((word) => {
+    if (word.length < minLen || word.length > maxLen) return;
+    if (startsWith && !word.startsWith(startsWith)) return;
+    if (endsWith && !word.endsWith(endsWith)) return;
+    if (contains && !word.includes(contains)) return;
+    if (extraFilter && !extraFilter(word)) return;
+    words.push(word);
+  });
+
+  words.sort((a, b) => scoreFn(b) - scoreFn(a) || a.localeCompare(b));
+  return {
+    total: words.length,
+    words: words.slice(0, limit),
+    scoreFn
+  };
+}
+
 function copyWord(el, word) {
   if (navigator.clipboard) navigator.clipboard.writeText(word).catch(() => {});
   const prev = el.style.borderColor;
@@ -281,6 +310,7 @@ const NAV_LINKS = [
   { href: "/anagram-solver/",           label: "Anagram Solver" },
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
+  { href: "/word-patterns/",            label: "Patterns" },
   { href: "/word-of-the-day/",          label: "Word of the Day" },
   { href: "/guides/",                   label: "Guides" },
   { href: "/dictionary/",               label: "Dictionary" },
@@ -293,6 +323,7 @@ const SIDEBAR_TOOLS = [
   { href: "/anagram-solver/",          badge: "AN",  label: "Anagram Solver"     },
   { href: "/words-with-friends-cheat/",badge: "WWF", label: "Words With Friends" },
   { href: "/jumble-solver/",           badge: "JS",  label: "Jumble Solver"      },
+  { href: "/word-patterns/",           badge: "WP",  label: "Word Patterns"      },
   { href: "/word-of-the-day/",         badge: "WD",  label: "Word of the Day"    },
 ];
 
@@ -397,6 +428,14 @@ function injectGrowMe() {
 
 document.addEventListener("DOMContentLoaded", injectNav);
 document.addEventListener("DOMContentLoaded", injectGrowMe);
+
+window.WFL = window.WFL || {};
+window.WFL.loadDictionary = loadDictionary;
+window.WFL.collectWordsByPattern = collectWordsByPattern;
+window.WFL.renderWordGroups = renderWordGroups;
+window.WFL.scrabbleScore = scrabbleScore;
+window.WFL.wwfScore = wwfScore;
+window.WFL.runSearch = runSearch;
 
 
 
