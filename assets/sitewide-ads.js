@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260515";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260516";
+  const PROFITABLE_CPM_SRC = "https://pl29454445.profitablecpmratenetwork.com/19/93/78/199378345af9e1c5636d3fee45063ba1.js";
   const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
   const FALLBACKS = {
     top: {
@@ -47,10 +48,20 @@
   }
 
   function hasScript(fragment) {
+    const wanted = normalizeScriptSrc(fragment);
     return scripts().some((script) => {
       const src = script.src || "";
-      return src.indexOf(fragment) !== -1;
+      return src.indexOf(fragment) !== -1 || normalizeScriptSrc(src) === wanted;
     });
+  }
+
+  function normalizeScriptSrc(src) {
+    try {
+      const url = new URL(src, window.location.href);
+      return url.origin + url.pathname;
+    } catch (err) {
+      return String(src || "").split("?")[0];
+    }
   }
 
   function injectScript(src, attrs) {
@@ -231,7 +242,13 @@
     injectScript(AD_STERRA_SRC);
   }
 
+  function injectProfitableCpm() {
+    if (hasScript(PROFITABLE_CPM_SRC)) return;
+    injectScript(PROFITABLE_CPM_SRC);
+  }
+
   function boot() {
+    injectProfitableCpm();
     injectAdsterra();
     window.setTimeout(renderMissingFallbacks, 7000);
   }

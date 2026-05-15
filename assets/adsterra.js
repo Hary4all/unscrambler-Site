@@ -10,6 +10,13 @@
       height: 90,
       wrapperClass: "AdsterraDesktopBanner"
     },
+    banner468x60: {
+      key: "8d14233f0707295292121a6d3f5159fd",
+      src: "https://www.highperformanceformat.com/8d14233f0707295292121a6d3f5159fd/invoke.js",
+      width: 468,
+      height: 60,
+      wrapperClass: "AdsterraDesktopBanner"
+    },
     mobileTop: {
       key: "41a12246620488db5d5241a65f9b3372",
       src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
@@ -295,6 +302,10 @@
 
   async function mountResponsiveTop(slot) {
     const mobile = isMobileWidth();
+    if (!mobile && window.innerWidth < 992) {
+      await mountHighPerformanceAd(slot, HPF.banner468x60);
+      return;
+    }
     await mountHighPerformanceAd(slot, mobile ? HPF.mobileTop : HPF.desktopTop);
   }
 
