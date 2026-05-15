@@ -296,6 +296,13 @@ const SIDEBAR_TOOLS = [
   { href: "/word-of-the-day/",         badge: "WD",  label: "Word of the Day"    },
 ];
 
+const GROW = {
+  src: "https://faves.grow.me/main.js",
+  siteId: "U2l0ZTpmNTM4OGI3Ny04N2JmLTQxNzYtOGJkNS1kNGNmMmNmNDM2MzY="
+};
+
+let growBooted = false;
+
 function injectNav() {
   const nav  = document.createElement("nav");
   nav.className = "site-nav";
@@ -362,6 +369,32 @@ function injectNav() {
   document.body.insertBefore(nav, firstEl);
 }
 
-document.addEventListener("DOMContentLoaded", injectNav);
+function injectGrowMe() {
+  if (growBooted) return;
+  growBooted = true;
 
+  if (document.querySelector('script[src="' + GROW.src + '"]')) return;
+
+  window.growMe = window.growMe || function (e) {
+    window.growMe._.push(e);
+  };
+  window.growMe._ = window.growMe._ || [];
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = GROW.src;
+  script.defer = true;
+  script.setAttribute("data-grow-initializer", "");
+  script.setAttribute("data-grow-faves-site-id", GROW.siteId);
+
+  const firstScript = document.getElementsByTagName("script")[0];
+  if (firstScript && firstScript.parentNode) {
+    firstScript.parentNode.insertBefore(script, firstScript);
+  } else {
+    document.head.appendChild(script);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", injectNav);
+document.addEventListener("DOMContentLoaded", injectGrowMe);
 
