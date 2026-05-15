@@ -838,6 +838,68 @@ details.advanced[open] summary::before { content: "▾ "; }
 .tools-widget-links a.active { background: #eff6ff; color: var(--accent); font-weight: 700; }
 .tools-widget-links a .ico { font-size: 16px; width: 22px; text-align: center; }
 
+/* ---------- Mini running announcement bar ---------- */
+.mini-announce-bar {
+  display: block;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  background: linear-gradient(90deg, #fff7ed, #ffedd5, #fef3c7);
+  border-bottom: 1px solid rgba(251, 146, 60, 0.28);
+  box-shadow: 0 1px 8px rgba(251, 146, 60, 0.08);
+  position: relative;
+  z-index: 20;
+}
+
+.mini-announce-track {
+  display: flex;
+  width: max-content;
+  animation: miniTickerMove 24s linear infinite;
+}
+
+.mini-announce-track span {
+  display: inline-block;
+  padding-right: 64px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  color: #7c2d12;
+}
+
+.mini-announce-bar:hover .mini-announce-track {
+  animation-play-state: paused;
+}
+
+@keyframes miniTickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .mini-announce-bar {
+    height: 28px;
+    line-height: 28px;
+  }
+
+  .mini-announce-track span {
+    font-size: 12px;
+    padding-right: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-announce-track {
+    animation: none;
+  }
+}
+
 /* ---------- SEO content ---------- */
 .seo-section {
   background: var(--surface);
