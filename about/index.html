@@ -29,6 +29,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
+  .about-page-nav {
+    margin-bottom: 18px;
+  }
   .about-hero {
     background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 55%, #ffffff 100%);
     border: 1px solid var(--border);
@@ -163,18 +166,123 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin: 0;
     color: var(--ink-2);
   }
+  .about-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .fact-card {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .fact-card strong {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .fact-card span {
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .about-standards {
+    display: grid;
+    gap: 12px;
+  }
+  .about-standards-item {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .about-standards-item h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+  }
+  .about-standards-item p {
+    margin: 0;
+    color: var(--ink-2);
+  }
   @media (max-width: 920px) {
     .about-hero {
       grid-template-columns: 1fr;
     }
+    .about-facts {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About WordFindLab",
+  "description": "About WordFindLab, including our purpose, editorial standards, and how to use the site well.",
+  "url": "https://wordfindlab.com/about/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/",
+    "email": "support@wordfindlab.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is WordFindLab just a word list site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The site includes search tools, scoring helpers, and strategy content that explain how to use the results in a real game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if I only know a few letters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Word Finder or the relevant game tool, then narrow by starting or ending letters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which pages should I start with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you play Scrabble or Words With Friends, start with the scoring tools and strategy guides. If you play Wordle, begin with the solver and Wordle strategy pages."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T55GC2PM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<nav class="site-nav about-page-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">WordFindLab</a>
+    <div class="nav-links">
+      <a href="/">Word Finder</a>
+      <a href="/guides/">Guides</a>
+      <a href="/dictionary/">Dictionary</a>
+      <a href="/blog/">Blog</a>
+      <a class="active" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
 
 <div class="page-wrap">
   <main class="page-main">
@@ -262,6 +370,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <section class="card" id="facts">
+      <h2>What WordFindLab is and is not</h2>
+      <div class="about-facts">
+        <div class="fact-card">
+          <strong>Free to use</strong>
+          <span>The core tools and learning pages are available without an account or login.</span>
+        </div>
+        <div class="fact-card">
+          <strong>Ad-supported</strong>
+          <span>Ads help keep the site free while the tools remain visible and usable.</span>
+        </div>
+        <div class="fact-card">
+          <strong>Not a random list</strong>
+          <span>We try to explain results in context so you can make a better decision in the game.</span>
+        </div>
+        <div class="fact-card">
+          <strong>Privacy-minded</strong>
+          <span>We do not require personal accounts for browsing and using the public tools.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="standards">
+      <h2>Editorial standards</h2>
+      <div class="about-standards">
+        <div class="about-standards-item">
+          <h3>We write for usefulness first</h3>
+          <p>Each page should help a reader do something practical: solve a puzzle, compare options, or learn a pattern they can use again.</p>
+        </div>
+        <div class="about-standards-item">
+          <h3>We keep the language plain</h3>
+          <p>Word game strategy can get technical, but we try to explain it in simple language that is easy to skim on mobile.</p>
+        </div>
+        <div class="about-standards-item">
+          <h3>We avoid fake claims</h3>
+          <p>We do not try to impress readers with inflated numbers or vague hype. The page should be honest about what the site does.</p>
+        </div>
+        <div class="about-standards-item">
+          <h3>We keep the tools fast</h3>
+          <p>We prefer lightweight pages, clear structure, and useful ad placement that does not hide the content.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="ads">
+      <h2>Advertising and support</h2>
+      <p>WordFindLab may show advertising to support the site and keep the tools free. Ads are placed with care so the page remains readable and the main content stays available first. We avoid intrusive formats and try to keep the experience clean and useful.</p>
+      <p>If you are reviewing the site, the key idea is simple: the tools are the reason people visit, and the ads are there to support the free content rather than replace it.</p>
+    </section>
+
     <section class="card" id="habits">
       <h2>Good habits that make you a stronger player</h2>
       <p>The best word-game players do not just memorize obscure words. They learn patterns. They notice common endings like <em>-ing</em>, <em>-ed</em>, and <em>-er</em>; they keep track of how often vowels appear; they recognize when a board is open for a premium-square play; and they understand when to score now versus when to set up a bigger move later. WordFindLab is meant to support that process.</p>
@@ -282,6 +440,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="about-faq-item">
           <h3>Which pages should I start with?</h3>
           <p>If you play Scrabble or Words With Friends, start with the scoring tools and strategy guides. If you play Wordle, begin with the solver and the Wordle strategy pages. For crossword-style clues or mixed letters, use the Word Finder and Anagram pages first.</p>
+        </div>
+        <div class="about-faq-item">
+          <h3>How can I contact WordFindLab?</h3>
+          <p>Email <a href="mailto:support@wordfindlab.com">support@wordfindlab.com</a> if you need help, want to report a page issue, or have a content question.</p>
         </div>
       </div>
     </section>
