@@ -39,13 +39,7 @@
     wrapperClass: "AdsterraNativeBanner"
   };
 
-  const GROW = {
-    src: "https://faves.grow.me/main.js",
-    siteId: "U2l0ZTpmNTM4OGI3Ny04N2JmLTQxNzYtOGJkNS1kNGNmMmNmNDM2MzY="
-  };
-
   let booted = false;
-  let growBooted = false;
 
   function isMobileWidth() {
     try {
@@ -199,32 +193,6 @@
     await waitForScript(script, 5000);
   }
 
-  function mountGrowMe() {
-    if (growBooted) return;
-    growBooted = true;
-
-    if (document.querySelector('script[src="' + GROW.src + '"]')) return;
-
-    window.growMe = window.growMe || function (e) {
-      window.growMe._.push(e);
-    };
-    window.growMe._ = window.growMe._ || [];
-
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = GROW.src;
-    script.defer = true;
-    script.setAttribute("data-grow-initializer", "");
-    script.setAttribute("data-grow-faves-site-id", GROW.siteId);
-
-    const firstScript = document.getElementsByTagName("script")[0];
-    if (firstScript && firstScript.parentNode) {
-      firstScript.parentNode.insertBefore(script, firstScript);
-    } else {
-      document.head.appendChild(script);
-    }
-  }
-
   function inferPlacement(slot, index) {
     if (slot.dataset.adsterraPlacement) return slot.dataset.adsterraPlacement;
     if (index === 0) return "top";
@@ -274,8 +242,6 @@
   async function boot() {
     if (booted) return;
     booted = true;
-
-    mountGrowMe();
 
     const slots = Array.from(document.querySelectorAll(".ad-slot"));
     if (!slots.length) return;

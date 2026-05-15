@@ -3,8 +3,6 @@
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260515";
   const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
-  const GROW_SRC = "https://faves.grow.me/main.js";
-  const GROW_SITE_ID = "U2l0ZTpmNTM4OGI3Ny04N2JmLTQxNzYtOGJkNS1kNGNmMmNmNDM2MzY=";
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -15,10 +13,6 @@
       const src = script.src || "";
       return src.indexOf(fragment) !== -1;
     });
-  }
-
-  function hasGrow() {
-    return hasScript(GROW_SRC) || Boolean(window.growMe);
   }
 
   function injectScript(src, attrs) {
@@ -43,20 +37,6 @@
     } else {
       document.body.appendChild(script);
     }
-  }
-
-  function injectGrow() {
-    if (hasGrow() || hasScript(WORDFINDLAB_SRC) || hasScript(AD_STERRA_SRC)) return;
-
-    window.growMe = window.growMe || function (e) {
-      window.growMe._.push(e);
-    };
-    window.growMe._ = window.growMe._ || [];
-
-    injectScript(GROW_SRC, {
-      "data-grow-initializer": "",
-      "data-grow-faves-site-id": GROW_SITE_ID
-    });
   }
 
   function createAdSlot(placement) {
@@ -151,7 +131,6 @@
   }
 
   function boot() {
-    injectGrow();
     injectAdsterra();
   }
 
