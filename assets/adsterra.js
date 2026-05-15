@@ -41,27 +41,27 @@
 
   const FALLBACKS = {
     top: {
-      label: "Popular Word Tools",
-      title: "Popular Word Tools",
+      label: "Trending Searches",
+      title: "Trending Searches",
       copy: "Jump straight to the pages readers use most.",
       links: [
-        ["/scrabble-word-finder/", "Scrabble Word Finder"],
-        ["/wordle-solver/", "Wordle Solver"],
-        ["/anagram-solver/", "Anagram Solver"],
         ["/5-letter-words/", "5 Letter Words"],
-        ["/words-with-friends-cheat/", "Words With Friends Cheat"]
+        ["/words-ending-with/ing/", "Words Ending in ING"],
+        ["/wordle-solver/", "Wordle Helper"],
+        ["/scrabble-word-finder/", "Scrabble Cheat"],
+        ["/anagram-solver/", "Unscramble Letters"]
       ]
     },
     mid: {
-      label: "Trending Searches",
-      title: "Trending Searches",
-      copy: "Helpful searches that match common visitor intent.",
+      label: "Popular Guides",
+      title: "Popular Guides",
+      copy: "Practical reads to help players make better moves.",
       links: [
-        ["/words-starting-with/", "Words Starting With"],
-        ["/words-ending-with/", "Words Ending With"],
-        ["/words-containing/", "Words Containing"],
+        ["/guides/", "Strategy Guides"],
+        ["/blog/", "Word Game Blog"],
         ["/word-of-the-day/", "Word of the Day"],
-        ["/guides/", "Guides"]
+        ["/dictionary/", "Dictionary"],
+        ["/about/", "About WordFindLab"]
       ]
     },
     lower: {
@@ -127,7 +127,14 @@
     if (!wrapper) return;
     wrapper.classList.toggle("is-fallback", mode === "fallback");
     wrapper.classList.toggle("is-ad", mode === "ad");
-    setWrapperLabel(slot, mode === "fallback" ? FALLBACKS[placement]?.label || "Popular Word Tools" : "Sponsored");
+    const label = wrapper.querySelector(".ad-label");
+    if (label) {
+      label.hidden = mode === "fallback";
+      if (mode !== "fallback") {
+        label.hidden = false;
+        label.textContent = "WordFindLab Picks";
+      }
+    }
   }
 
   function hasAdContent(root) {

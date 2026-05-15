@@ -5,27 +5,27 @@
   const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
   const FALLBACKS = {
     top: {
-      label: "Popular Word Tools",
-      title: "Popular Word Tools",
+      label: "Trending Searches",
+      title: "Trending Searches",
       copy: "Jump straight to the tools readers use most.",
       links: [
-        ["/scrabble-word-finder/", "Scrabble Word Finder"],
-        ["/wordle-solver/", "Wordle Solver"],
-        ["/anagram-solver/", "Anagram Solver"],
         ["/5-letter-words/", "5 Letter Words"],
-        ["/words-with-friends-cheat/", "Words With Friends Cheat"]
+        ["/words-ending-with/ing/", "Words Ending in ING"],
+        ["/wordle-solver/", "Wordle Helper"],
+        ["/scrabble-word-finder/", "Scrabble Cheat"],
+        ["/anagram-solver/", "Unscramble Letters"]
       ]
     },
     mid: {
-      label: "Trending Searches",
-      title: "Trending Searches",
-      copy: "Helpful searches that match common visitor intent.",
+      label: "Popular Guides",
+      title: "Popular Guides",
+      copy: "Helpful reads that match common visitor intent.",
       links: [
-        ["/words-starting-with/", "Words Starting With"],
-        ["/words-ending-with/", "Words Ending With"],
-        ["/words-containing/", "Words Containing"],
+        ["/guides/", "Strategy Guides"],
+        ["/blog/", "Word Game Blog"],
         ["/word-of-the-day/", "Word of the Day"],
-        ["/guides/", "Guides"]
+        ["/dictionary/", "Dictionary"],
+        ["/about/", "About WordFindLab"]
       ]
     },
     lower: {
@@ -124,7 +124,10 @@
     slot.style.overflow = "visible";
 
     const label = slot.parentElement && slot.parentElement.querySelector(".ad-label");
-    if (label) label.textContent = (FALLBACKS[placement] || FALLBACKS.lower).label;
+    if (label) {
+      label.hidden = true;
+      label.textContent = "WordFindLab Picks";
+    }
 
     slot.appendChild(createFallbackCard(placement));
   }
@@ -143,7 +146,8 @@
 
     const label = document.createElement("span");
     label.className = "ad-label";
-    label.textContent = "Sponsored";
+    label.textContent = "WordFindLab Picks";
+    label.hidden = true;
     label.style.display = "inline-flex";
     label.style.alignItems = "center";
     label.style.justifyContent = "center";
