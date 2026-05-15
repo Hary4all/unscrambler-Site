@@ -282,6 +282,7 @@ const NAV_LINKS = [
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
   { href: "/word-of-the-day/",          label: "Word of the Day" },
+  { href: "/dictionary/",               label: "Dictionary" },
   { href: "/blog/",                     label: "Blog" },
 ];
 
@@ -334,7 +335,7 @@ function injectNav() {
   const actions = document.createElement("div");
   actions.className = "nav-actions";
   actions.innerHTML = `
-    <a class="nav-action nav-action--primary" href="#search">Try Now Free</a>
+    <a class="nav-action nav-action--primary" href="/#search">Try Now Free</a>
   `;
 
   // Mobile hamburger toggle

@@ -59,36 +59,94 @@
     });
   }
 
-  function ensureAdSlot() {
-    if (document.querySelector(".ad-slot")) return;
+  function createAdSlot(placement) {
+    const wrap = document.createElement("div");
+    wrap.className = "ad-wrap ad-" + placement + " adsterra-sitewide-wrap";
+    wrap.style.width = "100%";
+    wrap.style.maxWidth = placement === "mid" ? "336px" : "100%";
+    wrap.style.margin = placement === "mid" ? "24px auto" : "20px auto";
+    wrap.style.padding = "0 16px";
+    wrap.style.boxSizing = "border-box";
+    wrap.style.display = "flex";
+    wrap.style.flexDirection = "column";
+    wrap.style.alignItems = "center";
+
+    const label = document.createElement("span");
+    label.className = "ad-label";
+    label.textContent = "Advertisement";
+    label.style.display = "inline-flex";
+    label.style.alignItems = "center";
+    label.style.justifyContent = "center";
+    label.style.alignSelf = "flex-start";
+    label.style.margin = "0 0 8px";
+    label.style.padding = "4px 10px";
+    label.style.borderRadius = "999px";
+    label.style.background = "#eff6ff";
+    label.style.color = "#2563eb";
+    label.style.fontSize = "11px";
+    label.style.fontWeight = "800";
+    label.style.letterSpacing = ".08em";
+    label.style.textTransform = "uppercase";
 
     const slot = document.createElement("div");
-    slot.className = "ad-slot ad-slot-native adsterra-slot adsterra-sitewide-slot";
-    slot.setAttribute("data-adsterra-placement", "lower");
-    slot.style.maxWidth = "100%";
-    slot.style.margin = "24px auto";
+    slot.className = "ad-slot adsterra-slot ad-slot-" + placement;
+    slot.setAttribute("data-adsterra-placement", placement);
+    slot.style.width = "100%";
+    slot.style.maxWidth = placement === "mid" ? "300px" : (placement === "top" ? "728px" : "100%");
+    slot.style.minHeight = placement === "mid" ? "250px" : (placement === "top" ? "90px" : "90px");
+    slot.style.margin = "0 auto";
     slot.style.overflow = "hidden";
-    slot.style.minHeight = "90px";
 
-    const wrap = document.createElement("div");
-    wrap.className = "adsterra-wrap adsterra-sitewide-wrap";
-    wrap.style.width = "100%";
-    wrap.style.maxWidth = "100%";
-    wrap.style.margin = "0 auto";
-    wrap.style.padding = "0 16px";
+    wrap.appendChild(label);
     wrap.appendChild(slot);
+    return { wrap, slot };
+  }
 
+  function insertBeforeFooter(node) {
     const footer = document.querySelector("footer");
     if (footer && footer.parentNode) {
-      footer.parentNode.insertBefore(wrap, footer);
+      footer.parentNode.insertBefore(node, footer);
     } else if (document.body) {
-      document.body.appendChild(wrap);
+      document.body.appendChild(node);
     }
+  }
+
+  function insertBeforeMain(node) {
+    const main = document.querySelector("main");
+    if (main && main.parentNode) {
+      main.parentNode.insertBefore(node, main);
+    } else {
+      insertBeforeFooter(node);
+    }
+  }
+
+  function insertAfterFirstMainChild(node) {
+    const main = document.querySelector("main");
+    if (!main) return false;
+    const first = main.firstElementChild;
+    if (first && first.parentNode === main && first.nextElementSibling) {
+      main.insertBefore(node, first.nextElementSibling);
+      return true;
+    }
+    main.appendChild(node);
+    return true;
+  }
+
+  function ensureFallbackAdSlots() {
+    if (document.querySelector(".ad-slot")) return;
+
+    const top = createAdSlot("top");
+    const mid = createAdSlot("mid");
+    const lower = createAdSlot("lower");
+
+    insertBeforeMain(top.wrap);
+    insertAfterFirstMainChild(mid.wrap);
+    insertBeforeFooter(lower.wrap);
   }
 
   function injectAdsterra() {
     if (hasScript(AD_STERRA_SRC)) return;
-    ensureAdSlot();
+    ensureFallbackAdSlots();
     injectScript(AD_STERRA_SRC);
   }
 

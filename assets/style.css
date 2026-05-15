@@ -3397,6 +3397,50 @@ a.announce-bar:hover {
 
 /* Hub page */
 .wotd-hub-intro { margin-bottom: 16px; }
+.wotd-hub-links {
+  margin-bottom: 16px;
+}
+.wotd-hub-links p {
+  margin: 0 0 14px;
+  color: var(--muted, #64748b);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.wotd-hub-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.wotd-hub-link {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  background: #eff6ff;
+  border: 1px solid rgba(37,99,235,.10);
+  box-shadow: 0 8px 18px rgba(15,23,42,.04);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.wotd-hub-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(37,99,235,.08);
+  border-color: rgba(37,99,235,.18);
+  text-decoration: none;
+}
+.wotd-hub-link strong {
+  display: block;
+  color: var(--ink-2, #0f172a);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.wotd-hub-link span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted, #64748b);
+  font-size: 12px;
+  line-height: 1.45;
+}
 .wotd-hub-list {
   list-style: none;
   margin: 0;
