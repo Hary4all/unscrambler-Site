@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    WordFindLab - Shared Engine
    Loaded by every tool page.
 
@@ -285,6 +285,7 @@ const NAV_LINKS = [
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
   { href: "/word-of-the-day/",          label: "Word of the Day" },
+  { href: "/blog/",                     label: "Blog" },
 ];
 
 const SIDEBAR_TOOLS = [
