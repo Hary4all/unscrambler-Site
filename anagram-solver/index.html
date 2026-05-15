@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://wordfindlab.com/anagram-solver/">
+<link rel="canonical" href="https://www.unscrambler.net/anagram-solver/">
 <title>Anagram Solver — Find Perfect Anagrams of Any Word</title>
 <meta name="description" content="Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters. Great for crossword clues and word puzzles.">
 <link rel="stylesheet" href="/assets/style.css">
@@ -74,7 +74,7 @@
   "@type": "WebApplication",
   "name": "Anagram Solver",
   "description": "Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters.",
-  "url": "https://wordfindlab.com/anagram-solver/",
+  "url": "https://www.unscrambler.net/anagram-solver/",
   "applicationCategory": "Word Games",
   "operatingSystem": "Any",
   "isAccessibleForFree": true,
@@ -85,8 +85,8 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "WordFindLab",
-    "url": "https://wordfindlab.com/"
+    "name": "Unscrambler.net",
+    "url": "https://www.unscrambler.net/"
   }
 }
 </script>
@@ -163,6 +163,12 @@
     <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
     <p class="definition-note" id="definition-note"></p>
   </section>
+
+  <!-- Mid-content ad — renders between results and strategy guide -->
+  <div class="ad-wrap ad-mid-content">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
+  </div>
 
   <section class="card seo">
     <h2>What is an anagram?</h2>
@@ -257,7 +263,7 @@
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
+    <div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -355,7 +361,7 @@ async function search() {
 
   // Sort by Scrabble score desc
   const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
-  const filteredMatches = await WordFindLabDictionary.filterMeaningfulWords(matches, meaningfulOnly);
+  const filteredMatches = await Unscrambler.netDictionary.filterMeaningfulWords(matches, meaningfulOnly);
   const sorted = [...filteredMatches].sort((a, b) => scrabbleScore(b) - scrabbleScore(a) || a.localeCompare(b));
   for (const w of sorted) {
     const pts = scrabbleScore(w);
@@ -383,7 +389,7 @@ document.getElementById("clear").addEventListener("click", () => {
 document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
 
 loadDictionary("all");
-WordFindLabDictionary.preloadMeaningfulWords();
+Unscrambler.netDictionary.preloadMeaningfulWords();
 document.getElementById("letters").focus();
 </script>
 <script src="/assets/adsterra.js"></script>

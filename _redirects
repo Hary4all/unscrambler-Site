@@ -13,6 +13,12 @@
 /anagram-solver/ /anagram-solver/index.html 200
 /words-with-friends-cheat/ /words-with-friends-cheat/index.html 200
 /jumble-solver/ /jumble-solver/index.html 200
+
+# === WORD OF THE DAY ===
+/word-of-the-day /word-of-the-day/ 301
+/word-of-the-day/ /word-of-the-day/index.html 200
+/word-of-the-day/:date/ /word-of-the-day/:date/index.html 200
+/word-of-the-day/:date /word-of-the-day/:date/ 301
 /2-letter-words /2-letter-words/ 301
 /3-letter-words /3-letter-words/ 301
 /4-letter-words /4-letter-words/ 301

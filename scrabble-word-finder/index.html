@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://wordfindlab.com/scrabble-word-finder/">
+<link rel="canonical" href="https://www.unscrambler.net/scrabble-word-finder/">
 <title>Scrabble Word Finder — Best Words From Your Tiles</title>
 <meta name="description" content="Free Scrabble word finder. Enter your rack letters and find every valid Scrabble word sorted by point value. Supports blank tiles and board filters.">
 <link rel="stylesheet" href="/assets/style.css">
@@ -40,7 +40,7 @@
   "@type": "WebApplication",
   "name": "Scrabble Word Finder",
   "description": "Free Scrabble word finder. Enter your tiles and instantly find the highest-scoring words using official Scrabble point values.",
-  "url": "https://wordfindlab.com/scrabble-word-finder/",
+  "url": "https://www.unscrambler.net/scrabble-word-finder/",
   "applicationCategory": "Word Games",
   "operatingSystem": "Any",
   "isAccessibleForFree": true,
@@ -51,8 +51,8 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "WordFindLab",
-    "url": "https://wordfindlab.com/"
+    "name": "Unscrambler.net",
+    "url": "https://www.unscrambler.net/"
   }
 }
 </script>
@@ -161,6 +161,12 @@
     <p class="definition-note" id="definition-note"></p>
   </section>
 
+  <!-- Mid-content ad — renders between results and strategy guide -->
+  <div class="ad-wrap ad-mid-content">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
+  </div>
+
     <section class="card seo">
       <h2>How to use the Scrabble Word Finder</h2>
       <p>Enter up to 7 letters from your rack. Use <b>?</b> for a blank tile — the finder will try all 26 possible letters. Results are sorted by Scrabble point value so you always see the most valuable play first. Use the board filters to match letters already on the board.</p>
@@ -265,7 +271,7 @@
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
+    <div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -414,7 +420,7 @@ async function search() {
   const card = document.getElementById("resultsCard");
   card.hidden = false;
   const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
-  const words = await WordFindLabDictionary.filterMeaningfulWords(result.words, meaningfulOnly);
+  const words = await Unscrambler.netDictionary.filterMeaningfulWords(result.words, meaningfulOnly);
   document.getElementById("resultsMeta").textContent =
     words.length.toLocaleString() + " words · " + ms.toFixed(0) + " ms";
 
@@ -435,7 +441,7 @@ document.getElementById("clear").addEventListener("click", () => {
 document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
 
 loadDictionary("all");
-WordFindLabDictionary.preloadMeaningfulWords();
+Unscrambler.netDictionary.preloadMeaningfulWords();
 </script>
 <script src="/assets/adsterra.js"></script>
 </body>

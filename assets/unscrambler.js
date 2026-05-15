@@ -279,21 +279,21 @@ function copyWord(el, word) {
 /* ---------- Nav injection ---------- */
 
 const NAV_LINKS = [
-  { href: "/",                label: "Word Finder", caret: true },
-  { href: "/anagram-solver/", label: "Anagram Solver" },
-  { href: "/5-letter-words/", label: "5 Letter Words" },
-  { href: "/guides/",         label: "More Tools", caret: true },
-  { href: "/blog/",           label: "Blog" },
+  { href: "/scrabble-word-finder/",     label: "Scrabble Finder" },
+  { href: "/wordle-solver/",            label: "Wordle Solver" },
+  { href: "/anagram-solver/",           label: "Anagram Solver" },
+  { href: "/words-with-friends-cheat/", label: "Words With Friends" },
+  { href: "/jumble-solver/",            label: "Jumble Solver" },
+  { href: "/word-of-the-day/",          label: "Word of the Day" },
 ];
 
 const SIDEBAR_TOOLS = [
-  { href: "/",                         badge: "WF",  label: "Word Unscrambler"   },
   { href: "/scrabble-word-finder/",    badge: "SF",  label: "Scrabble Finder"    },
   { href: "/wordle-solver/",           badge: "WL",  label: "Wordle Solver"      },
   { href: "/anagram-solver/",          badge: "AN",  label: "Anagram Solver"     },
   { href: "/words-with-friends-cheat/",badge: "WWF", label: "Words With Friends" },
   { href: "/jumble-solver/",           badge: "JS",  label: "Jumble Solver"      },
-  { href: "/dictionary/",              badge: "D",   label: "Dictionary"         },
+  { href: "/word-of-the-day/",         badge: "WD",  label: "Word of the Day"    },
 ];
 
 function injectNav() {
@@ -306,7 +306,7 @@ function injectNav() {
   const logo = document.createElement("a");
   logo.className = "nav-logo";
   logo.href = "/";
-  logo.innerHTML = '<span class="nav-logo-mark">WF</span><span class="nav-logo-copy"><span class="nav-logo-text">WordFindLab</span><span class="nav-logo-sub">Find the Word. Win the Board.</span></span>';
+  logo.innerHTML = '<span class="nav-logo-mark">UN</span><span class="nav-logo-copy"><span class="nav-logo-text">Unscrambler.net</span><span class="nav-logo-sub">Find the Word. Win the Board.</span></span>';
   inner.appendChild(logo);
 
   // Nav links

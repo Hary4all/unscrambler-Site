@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://wordfindlab.com/wordle-solver/">
+<link rel="canonical" href="https://www.unscrambler.net/wordle-solver/">
 <title>Wordle Solver — Find Today's Answer Fast</title>
 <meta name="description" content="Free Wordle solver. Enter your green, yellow, and gray clues and get a list of every possible answer word. Solve Wordle in 2–3 guesses.">
 <link rel="stylesheet" href="/assets/style.css">
@@ -119,7 +119,7 @@
   "@type": "WebApplication",
   "name": "Wordle Solver",
   "description": "Free Wordle solver and helper. Enter your green, yellow, and gray clues and get a ranked list of the best possible answers.",
-  "url": "https://wordfindlab.com/wordle-solver/",
+  "url": "https://www.unscrambler.net/wordle-solver/",
   "applicationCategory": "Word Games",
   "operatingSystem": "Any",
   "isAccessibleForFree": true,
@@ -130,8 +130,8 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "WordFindLab",
-    "url": "https://wordfindlab.com/"
+    "name": "Unscrambler.net",
+    "url": "https://www.unscrambler.net/"
   }
 }
 </script>
@@ -210,6 +210,12 @@
     <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
     <p class="definition-note" id="definition-note"></p>
   </section>
+
+  <!-- Mid-content ad — renders between results and strategy guide -->
+  <div class="ad-wrap ad-mid-content">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
+  </div>
 
   <section class="card seo">
     <h2>How to use the Wordle solver</h2>
@@ -310,7 +316,7 @@
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
+    <div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -514,7 +520,7 @@ async function solve() {
     const card = document.getElementById("resultsCard");
     card.hidden = false;
     const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
-    const filtered = await WordFindLabDictionary.filterMeaningfulWords(matches, meaningfulOnly);
+    const filtered = await Unscrambler.netDictionary.filterMeaningfulWords(matches, meaningfulOnly);
     document.getElementById("resultsMeta").textContent =
       filtered.length.toLocaleString() + " possible answers · " + ms.toFixed(0) + " ms";
 
@@ -558,7 +564,7 @@ document.getElementById("clear").addEventListener("click", () => {
 });
 
 loadDictionary("common");
-WordFindLabDictionary.preloadMeaningfulWords();
+Unscrambler.netDictionary.preloadMeaningfulWords();
 initRows();
 </script>
 <script src="/assets/adsterra.js"></script>

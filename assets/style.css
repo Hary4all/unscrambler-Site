@@ -3189,3 +3189,238 @@ a.announce-bar:hover {
   }
 }
 
+/* ─── Sticky sidebar — high viewability ad ─────────────────────────────────
+   Keeps the sidebar ad in the viewport as the user scrolls through long
+   results lists. align-self:start is required for sticky inside a grid.
+   scrollbar-width:none hides the internal scroll track on Firefox/Chrome.
+───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 901px) {
+  .page-sidebar {
+    position: sticky;
+    top: 70px;
+    align-self: start;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+}
+
+/* ─── Mid-content ad (between results and strategy) ─────────────────────── */
+.ad-mid-content {
+  margin: 8px 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ad-mid-content .ad-slot {
+  width: 100%;
+  max-width: 336px;
+  height: 280px;
+}
+
+
+/* ============================================================
+   WORD OF THE DAY — page styles
+   ============================================================ */
+
+/* Single-column layout override (no sidebar) */
+.page-wrap.single-col {
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* WOTD card */
+.wotd-card {
+  padding: 32px 28px;
+  margin-bottom: 24px;
+}
+
+/* Header */
+.wotd-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--border, #e2e8f0);
+}
+.wotd-date {
+  font-size: 0.85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted, #64748b);
+  margin: 0 0 8px;
+}
+.wotd-word {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  color: var(--accent, #f59e0b);
+  letter-spacing: -.02em;
+}
+.wotd-pos {
+  display: inline-block;
+  font-style: italic;
+  color: var(--muted, #64748b);
+  font-size: 1.05rem;
+  background: var(--surface-2, #f1f5f9);
+  padding: 2px 12px;
+  border-radius: 20px;
+}
+
+/* Sections */
+.wotd-section {
+  margin-bottom: 28px;
+}
+.wotd-section h2 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted, #64748b);
+  margin: 0 0 10px;
+}
+.wotd-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Example blockquote */
+.wotd-quote {
+  margin: 0;
+  padding: 14px 20px;
+  border-left: 4px solid var(--accent, #f59e0b);
+  background: var(--surface-2, #f8fafc);
+  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text, #1e293b);
+}
+
+/* Scrabble tiles */
+.scrabble-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.tile {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 48px;
+  background: var(--accent, #f59e0b);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+}
+.tile sub {
+  font-size: 0.55rem;
+  font-weight: 700;
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+  color: rgba(255,255,255,.85);
+}
+.score-total {
+  font-size: 1rem;
+  color: var(--muted, #64748b);
+  margin: 0;
+}
+.score-number {
+  color: var(--accent, #f59e0b);
+  font-size: 1.15rem;
+}
+
+/* Synonym tags */
+.syn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.syn-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: var(--surface-2, #f1f5f9);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text, #1e293b);
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.syn-tag:hover {
+  background: var(--accent-light, #fef3c7);
+  border-color: var(--accent, #f59e0b);
+}
+
+/* Tool links */
+.wotd-tool-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Day navigation */
+.wotd-day-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.nav-btn {
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--surface-2, #f1f5f9);
+  color: var(--text, #1e293b);
+  border: 1px solid var(--border, #e2e8f0);
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--accent-light, #fef3c7); border-color: var(--accent, #f59e0b); }
+.nav-btn.hub { background: var(--accent, #f59e0b); color: #fff; border-color: transparent; }
+.nav-btn.hub:hover { background: #d97706; }
+.nav-btn.disabled { opacity: 0; pointer-events: none; }
+
+/* Hub page */
+.wotd-hub-intro { margin-bottom: 16px; }
+.wotd-hub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.hub-item {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.hub-item:hover { border-color: var(--accent, #f59e0b); box-shadow: 0 2px 8px rgba(245,158,11,.12); }
+.hub-item a { text-decoration: none; display: flex; flex-direction: column; gap: 2px; margin-bottom: 6px; }
+.hub-word { font-size: 1.1rem; font-weight: 700; color: var(--text, #1e293b); }
+.hub-date { font-size: 0.78rem; color: var(--muted, #64748b); }
+.hub-snippet { font-size: 0.83rem; color: var(--muted, #64748b); margin: 0; line-height: 1.45; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .wotd-card { padding: 20px 16px; }
+  .wotd-day-nav { gap: 6px; }
+  .nav-btn { padding: 8px 12px; font-size: 0.82rem; }
+  .tile { width: 38px; height: 42px; font-size: 1.1rem; }
+}

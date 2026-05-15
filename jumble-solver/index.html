@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://wordfindlab.com/jumble-solver/">
+<link rel="canonical" href="https://www.unscrambler.net/jumble-solver/">
 <title>Jumble Solver — Solve Daily Jumble Puzzles Instantly</title>
 <meta name="description" content="Free Jumble solver. Unscramble the daily newspaper Jumble words instantly and solve the final answer using your circled letters. Works for USA Today Jumble and all daily Jumbles.">
 <link rel="stylesheet" href="/assets/style.css">
@@ -92,7 +92,7 @@
   "@type": "WebApplication",
   "name": "Jumble Solver",
   "description": "Free Jumble solver. Unscramble the daily Jumble puzzle letters and cartoon clue letters to find every possible answer word.",
-  "url": "https://wordfindlab.com/jumble-solver/",
+  "url": "https://www.unscrambler.net/jumble-solver/",
   "applicationCategory": "Word Games",
   "operatingSystem": "Any",
   "isAccessibleForFree": true,
@@ -103,8 +103,8 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "WordFindLab",
-    "url": "https://wordfindlab.com/"
+    "name": "Unscrambler.net",
+    "url": "https://www.unscrambler.net/"
   }
 }
 </script>
@@ -196,6 +196,12 @@
     <div class="definition-pills definition-antonyms" id="definition-antonyms"></div>
     <p class="definition-note" id="definition-note"></p>
   </section>
+
+  <!-- Mid-content ad — renders between results and strategy guide -->
+  <div class="ad-wrap ad-mid-content">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
+  </div>
 
   <section class="card seo">
     <h2>How to solve the daily Jumble</h2>
@@ -289,7 +295,7 @@
       <a href="/anagram-solver/">Anagram Solver</a>
       <a href="/words-with-friends-cheat/">Words With Friends</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab.com &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
+    <div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
@@ -454,7 +460,7 @@ async function solveAll() {
   for (let i = 0; i < slotCount; i++) {
     const raw = (document.getElementById("slot" + i).value || "").trim();
     if (raw.length >= 2) anyWord = true;
-    const answers = await WordFindLabDictionary.filterMeaningfulWords(unscrambleWord(raw), meaningfulOnly);
+    const answers = await Unscrambler.netDictionary.filterMeaningfulWords(unscrambleWord(raw), meaningfulOnly);
     renderSlotAnswers(i, answers);
   }
 
@@ -480,7 +486,7 @@ async function solveAll() {
     for (let i = 0; i < slotCount; i++) {
       const raw = (document.getElementById("slot" + i).value || "").trim();
       if (!raw) continue;
-      const answers = await WordFindLabDictionary.filterMeaningfulWords(unscrambleWord(raw), meaningfulOnly);
+      const answers = await Unscrambler.netDictionary.filterMeaningfulWords(unscrambleWord(raw), meaningfulOnly);
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;";
       row.innerHTML = '<span style="font-size:13px;color:var(--muted);min-width:90px">Word ' + (i+1) + ': <b style="color:var(--ink);letter-spacing:.1em;text-transform:uppercase">' + raw.toUpperCase() + '</b></span>';
@@ -512,7 +518,7 @@ async function solveAll() {
       minLen: circleLetters.length,
       maxLen: circleLetters.length,
     });
-    const filteredFinalWords = await WordFindLabDictionary.filterMeaningfulWords(finalResult.words || [], meaningfulOnly);
+    const filteredFinalWords = await Unscrambler.netDictionary.filterMeaningfulWords(finalResult.words || [], meaningfulOnly);
     const ms = performance.now() - t0;
 
     step2Card.hidden = false;
@@ -555,7 +561,7 @@ document.getElementById("clearAll").addEventListener("click", () => {
 buildSlots();
 buildCircles();
 loadDictionary("all");
-WordFindLabDictionary.preloadMeaningfulWords();
+Unscrambler.netDictionary.preloadMeaningfulWords();
 document.getElementById("slot0").focus();
 </script>
 <script src="/assets/adsterra.js"></script>
