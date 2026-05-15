@@ -282,6 +282,7 @@ const NAV_LINKS = [
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
   { href: "/word-of-the-day/",          label: "Word of the Day" },
+  { href: "/guides/",                   label: "Guides" },
   { href: "/dictionary/",               label: "Dictionary" },
   { href: "/blog/",                     label: "Blog" },
 ];

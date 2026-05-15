@@ -1,75 +1,687 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unscrambler.net Guides — Strategy, Tips, and Word Game Help</title>
-<meta name="description" content="Browse Unscrambler.net strategy guides for Scrabble, Wordle, anagrams, Jumbles, and vocabulary building.">
-<link rel="canonical" href="https://www.unscrambler.net/guides/">
+<title>WordFindLab Guides - Strategy, Tips, and Word Game Help</title>
+<meta name="description" content="Browse WordFindLab guides for Scrabble, Wordle, anagrams, Jumble, vocabulary building, and word game strategy. Find the right page fast.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wordfindlab.com/guides/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WordFindLab Guides - Strategy, Tips, and Word Game Help">
+<meta property="og:description" content="Browse WordFindLab guides for Scrabble, Wordle, anagrams, Jumble, vocabulary building, and word game strategy.">
+<meta property="og:url" content="https://wordfindlab.com/guides/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
-.guide-hero{background:linear-gradient(135deg,#f8fbff,#eef4ff);border:1px solid var(--border);border-radius:16px;padding:24px;margin:18px 0 20px}
-.guide-hero h1{margin:0 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.05}
-.guide-hero p{margin:0;color:var(--ink-2);font-size:18px;line-height:1.7;max-width:780px}
-.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
-.guide-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s,box-shadow .12s}
-.guide-card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 10px 25px rgba(37,99,235,.08)}
-.guide-card strong{display:block;font-size:16px;margin-bottom:6px}
-.guide-card span{display:block;color:var(--ink-2);font-size:14px;line-height:1.6}
+.guide-shell {
+  display: grid;
+  gap: 18px;
+}
+.guide-breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 2px 0 10px;
+}
+.guide-breadcrumb a {
+  color: var(--muted);
+}
+.guide-hero {
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 55%, #ffffff 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .85fr);
+  gap: 20px;
+  align-items: start;
+}
+.guide-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.guide-hero h1 {
+  margin: 12px 0 12px;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  color: var(--ink);
+}
+.guide-hero p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.72;
+  max-width: 760px;
+}
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.guide-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 11px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .06);
+}
+.guide-btn:hover {
+  text-decoration: none;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+.guide-btn--primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(59, 130, 246, .22);
+}
+.guide-btn--primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #fff;
+}
+.guide-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.guide-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.guide-panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.guide-panel h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+.guide-steps {
+  display: grid;
+  gap: 10px;
+}
+.guide-step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #e5edf7;
+  background: #f8fbff;
+}
+.guide-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+.guide-step strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.guide-step span {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.guide-section {
+  margin-top: 18px;
+}
+.guide-section h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+.guide-section p.lead {
+  margin: 0 0 16px;
+  color: var(--ink-2);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+}
+.guide-card:hover {
+  transform: translateY(-2px);
+  border-color: #bfdbfe;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, .08);
+  text-decoration: none;
+}
+.guide-card .card-kicker {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+}
+.guide-card strong {
+  display: block;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.guide-card span {
+  display: block;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.guide-card .card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+.guide-path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.guide-path {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.guide-path h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+.guide-path p {
+  margin: 0 0 12px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.guide-path ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.guide-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+.guide-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.guide-link:hover {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  text-decoration: none;
+}
+.guide-link small {
+  color: var(--muted);
+  font-weight: 600;
+}
+.guide-faq {
+  display: grid;
+  gap: 10px;
+}
+.guide-faq details {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.guide-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+  list-style: none;
+}
+.guide-faq summary::-webkit-details-marker {
+  display: none;
+}
+.guide-faq p {
+  color: var(--ink-2);
+  margin: 10px 0 0;
+  line-height: 1.65;
+}
+.guides-sidebar-stack {
+  display: grid;
+  gap: 16px;
+}
+.sidebar-list {
+  display: grid;
+  gap: 8px;
+}
+.sidebar-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+.sidebar-list a:hover {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  text-decoration: none;
+}
+.sidebar-list a span {
+  color: var(--muted);
+  font-size: 12px;
+  display: block;
+}
+@media (max-width: 960px) {
+  .guide-hero {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .guide-hero {
+    padding: 22px;
+  }
+  .guide-section h2 {
+    font-size: 22px;
+  }
+  .guide-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .guide-btn {
+    width: 100%;
+  }
+}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "WordFindLab Guides",
+  "url": "https://wordfindlab.com/guides/",
+  "description": "Browse WordFindLab guides for Scrabble, Wordle, anagrams, Jumble, vocabulary building, and word game strategy.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"url":"https://wordfindlab.com/scrabble-strategy/","name":"Scrabble Strategy"},
+      {"@type":"ListItem","position":2,"url":"https://wordfindlab.com/wordle-strategy/","name":"Wordle Strategy"},
+      {"@type":"ListItem","position":3,"url":"https://wordfindlab.com/anagram-solving-techniques/","name":"Anagram Solving Techniques"},
+      {"@type":"ListItem","position":4,"url":"https://wordfindlab.com/scrabble-vs-words-with-friends/","name":"Scrabble vs Words With Friends"},
+      {"@type":"ListItem","position":5,"url":"https://wordfindlab.com/letter-frequency-in-english/","name":"Letter Frequency in English"},
+      {"@type":"ListItem","position":6,"url":"https://wordfindlab.com/vocabulary-building-for-word-games/","name":"Vocabulary Building for Word Games"}
+    ]
+  }
+}
+</script>
 </head>
 <body>
-<nav class="site-nav"><div class="nav-inner"><a class="nav-logo" href="/">🔤 Unscrambler.net</a><div class="nav-links"><a href="/">Unscrambler</a><a href="/scrabble-word-finder/">Scrabble</a><a href="/wordle-solver/">Wordle</a><a href="/anagram-solver/">Anagram</a><a href="/words-with-friends-cheat/">WWF</a><a href="/jumble-solver/">Jumble</a></div></div></nav>
-<div class="page-wrap">
+<!-- Nav injected by WordFindLab shared script -->
+<div class="page-wrap guides-shell">
   <main class="page-main">
-    <div style="font-size:13px;color:var(--muted);margin-top:6px"><a href="/" style="color:var(--muted)">Home</a> <span style="margin:0 6px">›</span> <a href="/guides/" style="color:var(--muted)">Guides</a> <span style="margin:0 6px">›</span> <span style="color:var(--ink-2)">Unscrambler.net Guides</span></div>
+    <div class="guide-breadcrumb"><a href="/">Home</a> <span style="margin:0 6px">/</span> <a href="/guides/">Guides</a> <span style="margin:0 6px">/</span> <span style="color:var(--ink-2)">WordFindLab Guides</span></div>
+
     <section class="guide-hero">
-      <h1>Unscrambler.net Guides</h1>
-      <p>A simple hub for the site's most useful strategy pages and educational articles.</p>
-    </section>
-    <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
-    <section class="card">
-      <h2>Guide library</h2>
-      <div class="guide-grid">
-        <a class="guide-card" href="/scrabble-strategy/"><strong>Scrabble Strategy</strong><span>Rack management, board control, bingo setup, and endgame planning.</span></a>
-        <a class="guide-card" href="/wordle-strategy/"><strong>Wordle Strategy</strong><span>Opening words, clue elimination, and hard mode advice.</span></a>
-        <a class="guide-card" href="/anagram-solving-techniques/"><strong>Anagram Solving Techniques</strong><span>How to spot roots, suffixes, and rearrangement clues faster.</span></a>
-        <a class="guide-card" href="/scrabble-vs-words-with-friends/"><strong>Scrabble vs WWF</strong><span>Why the two games score differently and how to adjust.</span></a>
-        <a class="guide-card" href="/letter-frequency-in-english/"><strong>Letter Frequency</strong><span>Why vowels and common consonants dominate word-game strategy.</span></a>
-        <a class="guide-card" href="/vocabulary-building-for-word-games/"><strong>Vocabulary Building</strong><span>Practical ways to remember words you will actually use.</span></a>
-        <a class="guide-card" href="/blog/"><strong>Word Game Blog</strong><span>Long-form articles on learning, kids, and brain health benefits.</span></a>
+      <div class="guide-hero-copy">
+        <div class="guide-hero-badge">Guides hub</div>
+        <h1>Guides that help you play smarter, not just longer</h1>
+        <p>Use this hub to move from a specific game problem to a clear next step. Learn the pattern, open the right tool, and keep the page focused on answers instead of empty space.</p>
+        <div class="guide-actions">
+          <a class="guide-btn guide-btn--primary" href="/scrabble-strategy/">Start with Scrabble</a>
+          <a class="guide-btn guide-btn--secondary" href="/wordle-strategy/">Read Wordle strategy</a>
+          <a class="guide-btn guide-btn--secondary" href="/blog/">Browse the blog</a>
+        </div>
+        <div class="guide-tags">
+          <span class="guide-tag">Scrabble</span>
+          <span class="guide-tag">Wordle</span>
+          <span class="guide-tag">Anagrams</span>
+          <span class="guide-tag">Vocabulary</span>
+          <span class="guide-tag">Word lists</span>
+        </div>
       </div>
-    </section>
-    
-      <section class="card">
-        <h2>Where to start</h2>
-        <p>Most visitors begin with the strategy page for the game they are playing, then open a tool when they have a specific letter problem to solve. That approach keeps the site practical: learn the pattern first, then use the solver to test it.</p>
-        <p>If you want a fast route, the Scrabble and Wordle guides are the best starting points. If you want broader puzzle help, the anagram and vocabulary pages are useful because they teach transferable habits that carry across multiple word games.</p>
-      </section>
-      <section class="card">
-        <h2>Related tools</h2>
-        <div class="related-tools">
-          <div class="related-links">
-            <a class="related-link" href="/">Word Unscrambler</a>
-            <a class="related-link" href="/scrabble-word-finder/">Scrabble Finder</a>
-            <a class="related-link" href="/wordle-solver/">Wordle Solver</a>
-            <a class="related-link" href="/anagram-solver/">Anagram Solver</a>
-            <a class="related-link" href="/jumble-solver/">Jumble Solver</a>
-            <a class="related-link" href="/words-with-friends-cheat/">Words With Friends</a>
+      <aside class="guide-panel">
+        <h2>How to use this hub</h2>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="guide-step-num">1</div>
+            <div>
+              <strong>Choose your game</strong>
+              <span>Open the guide that matches the board or puzzle in front of you.</span>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">2</div>
+            <div>
+              <strong>Use the matching tool</strong>
+              <span>Jump to the solver or word list that gives you a fast, practical result.</span>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">3</div>
+            <div>
+              <strong>Return for deeper reading</strong>
+              <span>Use the blog and learning pages when you want longer strategy or vocabulary help.</span>
+            </div>
           </div>
         </div>
-      </section>
-    
+      </aside>
+    </section>
+
+    <div class="ad-wrap ad-top">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
+    </div>
+
+    <section class="guide-section card">
+      <h2>Featured guides</h2>
+      <p class="lead">These are the pages most visitors should start with. They connect directly to the tools, word lists, and blog posts that answer the most common questions.</p>
+      <div class="guide-grid">
+        <a class="guide-card" href="/scrabble-strategy/">
+          <div>
+            <span class="card-kicker">Strategy</span>
+            <strong>Scrabble Strategy</strong>
+            <span>Rack balance, board control, bingo setup, and endgame planning for better scoring turns.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/wordle-strategy/">
+          <div>
+            <span class="card-kicker">Wordle</span>
+            <strong>Wordle Strategy</strong>
+            <span>Opening words, clue elimination, and clean follow-up guesses that make the puzzle easier.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/anagram-solving-techniques/">
+          <div>
+            <span class="card-kicker">Anagrams</span>
+            <strong>Anagram Solving Techniques</strong>
+            <span>How to spot roots, suffixes, and rearrangement clues faster when letters look scrambled.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/scrabble-vs-words-with-friends/">
+          <div>
+            <span class="card-kicker">Compare</span>
+            <strong>Scrabble vs Words With Friends</strong>
+            <span>Why the two games score differently and how to adjust your strategy for each board.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/letter-frequency-in-english/">
+          <div>
+            <span class="card-kicker">Language</span>
+            <strong>Letter Frequency in English</strong>
+            <span>Why vowels and common consonants matter and how frequency helps your next guess.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/vocabulary-building-for-word-games/">
+          <div>
+            <span class="card-kicker">Learning</span>
+            <strong>Vocabulary Building for Word Games</strong>
+            <span>Practical routines that help you remember words you will actually use while playing.</span>
+          </div>
+          <span class="card-link">Open guide</span>
+        </a>
+        <a class="guide-card" href="/word-of-the-day/">
+          <div>
+            <span class="card-kicker">Daily</span>
+            <strong>Word of the Day</strong>
+            <span>A daily word prompt, definition, and examples you can keep coming back to.</span>
+          </div>
+          <span class="card-link">Open page</span>
+        </a>
+        <a class="guide-card" href="/dictionary/">
+          <div>
+            <span class="card-kicker">Lookup</span>
+            <strong>Dictionary Lookup</strong>
+            <span>Look up meanings, examples, synonyms, and pronunciation without leaving WordFindLab.</span>
+          </div>
+          <span class="card-link">Open page</span>
+        </a>
+        <a class="guide-card" href="/blog/">
+          <div>
+            <span class="card-kicker">Blog</span>
+            <strong>Word Game Blog</strong>
+            <span>Long-form articles on learning, kids, brain health, and daily play habits.</span>
+          </div>
+          <span class="card-link">Open blog</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad-wrap ad-mid">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
+    </div>
+
+    <section class="guide-section card">
+      <h2>Choose your next path</h2>
+      <p class="lead">If you are not sure where to go next, start with the problem you have right now. The links below connect the most useful tools and pages for each common use case.</p>
+      <div class="guide-path-grid">
+        <article class="guide-path">
+          <h3>Need points fast?</h3>
+          <p>Use the scoring tools and word lists when your goal is to turn a rough rack into a stronger board play.</p>
+          <ul>
+            <li><a href="/scrabble-word-finder/">Scrabble Finder</a></li>
+            <li><a href="/word-lists/highest-scoring-scrabble-words/">Highest-scoring words</a></li>
+            <li><a href="/word-lists/best-scrabble-bingo-words/">Best bingo words</a></li>
+          </ul>
+        </article>
+        <article class="guide-path">
+          <h3>Need the best Wordle guess?</h3>
+          <p>Openers and elimination patterns matter more than random guessing. These pages keep the process simple.</p>
+          <ul>
+            <li><a href="/wordle-solver/">Wordle Solver</a></li>
+            <li><a href="/wordle-strategy/">Wordle Strategy</a></li>
+            <li><a href="/word-lists/best-wordle-starting-words/">Best Wordle starting words</a></li>
+          </ul>
+        </article>
+        <article class="guide-path">
+          <h3>Need help with scrambled letters?</h3>
+          <p>Anagrams, Jumble puzzles, and mixed-letter problems all get easier when you know the pattern to look for.</p>
+          <ul>
+            <li><a href="/anagram-solver/">Anagram Solver</a></li>
+            <li><a href="/jumble-solver/">Jumble Solver</a></li>
+            <li><a href="/anagram-solving-techniques/">Anagram solving techniques</a></li>
+          </ul>
+        </article>
+        <article class="guide-path">
+          <h3>Need to learn more words?</h3>
+          <p>Use the dictionary, the daily word, and the blog to build vocabulary in a way that feels useful and repeatable.</p>
+          <ul>
+            <li><a href="/dictionary/">Dictionary</a></li>
+            <li><a href="/word-of-the-day/">Word of the Day</a></li>
+            <li><a href="/blog/">Blog articles</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section card">
+      <h2>Related tools</h2>
+      <p class="lead">Everything on this page connects back to the main tools. If you want a faster route, these links take you straight there.</p>
+      <div class="guide-link-grid">
+        <a class="guide-link" href="/">Word Finder <small>Start here</small></a>
+        <a class="guide-link" href="/scrabble-word-finder/">Scrabble Finder <small>Score-first search</small></a>
+        <a class="guide-link" href="/wordle-solver/">Wordle Solver <small>Clue helper</small></a>
+        <a class="guide-link" href="/anagram-solver/">Anagram Solver <small>Mixed letters</small></a>
+        <a class="guide-link" href="/jumble-solver/">Jumble Solver <small>Daily puzzle</small></a>
+        <a class="guide-link" href="/words-with-friends-cheat/">Words With Friends <small>Game-specific help</small></a>
+        <a class="guide-link" href="/dictionary/">Dictionary <small>Look up meanings</small></a>
+        <a class="guide-link" href="/word-of-the-day/">Word of the Day <small>Daily learning</small></a>
+      </div>
+    </section>
+
+    <section class="guide-section card">
+      <h2>More reading from the blog</h2>
+      <p class="lead">If you want longer reads, these posts connect strategy and learning with the tools above.</p>
+      <div class="guide-link-grid">
+        <a class="guide-link" href="/blog/how-to-improve-scrabble-score-fast/">Improve Scrabble score <small>Rack and board habits</small></a>
+        <a class="guide-link" href="/blog/best-wordle-starting-words/">Best Wordle starting words <small>Opening guess ideas</small></a>
+        <a class="guide-link" href="/blog/vocabulary-building-habits-for-word-game-players/">Vocabulary habits <small>Learn words faster</small></a>
+        <a class="guide-link" href="/blog/scrabble-vs-words-with-friends/">Scrabble vs WWF <small>Board differences</small></a>
+      </div>
+    </section>
+
+    <section class="guide-section card guide-faq">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Which page should I open first?</summary>
+        <p>If you play one main game, start with that strategy page. If you are stuck on a specific rack or clue, jump straight to the matching tool instead.</p>
+      </details>
+      <details>
+        <summary>Are the guides connected to the tools?</summary>
+        <p>Yes. Each guide links to the relevant solver, word list, or learning page so you can move from reading to action without getting lost.</p>
+      </details>
+      <details>
+        <summary>Why does this page include both guides and tools?</summary>
+        <p>It keeps the page useful for both readers and search engines. People can browse by topic, and the internal links help them reach the exact page they need.</p>
+      </details>
+    </section>
+
+    <div class="ad-wrap ad-lower">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="lower"></div>
+    </div>
   </main>
+
   <aside class="page-sidebar">
-    <div class="card tools-widget"><div class="tools-widget-title">Popular tools</div><div class="tools-widget-links"><a href="/">🔀 Word Unscrambler</a><a href="/scrabble-word-finder/">🎯 Scrabble Finder</a><a href="/wordle-solver/">🟩 Wordle Solver</a><a href="/anagram-solver/">🔤 Anagram Solver</a><a href="/jumble-solver/">🗞️ Jumble Solver</a></div></div>
-    <div class="card tools-widget" style="margin-top:16px"><div class="tools-widget-title">More guides</div><div class="tools-widget-links"><a href="/scrabble-strategy/">Scrabble Strategy</a><a href="/wordle-strategy/">Wordle Strategy</a><a href="/anagram-solving-techniques/">Anagram Solving</a><a href="/scrabble-vs-words-with-friends/">Scrabble vs WWF</a><a href="/letter-frequency-in-english/">Letter Frequency</a></div></div>
+    <div class="guides-sidebar-stack">
+      <section class="card tools-widget">
+        <div class="tools-widget-title">Popular tools</div>
+        <div class="tools-widget-links">
+          <a href="/">Word Finder</a>
+          <a href="/scrabble-word-finder/">Scrabble Finder</a>
+          <a href="/wordle-solver/">Wordle Solver</a>
+          <a href="/anagram-solver/">Anagram Solver</a>
+          <a href="/jumble-solver/">Jumble Solver</a>
+          <a href="/dictionary/">Dictionary</a>
+        </div>
+      </section>
+
+      <section class="card tools-widget">
+        <div class="tools-widget-title">More guides</div>
+        <div class="tools-widget-links">
+          <a href="/scrabble-strategy/">Scrabble Strategy</a>
+          <a href="/wordle-strategy/">Wordle Strategy</a>
+          <a href="/anagram-solving-techniques/">Anagram Solving</a>
+          <a href="/scrabble-vs-words-with-friends/">Scrabble vs WWF</a>
+          <a href="/letter-frequency-in-english/">Letter Frequency</a>
+          <a href="/vocabulary-building-for-word-games/">Vocabulary Building</a>
+        </div>
+      </section>
+
+      <section class="card tools-widget">
+        <div class="tools-widget-title">Blog picks</div>
+        <div class="tools-widget-links">
+          <a href="/blog/">Blog hub</a>
+          <a href="/blog/benefits-of-learning-through-scrambled-words/">Scrambled words benefits</a>
+          <a href="/blog/word-games-benefits-for-kids/">Word games for kids</a>
+          <a href="/blog/word-games-health-benefits/">Brain and health benefits</a>
+        </div>
+      </section>
+    </div>
   </aside>
 </div>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-links"><a href="/">Word Unscrambler</a><a href="/guides/">Guides</a><a href="/scrabble-word-finder/">Scrabble Finder</a><a href="/wordle-solver/">Wordle Solver</a><a href="/anagram-solver/">Anagram Solver</a><a href="/jumble-solver/">Jumble Solver</a></div><div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a></div></div></footer>
-<script src="/assets/adsterra.js"></script>
 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Word Finder</a>
+      <a href="/guides/">Guides</a>
+      <a href="/scrabble-word-finder/">Scrabble Finder</a>
+      <a href="/wordle-solver/">Wordle Solver</a>
+      <a href="/anagram-solver/">Anagram Solver</a>
+      <a href="/jumble-solver/">Jumble Solver</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 WordFindLab &middot; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &middot; <a href="/terms/" style="color:#8891a8">Terms</a></div>
+  </div>
+</footer>
+
+<script src="/assets/wordfindlab.js?v=20260515"></script>
 <script src="/assets/sitewide-ads.js?v=20260515"></script>
 </body>
 </html>
