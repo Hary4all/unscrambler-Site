@@ -88,10 +88,7 @@ async function loadDictionary(which) {
 
   _buildIndex(raw);
   CURRENT_DICT = which;
-
-  const el = document.getElementById("dictStat");
-  if (el) el.textContent = DICT_SET.size.toLocaleString() + " words loaded";
-  setStatus("Ready - " + DICT_SET.size.toLocaleString() + " words indexed.", "good");
+  setStatus("Dictionary ready.", "good");
   return true;
 }
 
