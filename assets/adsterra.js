@@ -2,6 +2,10 @@
   "use strict";
 
   const TOP_BREAKPOINT = 767;
+  const PROFITABLE = {
+    top: "https://pl29454446.profitablecpmratenetwork.com/8e/92/a4/8e92a453b4a6662fbe20618f78c82e3a.js",
+    lower: "https://pl29454445.profitablecpmratenetwork.com/19/93/78/199378345af9e1c5636d3fee45063ba1.js"
+  };
   const HPF = {
     desktopTop: {
       key: "9290d6da1f5eaf36924877067c84b899",
@@ -16,6 +20,20 @@
       width: 468,
       height: 60,
       wrapperClass: "AdsterraDesktopBanner"
+    },
+    banner300x160: {
+      key: "fc13f3bf6abc69107ab30ae8fd51e8a7",
+      src: "https://www.highperformanceformat.com/fc13f3bf6abc69107ab30ae8fd51e8a7/invoke.js",
+      width: 300,
+      height: 160,
+      wrapperClass: "AdsterraSidebarBanner"
+    },
+    skyscraper160x600: {
+      key: "b22523f470988b1b897c1c4767a04ceb",
+      src: "https://www.highperformanceformat.com/b22523f470988b1b897c1c4767a04ceb/invoke.js",
+      width: 160,
+      height: 600,
+      wrapperClass: "AdsterraSkyBanner"
     },
     mobileTop: {
       key: "41a12246620488db5d5241a65f9b3372",
@@ -190,7 +208,11 @@
     const adShell = document.createElement("div");
     adShell.className = "AdsterraShell AdsterraShell--" + placement;
     adShell.style.width = "100%";
-    adShell.style.maxWidth = placement === "mid" ? "300px" : (placement === "top" ? "728px" : "100%");
+    adShell.style.maxWidth =
+      placement === "mid" ? "300px" :
+      placement === "wide" ? "468px" :
+      placement === "sidebar" ? "300px" :
+      placement === "top" ? "728px" : "100%";
     adShell.style.minHeight = minHeight + "px";
     adShell.style.margin = "0 auto";
     adShell.style.display = "flex";
@@ -279,7 +301,13 @@
 
   async function mountHighPerformanceAd(slot, cfg) {
     clearSlot(slot, cfg.height);
-    const placement = cfg.wrapperClass === "AdsterraBoxAd" ? "mid" : "top";
+    const placement =
+      cfg.wrapperClass === "AdsterraBoxAd" ? "mid" :
+      cfg.wrapperClass === "AdsterraSidebarBanner" ? "sidebar" :
+      cfg.wrapperClass === "AdsterraSkyBanner" ? "sidebar" :
+      cfg.wrapperClass === "AdsterraMobileStickyBanner" ? "mobile-bottom" :
+      cfg.wrapperClass === "AdsterraDesktopBanner" && cfg.width === 468 ? "wide" :
+      "top";
     const shells = createDualModeShell(slot, placement, cfg.height);
     const shell = shells.adShell;
     shell.className = cfg.wrapperClass;
@@ -300,17 +328,58 @@
     await waitForScript(script, 5000);
   }
 
+  async function mountScriptAd(slot, src, placement, minHeight, wrapperClass) {
+    clearSlot(slot, minHeight);
+    const shells = createDualModeShell(slot, placement, minHeight);
+    const shell = shells.adShell;
+    shell.className = wrapperClass;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = src;
+    shell.appendChild(script);
+    watchForAd(slot, placement, shells, 6500);
+    await waitForScript(script, 5000);
+  }
+
   async function mountResponsiveTop(slot) {
     const mobile = isMobileWidth();
-    if (!mobile && window.innerWidth < 992) {
+    if (mobile) {
+      await mountHighPerformanceAd(slot, HPF.mobileTop);
+      return;
+    }
+    if (window.innerWidth < 992) {
       await mountHighPerformanceAd(slot, HPF.banner468x60);
       return;
     }
-    await mountHighPerformanceAd(slot, mobile ? HPF.mobileTop : HPF.desktopTop);
+    await mountScriptAd(slot, PROFITABLE.top, "top", HPF.desktopTop.height, "ProfitableBannerAd ProfitableBannerAd--top");
   }
 
   async function mountBox(slot) {
     await mountHighPerformanceAd(slot, HPF.box);
+  }
+
+  async function mountWideBanner(slot) {
+    if (isMobileWidth()) {
+      slot.hidden = true;
+      slot.innerHTML = "";
+      return;
+    }
+    await mountHighPerformanceAd(slot, HPF.banner468x60);
+  }
+
+  async function mountSidebar(slot) {
+    if (isMobileWidth()) {
+      slot.hidden = true;
+      slot.innerHTML = "";
+      return;
+    }
+    const cfg = window.innerWidth >= 1280 ? HPF.skyscraper160x600 : HPF.banner300x160;
+    await mountHighPerformanceAd(slot, cfg);
+  }
+
+  async function mountLower(slot) {
+    await mountScriptAd(slot, PROFITABLE.lower, "lower", HPF.desktopTop.height, "ProfitableBannerAd ProfitableBannerAd--lower");
   }
 
   async function mountNative(slot) {
@@ -383,7 +452,11 @@
   }
 
   function inferPlacement(slot, index) {
-    if (slot.dataset.adsterraPlacement) return slot.dataset.adsterraPlacement;
+    if (slot.classList.contains("ad-slot-wide")) return "wide";
+    if (slot.classList.contains("ad-slot-mobile-bottom")) return "mobile-bottom";
+    const explicit = slot.dataset.adsterraPlacement;
+    if (slot.closest(".page-sidebar") && explicit === "mid") return "sidebar";
+    if (explicit) return explicit;
     if (index === 0) return "top";
     if (index === 1) return "mid";
     if (index === 2) return "lower";
@@ -409,13 +482,23 @@
       return;
     }
 
+    if (placement === "wide") {
+      await mountWideBanner(slot);
+      return;
+    }
+
     if (placement === "mid") {
       await mountBox(slot);
       return;
     }
 
+    if (placement === "sidebar") {
+      await mountSidebar(slot);
+      return;
+    }
+
     if (placement === "lower") {
-      await mountNative(slot);
+      await mountLower(slot);
       return;
     }
 

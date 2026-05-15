@@ -734,7 +734,8 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 .ad-slot-banner  { height: 90px; }
 .ad-slot-rect    { height: 250px; }
-.ad-slot-sidebar { height: 600px; }
+.ad-slot-wide    { min-height: 60px; }
+.ad-slot-sidebar { min-height: 160px; height: auto; }
 
 /* ---------- Adsterra slots ---------- */
 .adsterra-wrap {
@@ -752,6 +753,8 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 .AdsterraDesktopBanner,
 .AdsterraMobileBanner,
+.AdsterraSidebarBanner,
+.AdsterraSkyBanner,
 .AdsterraBoxAd,
 .AdsterraNativeBanner {
   width: 100%;
@@ -768,6 +771,14 @@ details.advanced[open] summary::before { content: "▾ "; }
 .AdsterraMobileBanner {
   max-width: 320px;
   min-height: 50px;
+}
+.AdsterraSidebarBanner {
+  max-width: 300px;
+  min-height: 160px;
+}
+.AdsterraSkyBanner {
+  max-width: 160px;
+  min-height: 600px;
 }
 .AdsterraBoxAd {
   max-width: 300px;
@@ -786,6 +797,12 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 @media (min-width: 768px) {
   .AdsterraMobileBanner { display: none !important; }
+}
+@media (max-width: 767px) {
+  .ad-slot-wide,
+  .ad-slot-sidebar {
+    display: none !important;
+  }
 }
 @media (min-width: 768px) {
   .ad-mobile-bottom { display: none !important; }

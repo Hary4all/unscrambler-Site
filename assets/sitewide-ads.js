@@ -2,7 +2,6 @@
   "use strict";
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260516";
-  const PROFITABLE_CPM_SRC = "https://pl29454445.profitablecpmratenetwork.com/19/93/78/199378345af9e1c5636d3fee45063ba1.js";
   const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
   const FALLBACKS = {
     top: {
@@ -130,7 +129,15 @@
     slot.dataset.monetizationState = "fallback";
     slot.classList.add("is-fallback");
     slot.innerHTML = "";
-    slot.style.minHeight = placement === "mid" ? "250px" : "90px";
+    const minHeights = {
+      top: "90px",
+      wide: "60px",
+      mid: "250px",
+      sidebar: "160px",
+      lower: "90px",
+      "mobile-bottom": "50px"
+    };
+    slot.style.minHeight = minHeights[placement] || "90px";
     slot.style.height = "auto";
     slot.style.overflow = "visible";
 
@@ -147,7 +154,12 @@
     const wrap = document.createElement("div");
     wrap.className = "ad-wrap ad-" + placement + " adsterra-sitewide-wrap";
     wrap.style.width = "100%";
-    wrap.style.maxWidth = placement === "mid" ? "336px" : "100%";
+    wrap.style.maxWidth =
+      placement === "mid" ? "336px"
+        : placement === "wide" ? "468px"
+        : placement === "sidebar" ? "336px"
+        : placement === "mobile-bottom" ? "320px"
+        : "100%";
     wrap.style.margin = placement === "mid" ? "24px auto" : "20px auto";
     wrap.style.padding = "0 16px";
     wrap.style.boxSizing = "border-box";
@@ -177,8 +189,19 @@
     slot.className = "ad-slot adsterra-slot ad-slot-" + placement;
     slot.setAttribute("data-adsterra-placement", placement);
     slot.style.width = "100%";
-    slot.style.maxWidth = placement === "mid" ? "300px" : (placement === "top" ? "728px" : "100%");
-    slot.style.minHeight = placement === "mid" ? "250px" : (placement === "top" ? "90px" : "90px");
+    slot.style.maxWidth =
+      placement === "mid" ? "300px"
+        : placement === "top" ? "728px"
+        : placement === "wide" ? "468px"
+        : placement === "sidebar" ? "336px"
+        : placement === "mobile-bottom" ? "320px"
+        : "100%";
+    slot.style.minHeight =
+      placement === "mid" ? "250px"
+        : placement === "wide" ? "60px"
+        : placement === "sidebar" ? "160px"
+        : placement === "mobile-bottom" ? "50px"
+        : "90px";
     slot.style.margin = "0 auto";
     slot.style.overflow = "hidden";
 
@@ -205,6 +228,19 @@
     }
   }
 
+  function insertAfterHero(node) {
+    const hero = document.querySelector(".hero-shell, .page-hero, .hero");
+    if (hero && hero.parentNode) {
+      if (hero.nextElementSibling) {
+        hero.parentNode.insertBefore(node, hero.nextElementSibling);
+      } else {
+        hero.parentNode.appendChild(node);
+      }
+      return true;
+    }
+    return insertAfterFirstMainChild(node);
+  }
+
   function insertAfterFirstMainChild(node) {
     const main = document.querySelector("main");
     if (!main) return false;
@@ -214,6 +250,13 @@
       return true;
     }
     main.appendChild(node);
+    return true;
+  }
+
+  function insertIntoSidebar(node) {
+    const sidebar = document.querySelector(".page-sidebar");
+    if (!sidebar) return false;
+    sidebar.appendChild(node);
     return true;
   }
 
@@ -229,6 +272,33 @@
     insertBeforeFooter(lower.wrap);
   }
 
+  function ensureSupplementalMonetizationSlots() {
+    const hasWide = document.querySelector(".ad-slot-wide");
+    const hasSidebar = document.querySelector(".ad-slot-sidebar");
+    const hasMobileBottom = document.querySelector(".ad-slot-mobile-bottom");
+
+    if (!hasWide) {
+      const wide = createMonetizationSlot("wide");
+      wide.wrap.querySelector(".ad-slot").classList.add("ad-slot-wide");
+      insertAfterHero(wide.wrap);
+    }
+
+    if (!hasSidebar) {
+      const sidebarHost = document.querySelector(".page-sidebar");
+      if (sidebarHost && !sidebarHost.querySelector(".ad-slot")) {
+        const sidebar = createMonetizationSlot("sidebar");
+        sidebar.wrap.querySelector(".ad-slot").classList.add("ad-slot-sidebar");
+        insertIntoSidebar(sidebar.wrap);
+      }
+    }
+
+    if (!hasMobileBottom) {
+      const mobile = createMonetizationSlot("mobile-bottom");
+      mobile.wrap.querySelector(".ad-slot").classList.add("ad-slot-mobile-bottom");
+      insertBeforeFooter(mobile.wrap);
+    }
+  }
+
   function renderMissingFallbacks() {
     Array.from(document.querySelectorAll(".ad-slot")).forEach((slot, index) => {
       const placement = slot.dataset.adsterraPlacement || (index === 0 ? "top" : index === 1 ? "mid" : "lower");
@@ -239,16 +309,11 @@
   function injectAdsterra() {
     if (hasScript(AD_STERRA_SRC)) return;
     ensureFallbackMonetizationSlots();
+    ensureSupplementalMonetizationSlots();
     injectScript(AD_STERRA_SRC);
   }
 
-  function injectProfitableCpm() {
-    if (hasScript(PROFITABLE_CPM_SRC)) return;
-    injectScript(PROFITABLE_CPM_SRC);
-  }
-
   function boot() {
-    injectProfitableCpm();
     injectAdsterra();
     window.setTimeout(renderMissingFallbacks, 7000);
   }
