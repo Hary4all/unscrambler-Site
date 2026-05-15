@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://www.unscrambler.net/words-with-friends-cheat/">
+<link rel="canonical" href="https://wordfindlab.com/words-with-friends-cheat/">
 <title>Words With Friends Cheat — Best Words From Your Tiles</title>
 <meta name="description" content="Free Words With Friends cheat tool. Enter your tiles and instantly find the highest-scoring words using WWF point values. Blank tile support included.">
 <link rel="stylesheet" href="/assets/style.css">
@@ -43,7 +43,7 @@
   "@type": "WebApplication",
   "name": "Words With Friends Cheat",
   "description": "Free Words With Friends cheat tool. Enter your tiles and instantly find the highest-scoring words using WWF point values.",
-  "url": "https://www.unscrambler.net/words-with-friends-cheat/",
+  "url": "https://wordfindlab.com/words-with-friends-cheat/",
   "applicationCategory": "Word Games",
   "operatingSystem": "Any",
   "isAccessibleForFree": true,
@@ -54,14 +54,14 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Unscrambler.net",
-    "url": "https://www.unscrambler.net/"
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com/"
   }
 }
 </script>
 </head>
 <body>
-<!-- Nav injected by unscrambler.js -->
+<!-- Nav injected by WordFindLab shared script -->
 
 <div class="page-wrap">
 
@@ -263,11 +263,11 @@
       <a href="/anagram-solver/">Anagram Solver</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 Unscrambler.net &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
+    <div class="footer-copy">© 2026 WordFindLab &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">loading…</span></div>
   </div>
 </footer>
 
-<script src="/assets/unscrambler.js"></script>
+<script src="/assets/wordfindlab.js"></script>
 <script src="/assets/js/dictionary.js"></script>
 <script>
 
@@ -393,7 +393,7 @@ async function search() {
   const card = document.getElementById("resultsCard");
   card.hidden = false;
   const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
-  const words = await Unscrambler.netDictionary.filterMeaningfulWords(result.words, meaningfulOnly);
+  const words = await WordFindLabDictionary.filterMeaningfulWords(result.words, meaningfulOnly);
   document.getElementById("resultsMeta").textContent =
     words.length.toLocaleString() + " words · " + ms.toFixed(0) + " ms";
 
@@ -412,7 +412,7 @@ document.getElementById("clear").addEventListener("click", () => {
 document.getElementById("letters").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
 
 loadDictionary("all");
-Unscrambler.netDictionary.preloadMeaningfulWords();
+WordFindLabDictionary.preloadMeaningfulWords();
 document.getElementById("letters").focus();
 </script>
 <script src="/assets/adsterra.js"></script>

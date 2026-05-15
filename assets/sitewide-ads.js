@@ -2,7 +2,7 @@
   "use strict";
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260515";
-  const UNSCRAMBLER_SRC = "/assets/unscrambler.js?v=20260515";
+  const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
   const GROW_SRC = "https://faves.grow.me/main.js";
   const GROW_SITE_ID = "U2l0ZTpmNTM4OGI3Ny04N2JmLTQxNzYtOGJkNS1kNGNmMmNmNDM2MzY=";
 
@@ -46,7 +46,7 @@
   }
 
   function injectGrow() {
-    if (hasGrow() || hasScript(UNSCRAMBLER_SRC) || hasScript(AD_STERRA_SRC)) return;
+    if (hasGrow() || hasScript(WORDFINDLAB_SRC) || hasScript(AD_STERRA_SRC)) return;
 
     window.growMe = window.growMe || function (e) {
       window.growMe._.push(e);
