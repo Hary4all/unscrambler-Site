@@ -55,6 +55,18 @@
     <priority>0.6</priority>
   </url>
 <url>
+    <loc>https://wordfindlab.com/contact/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/disclaimer/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+<url>
     <loc>https://wordfindlab.com/anagram-solving-techniques/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>

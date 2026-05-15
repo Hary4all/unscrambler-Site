@@ -327,6 +327,14 @@ const SIDEBAR_TOOLS = [
   { href: "/word-of-the-day/",         badge: "WD",  label: "Word of the Day"    },
 ];
 
+const FOOTER_LINKS = [
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+  { href: "/disclaimer/", label: "Disclaimer" },
+  { href: "/privacy-policy/", label: "Privacy Policy" },
+  { href: "/terms/", label: "Terms" },
+];
+
 function injectNav() {
   const nav  = document.createElement("nav");
   nav.className = "site-nav";
@@ -393,8 +401,51 @@ function injectNav() {
   document.body.insertBefore(nav, firstEl);
 }
 
+function injectFooterLinks() {
+  const groups = document.querySelectorAll(".footer-links, .site-footer-links");
+  groups.forEach(group => {
+    if (!group || group.dataset.wflFooterReady === "1") return;
+    group.dataset.wflFooterReady = "1";
+
+    const existing = new Set(
+      Array.from(group.querySelectorAll("a"))
+        .map(a => (a.getAttribute("href") || "").replace(/^https:\/\/wordfindlab\.com/, ""))
+    );
+
+    FOOTER_LINKS.forEach(item => {
+      if (existing.has(item.href)) return;
+      const a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = item.label;
+      group.appendChild(a);
+    });
+  });
+}
+
+function normalizeFooterStatus() {
+  document.querySelectorAll("#dictStat").forEach(el => {
+    if (!el || el.dataset.wflFooterStatus === "1") return;
+    el.dataset.wflFooterStatus = "1";
+    const text = (el.textContent || "").trim().toLowerCase();
+    if (!text || text.includes("loading") || text.includes("indexed")) {
+      el.textContent = "Word tools and strategy.";
+    }
+  });
+}
+
+function normalizeBrandLinks() {
+  document.querySelectorAll("a").forEach(a => {
+    const text = (a.textContent || "").trim();
+    if (text === "Word Unscrambler") {
+      a.textContent = "Word Finder";
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", injectNav);
+document.addEventListener("DOMContentLoaded", injectFooterLinks);
+document.addEventListener("DOMContentLoaded", normalizeFooterStatus);
+document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
 
 window.WFL = window.WFL || {};
 window.WFL.loadDictionary = loadDictionary;

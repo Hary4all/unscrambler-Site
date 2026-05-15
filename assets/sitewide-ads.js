@@ -53,7 +53,7 @@
 
     const label = document.createElement("span");
     label.className = "ad-label";
-    label.textContent = "Advertisement";
+    label.textContent = "Sponsored";
     label.style.display = "inline-flex";
     label.style.alignItems = "center";
     label.style.justifyContent = "center";
