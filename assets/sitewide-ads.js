@@ -3,6 +3,44 @@
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260515";
   const WORDFINDLAB_SRC = "/assets/wordfindlab.js?v=20260515";
+  const FALLBACKS = {
+    top: {
+      label: "Popular Word Tools",
+      title: "Popular Word Tools",
+      copy: "Jump straight to the tools readers use most.",
+      links: [
+        ["/scrabble-word-finder/", "Scrabble Word Finder"],
+        ["/wordle-solver/", "Wordle Solver"],
+        ["/anagram-solver/", "Anagram Solver"],
+        ["/5-letter-words/", "5 Letter Words"],
+        ["/words-with-friends-cheat/", "Words With Friends Cheat"]
+      ]
+    },
+    mid: {
+      label: "Trending Searches",
+      title: "Trending Searches",
+      copy: "Helpful searches that match common visitor intent.",
+      links: [
+        ["/words-starting-with/", "Words Starting With"],
+        ["/words-ending-with/", "Words Ending With"],
+        ["/words-containing/", "Words Containing"],
+        ["/word-of-the-day/", "Word of the Day"],
+        ["/guides/", "Guides"]
+      ]
+    },
+    lower: {
+      label: "Related Word Games",
+      title: "Related Word Games",
+      copy: "More useful pages from the WordFindLab library.",
+      links: [
+        ["/about/", "About WordFindLab"],
+        ["/blog/", "Blog"],
+        ["/dictionary/", "Dictionary"],
+        ["/contact/", "Contact"],
+        ["/privacy-policy/", "Privacy Policy"]
+      ]
+    }
+  };
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -37,6 +75,58 @@
     } else {
       document.body.appendChild(script);
     }
+  }
+
+  function createFallbackCard(placement) {
+    const cfg = FALLBACKS[placement] || FALLBACKS.lower;
+    const card = document.createElement("div");
+    card.className = "MonetizationSlot MonetizationSlot--" + placement;
+
+    const inner = document.createElement("div");
+    inner.className = "MonetizationSlot-card";
+
+    const eyebrow = document.createElement("div");
+    eyebrow.className = "MonetizationSlot-eyebrow";
+    eyebrow.textContent = cfg.label;
+
+    const title = document.createElement("h3");
+    title.className = "MonetizationSlot-title";
+    title.textContent = cfg.title;
+
+    const copy = document.createElement("p");
+    copy.className = "MonetizationSlot-copy";
+    copy.textContent = cfg.copy;
+
+    const links = document.createElement("div");
+    links.className = "MonetizationSlot-links";
+    cfg.links.forEach(([href, text]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = text;
+      links.appendChild(link);
+    });
+
+    inner.appendChild(eyebrow);
+    inner.appendChild(title);
+    inner.appendChild(copy);
+    inner.appendChild(links);
+    card.appendChild(inner);
+    return card;
+  }
+
+  function renderFallbackSlot(slot, placement) {
+    if (!slot || slot.dataset.monetizationState === "ad" || slot.dataset.monetizationState === "fallback") return;
+    slot.dataset.monetizationState = "fallback";
+    slot.classList.add("is-fallback");
+    slot.innerHTML = "";
+    slot.style.minHeight = placement === "mid" ? "250px" : "90px";
+    slot.style.height = "auto";
+    slot.style.overflow = "visible";
+
+    const label = slot.parentElement && slot.parentElement.querySelector(".ad-label");
+    if (label) label.textContent = (FALLBACKS[placement] || FALLBACKS.lower).label;
+
+    slot.appendChild(createFallbackCard(placement));
   }
 
   function createAdSlot(placement) {
@@ -124,6 +214,13 @@
     insertBeforeFooter(lower.wrap);
   }
 
+  function renderMissingFallbacks() {
+    Array.from(document.querySelectorAll(".ad-slot")).forEach((slot, index) => {
+      const placement = slot.dataset.adsterraPlacement || (index === 0 ? "top" : index === 1 ? "mid" : "lower");
+      renderFallbackSlot(slot, placement);
+    });
+  }
+
   function injectAdsterra() {
     if (hasScript(AD_STERRA_SRC)) return;
     ensureFallbackAdSlots();
@@ -132,6 +229,7 @@
 
   function boot() {
     injectAdsterra();
+    window.setTimeout(renderMissingFallbacks, 7000);
   }
 
   if (document.readyState === "loading") {

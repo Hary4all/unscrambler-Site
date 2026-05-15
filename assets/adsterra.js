@@ -39,6 +39,56 @@
     wrapperClass: "AdsterraNativeBanner"
   };
 
+  const FALLBACKS = {
+    top: {
+      label: "Popular Word Tools",
+      title: "Popular Word Tools",
+      copy: "Jump straight to the pages readers use most.",
+      links: [
+        ["/scrabble-word-finder/", "Scrabble Word Finder"],
+        ["/wordle-solver/", "Wordle Solver"],
+        ["/anagram-solver/", "Anagram Solver"],
+        ["/5-letter-words/", "5 Letter Words"],
+        ["/words-with-friends-cheat/", "Words With Friends Cheat"]
+      ]
+    },
+    mid: {
+      label: "Trending Searches",
+      title: "Trending Searches",
+      copy: "Helpful searches that match common visitor intent.",
+      links: [
+        ["/words-starting-with/", "Words Starting With"],
+        ["/words-ending-with/", "Words Ending With"],
+        ["/words-containing/", "Words Containing"],
+        ["/word-of-the-day/", "Word of the Day"],
+        ["/guides/", "Guides"]
+      ]
+    },
+    lower: {
+      label: "Related Word Games",
+      title: "Related Word Games",
+      copy: "More places to explore WordFindLab without leaving the site.",
+      links: [
+        ["/about/", "About WordFindLab"],
+        ["/blog/", "Blog"],
+        ["/dictionary/", "Dictionary"],
+        ["/contact/", "Contact"],
+        ["/privacy-policy/", "Privacy Policy"]
+      ]
+    },
+    "mobile-bottom": {
+      label: "Quick Picks",
+      title: "Quick Picks",
+      copy: "Fast routes to the tools people tap most on mobile.",
+      links: [
+        ["/scrabble-word-finder/", "Scrabble"],
+        ["/wordle-solver/", "Wordle"],
+        ["/anagram-solver/", "Anagram"],
+        ["/5-letter-words/", "5 Letter Words"]
+      ]
+    }
+  };
+
   let booted = false;
 
   function isMobileWidth() {
@@ -52,12 +102,151 @@
   function clearSlot(slot, minHeight) {
     slot.innerHTML = "";
     slot.dataset.adsterraMounted = "1";
+    slot.dataset.monetizationState = "loading";
     slot.style.minHeight = minHeight + "px";
     slot.style.height = minHeight + "px";
     slot.style.maxWidth = "100%";
     slot.style.marginLeft = "auto";
     slot.style.marginRight = "auto";
     slot.style.overflow = "hidden";
+  }
+
+  function getWrapper(slot) {
+    return slot && (slot.closest(".ad-wrap") || slot.parentElement);
+  }
+
+  function setWrapperLabel(slot, text) {
+    const wrapper = getWrapper(slot);
+    if (!wrapper) return;
+    const label = wrapper.querySelector(".ad-label");
+    if (label) label.textContent = text;
+  }
+
+  function setWrapperMode(slot, mode, placement) {
+    const wrapper = getWrapper(slot);
+    if (!wrapper) return;
+    wrapper.classList.toggle("is-fallback", mode === "fallback");
+    wrapper.classList.toggle("is-ad", mode === "ad");
+    setWrapperLabel(slot, mode === "fallback" ? FALLBACKS[placement]?.label || "Popular Word Tools" : "Sponsored");
+  }
+
+  function hasAdContent(root) {
+    return !!(root && root.querySelector("iframe, img, embed, object, ins, .adsbygoogle, [id^='google_ads_iframe'], [id^='aswift_']"));
+  }
+
+  function createFallbackCard(placement) {
+    const cfg = FALLBACKS[placement] || FALLBACKS.lower;
+    const card = document.createElement("div");
+    card.className = "MonetizationSlot MonetizationSlot--" + placement;
+
+    const inner = document.createElement("div");
+    inner.className = "MonetizationSlot-card";
+
+    const eyebrow = document.createElement("div");
+    eyebrow.className = "MonetizationSlot-eyebrow";
+    eyebrow.textContent = cfg.label;
+
+    const title = document.createElement("h3");
+    title.className = "MonetizationSlot-title";
+    title.textContent = cfg.title;
+
+    const copy = document.createElement("p");
+    copy.className = "MonetizationSlot-copy";
+    copy.textContent = cfg.copy;
+
+    const links = document.createElement("div");
+    links.className = "MonetizationSlot-links";
+
+    cfg.links.forEach(([href, text]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = text;
+      links.appendChild(link);
+    });
+
+    inner.appendChild(eyebrow);
+    inner.appendChild(title);
+    inner.appendChild(copy);
+    inner.appendChild(links);
+    card.appendChild(inner);
+    return card;
+  }
+
+  function createDualModeShell(slot, placement, minHeight) {
+    const adShell = document.createElement("div");
+    adShell.className = "AdsterraShell AdsterraShell--" + placement;
+    adShell.style.width = "100%";
+    adShell.style.maxWidth = placement === "mid" ? "300px" : (placement === "top" ? "728px" : "100%");
+    adShell.style.minHeight = minHeight + "px";
+    adShell.style.margin = "0 auto";
+    adShell.style.display = "flex";
+    adShell.style.justifyContent = "center";
+    adShell.style.alignItems = "center";
+    adShell.style.overflow = "hidden";
+
+    const fallbackShell = document.createElement("div");
+    fallbackShell.className = "MonetizationSlot-shell MonetizationSlot-shell--" + placement;
+    fallbackShell.hidden = true;
+    fallbackShell.style.width = "100%";
+    fallbackShell.style.minHeight = minHeight + "px";
+    fallbackShell.style.margin = "0 auto";
+    fallbackShell.style.display = "flex";
+    fallbackShell.style.justifyContent = "center";
+    fallbackShell.style.alignItems = "stretch";
+
+    const fallbackCard = createFallbackCard(placement);
+    fallbackShell.appendChild(fallbackCard);
+
+    slot.appendChild(adShell);
+    slot.appendChild(fallbackShell);
+
+    return { adShell, fallbackShell };
+  }
+
+  function activateMonetizationState(slot, placement, state, shells) {
+    slot.dataset.monetizationState = state;
+    setWrapperMode(slot, state === "fallback" ? "fallback" : "ad", placement);
+    if (!shells) return;
+    shells.adShell.hidden = state === "fallback";
+    shells.fallbackShell.hidden = state !== "fallback";
+  }
+
+  function watchForAd(slot, placement, shells, timeoutMs) {
+    let done = false;
+    let observer = null;
+    let fallbackTimer = null;
+    const settle = (state) => {
+      if (done) return;
+      done = true;
+      activateMonetizationState(slot, placement, state, shells);
+      if (observer) observer.disconnect();
+      if (fallbackTimer) window.clearTimeout(fallbackTimer);
+    };
+
+    observer = new MutationObserver(() => {
+      if (hasAdContent(shells.adShell)) {
+        settle("ad");
+      }
+    });
+
+    observer.observe(shells.adShell, { childList: true, subtree: true });
+
+    fallbackTimer = window.setTimeout(() => {
+      if (hasAdContent(shells.adShell)) {
+        settle("ad");
+      } else {
+        settle("fallback");
+      }
+    }, timeoutMs || 6500);
+
+    if (hasAdContent(shells.adShell)) {
+      settle("ad");
+    }
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallbackTimer);
+    };
   }
 
   function waitForScript(script, timeoutMs) {
@@ -76,19 +265,10 @@
 
   async function mountHighPerformanceAd(slot, cfg) {
     clearSlot(slot, cfg.height);
-
-    const shell = document.createElement("div");
+    const placement = cfg.wrapperClass === "AdsterraBoxAd" ? "mid" : "top";
+    const shells = createDualModeShell(slot, placement, cfg.height);
+    const shell = shells.adShell;
     shell.className = cfg.wrapperClass;
-    shell.style.width = "100%";
-    shell.style.maxWidth = cfg.width + "px";
-    shell.style.minHeight = cfg.height + "px";
-    shell.style.margin = "0 auto";
-    shell.style.display = "flex";
-    shell.style.justifyContent = "center";
-    shell.style.alignItems = "center";
-    shell.style.overflow = "hidden";
-
-    slot.appendChild(shell);
 
     window.atOptions = {
       key: cfg.key,
@@ -102,6 +282,7 @@
     script.async = true;
     script.src = cfg.src;
     shell.appendChild(script);
+    watchForAd(slot, placement, shells, 6500);
     await waitForScript(script, 5000);
   }
 
@@ -119,17 +300,13 @@
     slot.style.height = "auto";
     slot.style.overflow = "visible";
 
-    const shell = document.createElement("div");
+    const shells = createDualModeShell(slot, "lower", 90);
+    const shell = shells.adShell;
     shell.className = NATIVE.wrapperClass;
-    shell.style.width = "100%";
     shell.style.maxWidth = "100%";
-    shell.style.minHeight = "90px";
     shell.style.height = "auto";
-    shell.style.margin = "0 auto";
-    shell.style.display = "flex";
-    shell.style.justifyContent = "center";
-    shell.style.alignItems = "center";
     shell.style.overflow = "visible";
+    shell.style.alignItems = "center";
 
     const container = document.createElement("div");
     container.id = NATIVE.containerId;
@@ -148,6 +325,7 @@
     script.setAttribute("data-cfasync", "false");
     script.src = NATIVE.src;
     shell.appendChild(script);
+    watchForAd(slot, "lower", shells, 6500);
     await waitForScript(script, 5000);
   }
 
@@ -165,18 +343,10 @@
     slot.style.bottom = "8px";
     slot.style.zIndex = "120";
 
-    const shell = document.createElement("div");
+    const shells = createDualModeShell(slot, "mobile-bottom", HPF.mobileSticky.height);
+    const shell = shells.adShell;
     shell.className = HPF.mobileSticky.wrapperClass;
-    shell.style.width = "100%";
     shell.style.maxWidth = HPF.mobileSticky.width + "px";
-    shell.style.minHeight = HPF.mobileSticky.height + "px";
-    shell.style.margin = "0 auto";
-    shell.style.display = "flex";
-    shell.style.justifyContent = "center";
-    shell.style.alignItems = "center";
-    shell.style.overflow = "hidden";
-
-    slot.appendChild(shell);
 
     window.atOptions = {
       key: HPF.mobileSticky.key,
@@ -190,6 +360,7 @@
     script.async = true;
     script.src = HPF.mobileSticky.src;
     shell.appendChild(script);
+    watchForAd(slot, "mobile-bottom", shells, 6500);
     await waitForScript(script, 5000);
   }
 
