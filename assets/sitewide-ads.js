@@ -132,7 +132,7 @@
     slot.appendChild(createFallbackCard(placement));
   }
 
-  function createAdSlot(placement) {
+  function createMonetizationSlot(placement) {
     const wrap = document.createElement("div");
     wrap.className = "ad-wrap ad-" + placement + " adsterra-sitewide-wrap";
     wrap.style.width = "100%";
@@ -206,12 +206,12 @@
     return true;
   }
 
-  function ensureFallbackAdSlots() {
+  function ensureFallbackMonetizationSlots() {
     if (document.querySelector(".ad-slot")) return;
 
-    const top = createAdSlot("top");
-    const mid = createAdSlot("mid");
-    const lower = createAdSlot("lower");
+    const top = createMonetizationSlot("top");
+    const mid = createMonetizationSlot("mid");
+    const lower = createMonetizationSlot("lower");
 
     insertBeforeMain(top.wrap);
     insertAfterFirstMainChild(mid.wrap);
@@ -227,7 +227,7 @@
 
   function injectAdsterra() {
     if (hasScript(AD_STERRA_SRC)) return;
-    ensureFallbackAdSlots();
+    ensureFallbackMonetizationSlots();
     injectScript(AD_STERRA_SRC);
   }
 
