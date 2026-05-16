@@ -2,77 +2,28 @@
   "use strict";
 
   const TOP_BREAKPOINT = 767;
-  const HPF = {
+  const ADS = {
     desktopTop: {
       key: "9290d6da1f5eaf36924877067c84b899",
       src: "https://www.highperformanceformat.com/9290d6da1f5eaf36924877067c84b899/invoke.js",
       width: 728,
-      height: 90,
-      wrapperClass: "AdsterraDesktopBanner"
+      height: 90
     },
     mobileTop: {
       key: "41a12246620488db5d5241a65f9b3372",
       src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
       width: 320,
-      height: 50,
-      wrapperClass: "AdsterraMobileBanner"
+      height: 50
     },
-    mobileSticky: {
-      key: "41a12246620488db5d5241a65f9b3372",
-      src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
-      width: 320,
-      height: 50,
-      wrapperClass: "AdsterraMobileStickyBanner"
-    }
-  };
-
-  const FALLBACKS = {
-    top: {
-      label: "Trending Searches",
-      title: "Trending Searches",
-      copy: "Jump straight to the pages readers use most.",
-      links: [
-        ["/5-letter-words/", "5 Letter Words"],
-        ["/words-ending-with/ing/", "Words Ending in ING"],
-        ["/wordle-solver/", "Wordle Helper"],
-        ["/scrabble-word-finder/", "Scrabble Cheat"],
-        ["/anagram-solver/", "Unscramble Letters"]
-      ]
+    box: {
+      key: "8e4f3bf9d26244ae79af5b834c747fba",
+      src: "https://www.highperformanceformat.com/8e4f3bf9d26244ae79af5b834c747fba/invoke.js",
+      width: 300,
+      height: 250
     },
-    mid: {
-      label: "Popular Guides",
-      title: "Popular Guides",
-      copy: "Practical reads to help players make better moves.",
-      links: [
-        ["/guides/", "Strategy Guides"],
-        ["/blog/", "Word Game Blog"],
-        ["/word-of-the-day/", "Word of the Day"],
-        ["/dictionary/", "Dictionary"],
-        ["/about/", "About WordFindLab"]
-      ]
-    },
-    lower: {
-      label: "Related Word Games",
-      title: "Related Word Games",
-      copy: "More places to explore WordFindLab without leaving the site.",
-      links: [
-        ["/about/", "About WordFindLab"],
-        ["/blog/", "Blog"],
-        ["/dictionary/", "Dictionary"],
-        ["/contact/", "Contact"],
-        ["/privacy-policy/", "Privacy Policy"]
-      ]
-    },
-    "mobile-bottom": {
-      label: "Quick Picks",
-      title: "Quick Picks",
-      copy: "Fast routes to the tools people tap most on mobile.",
-      links: [
-        ["/scrabble-word-finder/", "Scrabble"],
-        ["/wordle-solver/", "Wordle"],
-        ["/anagram-solver/", "Anagram"],
-        ["/5-letter-words/", "5 Letter Words"]
-      ]
+    native: {
+      src: "https://pl29436369.profitablecpmratenetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
+      containerId: "container-45c605ec5d3e652b4f213084a41b650b"
     }
   };
 
@@ -86,262 +37,12 @@
     }
   }
 
-  function clearSlot(slot, minHeight) {
-    slot.innerHTML = "";
-    slot.dataset.adsterraMounted = "1";
-    slot.dataset.monetizationState = "loading";
-    slot.style.minHeight = minHeight + "px";
-    slot.style.height = minHeight + "px";
-    slot.style.maxWidth = "100%";
-    slot.style.marginLeft = "auto";
-    slot.style.marginRight = "auto";
-    slot.style.overflow = "hidden";
-  }
-
-  function getWrapper(slot) {
-    return slot && (slot.closest(".ad-wrap") || slot.parentElement);
-  }
-
-  function setWrapperLabel(slot, text) {
-    const wrapper = getWrapper(slot);
-    if (!wrapper) return;
-    const label = wrapper.querySelector(".ad-label");
-    if (label) label.textContent = text;
-  }
-
-  function setWrapperMode(slot, mode, placement) {
-    const wrapper = getWrapper(slot);
-    if (!wrapper) return;
-    wrapper.classList.toggle("is-fallback", mode === "fallback");
-    wrapper.classList.toggle("is-ad", mode === "ad");
-    const label = wrapper.querySelector(".ad-label");
-    if (label) {
-      label.hidden = mode === "fallback";
-      if (mode !== "fallback") {
-        label.hidden = false;
-        label.textContent = "WordFindLab Picks";
-      }
-    }
-  }
-
   function hasAdContent(root) {
     return !!(root && root.querySelector("iframe, img, embed, object, ins, .adsbygoogle, [id^='google_ads_iframe'], [id^='aswift_']"));
   }
 
-  function createFallbackCard(placement) {
-    const cfg = FALLBACKS[placement] || FALLBACKS.lower;
-    const card = document.createElement("div");
-    card.className = "MonetizationSlot MonetizationSlot--" + placement;
-
-    const inner = document.createElement("div");
-    inner.className = "MonetizationSlot-card";
-
-    const eyebrow = document.createElement("div");
-    eyebrow.className = "MonetizationSlot-eyebrow";
-    eyebrow.textContent = cfg.label;
-
-    const title = document.createElement("h3");
-    title.className = "MonetizationSlot-title";
-    title.textContent = cfg.title;
-
-    const copy = document.createElement("p");
-    copy.className = "MonetizationSlot-copy";
-    copy.textContent = cfg.copy;
-
-    const links = document.createElement("div");
-    links.className = "MonetizationSlot-links";
-
-    cfg.links.forEach(([href, text]) => {
-      const link = document.createElement("a");
-      link.href = href;
-      link.textContent = text;
-      links.appendChild(link);
-    });
-
-    inner.appendChild(eyebrow);
-    inner.appendChild(title);
-    inner.appendChild(copy);
-    inner.appendChild(links);
-    card.appendChild(inner);
-    return card;
-  }
-
-  function createDualModeShell(slot, placement, minHeight) {
-    const adShell = document.createElement("div");
-    adShell.className = "AdsterraShell AdsterraShell--" + placement;
-    adShell.style.width = "100%";
-    adShell.style.maxWidth =
-      placement === "mid" ? "300px" :
-      placement === "wide" ? "468px" :
-      placement === "sidebar" ? "300px" :
-      placement === "top" ? "728px" : "100%";
-    adShell.style.minHeight = minHeight + "px";
-    adShell.style.margin = "0 auto";
-    adShell.style.display = "flex";
-    adShell.style.justifyContent = "center";
-    adShell.style.alignItems = "center";
-    adShell.style.overflow = "hidden";
-
-    const fallbackShell = document.createElement("div");
-    fallbackShell.className = "MonetizationSlot-shell MonetizationSlot-shell--" + placement;
-    fallbackShell.hidden = true;
-    fallbackShell.style.width = "100%";
-    fallbackShell.style.minHeight = minHeight + "px";
-    fallbackShell.style.margin = "0 auto";
-    fallbackShell.style.display = "flex";
-    fallbackShell.style.justifyContent = "center";
-    fallbackShell.style.alignItems = "stretch";
-
-    const fallbackCard = createFallbackCard(placement);
-    fallbackShell.appendChild(fallbackCard);
-
-    slot.appendChild(adShell);
-    slot.appendChild(fallbackShell);
-
-    return { adShell, fallbackShell };
-  }
-
-  function activateMonetizationState(slot, placement, state, shells) {
-    slot.dataset.monetizationState = state;
-    setWrapperMode(slot, state === "fallback" ? "fallback" : "ad", placement);
-    if (!shells) return;
-    shells.adShell.hidden = state === "fallback";
-    shells.fallbackShell.hidden = state !== "fallback";
-  }
-
-  function watchForAd(slot, placement, shells, timeoutMs) {
-    let done = false;
-    let observer = null;
-    let fallbackTimer = null;
-    const settle = (state) => {
-      if (done) return;
-      done = true;
-      activateMonetizationState(slot, placement, state, shells);
-      if (observer) observer.disconnect();
-      if (fallbackTimer) window.clearTimeout(fallbackTimer);
-    };
-
-    observer = new MutationObserver(() => {
-      if (hasAdContent(shells.adShell)) {
-        settle("ad");
-      }
-    });
-
-    observer.observe(shells.adShell, { childList: true, subtree: true });
-
-    fallbackTimer = window.setTimeout(() => {
-      if (hasAdContent(shells.adShell)) {
-        settle("ad");
-      } else {
-        settle("fallback");
-      }
-    }, timeoutMs || 6500);
-
-    if (hasAdContent(shells.adShell)) {
-      settle("ad");
-    }
-
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(fallbackTimer);
-    };
-  }
-
-  function waitForScript(script, timeoutMs) {
-    return new Promise((resolve) => {
-      let done = false;
-      const finish = () => {
-        if (done) return;
-        done = true;
-        resolve();
-      };
-      script.addEventListener("load", finish, { once: true });
-      script.addEventListener("error", finish, { once: true });
-      window.setTimeout(finish, timeoutMs || 3500);
-    });
-  }
-
-  async function mountHighPerformanceAd(slot, cfg) {
-    clearSlot(slot, cfg.height);
-    const placement = cfg.wrapperClass === "AdsterraMobileStickyBanner" ? "mobile-bottom" : "top";
-    const shells = createDualModeShell(slot, placement, cfg.height);
-    const shell = shells.adShell;
-    shell.className = cfg.wrapperClass;
-
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = cfg.src;
-    shell.appendChild(script);
-    watchForAd(slot, placement, shells, 6500);
-    await waitForScript(script, 5000);
-  }
-
-  async function mountResponsiveTop(slot) {
-    const mobile = isMobileWidth();
-    if (mobile) {
-      await mountHighPerformanceAd(slot, HPF.mobileTop);
-      return;
-    }
-    await mountHighPerformanceAd(slot, HPF.desktopTop);
-  }
-
-  async function mountBox(slot) {
-    await mountHighPerformanceAd(slot, HPF.box);
-  }
-
-  async function mountNative(slot) {
-    await mountHighPerformanceAd(slot, HPF.box);
-  }
-
-  async function mountMobileSticky(slot) {
-    if (!isMobileWidth()) {
-      slot.hidden = true;
-      slot.innerHTML = "";
-      return;
-    }
-
-    clearSlot(slot, HPF.mobileSticky.height);
-    slot.style.height = "auto";
-    slot.style.overflow = "visible";
-    slot.style.position = "sticky";
-    slot.style.bottom = "8px";
-    slot.style.zIndex = "120";
-
-    const shells = createDualModeShell(slot, "mobile-bottom", HPF.mobileSticky.height);
-    const shell = shells.adShell;
-    shell.className = HPF.mobileSticky.wrapperClass;
-    shell.style.maxWidth = HPF.mobileSticky.width + "px";
-
-    window.atOptions = {
-      key: HPF.mobileSticky.key,
-      format: "iframe",
-      height: HPF.mobileSticky.height,
-      width: HPF.mobileSticky.width,
-      params: {}
-    };
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = HPF.mobileSticky.src;
-    shell.appendChild(script);
-    watchForAd(slot, "mobile-bottom", shells, 6500);
-    await waitForScript(script, 5000);
-  }
-
-  function inferPlacement(slot, index) {
-    if (slot.dataset.adsterraPlacement) return slot.dataset.adsterraPlacement;
-    if (index === 0) return "top";
-    if (index === 1) return "mid";
-    if (index === 2) return "lower";
-    return "ignore";
+  function getWrapper(slot) {
+    return slot && (slot.closest(".ad-wrap") || slot.parentElement);
   }
 
   function normalizeSpacing(slot, placement) {
@@ -352,37 +53,173 @@
     }
   }
 
-  async function mountSlot(slot, placement) {
+  function prepareSlot(slot, minHeight) {
+    const wrapper = getWrapper(slot);
+    if (wrapper) {
+      wrapper.hidden = false;
+      wrapper.style.display = "";
+    }
+    slot.hidden = false;
+    slot.dataset.monetizationState = "loading";
+    slot.style.minHeight = minHeight + "px";
+    slot.style.height = minHeight + "px";
+    slot.style.maxWidth = "100%";
+    slot.style.marginLeft = "auto";
+    slot.style.marginRight = "auto";
+    slot.style.overflow = "hidden";
+    slot.innerHTML = "";
+  }
+
+  function collapseSlot(slot) {
+    const wrapper = getWrapper(slot);
+    if (wrapper) {
+      wrapper.hidden = true;
+      wrapper.style.display = "none";
+    }
+    slot.dataset.monetizationState = "empty";
+    slot.hidden = true;
+    slot.innerHTML = "";
+    slot.style.minHeight = "0";
+    slot.style.height = "0";
+    slot.style.overflow = "hidden";
+  }
+
+  function waitForAd(slot, timeoutMs) {
+    let done = false;
+    let observer = null;
+    let timer = null;
+
+    const settle = (state) => {
+      if (done) return;
+      done = true;
+      slot.dataset.monetizationState = state;
+      if (observer) observer.disconnect();
+      if (timer) window.clearTimeout(timer);
+      if (state !== "ad") collapseSlot(slot);
+    };
+
+    observer = new MutationObserver(() => {
+      if (hasAdContent(slot)) settle("ad");
+    });
+
+    observer.observe(slot, { childList: true, subtree: true });
+
+    timer = window.setTimeout(() => {
+      if (hasAdContent(slot)) {
+        settle("ad");
+      } else {
+        settle("empty");
+      }
+    }, timeoutMs || 6500);
+
+    if (hasAdContent(slot)) settle("ad");
+
+    return () => {
+      if (observer) observer.disconnect();
+      if (timer) window.clearTimeout(timer);
+    };
+  }
+
+  function loadScript(src, parent, attrs) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = src;
+    if (attrs) {
+      Object.keys(attrs).forEach((key) => {
+        const value = attrs[key];
+        if (value !== undefined && value !== null) {
+          script.setAttribute(key, String(value));
+        }
+      });
+    }
+    parent.appendChild(script);
+    return script;
+  }
+
+  function mountTop(slot) {
+    const mobile = isMobileWidth();
+    const cfg = mobile ? ADS.mobileTop : ADS.desktopTop;
+    prepareSlot(slot, cfg.height);
+
+    window.atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {}
+    };
+
+    const script = loadScript(cfg.src, slot);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
+  function mountBox(slot) {
+    const cfg = ADS.box;
+    prepareSlot(slot, cfg.height);
+
+    window.atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {}
+    };
+
+    const script = loadScript(cfg.src, slot);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
+  function mountNative(slot) {
+    prepareSlot(slot, 90);
+
+    const script = loadScript(ADS.native.src, slot, { "data-cfasync": "false" });
+    const container = document.createElement("div");
+    container.id = ADS.native.containerId;
+    slot.appendChild(container);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
+  function inferPlacement(slot, index) {
+    if (slot.dataset.adsterraPlacement) return slot.dataset.adsterraPlacement;
+    if (index === 0) return "top";
+    if (index === 1) return "mid";
+    if (index === 2) return "lower";
+    return "ignore";
+  }
+
+  function mountSlot(slot, placement) {
     if (!slot || slot.dataset.adsterraMounted === "1") return;
 
     slot.dataset.adsterraMounted = "1";
     normalizeSpacing(slot, placement);
 
     if (placement === "top") {
-      await mountResponsiveTop(slot);
+      mountTop(slot);
       return;
     }
 
     if (placement === "mid") {
-      await mountBox(slot);
+      mountBox(slot);
       return;
     }
 
     if (placement === "lower") {
-      await mountNative(slot);
+      mountNative(slot);
       return;
     }
 
     if (placement === "mobile-bottom") {
-      await mountMobileSticky(slot);
+      collapseSlot(slot);
       return;
     }
 
-    slot.hidden = true;
-    slot.innerHTML = "";
+    collapseSlot(slot);
   }
 
-  async function boot() {
+  function boot() {
     if (booted) return;
     booted = true;
 
@@ -390,9 +227,7 @@
     if (!slots.length) return;
 
     for (let i = 0; i < slots.length; i++) {
-      const slot = slots[i];
-      const placement = inferPlacement(slot, i);
-      await mountSlot(slot, placement);
+      mountSlot(slots[i], inferPlacement(slots[i], i));
     }
   }
 

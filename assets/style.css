@@ -1404,11 +1404,6 @@ details.advanced[open] summary::before { content: "▾ "; }
   max-width: 970px;
   border-radius: 16px;
 }
-.ad-fallback-stack {
-  width: 100%;
-  display: grid;
-  gap: 24px;
-}
 .ad-label {
   display: block;
   font-size: 10px;
@@ -1421,90 +1416,6 @@ details.advanced[open] summary::before { content: "▾ "; }
   opacity: .75;
 }
 .ad-wrap .ad-slot { margin-bottom: 0; }
-.ad-wrap.is-fallback {
-  margin-bottom: 18px;
-}
-.ad-wrap.is-fallback .ad-label {
-  display: block;
-  opacity: 1;
-  color: #0f172a;
-  margin-bottom: 8px;
-}
-.ad-wrap.is-fallback .ad-slot {
-  border: 0;
-  background: transparent;
-  min-height: 0;
-}
-.ad-wrap.is-fallback .ad-slot > .MonetizationSlot {
-  width: 100%;
-}
-
-.MonetizationSlot {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.MonetizationSlot-card {
-  width: 100%;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  border: 1px solid rgba(148,163,184,.18);
-  box-shadow: 0 14px 34px rgba(15,23,42,.06);
-  padding: 16px;
-  color: #0f172a;
-}
-.MonetizationSlot-eyebrow {
-  color: #2563eb;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.MonetizationSlot-title {
-  margin: 6px 0 8px;
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: -.02em;
-}
-.MonetizationSlot-copy {
-  margin: 0 0 12px;
-  color: #64748b;
-  font-size: 13px;
-  line-height: 1.5;
-}
-.MonetizationSlot-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.MonetizationSlot-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 12px;
-  border-radius: 999px;
-  background: #eff6ff;
-  border: 1px solid rgba(191,219,254,.85);
-  color: #1d4ed8;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 800;
-}
-.MonetizationSlot-links a:hover {
-  background: #dbeafe;
-  text-decoration: none;
-}
-.MonetizationSlot--mid .MonetizationSlot-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.MonetizationSlot--lower .MonetizationSlot-links,
-.MonetizationSlot--mobile-bottom .MonetizationSlot-links {
-  grid-template-columns: 1fr;
-}
-.MonetizationSlot--mobile-bottom .MonetizationSlot-card {
-  padding: 14px;
-}
 @media (max-width: 640px) {
   body {
     background-image:
@@ -1518,20 +1429,6 @@ details.advanced[open] summary::before { content: "▾ "; }
       700px 700px,
       700px 700px;
     background-attachment: scroll;
-  }
-  .MonetizationSlot-card {
-    padding: 14px;
-    border-radius: 18px;
-  }
-  .MonetizationSlot-title {
-    font-size: 16px;
-  }
-  .MonetizationSlot-links {
-    gap: 6px;
-  }
-  .MonetizationSlot-links a {
-    padding: 8px 10px;
-    font-size: 12.5px;
   }
   .ad-wrap {
     margin: 24px auto;
