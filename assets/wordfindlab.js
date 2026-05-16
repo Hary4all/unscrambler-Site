@@ -335,6 +335,8 @@ const FOOTER_LINKS = [
   { href: "/terms/", label: "Terms" },
 ];
 
+const SUPPORT_URL = "";
+
 function injectNav() {
   const nav  = document.createElement("nav");
   nav.className = "site-nav";
@@ -422,6 +424,29 @@ function injectFooterLinks() {
   });
 }
 
+function injectSupportCard() {
+  if (!SUPPORT_URL) return;
+  if (document.querySelector(".support-card")) return;
+
+  const footer = document.querySelector(".site-footer");
+  if (!footer) return;
+
+  const wrap = document.createElement("section");
+  wrap.className = "card support-card";
+  wrap.style.maxWidth = "970px";
+  wrap.style.margin = "32px auto 16px";
+  wrap.style.borderRadius = "16px";
+
+  wrap.innerHTML = `
+    <div class="support-card-kicker">Support this free tool</div>
+    <h2 class="support-card-title">WordFindLab is free to use</h2>
+    <p class="support-card-copy">If it helped you solve a puzzle, win a word game, or save time, you can support future improvements with a small coffee.</p>
+    <a class="btn support-card-btn" href="${SUPPORT_URL}" target="_blank" rel="noopener noreferrer">☕ Support WordFindLab</a>
+  `;
+
+  footer.parentNode.insertBefore(wrap, footer);
+}
+
 function normalizeFooterStatus() {
   document.querySelectorAll("#dictStat").forEach(el => {
     if (!el || el.dataset.wflFooterStatus === "1") return;
@@ -444,6 +469,7 @@ function normalizeBrandLinks() {
 
 document.addEventListener("DOMContentLoaded", injectNav);
 document.addEventListener("DOMContentLoaded", injectFooterLinks);
+document.addEventListener("DOMContentLoaded", injectSupportCard);
 document.addEventListener("DOMContentLoaded", normalizeFooterStatus);
 document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
 

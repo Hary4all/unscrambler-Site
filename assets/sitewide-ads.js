@@ -238,8 +238,12 @@
     const mid = createMonetizationSlot("mid");
     const lower = createMonetizationSlot("lower");
 
-    insertBeforeMain(top.wrap);
-    insertAfterFirstMainChild(mid.wrap);
+    const stack = document.createElement("div");
+    stack.className = "ad-fallback-stack";
+    stack.appendChild(top.wrap);
+    stack.appendChild(mid.wrap);
+
+    insertAfterFirstMainChild(stack);
     insertBeforeFooter(lower.wrap);
   }
 

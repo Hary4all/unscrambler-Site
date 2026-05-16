@@ -39,6 +39,20 @@ html, body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
+body {
+  background-color: #f8fafc;
+  background-image:
+    linear-gradient(rgba(31, 42, 68, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 42, 68, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.06), transparent 32%),
+    radial-gradient(circle at 90% 10%, rgba(67, 176, 122, 0.05), transparent 30%);
+  background-size:
+    44px 44px,
+    44px 44px,
+    900px 900px,
+    800px 800px;
+  background-attachment: fixed;
+}
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; }
@@ -944,6 +958,37 @@ details.advanced[open] summary::before { content: "▾ "; }
 .footer-links a:hover { color: #fff; }
 .footer-copy { color: #555d7a; font-size: 12px; }
 
+/* ---------- Support card ---------- */
+.support-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(148, 163, 184, .18);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .05);
+}
+.support-card-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+.support-card-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.support-card-copy {
+  margin: 0 0 14px;
+  color: var(--ink-2);
+  max-width: 68ch;
+}
+.support-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ---------- Wordle grid ---------- */
 .clue-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
 .clue-row { display: flex; gap: 8px; align-items: flex-start; }
@@ -1354,6 +1399,16 @@ details.advanced[open] summary::before { content: "▾ "; }
 
 /* ─── Ad label wrapper (AdSense-safe) ─── */
 .ad-wrap { margin-bottom: 16px; }
+.ad-wrap {
+  margin: 32px auto;
+  max-width: 970px;
+  border-radius: 16px;
+}
+.ad-fallback-stack {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+}
 .ad-label {
   display: block;
   font-size: 10px;
@@ -1451,6 +1506,19 @@ details.advanced[open] summary::before { content: "▾ "; }
   padding: 14px;
 }
 @media (max-width: 640px) {
+  body {
+    background-image:
+      linear-gradient(rgba(31, 42, 68, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 42, 68, 0.022) 1px, transparent 1px),
+      radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.04), transparent 32%),
+      radial-gradient(circle at 90% 10%, rgba(67, 176, 122, 0.035), transparent 30%);
+    background-size:
+      44px 44px,
+      44px 44px,
+      700px 700px,
+      700px 700px;
+    background-attachment: scroll;
+  }
   .MonetizationSlot-card {
     padding: 14px;
     border-radius: 18px;
@@ -1464,6 +1532,10 @@ details.advanced[open] summary::before { content: "▾ "; }
   .MonetizationSlot-links a {
     padding: 8px 10px;
     font-size: 12.5px;
+  }
+  .ad-wrap {
+    margin: 24px auto;
+    max-width: 100%;
   }
 }
 
