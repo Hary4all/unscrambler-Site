@@ -21,8 +21,26 @@
       width: 300,
       height: 250
     },
+    wide: {
+      key: "8d14233f0707295292121a6d3f5159fd",
+      src: "https://www.highperformanceformat.com/8d14233f0707295292121a6d3f5159fd/invoke.js",
+      width: 468,
+      height: 60
+    },
+    sidebar: {
+      key: "fc13f3bf6abc69107ab30ae8fd51e8a7",
+      src: "https://www.highperformanceformat.com/fc13f3bf6abc69107ab30ae8fd51e8a7/invoke.js",
+      width: 160,
+      height: 300
+    },
+    mobileInline: {
+      key: "41a12246620488db5d5241a65f9b3372",
+      src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
+      width: 320,
+      height: 50
+    },
     native: {
-      src: "https://pl29436369.profitablecpmratenetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
+      src: "https://pl29436369.effectivecpmnetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
       containerId: "container-45c605ec5d3e652b4f213084a41b650b"
     }
   };
@@ -171,6 +189,62 @@
     return script;
   }
 
+  function mountWide(slot) {
+    const cfg = ADS.wide;
+    prepareSlot(slot, cfg.height);
+
+    window.atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {}
+    };
+
+    const script = loadScript(cfg.src, slot);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
+  function mountSidebar(slot) {
+    const cfg = ADS.sidebar;
+    prepareSlot(slot, cfg.height);
+
+    window.atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {}
+    };
+
+    const script = loadScript(cfg.src, slot);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
+  function mountMobileInline(slot) {
+    if (!isMobileWidth()) {
+      collapseSlot(slot);
+      return;
+    }
+
+    const cfg = ADS.mobileInline;
+    prepareSlot(slot, cfg.height);
+
+    window.atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {}
+    };
+
+    const script = loadScript(cfg.src, slot);
+    waitForAd(slot, 6500);
+    return script;
+  }
+
   function mountNative(slot) {
     prepareSlot(slot, 90);
 
@@ -203,6 +277,29 @@
 
     if (placement === "mid") {
       mountBox(slot);
+      return;
+    }
+
+    if (placement === "wide") {
+      if (isMobileWidth()) {
+        collapseSlot(slot);
+        return;
+      }
+      mountWide(slot);
+      return;
+    }
+
+    if (placement === "sidebar") {
+      if (isMobileWidth()) {
+        collapseSlot(slot);
+        return;
+      }
+      mountSidebar(slot);
+      return;
+    }
+
+    if (placement === "mobile-inline") {
+      mountMobileInline(slot);
       return;
     }
 
