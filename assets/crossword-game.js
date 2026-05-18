@@ -185,16 +185,43 @@ const BLOCK_PATTERNS = {
   ],
 };
 
+function getInitialPreferences() {
+  const prefs = getCrosswordPreferences();
+  if (typeof window === "undefined") return prefs;
+  const mode = new URLSearchParams(window.location.search).get("mode");
+  if (mode === "kids") {
+    return {
+      ...prefs,
+      type: "kids",
+      difficulty: "easy",
+      category: "kids",
+      theme: THEME_SETS.kids.includes(prefs.theme) ? prefs.theme : "candy",
+    };
+  }
+  if (mode === "adult") {
+    return {
+      ...prefs,
+      type: prefs.type && prefs.type !== "kids" ? prefs.type : "themed",
+      difficulty: prefs.difficulty === "hard" ? "hard" : "medium",
+      category: prefs.category && prefs.category !== "kids" ? prefs.category : "themed",
+      theme: THEME_SETS.adults.includes(prefs.theme) ? prefs.theme : "classic",
+    };
+  }
+  return prefs;
+}
+
 const KEY_ROWS = [
   "QWERTYUIOP",
   "ASDFGHJKL",
   "ZXCVBNM",
 ];
 
+const INITIAL_PREFERENCES = getInitialPreferences();
+
 const DOM = {};
 const state = {
-  preferences: getCrosswordPreferences(),
-  sound: getCrosswordPreferences().sound !== false,
+  preferences: INITIAL_PREFERENCES,
+  sound: INITIAL_PREFERENCES.sound !== false,
   puzzle: null,
   placementCells: new Map(),
   typed: [],
