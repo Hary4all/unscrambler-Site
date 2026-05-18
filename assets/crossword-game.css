@@ -347,6 +347,23 @@
   color: #64748b;
 }
 
+.crossword-mode-prompt {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  border: 1px solid rgba(191,219,254,.82);
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(37,99,235,.08);
+}
+
 .crossword-kids-upgrade {
   margin-top: 16px;
   display: grid;
