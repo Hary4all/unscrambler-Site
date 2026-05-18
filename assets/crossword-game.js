@@ -59,6 +59,27 @@ const MODE_COPY = {
   },
 };
 
+const BLOCK_PATTERNS = {
+  kids: [
+    ["⭐", "✏️", "📘"],
+    ["🎈", "🧸", "🧩"],
+    ["🐱", "🌈", "🔤"],
+    ["🍎", "🚀", "📚"],
+    ["🎉", "✏️", "⭐"],
+    ["🦊", "🎒", "🧠"],
+    ["🪁", "📓", "🐻"],
+  ],
+  adults: [
+    ["🔍", "💡", "🧠"],
+    ["✍️", "📘", "🎯"],
+    ["🗝️", "✨", "📖"],
+    ["⚡", "🧩", "🎓"],
+    ["📚", "🔎", "✅"],
+    ["🧭", "🗂️", "✒️"],
+    ["📝", "🎯", "💬"],
+  ],
+};
+
 const KEY_ROWS = [
   "QWERTYUIOP",
   "ASDFGHJKL",
@@ -103,6 +124,23 @@ function getGameMode(type = DOM.type?.value) {
 
 function getModeCopy(mode = getGameMode()) {
   return MODE_COPY[mode] || MODE_COPY.adults;
+}
+
+function getPuzzleSeed() {
+  const signature = state.puzzle?.signature || "";
+  if (!signature) return 0;
+  let total = 0;
+  for (let index = 0; index < signature.length; index++) {
+    total = (total + signature.charCodeAt(index) * (index + 1)) % 9973;
+  }
+  return total;
+}
+
+function getBlockPattern(row, col) {
+  const mode = getGameMode();
+  const patterns = BLOCK_PATTERNS[mode] || BLOCK_PATTERNS.adults;
+  const seed = getPuzzleSeed();
+  return patterns[(seed + row * 11 + col * 17) % patterns.length];
 }
 
 function applyModeTheme() {
@@ -569,7 +607,18 @@ function buildBoardHTML() {
       const cell = state.puzzle.cells[row][col];
       const cellKey = `${row}:${col}`;
       if (cell.block) {
-        rows.push('<div class="cw-block" aria-hidden="true"></div>');
+        const pattern = getBlockPattern(row, col).join("");
+        const order = row * state.puzzle.size + col;
+        rows.push(`
+          <div
+            class="cw-block ${getGameMode() === "kids" ? "cw-block--kids" : "cw-block--adults"}"
+            aria-hidden="true"
+            data-emojis="${pattern}"
+            style="--cw-order:${order}"
+          >
+            <span class="cw-block-art">${pattern}</span>
+          </div>
+        `);
         continue;
       }
 
