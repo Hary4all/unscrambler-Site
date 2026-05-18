@@ -176,6 +176,7 @@ function renderPage(spec) {
   const title = escapeHtml(spec.title);
   const description = escapeHtml(spec.description);
   const canonical = spec.canonical;
+  const robots = spec.noindex ? "noindex,follow" : "index,follow";
   const patternText = escapeHtml(spec.patternText || spec.pattern.toUpperCase());
   const lengthText = escapeHtml(spec.lengthText || "All lengths");
   const summary = escapeHtml(spec.summary);
@@ -198,6 +199,7 @@ function renderPage(spec) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title} | WordFindLab</title>
 <meta name="description" content="${description}">
+<meta name="robots" content="${robots}">
 <link rel="canonical" href="${canonical}">
 <meta property="og:title" content="${title} | WordFindLab">
 <meta property="og:description" content="${description}">
@@ -472,6 +474,7 @@ function pageMetaFromSpec(spec) {
 
 function buildPatternSpec(kind, pattern, bucket) {
   const base = pageMetaFromSpec({ mode: kind, pattern, bucketSlug: bucket.slug, bucketLabel: bucket.label });
+  const isVariant = Boolean(bucket.slug);
   const page = {
     mode: kind,
     pattern,
@@ -480,7 +483,7 @@ function buildPatternSpec(kind, pattern, bucket) {
     maxLen: bucket.maxLen,
     title: base.title,
     description: base.description,
-    canonical: `${SITE}${pagePath(kind, pattern, bucket.slug)}`,
+    canonical: `${SITE}${pagePath(kind, pattern)}`,
     patternText: pattern.toUpperCase(),
     lengthText: bucket.label,
     summary: kind === "start"
@@ -498,6 +501,7 @@ function buildPatternSpec(kind, pattern, bucket) {
     breadcrumbHref: pagePath(kind, pattern),
     breadcrumbLabel: kind === "start" ? `Starting With ${pattern.toUpperCase()}` : kind === "end" ? `Ending With ${pattern.toUpperCase()}` : `Containing ${pattern.toUpperCase()}`,
     relatedLinks: buildRelatedLinks(kind, pattern, bucket.slug),
+    noindex: isVariant,
     faq: [
       { q: `How do I use words ${kind === "start" ? "starting" : kind === "end" ? "ending" : "containing"} ${pattern.toUpperCase()}?`, a: "Use the live results to compare lengths, spot stronger scoring words, and jump to the best fit for the board or puzzle." },
       { q: `Why are the results grouped this way?`, a: "Grouping by length and score keeps the page readable while still showing enough words to help with quick decisions." }
@@ -584,10 +588,12 @@ function updateSitemap(urls) {
   const blockRegex = /<url>\s*<loc>(.*?)<\/loc>[\s\S]*?<\/url>/g;
   const seen = new Set();
   const blocks = [];
+  const bucketVariantPattern = /\/word-patterns\/(start|end|contains)\/[^/]+\/(short|short-plus|mid|long|longer|very-long|extended)\/?$/i;
 
   let match;
   while ((match = blockRegex.exec(existing)) !== null) {
     const url = match[1].trim();
+    if (bucketVariantPattern.test(url)) continue;
     if (seen.has(url)) continue;
     seen.add(url);
     blocks.push(match[0]);
@@ -627,7 +633,6 @@ function main() {
         const spec = buildPatternSpec(group.kind, pattern, bucket);
         const bucketPath = pageFilePath(group.kind, pattern, bucket.slug);
         writeFile(bucketPath, renderPage(spec));
-        generatedUrls.push(spec.canonical);
       });
     });
   });
