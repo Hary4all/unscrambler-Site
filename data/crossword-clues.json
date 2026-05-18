@@ -548,5 +548,166 @@
       "A feeling of great joy or contentment",
       "The state of being happy"
     ]
+  },
+  {
+    "word": "ASTRONOMY",
+    "category": "science",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "The study of stars and planets",
+      "A science that looks at space"
+    ]
+  },
+  {
+    "word": "IMPORTANT",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Very necessary or significant",
+      "Something that truly matters"
+    ]
+  },
+  {
+    "word": "QUESTION",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A sentence that asks something",
+      "What you do when you want an answer"
+    ]
+  },
+  {
+    "word": "TRAINING",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Practice to learn a skill",
+      "Prepared learning for a goal"
+    ]
+  },
+  {
+    "word": "DANGEROUS",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Not safe",
+      "Able to cause harm"
+    ]
+  },
+  {
+    "word": "HOSPITAL",
+    "category": "school",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A place where doctors help people",
+      "A building for medical care"
+    ]
+  },
+  {
+    "word": "MAGAZINE",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A printed publication with articles and pictures",
+      "Something you might read at a waiting room"
+    ]
+  },
+  {
+    "word": "PAPERWORK",
+    "category": "school",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Forms and documents that need to be handled",
+      "Office or school tasks on paper"
+    ]
+  },
+  {
+    "word": "CAMPFIRE",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A fire made outdoors for warmth or cooking",
+      "A glowing fire at a campsite"
+    ]
+  },
+  {
+    "word": "LANDSCAPE",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "The visible features of a piece of land",
+      "A scenic outdoor view"
+    ]
+  },
+  {
+    "word": "BLUEPRINT",
+    "category": "school",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A detailed plan for building something",
+      "An exact design drawing"
+    ]
+  },
+  {
+    "word": "EVERGREEN",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A plant that stays green all year",
+      "Something that remains fresh or relevant"
+    ]
+  },
+  {
+    "word": "KNOWLEDGE",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Information you have learned",
+      "Understanding gained from study"
+    ]
+  },
+  {
+    "word": "ADJUSTMENT",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A small change to make something fit better",
+      "The act of changing slightly"
+    ]
+  },
+  {
+    "word": "CORRIDOR",
+    "category": "school",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A long hallway in a building",
+      "A passage between rooms"
+    ]
+  },
+  {
+    "word": "AFTERNOON",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "The time after noon",
+      "The middle part of the day"
+    ]
   }
+
 ]

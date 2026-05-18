@@ -392,61 +392,79 @@ export async function buildCrosswordPuzzle(bank, options = {}) {
   const seed = options.seed ? hashString(String(options.seed)) : hashString(`${getDateSeed()}|${type}|${difficulty}|${category}|${Math.random()}`);
   const rng = rngFactory(seed);
   const recent = new Set(Array.isArray(options.recentSignatures) ? options.recentSignatures : []);
+
+  function attemptLayout(layoutInfo, minWords, maxWords, targetWordCount, allowRecent = true) {
+    let pool = filterClues(bank, { type, category, difficulty });
+    if (pool.length < minWords) {
+      pool = filterClues(bank, { type, category: "all", difficulty });
+    }
+    if (pool.length < minWords) {
+      pool = bank.filter((entry) => entry && entry.approved === true).map((entry) => normalizeWordEntry(entry, rng)).filter(Boolean);
+    }
+
+    pool = pool
+      .map((entry) => normalizeWordEntry(entry, rng))
+      .filter(Boolean)
+      .filter((entry) => entry.word.length <= layoutInfo.size);
+
+    if (pool.length < minWords) {
+      return null;
+    }
+
+    const maxAttempts = options.maxAttempts || 60;
+    const finalTarget = Math.max(minWords, Math.min(maxWords, targetWordCount || maxWords));
+
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      const shuffled = shuffleCopy(pool, rng);
+      const selected = pickWordSet(shuffled, finalTarget, rng);
+      if (!selected || selected.length < minWords) continue;
+
+      const puzzle = tryBuildSinglePuzzle(selected, layoutInfo.size, rng);
+      if (!puzzle) continue;
+      if (allowRecent && type !== "daily" && recent.has(puzzle.signature)) continue;
+
+      const clueChoices = new Map();
+      selected.forEach((entry) => clueChoices.set(entry.word, entry.clue));
+
+      const placements = puzzle.placements.map((placement) => ({
+        ...placement,
+        clue: clueChoices.get(placement.word) || placement.clue,
+      }));
+      const across = placements.filter((item) => item.direction === "across");
+      const down = placements.filter((item) => item.direction === "down");
+
+      return {
+        type,
+        category,
+        difficulty,
+        size: puzzle.size,
+        timeLimit: layoutInfo.time,
+        cells: puzzle.cells,
+        placements,
+        across,
+        down,
+        signature: puzzle.signature,
+        wordCount: placements.length,
+        createdAt: new Date().toISOString(),
+      };
+    }
+
+    return null;
+  }
+
   const minWords = options.minWords || layout.min;
   const maxWords = options.maxWords || layout.max;
   const targetCount = Math.max(minWords, Math.min(maxWords, options.wordCount || maxWords));
 
-  let pool = filterClues(bank, { type, category, difficulty });
-  if (pool.length < minWords) {
-    pool = filterClues(bank, { type, category: "all", difficulty });
-  }
-  if (pool.length < minWords) {
-    pool = bank.filter((entry) => entry && entry.approved === true).map((entry) => normalizeWordEntry(entry, rng)).filter(Boolean);
-  }
+  const primary = attemptLayout(layout, minWords, maxWords, targetCount, true);
+  if (primary) return primary;
 
-  pool = pool
-    .map((entry) => normalizeWordEntry(entry, rng))
-    .filter(Boolean)
-    .filter((entry) => entry.word.length <= layout.size);
-
-  if (pool.length < minWords) {
-    throw new Error("Not enough crossword clues for the selected options.");
-  }
-
-  const maxAttempts = options.maxAttempts || 60;
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    const shuffled = shuffleCopy(pool, rng);
-    const selected = pickWordSet(shuffled, targetCount, rng);
-    if (!selected || selected.length < minWords) continue;
-
-    const puzzle = tryBuildSinglePuzzle(selected, layout.size, rng);
-    if (!puzzle) continue;
-    if (type !== "daily" && recent.has(puzzle.signature)) continue;
-
-    const clueChoices = new Map();
-    selected.forEach((entry) => clueChoices.set(entry.word, entry.clue));
-
-    const placements = puzzle.placements.map((placement) => ({
-      ...placement,
-      clue: clueChoices.get(placement.word) || placement.clue,
-    }));
-    const across = placements.filter((item) => item.direction === "across");
-    const down = placements.filter((item) => item.direction === "down");
-
-    return {
-      type,
-      category,
-      difficulty,
-      size: puzzle.size,
-      timeLimit: layout.time,
-      cells: puzzle.cells,
-      placements,
-      across,
-      down,
-      signature: puzzle.signature,
-      wordCount: placements.length,
-      createdAt: new Date().toISOString(),
-    };
+  const fallbackMin = 4;
+  const fallbackMax = Math.max(4, Math.min(6, layout.max));
+  if (type !== "kids" && fallbackMax >= fallbackMin) {
+    const fallbackLayout = { ...layout, min: fallbackMin, max: fallbackMax };
+    const fallback = attemptLayout(fallbackLayout, fallbackMin, fallbackMax, fallbackMax, true);
+    if (fallback) return fallback;
   }
 
   throw new Error("Could not generate a crossword puzzle. Try a different filter.");

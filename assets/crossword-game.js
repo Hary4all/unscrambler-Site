@@ -26,6 +26,39 @@ const TYPE_METAS = {
   daily: "Daily puzzle • varies by difficulty",
 };
 
+const MODE_COPY = {
+  kids: {
+    bodyClass: "crossword-kids-mode",
+    note: "Kids Mode loaded. Let?s play!",
+    startPuzzle: "Let?s Play!",
+    hint: "Help Me!",
+    check: "Check It!",
+    revealWord: "Show Word",
+    revealAll: "You solved it!",
+    ready: "Find the word! Tap a square or choose a clue to begin.",
+    solved: "Yay! You found a word!",
+    complete: "Amazing! You solved the crossword!",
+    retry: "Almost there! Want to try one more puzzle?",
+    celebrate: ["A", "B", "C", "W", "O", "R", "D"],
+    retryLetters: ["T", "R", "Y", "A", "G", "A", "I", "N"],
+  },
+  adults: {
+    bodyClass: "crossword-adults-mode",
+    note: "Adults Mode loaded. Start your challenge!",
+    startPuzzle: "Start Challenge",
+    hint: "Hint",
+    check: "Check Answers",
+    revealWord: "Solve the Clue",
+    revealAll: "Reveal Puzzle",
+    ready: "Solve the clue and build your score.",
+    solved: "Nice solve!",
+    complete: "Amazing! You solved the crossword!",
+    retry: "Almost there! Want to try one more puzzle?",
+    celebrate: ["A", "C", "E", "D", "W", "O", "R", "D"],
+    retryLetters: ["T", "R", "Y", "A", "G", "A", "I", "N"],
+  },
+};
+
 const KEY_ROWS = [
   "QWERTYUIOP",
   "ASDFGHJKL",
@@ -54,13 +87,47 @@ const state = {
   finished: false,
   checkMode: false,
   solvedCount: 0,
+  lastSolvedCount: 0,
   totalWords: 0,
   dailyKey: "",
   bestScore: getBestCrosswordScore(),
   resultOpen: false,
   audioContext: null,
   revealedWords: new Set(),
+  boardFresh: false,
 };
+
+function getGameMode(type = DOM.type?.value) {
+  return type === "kids" ? "kids" : "adults";
+}
+
+function getModeCopy(mode = getGameMode()) {
+  return MODE_COPY[mode] || MODE_COPY.adults;
+}
+
+function applyModeTheme() {
+  if (!document.body) return;
+  const mode = getGameMode();
+  document.body.classList.toggle("crossword-kids-mode", mode === "kids");
+  document.body.classList.toggle("crossword-adults-mode", mode !== "kids");
+}
+
+function updateModeSwitchUI() {
+  const mode = getGameMode();
+  const kidsActive = mode === "kids";
+  if (DOM.modeKids) DOM.modeKids.classList.toggle("is-active", kidsActive);
+  if (DOM.modeAdults) DOM.modeAdults.classList.toggle("is-active", !kidsActive);
+  if (DOM.modeNote) DOM.modeNote.textContent = getModeCopy(mode).note;
+}
+
+function applyModeLabels() {
+  const copy = getModeCopy();
+  if (DOM.newPuzzle) DOM.newPuzzle.textContent = copy.startPuzzle;
+  if (DOM.hint) DOM.hint.textContent = copy.hint;
+  if (DOM.check) DOM.check.textContent = copy.check;
+  if (DOM.revealWord) DOM.revealWord.textContent = copy.revealWord;
+  if (DOM.revealAll) DOM.revealAll.textContent = copy.revealAll;
+}
 
 function $(id) {
   return document.getElementById(id);
@@ -159,6 +226,10 @@ function applyTypeRules() {
   } else if (isDaily) {
     DOM.category.value = "all";
   }
+
+  applyModeTheme();
+  updateModeSwitchUI();
+  applyModeLabels();
 }
 
 function persistPreferences() {
@@ -272,10 +343,12 @@ function initializeState(puzzle, settings) {
   state.checkMode = false;
   state.resultOpen = false;
   state.solvedCount = 0;
+  state.lastSolvedCount = 0;
   state.totalWords = puzzle.placements.length;
   state.dailyKey = todayKey();
   state.bestScore = getBestCrosswordScore();
   state.revealedWords = new Set();
+  state.boardFresh = true;
   const firstPlacement = puzzle.placements[0];
   if (firstPlacement) {
     state.selected = { row: firstPlacement.row, col: firstPlacement.col };
@@ -283,16 +356,20 @@ function initializeState(puzzle, settings) {
     state.currentPlacementId = firstPlacement.id;
   }
   stopTimer();
+  updateModeSwitchUI();
+  applyModeLabels();
+  updateHeroCopy(settings);
+  updateProgressDisplay();
 
   if (settings.type === "daily") {
     const dailyStatus = getDailyCrosswordStatus(state.dailyKey);
     if (dailyStatus && dailyStatus.signature === puzzle.signature && dailyStatus.completed) {
-      setStatus("Today’s crossword has already been completed here. You can still replay it.", "info");
+      setStatus("Today's crossword has already been completed here. You can still replay it.", "info");
     } else {
-      setStatus("Daily puzzle loaded. Start solving when you’re ready.", "info");
+      setStatus("Daily puzzle loaded. Start solving when you?re ready.", "info");
     }
   } else {
-    setStatus("Fresh puzzle loaded. Tap a cell and start typing.", "info");
+    setStatus(getModeCopy().ready, "info");
   }
 }
 
@@ -351,6 +428,11 @@ function recomputeStats() {
   state.solvedCount = solvedWords;
   updateScore();
   updateProgressDisplay();
+
+  if (solvedWords > state.lastSolvedCount && solvedWords < state.totalWords) {
+    setStatus(`${getModeCopy().solved} ${solvedWords}/${state.totalWords} words solved.`, "success");
+  }
+  state.lastSolvedCount = solvedWords;
 
   if (state.puzzle.type === "daily" && solvedWords === state.totalWords) {
     setDailyCrosswordStatus(state.dailyKey, {
@@ -505,6 +587,7 @@ function buildBoardHTML() {
       const number = cell.number ? `<span class="cw-cell-number">${cell.number}</span>` : "";
       const letter = typed ? typed : "";
       const aria = `Row ${row + 1}, column ${col + 1}${cell.number ? `. Clue ${cell.number}` : ""}. ${typed ? `Letter ${typed}.` : "Blank square."}`;
+      const order = row * state.puzzle.size + col;
 
       rows.push(`
         <button
@@ -516,6 +599,7 @@ function buildBoardHTML() {
           data-col="${col}"
           data-placement-across="${cell.across || ""}"
           data-placement-down="${cell.down || ""}"
+          style="--cw-order:${order}"
         >
           ${number}
           <span class="cw-cell-letter">${letter}</span>
@@ -562,12 +646,16 @@ function buildKeyboardHTML() {
 }
 
 function updateHeroCopy(settings) {
+  const mode = getGameMode(settings?.type || DOM.type?.value);
+  const copy = getModeCopy(mode);
   if (DOM.puzzleTitle) DOM.puzzleTitle.textContent = TYPE_TITLES[settings.type] || "Crossword Game";
   if (DOM.puzzleMeta) DOM.puzzleMeta.textContent = TYPE_METAS[settings.type] || TYPE_METAS.mini;
   if (DOM.heroBest) DOM.heroBest.textContent = String(state.bestScore);
   if (DOM.heroTimer) DOM.heroTimer.textContent = formatTime(state.remaining);
   if (DOM.heroScore) DOM.heroScore.textContent = String(state.score);
   if (DOM.heroWords) DOM.heroWords.textContent = `${state.solvedCount}/${state.totalWords}`;
+  if (DOM.modeNote) DOM.modeNote.textContent = copy.note;
+  if (DOM.status && !state.puzzle) setStatus(copy.ready, "info");
 }
 
 function renderClues() {
@@ -578,7 +666,14 @@ function renderClues() {
 function renderBoard() {
   if (!DOM.grid) return;
   DOM.grid.style.setProperty("--cw-size", String(state.puzzle?.size || 7));
+  DOM.grid.classList.toggle("is-new-puzzle", Boolean(state.boardFresh));
   DOM.grid.innerHTML = buildBoardHTML();
+  if (state.boardFresh) {
+    window.requestAnimationFrame(() => {
+      state.boardFresh = false;
+      if (DOM.grid) DOM.grid.classList.remove("is-new-puzzle");
+    });
+  }
 }
 
 function renderKeyboard() {
@@ -600,7 +695,7 @@ function renderAll() {
 function updateActiveClueText() {
   const placement = getCurrentPlacement();
   if (!placement) {
-    setCurrentClue("Select an across or down clue to begin.");
+    setCurrentClue(getModeCopy().ready);
     return;
   }
   const direction = placement.direction === "across" ? "Across" : "Down";
@@ -632,7 +727,7 @@ function revealCurrentWord() {
     return;
   }
   revealPlacement(placement, true);
-  setStatus(`Revealed word ${placement.number}.`, "info");
+  setStatus(`${getModeCopy().solved} Revealed word ${placement.number}.`, "info");
 }
 
 function revealAll() {
@@ -734,19 +829,52 @@ async function shareResult() {
   }
 }
 
+function buildModalActions(completed) {
+  const mode = getGameMode();
+  if (completed) {
+    return `
+      <button type="button" class="cw-action cw-action--soft" data-modal-action="play-again">Play Again</button>
+      <button type="button" class="cw-action cw-action--soft" data-modal-action="try-kids">Try Kids Mode</button>
+      <button type="button" class="cw-action cw-action--soft" data-modal-action="try-adults">Try Adults Mode</button>
+      <button type="button" class="cw-action cw-action--primary" data-modal-action="share">Share Result</button>
+    `;
+  }
+  return `
+    <button type="button" class="cw-action cw-action--soft" data-modal-action="retry">Retry Puzzle</button>
+    <button type="button" class="cw-action cw-action--soft" data-modal-action="new-puzzle">New Puzzle</button>
+    <button type="button" class="cw-action cw-action--primary" data-modal-action="hint">Get a Hint</button>
+  `;
+}
+
+function buildModalArt(completed) {
+  const mode = getGameMode();
+  const letters = completed ? getModeCopy(mode).celebrate : getModeCopy(mode).retryLetters;
+  return letters.map((letter) => `<span class="cw-float-letter">${letter}</span>`).join("");
+}
+
 function openResultModal(completed) {
   if (!DOM.resultModal) return;
   const solved = state.puzzle.placements.filter((placement) => placement.completed);
   const missed = state.puzzle.placements.filter((placement) => !placement.completed);
+  const mode = getGameMode();
+  const copy = getModeCopy(mode);
+  const remaining = formatTime(state.remaining);
 
-  DOM.resultTitle.textContent = completed ? "Puzzle Complete" : "Time’s Up";
-  DOM.resultSummary.textContent = `Score ${state.score}. You solved ${solved.length} of ${state.totalWords} words.`;
+  DOM.resultTitle.textContent = completed ? copy.complete : copy.retry;
+  DOM.modalMessage.textContent = completed ? (mode === "kids" ? "Great job!" : "Nice solve!") : "Keep going!";
+  DOM.resultSummary.textContent = `Score ${state.score} | ${remaining} left | ${solved.length} of ${state.totalWords} words solved.`;
+  DOM.resultMeta.textContent = completed ? "Amazing! You solved the crossword!" : "Your next puzzle is waiting below.";
   DOM.solvedWords.innerHTML = solved.length
     ? solved.map((placement) => `<div class="cw-result-item">${placement.number}. ${placement.word}</div>`).join("")
     : '<div class="cw-result-item">No words solved yet.</div>';
   DOM.missedWords.innerHTML = missed.length
     ? missed.map((placement) => `<div class="cw-result-item">${placement.number}. ${placement.word}</div>`).join("")
     : '<div class="cw-result-item">Nothing missed. Nice work!</div>';
+  DOM.modalArt.innerHTML = buildModalArt(completed);
+  DOM.modalArt.classList.toggle("is-try-again", !completed);
+  DOM.modalLetters.innerHTML = buildModalArt(completed);
+  DOM.modalLetters.classList.toggle("is-try-again", !completed);
+  DOM.modalActions.innerHTML = buildModalActions(completed);
   DOM.resultModal.hidden = false;
   DOM.resultModal.setAttribute("aria-hidden", "false");
   state.resultOpen = true;
@@ -773,9 +901,9 @@ function finishGame(completed) {
         finishedAt: new Date().toISOString(),
       });
     }
-    setStatus("Great job! You finished the crossword.", "info");
+    setStatus(getModeCopy().complete, "success");
   } else {
-    setStatus("Timer reached zero. See your results below.", "warn");
+    setStatus(getModeCopy().retry, "warn");
   }
   openResultModal(completed);
 }
@@ -942,13 +1070,47 @@ function updateSettingsFromUI() {
 }
 
 function initControls() {
-  DOM.type.value = state.preferences.type || "mini";
-  DOM.difficulty.value = state.preferences.difficulty || "easy";
-  DOM.category.value = state.preferences.category || "all";
+  const initialType = state.preferences.type && state.preferences.type !== "mini"
+    ? state.preferences.type
+    : "themed";
+  DOM.type.value = initialType;
+  if (initialType === "kids") {
+    DOM.difficulty.value = "easy";
+    DOM.category.value = "kids";
+  } else if (initialType === "vocabulary") {
+    DOM.difficulty.value = "medium";
+    DOM.category.value = "vocabulary";
+  } else if (initialType === "daily") {
+    DOM.difficulty.value = state.preferences.difficulty || "easy";
+    DOM.category.value = "all";
+  } else {
+    DOM.difficulty.value = state.preferences.difficulty === "hard" ? "hard" : "medium";
+    DOM.category.value = "themed";
+  }
   state.sound = state.preferences.sound !== false;
   syncSoundButton();
   applyTypeRules();
   updateSettingsFromUI();
+
+  const goToMode = (mode) => {
+    if (mode === "kids") {
+      DOM.type.value = "kids";
+      DOM.difficulty.value = "easy";
+      DOM.category.value = "kids";
+    } else {
+      DOM.type.value = "themed";
+      DOM.difficulty.value = DOM.difficulty.value === "hard" ? "hard" : "medium";
+      DOM.category.value = "themed";
+    }
+    updateSettingsFromUI();
+    generatePuzzle().catch((err) => {
+      console.error(err);
+      setStatus(err.message || "Unable to build a crossword right now.", "warn");
+    });
+  };
+
+  DOM.modeKids.addEventListener("click", () => goToMode("kids"));
+  DOM.modeAdults.addEventListener("click", () => goToMode("adults"));
 
   DOM.type.addEventListener("change", () => {
     const type = DOM.type.value;
@@ -992,13 +1154,31 @@ function initEventDelegation() {
   DOM.restart.addEventListener("click", restartPuzzle);
   DOM.share.addEventListener("click", shareResult);
   DOM.resultClose.addEventListener("click", closeResultModal);
-  DOM.modalReplay.addEventListener("click", () => {
-    closeResultModal();
-    restartPuzzle();
-  });
-  DOM.modalNew.addEventListener("click", () => {
-    closeResultModal();
-    DOM.newPuzzle.click();
+  DOM.modalActions.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-modal-action]");
+    if (!button) return;
+    const action = button.dataset.modalAction;
+    if (action === "play-again") {
+      closeResultModal();
+      restartPuzzle();
+    } else if (action === "new-puzzle") {
+      closeResultModal();
+      DOM.newPuzzle.click();
+    } else if (action === "retry") {
+      closeResultModal();
+      restartPuzzle();
+    } else if (action === "hint") {
+      closeResultModal();
+      takeHint();
+    } else if (action === "share") {
+      shareResult();
+    } else if (action === "try-kids") {
+      closeResultModal();
+      DOM.modeKids.click();
+    } else if (action === "try-adults") {
+      closeResultModal();
+      DOM.modeAdults.click();
+    }
   });
   DOM.resultModal.addEventListener("click", (event) => {
     if (event.target === DOM.resultModal) closeResultModal();
@@ -1036,12 +1216,18 @@ async function boot() {
   DOM.share = $("cwShare");
   DOM.resultModal = $("cwResultModal");
   DOM.resultTitle = $("cwResultTitle");
+  DOM.modeKids = $("cwModeKids");
+  DOM.modeAdults = $("cwModeAdults");
+  DOM.modeNote = $("cwModeNote");
+  DOM.modalArt = $("cwModalArt");
+  DOM.modalMessage = $("cwModalMessage");
   DOM.resultSummary = $("cwResultSummary");
+  DOM.resultMeta = $("cwResultMeta");
+  DOM.modalLetters = $("cwModalLetters");
+  DOM.modalActions = $("cwModalActions");
   DOM.solvedWords = $("cwSolvedWords");
   DOM.missedWords = $("cwMissedWords");
   DOM.resultClose = $("cwResultClose");
-  DOM.modalReplay = $("cwModalReplay");
-  DOM.modalNew = $("cwModalNew");
 
   initControls();
   initEventDelegation();
