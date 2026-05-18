@@ -1,0 +1,552 @@
+[
+  {
+    "word": "APPLE",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A fruit that can be red or green",
+      "A healthy snack often packed in lunchboxes"
+    ]
+  },
+  {
+    "word": "BEAR",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A big furry forest animal",
+      "A creature that can sleep through winter"
+    ]
+  },
+  {
+    "word": "BOOK",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "Something you read for fun or school",
+      "A set of pages with stories or facts"
+    ]
+  },
+  {
+    "word": "CLOUD",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A fluffy shape floating in the sky",
+      "Something that can bring rain"
+    ]
+  },
+  {
+    "word": "CRANE",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A tall bird with long legs",
+      "A machine used to lift heavy things"
+    ]
+  },
+  {
+    "word": "DUCK",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A bird that quacks",
+      "A water-loving animal with a flat bill"
+    ]
+  },
+  {
+    "word": "FISH",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "An animal that lives in water",
+      "A creature that swims with fins"
+    ]
+  },
+  {
+    "word": "GAME",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A fun activity with rules",
+      "Something you play to win"
+    ]
+  },
+  {
+    "word": "HAPPY",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "Feeling cheerful and glad",
+      "The opposite of sad"
+    ]
+  },
+  {
+    "word": "HOUSE",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A place where people live",
+      "A building with rooms for a family"
+    ]
+  },
+  {
+    "word": "LEMON",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A sour yellow fruit",
+      "A citrus fruit often used in drinks"
+    ]
+  },
+  {
+    "word": "MOON",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "The object that shines at night in the sky",
+      "Earth's natural satellite"
+    ]
+  },
+  {
+    "word": "RAIN",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "Water that falls from clouds",
+      "What you might need an umbrella for"
+    ]
+  },
+  {
+    "word": "SHEEP",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A woolly farm animal",
+      "An animal that says baa"
+    ]
+  },
+  {
+    "word": "TRAIN",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A vehicle that runs on tracks",
+      "Something that carries passengers between cities"
+    ]
+  },
+  {
+    "word": "TREE",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A tall plant with a trunk and branches",
+      "Something that gives shade and leaves"
+    ]
+  },
+  {
+    "word": "SUN",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "The bright star that lights our day",
+      "What rises in the east and sets in the west"
+    ]
+  },
+  {
+    "word": "CAT",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A common pet that meows",
+      "A furry animal with whiskers"
+    ]
+  },
+  {
+    "word": "DOG",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A pet that barks",
+      "A loyal four-legged friend"
+    ]
+  },
+  {
+    "word": "BALL",
+    "category": "kids",
+    "difficulty": "easy",
+    "approved": true,
+    "clues": [
+      "A round object used in sports",
+      "Something you can throw, bounce, or kick"
+    ]
+  },
+  {
+    "word": "ROCKET",
+    "category": "science",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A vehicle that blasts into space",
+      "Something powered by strong fuel thrust"
+    ]
+  },
+  {
+    "word": "PLANET",
+    "category": "science",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A large object that orbits a star",
+      "Earth is one example of this"
+    ]
+  },
+  {
+    "word": "BRIDGE",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A structure built to cross water or roads",
+      "Something that connects one side to another"
+    ]
+  },
+  {
+    "word": "GARDEN",
+    "category": "nature",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A place where flowers and vegetables grow",
+      "A small outdoor area cared for with plants"
+    ]
+  },
+  {
+    "word": "PUZZLE",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A problem or game that needs solving",
+      "Something that makes you think carefully"
+    ]
+  },
+  {
+    "word": "MAGNET",
+    "category": "science",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "An object that attracts iron",
+      "Something used on a refrigerator door"
+    ]
+  },
+  {
+    "word": "ORANGE",
+    "category": "food",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A citrus fruit and a color",
+      "A sweet fruit with bright juice"
+    ]
+  },
+  {
+    "word": "SHADOW",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A dark shape made by blocking light",
+      "Something that follows you on sunny days"
+    ]
+  },
+  {
+    "word": "CANDLE",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A wax stick that gives light",
+      "Something that burns with a wick"
+    ]
+  },
+  {
+    "word": "JUNGLE",
+    "category": "nature",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A dense tropical forest",
+      "A wild place full of plants and animals"
+    ]
+  },
+  {
+    "word": "WINTER",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "The coldest season of the year",
+      "A time for snow, coats, and chilly weather"
+    ]
+  },
+  {
+    "word": "SUMMER",
+    "category": "vocabulary",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "The warm season when school often takes a break",
+      "A time of long sunny days"
+    ]
+  },
+  {
+    "word": "FRIEND",
+    "category": "family",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "Someone you trust and enjoy spending time with",
+      "A person who is kind and supportive"
+    ]
+  },
+  {
+    "word": "SCHOOL",
+    "category": "school",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A place where students learn",
+      "A building with classrooms and teachers"
+    ]
+  },
+  {
+    "word": "VALLEY",
+    "category": "nature",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A low area of land between hills or mountains",
+      "A stretch of land often with a river through it"
+    ]
+  },
+  {
+    "word": "BASKET",
+    "category": "family",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A container with a handle and open weave",
+      "Something used to carry fruit, toys, or laundry"
+    ]
+  },
+  {
+    "word": "LETTER",
+    "category": "school",
+    "difficulty": "medium",
+    "approved": true,
+    "clues": [
+      "A single character in the alphabet",
+      "A written message sent to someone"
+    ]
+  },
+  {
+    "word": "NOTEBOOK",
+    "category": "school",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A book for writing notes or schoolwork",
+      "Something students use to keep ideas organized"
+    ]
+  },
+  {
+    "word": "ADVENTURE",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "An exciting or unusual journey",
+      "A story full of action and discovery"
+    ]
+  },
+  {
+    "word": "CHOCOLATE",
+    "category": "food",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A sweet treat made from cacao",
+      "A favorite flavor for desserts and candy"
+    ]
+  },
+  {
+    "word": "TELESCOPE",
+    "category": "science",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A tool used to see faraway objects in space",
+      "An instrument that makes distant things appear closer"
+    ]
+  },
+  {
+    "word": "LANGUAGE",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A system people use to speak and write",
+      "English, Thai, and Spanish are all examples"
+    ]
+  },
+  {
+    "word": "ELEPHANT",
+    "category": "animals",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A very large animal with a trunk",
+      "A gray mammal known for big ears"
+    ]
+  },
+  {
+    "word": "MOUNTAIN",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A very high area of land",
+      "Something a climber may want to reach"
+    ]
+  },
+  {
+    "word": "TREASURE",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Valuable things hidden or kept safe",
+      "A prize that pirates might search for"
+    ]
+  },
+  {
+    "word": "CHALLENGE",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A difficult task that tests your skill",
+      "Something that pushes you to do your best"
+    ]
+  },
+  {
+    "word": "VACATION",
+    "category": "family",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A break from work or school for travel or rest",
+      "Time away spent relaxing or exploring"
+    ]
+  },
+  {
+    "word": "DISCOVERY",
+    "category": "science",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "The act of finding something new",
+      "A new fact or place learned for the first time"
+    ]
+  },
+  {
+    "word": "WATERFALL",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Water dropping over a cliff or steep edge",
+      "A beautiful natural cascade"
+    ]
+  },
+  {
+    "word": "CELEBRATE",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "To mark a happy event with joy",
+      "To honor something special"
+    ]
+  },
+  {
+    "word": "ORCHESTRA",
+    "category": "music",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A large group of musicians playing together",
+      "An ensemble with violins, brass, and more"
+    ]
+  },
+  {
+    "word": "SUNSHINE",
+    "category": "nature",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "Light and warmth from the sun",
+      "Bright weather that feels cheerful"
+    ]
+  },
+  {
+    "word": "FRIENDSHIP",
+    "category": "family",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "The relationship between good friends",
+      "A bond based on trust and care"
+    ]
+  },
+  {
+    "word": "EXPLORER",
+    "category": "themed",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A person who travels to discover new places",
+      "Someone who is curious and adventurous"
+    ]
+  },
+  {
+    "word": "HAPPINESS",
+    "category": "vocabulary",
+    "difficulty": "hard",
+    "approved": true,
+    "clues": [
+      "A feeling of great joy or contentment",
+      "The state of being happy"
+    ]
+  }
+]

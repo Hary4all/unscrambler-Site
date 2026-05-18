@@ -310,6 +310,7 @@ const NAV_LINKS = [
   { href: "/anagram-solver/",           label: "Anagram Solver" },
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
+  { href: "/crossword-game/",           label: "Crossword Game" },
   { href: "/word-patterns/",            label: "Patterns" },
   { href: "/guides/",                   label: "Guides" },
   { href: "/dictionary/",               label: "Dictionary" },
@@ -322,6 +323,7 @@ const SIDEBAR_TOOLS = [
   { href: "/anagram-solver/",           badge: "AN",  icon: "AN",  label: "Anagram Solver"     },
   { href: "/words-with-friends-cheat/", badge: "WWF", icon: "WWF", label: "Words With Friends" },
   { href: "/jumble-solver/",            badge: "JS",  icon: "JS",  label: "Jumble Solver"      },
+  { href: "/crossword-game/",           badge: "CW",  icon: "CW",  label: "Crossword Game"     },
   { href: "/word-patterns/",            badge: "WP",  icon: "WP",  label: "Word Patterns"      },
 ];
 
@@ -331,6 +333,7 @@ const FOOTER_LINKS = [
   { href: "/disclaimer/", label: "Disclaimer" },
   { href: "/privacy-policy/", label: "Privacy Policy" },
   { href: "/terms/", label: "Terms" },
+  { href: "/crossword-game/", label: "Crossword Game" },
 ];
 
 const SUPPORT_URL = "";

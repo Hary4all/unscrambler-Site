@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Online Crossword Game | WordFindLab</title>
+  <meta name="description" content="Play a free online crossword puzzle with clues, timer, hints, and touch-friendly gameplay on WordFindLab.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wordfindlab.com/crossword-game/">
+  <meta property="og:title" content="Free Online Crossword Game | WordFindLab">
+  <meta property="og:description" content="Play a free online crossword puzzle with clues, timer, hints, and touch-friendly gameplay on WordFindLab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wordfindlab.com/crossword-game/">
+  <meta property="og:site_name" content="WordFindLab">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="stylesheet" href="/assets/style.css?v=20260518">
+  <link rel="stylesheet" href="/assets/crossword-game.css?v=20260518">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wordfindlab.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Crossword Game",
+            "item": "https://wordfindlab.com/crossword-game/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this crossword game free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. WordFindLab Crossword Game is free to play in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I play on mobile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The game supports touch input and includes a mobile on-screen keyboard."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use keyboard and mouse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can click cells with a mouse or tap on touch devices, and type letters with a physical keyboard on desktop."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the puzzles different every time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. New puzzles are generated from a clue bank and the recent puzzle signature history helps avoid repeats."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can kids play this crossword?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The mini and kids crossword modes are designed to be bright, friendly, and easy to use."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="crossword-page">
+  <div class="page-wrap crossword-layout">
+    <main class="page-main crossword-main">
+      <section class="card crossword-hero">
+        <div class="crossword-kicker">
+          <span aria-hidden="true">✏️</span>
+          Free Online Crossword Game
+        </div>
+        <div class="crossword-hero-copy">
+          <h1>Free Online Crossword Game</h1>
+          <p>Solve a bright, touch-friendly crossword challenge before time runs out. Tap a square, type your answer, and use hints only when you need a small nudge.</p>
+        </div>
+
+        <div class="crossword-settings-grid" aria-label="Crossword settings">
+          <label class="cw-field">
+            <span>Game Type</span>
+            <select id="cwType" class="cw-select">
+              <option value="mini">Mini Crossword</option>
+              <option value="kids">Kids Crossword</option>
+              <option value="themed">Themed Crossword</option>
+              <option value="vocabulary">Vocabulary Crossword</option>
+              <option value="daily">Daily Crossword</option>
+            </select>
+          </label>
+          <label class="cw-field">
+            <span>Difficulty</span>
+            <select id="cwDifficulty" class="cw-select">
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+          <label class="cw-field">
+            <span>Category</span>
+            <select id="cwCategory" class="cw-select">
+              <option value="all">All Categories</option>
+              <option value="kids">Kids</option>
+              <option value="science">Science</option>
+              <option value="vocabulary">Vocabulary</option>
+              <option value="nature">Nature</option>
+              <option value="school">School</option>
+              <option value="food">Food</option>
+              <option value="animals">Animals</option>
+              <option value="family">Family</option>
+              <option value="music">Music</option>
+              <option value="themed">Themed</option>
+            </select>
+          </label>
+          <div class="cw-field cw-field--button">
+            <span>Fresh Puzzle</span>
+            <button id="cwNewPuzzle" class="cw-button cw-button--primary" type="button">New Puzzle</button>
+          </div>
+          <div class="cw-field cw-field--button">
+            <span>Sound</span>
+            <button id="cwSound" class="cw-button cw-button--ghost" type="button" aria-pressed="true">Sound On</button>
+          </div>
+        </div>
+
+        <div class="crossword-hero-stats">
+          <div class="crossword-stat">
+            <strong id="cwHeroTimer">05:00</strong>
+            <span>Countdown</span>
+          </div>
+          <div class="crossword-stat">
+            <strong id="cwHeroScore">0</strong>
+            <span>Current Score</span>
+          </div>
+          <div class="crossword-stat">
+            <strong id="cwHeroBest">0</strong>
+            <span>Best Score</span>
+          </div>
+          <div class="crossword-stat">
+            <strong id="cwHeroWords">0/0</strong>
+            <span>Words Solved</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="ad-wrap crossword-ad-wrap">
+        <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top" aria-label="Advertisement"></div>
+      </div>
+
+      <section class="card crossword-board-card">
+        <div class="crossword-board-header">
+          <div>
+            <div class="crossword-section-label">Puzzle Board</div>
+            <div class="crossword-board-title" id="cwPuzzleTitle">Mini Crossword</div>
+          </div>
+          <div class="crossword-board-subtitle" id="cwPuzzleMeta">Tap a square to start. Tap again to switch direction.</div>
+        </div>
+
+        <div class="cw-current-clue" id="cwCurrentClue" aria-live="polite">Loading a fresh puzzle...</div>
+
+        <div class="cw-board-shell">
+          <div id="cwGrid" class="cw-board" role="grid" aria-label="Crossword board"></div>
+        </div>
+
+        <div class="cw-keyboard-area">
+          <div class="crossword-section-label">On-screen keyboard</div>
+          <div id="cwKeyboard" class="cw-keyboard" aria-label="On-screen keyboard"></div>
+        </div>
+      </section>
+
+      <div class="ad-wrap crossword-ad-wrap">
+        <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid" aria-label="Advertisement"></div>
+      </div>
+
+      <section class="card crossword-copy-card">
+        <div class="crossword-copy-grid">
+          <article class="crossword-info">
+            <div class="crossword-section-label">How to Play</div>
+            <h2>How to solve the crossword</h2>
+            <ul class="crossword-bullets">
+              <li>Tap or click a square to select a word.</li>
+              <li>Type letters on desktop or use the mobile keyboard below the grid.</li>
+              <li>Use the clue list to jump directly to a word.</li>
+              <li>Ask for a hint if you get stuck, then check your answer when you want a review.</li>
+            </ul>
+          </article>
+          <article class="crossword-info">
+            <div class="crossword-section-label">Why Crossword Puzzles Help</div>
+            <h2>Benefits of playing crosswords</h2>
+            <ul class="crossword-bullets">
+              <li>Practice spelling, memory, and pattern recognition.</li>
+              <li>Build vocabulary with a quick, replayable challenge.</li>
+              <li>Stay engaged with clues that fit both kids and grown-up players.</li>
+              <li>Use the same puzzle on mouse, keyboard, tablet, or touch screen.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="card crossword-faq-card" id="crossword-faq">
+        <div class="crossword-section-label">FAQ</div>
+        <h2>Crossword Game FAQ</h2>
+        <div class="crossword-faq-list">
+          <details class="crossword-faq-item" open>
+            <summary>Is this crossword game free?</summary>
+            <p>Yes. WordFindLab Crossword Game is free to play in your browser.</p>
+          </details>
+          <details class="crossword-faq-item">
+            <summary>Can I play on mobile?</summary>
+            <p>Yes. The game supports touch input and includes a mobile on-screen keyboard.</p>
+          </details>
+          <details class="crossword-faq-item">
+            <summary>Can I use keyboard and mouse?</summary>
+            <p>Yes. You can click or tap cells and type letters with a keyboard on desktop.</p>
+          </details>
+          <details class="crossword-faq-item">
+            <summary>Are the puzzles different every time?</summary>
+            <p>Yes. New puzzles are generated from the clue bank, and the last ten puzzle signatures are saved so repeats are less likely.</p>
+          </details>
+          <details class="crossword-faq-item">
+            <summary>Can kids play this crossword?</summary>
+            <p>Yes. The mini and kids crossword modes are designed to stay bright, friendly, and easy to read.</p>
+          </details>
+        </div>
+      </section>
+
+      <div class="ad-wrap crossword-ad-wrap">
+        <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="lower" aria-label="Advertisement"></div>
+      </div>
+
+      <div class="ad-supplemental-ads" hidden aria-hidden="true"></div>
+    </main>
+
+    <aside class="page-sidebar crossword-sidebar">
+      <section class="card crossword-status-card">
+        <div class="crossword-section-label">Live Game</div>
+        <div class="crossword-stat-grid">
+          <div class="crossword-stat-box">
+            <span>Timer</span>
+            <strong id="cwTimer">05:00</strong>
+          </div>
+          <div class="crossword-stat-box">
+            <span>Score</span>
+            <strong id="cwScore">0</strong>
+          </div>
+          <div class="crossword-stat-box">
+            <span>Best</span>
+            <strong id="cwBest">0</strong>
+          </div>
+          <div class="crossword-stat-box">
+            <span>Hints</span>
+            <strong id="cwHints">0</strong>
+          </div>
+        </div>
+        <div class="crossword-status" id="cwStatus">Pick a puzzle type and press New Puzzle.</div>
+      </section>
+
+      <section class="card crossword-actions-card">
+        <div class="crossword-section-label">Actions</div>
+        <div class="crossword-actions-grid">
+          <button type="button" class="cw-action cw-action--soft" id="cwHint">Hint</button>
+          <button type="button" class="cw-action cw-action--soft" id="cwCheck">Check</button>
+          <button type="button" class="cw-action cw-action--soft" id="cwRevealWord">Reveal Word</button>
+          <button type="button" class="cw-action cw-action--soft" id="cwRevealAll">Reveal All</button>
+          <button type="button" class="cw-action cw-action--soft" id="cwRestart">Restart</button>
+          <button type="button" class="cw-action cw-action--primary" id="cwShare">Share Result</button>
+        </div>
+      </section>
+
+      <section class="card crossword-clues-card">
+        <div class="crossword-section-label">Clues</div>
+        <details class="crossword-clue-group" open>
+          <summary>Across</summary>
+          <div id="cwAcrossClues" class="crossword-clue-list"></div>
+        </details>
+        <details class="crossword-clue-group" open>
+          <summary>Down</summary>
+          <div id="cwDownClues" class="crossword-clue-list"></div>
+        </details>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">WordFindLab</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/scrabble-word-finder/">Scrabble Finder</a>
+        <a href="/wordle-solver/">Wordle Solver</a>
+        <a href="/anagram-solver/">Anagram Solver</a>
+        <a href="/words-with-friends-cheat/">Words With Friends</a>
+        <a href="/jumble-solver/">Jumble Solver</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 WordFindLab &nbsp;&middot;&nbsp;
+        <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;&middot;&nbsp;
+        <a href="/terms/" style="color:#8891a8">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cwResultModal" class="cw-modal" hidden aria-hidden="true">
+    <div class="cw-modal-card" role="dialog" aria-modal="true" aria-labelledby="cwResultTitle">
+      <button type="button" class="cw-modal-close" id="cwResultClose" aria-label="Close results">×</button>
+      <div class="crossword-section-label">Result</div>
+      <h2 id="cwResultTitle">Puzzle Complete</h2>
+      <p id="cwResultSummary" class="cw-modal-summary"></p>
+      <div class="cw-modal-grid">
+        <section class="cw-modal-panel">
+          <h3>Solved Words</h3>
+          <div id="cwSolvedWords" class="cw-result-list"></div>
+        </section>
+        <section class="cw-modal-panel">
+          <h3>Missed Words</h3>
+          <div id="cwMissedWords" class="cw-result-list"></div>
+        </section>
+      </div>
+      <div class="cw-modal-actions">
+        <button type="button" id="cwModalReplay" class="cw-action cw-action--soft">Play Again</button>
+        <button type="button" id="cwModalNew" class="cw-action cw-action--primary">New Puzzle</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/wordfindlab.js?v=20260518"></script>
+  <script src="/assets/sitewide-ads.js?v=20260518"></script>
+  <script type="module" src="/assets/crossword-game.js?v=20260518"></script>
+</body>
+</html>
