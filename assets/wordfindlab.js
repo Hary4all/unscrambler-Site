@@ -311,7 +311,6 @@ const NAV_LINKS = [
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
   { href: "/word-patterns/",            label: "Patterns" },
-  { href: "/word-of-the-day/",          label: "Word of the Day" },
   { href: "/guides/",                   label: "Guides" },
   { href: "/dictionary/",               label: "Dictionary" },
   { href: "/blog/",                     label: "Blog" },
@@ -324,7 +323,6 @@ const SIDEBAR_TOOLS = [
   { href: "/words-with-friends-cheat/",badge: "WWF", label: "Words With Friends" },
   { href: "/jumble-solver/",           badge: "JS",  label: "Jumble Solver"      },
   { href: "/word-patterns/",           badge: "WP",  label: "Word Patterns"      },
-  { href: "/word-of-the-day/",         badge: "WD",  label: "Word of the Day"    },
 ];
 
 const FOOTER_LINKS = [
