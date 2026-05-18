@@ -317,12 +317,12 @@ const NAV_LINKS = [
 ];
 
 const SIDEBAR_TOOLS = [
-  { href: "/scrabble-word-finder/",    badge: "SF",  label: "Scrabble Finder"    },
-  { href: "/wordle-solver/",           badge: "WL",  label: "Wordle Solver"      },
-  { href: "/anagram-solver/",          badge: "AN",  label: "Anagram Solver"     },
-  { href: "/words-with-friends-cheat/",badge: "WWF", label: "Words With Friends" },
-  { href: "/jumble-solver/",           badge: "JS",  label: "Jumble Solver"      },
-  { href: "/word-patterns/",           badge: "WP",  label: "Word Patterns"      },
+  { href: "/scrabble-word-finder/",     badge: "SF",  icon: "SF",  label: "Scrabble Finder"    },
+  { href: "/wordle-solver/",            badge: "WL",  icon: "WL",  label: "Wordle Solver"      },
+  { href: "/anagram-solver/",           badge: "AN",  icon: "AN",  label: "Anagram Solver"     },
+  { href: "/words-with-friends-cheat/", badge: "WWF", icon: "WWF", label: "Words With Friends" },
+  { href: "/jumble-solver/",            badge: "JS",  icon: "JS",  label: "Jumble Solver"      },
+  { href: "/word-patterns/",            badge: "WP",  icon: "WP",  label: "Word Patterns"      },
 ];
 
 const FOOTER_LINKS = [
