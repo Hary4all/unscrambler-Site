@@ -194,6 +194,98 @@
   color: #64748b;
 }
 
+.crossword-hero-links {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cw-hero-link {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 13px 14px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 22px rgba(15,23,42,.05);
+  color: #0f172a;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.cw-hero-link strong {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.cw-hero-link span:last-child {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #64748b;
+}
+
+.cw-hero-link::before {
+  content: "";
+  position: absolute;
+  inset: auto -30% -35% auto;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.15), transparent 72%);
+  transform: scale(.8);
+  transition: transform .25s ease, opacity .25s ease;
+  opacity: .75;
+}
+
+.cw-hero-link-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 38%, rgba(255,255,255,0) 68%);
+  transform: translateX(-120%);
+  transition: transform .75s ease;
+}
+
+.cw-hero-link:hover,
+.cw-hero-link:focus-visible {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(59,130,246,.26);
+  box-shadow: 0 14px 30px rgba(37,99,235,.10);
+}
+
+.cw-hero-link:hover .cw-hero-link-glow,
+.cw-hero-link:focus-visible .cw-hero-link-glow {
+  transform: translateX(120%);
+}
+
+.cw-hero-link--blue { box-shadow: 0 10px 22px rgba(59,130,246,.08); }
+.cw-hero-link--violet::before { background: radial-gradient(circle, rgba(139,92,246,.18), transparent 72%); }
+.cw-hero-link--amber::before { background: radial-gradient(circle, rgba(245,158,11,.18), transparent 72%); }
+.cw-hero-link--green::before { background: radial-gradient(circle, rgba(34,197,94,.18), transparent 72%); }
+
+.cw-hero-link {
+  animation: cwHeroFloat 6.5s ease-in-out infinite;
+}
+
+.cw-hero-link:nth-child(2) { animation-delay: .2s; }
+.cw-hero-link:nth-child(3) { animation-delay: .4s; }
+.cw-hero-link:nth-child(4) { animation-delay: .6s; }
+
+.cw-hero-link strong {
+  background: linear-gradient(90deg, #0f172a, #2563eb, #0f172a);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cwTextShine 7.5s linear infinite;
+}
+
 .crossword-inline-links {
   display: flex;
   flex-wrap: wrap;
@@ -219,6 +311,27 @@
   background: #eff6ff;
   border-color: #93c5fd;
   transform: translateY(-1px);
+}
+
+.crossword-inline-links a {
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 8px 18px rgba(15,23,42,.04);
+}
+
+.crossword-inline-links a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 42%, rgba(255,255,255,0) 64%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+}
+
+.crossword-inline-links a:hover::after,
+.crossword-inline-links a:focus-visible::after {
+  transform: translateX(120%);
 }
 
 .crossword-settings-grid {
@@ -997,6 +1110,16 @@
   50% { transform: translateY(-5px); }
 }
 
+@keyframes cwHeroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes cwTextShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
+}
+
 @media (max-width: 1180px) {
   .crossword-hero-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1007,6 +1130,10 @@
 
   .crossword-mode-switch {
     grid-template-columns: 1fr;
+  }
+
+  .crossword-hero-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .crossword-hero::before {
@@ -1061,6 +1188,10 @@
   }
 
   .crossword-copy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crossword-hero-links {
     grid-template-columns: 1fr;
   }
 
@@ -1143,5 +1274,21 @@
   .cw-modal-actions .cw-action {
     min-width: 0;
     flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-hero-link,
+  .cw-hero-link strong,
+  .cw-hero-link-glow,
+  .crossword-inline-links a,
+  .crossword-inline-links a::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .crossword-hero::before,
+  .crossword-hero::after {
+    animation: none !important;
   }
 }
