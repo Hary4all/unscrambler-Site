@@ -3,6 +3,7 @@ import {
   getBestCrosswordScore,
   getCrosswordPreferences,
   getDailyCrosswordStatus,
+  getDailyCrosswordStreak,
   getRecentPuzzleSignatures,
   rememberPuzzleSignature,
   saveCrosswordPreferences,
@@ -29,13 +30,13 @@ const TYPE_METAS = {
 const MODE_COPY = {
   kids: {
     bodyClass: "crossword-kids-mode",
-    note: "Kids Mode loaded. Let?s play!",
+    note: "Kids Mode loaded! Pick a theme and let?s play!",
     startPuzzle: "Let?s Play!",
     hint: "Help Me!",
     check: "Check It!",
     revealWord: "Show Word",
     revealAll: "You solved it!",
-    ready: "Find the word! Tap a square or choose a clue to begin.",
+    ready: "Find the word! Tap a square, pick a theme, or choose a clue to begin.",
     solved: "Yay! You found a word!",
     complete: "Amazing! You solved the crossword!",
     retry: "Almost there! Want to try one more puzzle?",
@@ -57,6 +58,110 @@ const MODE_COPY = {
     celebrate: ["A", "C", "E", "D", "W", "O", "R", "D"],
     retryLetters: ["T", "R", "Y", "A", "G", "A", "I", "N"],
   },
+};
+
+const THEME_COPY = {
+  space: {
+    label: "Space Theme",
+    mascot: "🚀",
+    mascotName: "Cosmo Owl",
+    mascotMessage: "Blast off into a starry word quest!",
+    bodyClass: "crossword-theme-space",
+    accent: "space",
+  },
+  jungle: {
+    label: "Jungle Theme",
+    mascot: "🦜",
+    mascotName: "Jungle Pal",
+    mascotMessage: "Swing through the clues like a word explorer!",
+    bodyClass: "crossword-theme-jungle",
+    accent: "jungle",
+  },
+  underwater: {
+    label: "Underwater Theme",
+    mascot: "🐠",
+    mascotName: "Blue Buddy",
+    mascotMessage: "Dive deep and find the hidden words!",
+    bodyClass: "crossword-theme-underwater",
+    accent: "underwater",
+  },
+  candy: {
+    label: "Candy Theme",
+    mascot: "🍭",
+    mascotName: "Sweet Spark",
+    mascotMessage: "A cheerful puzzle adventure with extra sprinkles!",
+    bodyClass: "crossword-theme-candy",
+    accent: "candy",
+  },
+  dinosaur: {
+    label: "Dinosaur Theme",
+    mascot: "🦕",
+    mascotName: "Dino Word",
+    mascotMessage: "Roar! Let’s uncover the next word fossil!",
+    bodyClass: "crossword-theme-dinosaur",
+    accent: "dino",
+  },
+  magic: {
+    label: "Magic Castle",
+    mascot: "🪄",
+    mascotName: "Word Wizard",
+    mascotMessage: "A sparkle spell can reveal a clue or two!",
+    bodyClass: "crossword-theme-magic",
+    accent: "magic",
+  },
+  school: {
+    label: "School Theme",
+    mascot: "📚",
+    mascotName: "Smarty Kit",
+    mascotMessage: "Practice, play, and build your word power!",
+    bodyClass: "crossword-theme-school",
+    accent: "school",
+  },
+  superhero: {
+    label: "Superhero Theme",
+    mascot: "🦸",
+    mascotName: "Captain Word",
+    mascotMessage: "Use your word powers to save the puzzle!",
+    bodyClass: "crossword-theme-superhero",
+    accent: "hero",
+  },
+  classic: {
+    label: "Classic Theme",
+    mascot: "✏️",
+    mascotName: "Puzzle Coach",
+    mascotMessage: "A clean, calm board for sharp thinking.",
+    bodyClass: "crossword-theme-classic",
+    accent: "classic",
+  },
+  blueprint: {
+    label: "Blueprint",
+    mascot: "🧠",
+    mascotName: "Focus Buddy",
+    mascotMessage: "A crisp, modern layout for smart solving.",
+    bodyClass: "crossword-theme-blueprint",
+    accent: "blueprint",
+  },
+  calm: {
+    label: "Calm Theme",
+    mascot: "🌤️",
+    mascotName: "Calm Coach",
+    mascotMessage: "Take your time and solve clue by clue.",
+    bodyClass: "crossword-theme-calm",
+    accent: "calm",
+  },
+  focus: {
+    label: "Focus Theme",
+    mascot: "🎯",
+    mascotName: "Focus Coach",
+    mascotMessage: "A steady layout for a sharp challenge.",
+    bodyClass: "crossword-theme-focus",
+    accent: "focus",
+  },
+};
+
+const THEME_SETS = {
+  kids: ["space", "jungle", "underwater", "candy", "dinosaur", "magic", "school", "superhero"],
+  adults: ["classic", "blueprint", "calm", "focus"],
 };
 
 const BLOCK_PATTERNS = {
@@ -126,6 +231,21 @@ function getModeCopy(mode = getGameMode()) {
   return MODE_COPY[mode] || MODE_COPY.adults;
 }
 
+function getThemeOptions(mode = getGameMode()) {
+  return THEME_SETS[mode] || THEME_SETS.adults;
+}
+
+function getThemeKey() {
+  const mode = getGameMode();
+  const options = getThemeOptions(mode);
+  const theme = state.preferences.theme;
+  return options.includes(theme) ? theme : (mode === "kids" ? "candy" : "classic");
+}
+
+function getThemeCopy(themeKey = getThemeKey()) {
+  return THEME_COPY[themeKey] || THEME_COPY.classic;
+}
+
 function getPuzzleSeed() {
   const signature = state.puzzle?.signature || "";
   if (!signature) return 0;
@@ -146,8 +266,12 @@ function getBlockPattern(row, col) {
 function applyModeTheme() {
   if (!document.body) return;
   const mode = getGameMode();
+  const theme = getThemeKey();
   document.body.classList.toggle("crossword-kids-mode", mode === "kids");
   document.body.classList.toggle("crossword-adults-mode", mode !== "kids");
+  Object.values(THEME_COPY).forEach((item) => {
+    document.body.classList.toggle(item.bodyClass, item === THEME_COPY[theme]);
+  });
 }
 
 function updateModeSwitchUI() {
@@ -158,6 +282,34 @@ function updateModeSwitchUI() {
   if (DOM.modeNote) DOM.modeNote.textContent = getModeCopy(mode).note;
 }
 
+function updateThemeUI() {
+  const themeKey = getThemeKey();
+  const config = getThemeCopy(themeKey);
+  if (DOM.themeTitle) DOM.themeTitle.textContent = config.label;
+  if (DOM.themeLabel) DOM.themeLabel.textContent = config.label;
+  if (DOM.themeMessage) DOM.themeMessage.textContent = config.mascotMessage;
+  if (DOM.mascotEmoji) DOM.mascotEmoji.textContent = config.mascot;
+  if (DOM.mascotName) DOM.mascotName.textContent = config.mascotName;
+  if (DOM.themeButtons) {
+    DOM.themeButtons.querySelectorAll("[data-theme]").forEach((button) => {
+      const active = button.dataset.theme === themeKey;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+}
+
+function updateRewardStrip() {
+  const coins = Math.max(0, Math.floor(state.score / 20) + state.solvedCount * 3);
+  const stars = Math.max(0, state.solvedCount + state.totalWords);
+  const xp = Math.max(0, state.score + state.bestScore);
+  const streak = Math.max(0, getDailyCrosswordStreak());
+  if (DOM.rewardCoins) DOM.rewardCoins.textContent = String(coins);
+  if (DOM.rewardStars) DOM.rewardStars.textContent = String(stars);
+  if (DOM.rewardXp) DOM.rewardXp.textContent = String(xp);
+  if (DOM.rewardStreak) DOM.rewardStreak.textContent = String(streak);
+}
+
 function applyModeLabels() {
   const copy = getModeCopy();
   if (DOM.newPuzzle) DOM.newPuzzle.textContent = copy.startPuzzle;
@@ -165,6 +317,17 @@ function applyModeLabels() {
   if (DOM.check) DOM.check.textContent = copy.check;
   if (DOM.revealWord) DOM.revealWord.textContent = copy.revealWord;
   if (DOM.revealAll) DOM.revealAll.textContent = copy.revealAll;
+}
+
+function setTheme(themeKey) {
+  const mode = getGameMode();
+  const options = getThemeOptions(mode);
+  const nextTheme = options.includes(themeKey) ? themeKey : (mode === "kids" ? "candy" : "classic");
+  state.preferences = { ...state.preferences, theme: nextTheme };
+  saveCrosswordPreferences(state.preferences);
+  applyModeTheme();
+  updateThemeUI();
+  updateRewardStrip();
 }
 
 function $(id) {
@@ -232,6 +395,7 @@ function normalizeSettings() {
   const type = DOM.type.value;
   let difficulty = DOM.difficulty.value;
   let category = DOM.category.value;
+  const theme = getThemeKey();
 
   if (type === "kids") {
     difficulty = "easy";
@@ -243,7 +407,7 @@ function normalizeSettings() {
     category = "all";
   }
 
-  return { type, difficulty, category };
+  return { type, difficulty, category, theme };
 }
 
 function applyTypeRules() {
@@ -697,6 +861,7 @@ function buildKeyboardHTML() {
 function updateHeroCopy(settings) {
   const mode = getGameMode(settings?.type || DOM.type?.value);
   const copy = getModeCopy(mode);
+  const theme = getThemeCopy();
   if (DOM.puzzleTitle) DOM.puzzleTitle.textContent = TYPE_TITLES[settings.type] || "Crossword Game";
   if (DOM.puzzleMeta) DOM.puzzleMeta.textContent = TYPE_METAS[settings.type] || TYPE_METAS.mini;
   if (DOM.heroBest) DOM.heroBest.textContent = String(state.bestScore);
@@ -704,6 +869,12 @@ function updateHeroCopy(settings) {
   if (DOM.heroScore) DOM.heroScore.textContent = String(state.score);
   if (DOM.heroWords) DOM.heroWords.textContent = `${state.solvedCount}/${state.totalWords}`;
   if (DOM.modeNote) DOM.modeNote.textContent = copy.note;
+  if (DOM.themeNote) DOM.themeNote.textContent = theme.mascotMessage;
+  if (DOM.themeTitle) DOM.themeTitle.textContent = theme.label;
+  if (DOM.mascotName) DOM.mascotName.textContent = theme.mascotName;
+  if (DOM.mascotEmoji) DOM.mascotEmoji.textContent = theme.mascot;
+  updateThemeUI();
+  updateRewardStrip();
   if (DOM.status && !state.puzzle) setStatus(copy.ready, "info");
 }
 
@@ -1116,6 +1287,8 @@ function updateSettingsFromUI() {
   state.preferences = { ...state.preferences, ...settings, sound: state.sound };
   saveCrosswordPreferences(state.preferences);
   updateHeroCopy(settings);
+  updateThemeUI();
+  updateRewardStrip();
 }
 
 function initControls() {
@@ -1126,15 +1299,19 @@ function initControls() {
   if (initialType === "kids") {
     DOM.difficulty.value = "easy";
     DOM.category.value = "kids";
+    state.preferences.theme = THEME_SETS.kids.includes(state.preferences.theme) ? state.preferences.theme : "candy";
   } else if (initialType === "vocabulary") {
     DOM.difficulty.value = "medium";
     DOM.category.value = "vocabulary";
+    state.preferences.theme = THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "blueprint";
   } else if (initialType === "daily") {
     DOM.difficulty.value = state.preferences.difficulty || "easy";
     DOM.category.value = "all";
+    state.preferences.theme = THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "classic";
   } else {
     DOM.difficulty.value = state.preferences.difficulty === "hard" ? "hard" : "medium";
     DOM.category.value = "themed";
+    state.preferences.theme = THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "classic";
   }
   state.sound = state.preferences.sound !== false;
   syncSoundButton();
@@ -1146,10 +1323,12 @@ function initControls() {
       DOM.type.value = "kids";
       DOM.difficulty.value = "easy";
       DOM.category.value = "kids";
+      setTheme(THEME_SETS.kids.includes(state.preferences.theme) ? state.preferences.theme : "candy");
     } else {
       DOM.type.value = "themed";
       DOM.difficulty.value = DOM.difficulty.value === "hard" ? "hard" : "medium";
       DOM.category.value = "themed";
+      setTheme(THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "classic");
     }
     updateSettingsFromUI();
     generatePuzzle().catch((err) => {
@@ -1161,16 +1340,29 @@ function initControls() {
   DOM.modeKids.addEventListener("click", () => goToMode("kids"));
   DOM.modeAdults.addEventListener("click", () => goToMode("adults"));
 
+  if (DOM.themeButtons) {
+    DOM.themeButtons.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-theme]");
+      if (!button) return;
+      const themeKey = button.dataset.theme;
+      setTheme(themeKey);
+      playTone("tap");
+    });
+  }
+
   DOM.type.addEventListener("change", () => {
     const type = DOM.type.value;
     if (type === "kids") {
       DOM.difficulty.value = "easy";
       DOM.category.value = "kids";
+      setTheme(THEME_SETS.kids.includes(state.preferences.theme) ? state.preferences.theme : "candy");
     } else if (type === "vocabulary") {
       DOM.difficulty.value = "medium";
       DOM.category.value = "vocabulary";
+      setTheme(THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "blueprint");
     } else if (type === "daily") {
       DOM.category.value = "all";
+      setTheme(THEME_SETS.adults.includes(state.preferences.theme) ? state.preferences.theme : "classic");
     }
     updateSettingsFromUI();
   });
@@ -1268,6 +1460,15 @@ async function boot() {
   DOM.modeKids = $("cwModeKids");
   DOM.modeAdults = $("cwModeAdults");
   DOM.modeNote = $("cwModeNote");
+  DOM.themeButtons = $("cwThemeButtons");
+  DOM.themeTitle = $("cwThemeTitle");
+  DOM.themeNote = $("cwThemeNote");
+  DOM.mascotEmoji = $("cwMascotEmoji");
+  DOM.mascotName = $("cwMascotName");
+  DOM.rewardCoins = $("cwRewardCoins");
+  DOM.rewardStars = $("cwRewardStars");
+  DOM.rewardXp = $("cwRewardXp");
+  DOM.rewardStreak = $("cwRewardStreak");
   DOM.modalArt = $("cwModalArt");
   DOM.modalMessage = $("cwModalMessage");
   DOM.resultSummary = $("cwResultSummary");

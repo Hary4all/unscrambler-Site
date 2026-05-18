@@ -28,6 +28,159 @@
   background-attachment: fixed;
 }
 
+.crossword-page.crossword-theme-space {
+  background-color: #eff6ff;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.18), transparent 18%),
+    radial-gradient(circle at 78% 18%, rgba(168,85,247,.16), transparent 16%),
+    radial-gradient(circle at 66% 76%, rgba(34,197,94,.10), transparent 18%),
+    linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.88)),
+    radial-gradient(circle at center, rgba(255,255,255,.18) 0 2px, transparent 2px);
+  background-size: auto, auto, auto, auto, 24px 24px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-jungle {
+  background-color: #f0fdf4;
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(34,197,94,.16), transparent 18%),
+    radial-gradient(circle at 82% 18%, rgba(245,158,11,.14), transparent 16%),
+    radial-gradient(circle at 58% 80%, rgba(16,185,129,.10), transparent 18%),
+    linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
+    linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 44px 44px, 44px 44px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-underwater {
+  background-color: #f0f9ff;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(14,165,233,.14), transparent 18%),
+    radial-gradient(circle at 82% 12%, rgba(59,130,246,.12), transparent 16%),
+    radial-gradient(circle at 74% 78%, rgba(6,182,212,.10), transparent 18%),
+    linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.88)),
+    linear-gradient(rgba(125,211,252,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,211,252,.10) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 42px 42px, 42px 42px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-candy {
+  background-color: #fff7fb;
+  background-image:
+    radial-gradient(circle at 18% 16%, rgba(236,72,153,.16), transparent 17%),
+    radial-gradient(circle at 82% 18%, rgba(250,204,21,.16), transparent 16%),
+    radial-gradient(circle at 28% 82%, rgba(168,85,247,.12), transparent 18%),
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+    linear-gradient(rgba(255,255,255,.20) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.20) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-dinosaur {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(34,197,94,.16), transparent 18%),
+    radial-gradient(circle at 78% 14%, rgba(251,191,36,.14), transparent 17%),
+    radial-gradient(circle at 68% 78%, rgba(22,163,74,.10), transparent 18%),
+    linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
+    linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 42px 42px, 42px 42px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-magic {
+  background-color: #faf5ff;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(168,85,247,.16), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(236,72,153,.14), transparent 16%),
+    radial-gradient(circle at 60% 80%, rgba(59,130,246,.10), transparent 18%),
+    linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
+    linear-gradient(rgba(216,180,254,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,180,254,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 42px 42px, 42px 42px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-school {
+  background-color: #f8fbff;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.14), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(251,191,36,.10), transparent 16%),
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+    linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, 46px 46px, 46px 46px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-superhero {
+  background-color: #eff6ff;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(239,68,68,.16), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(37,99,235,.14), transparent 16%),
+    radial-gradient(circle at 64% 78%, rgba(245,158,11,.12), transparent 18%),
+    linear-gradient(rgba(255,255,255,.90), rgba(255,255,255,.90)),
+    linear-gradient(rgba(96,165,250,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96,165,250,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, auto, 42px 42px, 42px 42px;
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-classic,
+.crossword-page.crossword-theme-blueprint,
+.crossword-page.crossword-theme-calm,
+.crossword-page.crossword-theme-focus {
+  background-attachment: fixed;
+}
+
+.crossword-page.crossword-theme-classic {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.12), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(251,191,36,.08), transparent 16%),
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+    linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, 46px 46px, 46px 46px;
+}
+
+.crossword-page.crossword-theme-blueprint {
+  background-color: #f8fbff;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.14), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(14,165,233,.08), transparent 16%),
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+    linear-gradient(rgba(125,211,252,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,211,252,.08) 1px, transparent 1px);
+  background-size: auto, auto, auto, 44px 44px, 44px 44px;
+}
+
+.crossword-page.crossword-theme-calm {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.08), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(148,163,184,.08), transparent 16%),
+    linear-gradient(rgba(255,255,255,.94), rgba(255,255,255,.94)),
+    linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+  background-size: auto, auto, auto, 46px 46px, 46px 46px;
+}
+
+.crossword-page.crossword-theme-focus {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(59,130,246,.12), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(99,102,241,.08), transparent 16%),
+    linear-gradient(rgba(255,255,255,.94), rgba(255,255,255,.94)),
+    linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+  background-size: auto, auto, auto, 44px 44px, 44px 44px;
+}
+
 .crossword-page .crossword-layout {
   max-width: 1360px;
 }
@@ -192,6 +345,136 @@
   margin: 12px 0 0;
   font-size: 14px;
   color: #64748b;
+}
+
+.crossword-kids-upgrade {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.crossword-mascot-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(148,163,184,.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 14px 28px rgba(15,23,42,.06);
+}
+
+.crossword-mascot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.crossword-mascot-badge span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 6px 12px rgba(37,99,235,.08);
+}
+
+.crossword-mascot-message {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.crossword-theme-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.crossword-reward-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.cw-reward-item {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(191,219,254,.74);
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.86);
+}
+
+.cw-reward-item span {
+  font-size: 18px;
+}
+
+.cw-reward-item strong {
+  font-size: 18px;
+  line-height: 1;
+  color: #0f172a;
+}
+
+.cw-reward-item small {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.crossword-theme-switch {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-content: start;
+}
+
+.crossword-theme-chip-btn {
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15,23,42,.05);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.crossword-theme-chip-btn:hover,
+.crossword-theme-chip-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(37,99,235,.10);
+  border-color: rgba(59,130,246,.26);
+}
+
+.crossword-theme-chip-btn.is-active {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+  border-color: transparent;
+}
+
+.crossword-theme-chip-btn--adults.is-active {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
 }
 
 .crossword-hero-links {
@@ -1357,6 +1640,14 @@
     grid-template-columns: 1fr;
   }
 
+  .crossword-kids-upgrade {
+    grid-template-columns: 1fr;
+  }
+
+  .crossword-theme-switch {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .crossword-hero-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1412,6 +1703,10 @@
     grid-template-columns: 1fr;
   }
 
+  .crossword-theme-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .crossword-hero-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1459,6 +1754,10 @@
     grid-template-columns: 1fr;
   }
 
+  .crossword-reward-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .crossword-hero-copy h1 {
     padding-right: 0;
   }
@@ -1496,6 +1795,10 @@
   }
 
   .cw-key-row--actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .crossword-theme-switch {
     grid-template-columns: 1fr 1fr;
   }
 

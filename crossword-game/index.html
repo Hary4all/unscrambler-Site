@@ -95,23 +95,71 @@
         </div>
         <div class="crossword-hero-copy">
           <h1>Play a Free Online Crossword Puzzle</h1>
-          <p>Choose Kids Mode or Adults Mode, solve clues, beat the timer, and challenge your brain with a bright WordFindLab crossword that works on desktop and mobile.</p>
+          <p>Choose Kids Mode or Adults Mode, pick a world, solve clues, collect stars, and challenge your brain with a bright WordFindLab crossword that works on desktop and mobile.</p>
         </div>
 
         <div class="crossword-mode-switch" role="group" aria-label="Choose your crossword mode">
           <button id="cwModeKids" class="crossword-mode-card is-kids" type="button" data-mode="kids">
             <span class="crossword-mode-chip">Kids Mode</span>
             <strong>Play Kids Crossword</strong>
-            <span>Pastel colors, bigger squares, and easy clues.</span>
+            <span>Pastel colors, bigger squares, easy clues, and lots of rewards.</span>
           </button>
           <button id="cwModeAdults" class="crossword-mode-card is-adults" type="button" data-mode="adults">
             <span class="crossword-mode-chip crossword-mode-chip--adult">Adults Mode</span>
             <strong>Play Adults Crossword</strong>
-            <span>Calm colors, smarter clues, and a real challenge.</span>
+            <span>Calm colors, smarter clues, and a real brain challenge.</span>
           </button>
         </div>
 
-        <p class="crossword-mode-note" id="cwModeNote">Choose your play style to start a fresh puzzle.</p>
+        <p class="crossword-mode-note" id="cwModeNote">Choose your play style to start a fresh puzzle adventure.</p>
+
+        <div class="crossword-kids-upgrade" aria-label="Kids and family game features">
+          <section class="crossword-mascot-card" aria-label="Puzzle buddy">
+            <div class="crossword-mascot-badge">
+              <span id="cwMascotEmoji" aria-hidden="true">🦉</span>
+              <strong id="cwMascotName">Word Owl</strong>
+            </div>
+            <div class="crossword-theme-title" id="cwThemeTitle">Candy Theme</div>
+            <p class="crossword-mascot-message" id="cwThemeNote">Pick a world and start your adventure.</p>
+            <div class="crossword-reward-strip" aria-label="Rewards">
+              <div class="cw-reward-item">
+                <span>⭐</span>
+                <strong id="cwRewardStars">0</strong>
+                <small>Stars</small>
+              </div>
+              <div class="cw-reward-item">
+                <span>🪙</span>
+                <strong id="cwRewardCoins">0</strong>
+                <small>Coins</small>
+              </div>
+              <div class="cw-reward-item">
+                <span>✨</span>
+                <strong id="cwRewardXp">0</strong>
+                <small>XP</small>
+              </div>
+              <div class="cw-reward-item">
+                <span>🔥</span>
+                <strong id="cwRewardStreak">0</strong>
+                <small>Streak</small>
+              </div>
+            </div>
+          </section>
+
+          <div class="crossword-theme-switch" id="cwThemeButtons" role="group" aria-label="Choose a world">
+            <button class="crossword-theme-chip-btn" type="button" data-theme="space">Space</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="jungle">Jungle</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="underwater">Underwater</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="candy">Candy</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="dinosaur">Dinosaur</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="magic">Magic Castle</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="school">School</button>
+            <button class="crossword-theme-chip-btn" type="button" data-theme="superhero">Superhero</button>
+            <button class="crossword-theme-chip-btn crossword-theme-chip-btn--adults" type="button" data-theme="classic">Classic</button>
+            <button class="crossword-theme-chip-btn crossword-theme-chip-btn--adults" type="button" data-theme="blueprint">Blueprint</button>
+            <button class="crossword-theme-chip-btn crossword-theme-chip-btn--adults" type="button" data-theme="calm">Calm</button>
+            <button class="crossword-theme-chip-btn crossword-theme-chip-btn--adults" type="button" data-theme="focus">Focus</button>
+          </div>
+        </div>
 
         <div class="crossword-hero-links" aria-label="Quick crossword links">
           <a href="/scrabble-word-finder/" class="cw-hero-link cw-hero-link--blue">
