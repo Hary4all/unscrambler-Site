@@ -320,6 +320,17 @@ function updateLetterDisplay() {
 }
 document.getElementById("letters").addEventListener("input", updateLetterDisplay);
 
+(function applyPrefill() {
+  const preset = window.WFL?.consumePrefill?.("/anagram-solver/");
+  if (!preset) return;
+  const input = document.getElementById("letters");
+  input.value = preset;
+  updateLetterDisplay();
+  setTimeout(() => {
+    document.getElementById("go")?.click();
+  }, 0);
+})();
+
 /* ---- Search ---- */
 async function search() {
   if (!CURRENT_DICT) {

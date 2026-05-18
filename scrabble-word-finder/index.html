@@ -350,6 +350,17 @@ function updateTilePreview() {
 }
 document.getElementById("letters").addEventListener("input", updateTilePreview);
 
+(function applyPrefill() {
+  const preset = window.WFL?.consumePrefill?.("/scrabble-word-finder/");
+  if (!preset) return;
+  const input = document.getElementById("letters");
+  input.value = preset;
+  updateTilePreview();
+  setTimeout(() => {
+    document.getElementById("go")?.click();
+  }, 0);
+})();
+
 /* ---- Render by score with bingo badge ---- */
 function renderByScore(containerId, words, scoreFn) {
   const out = document.getElementById(containerId);

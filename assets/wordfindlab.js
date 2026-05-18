@@ -337,6 +337,47 @@ const FOOTER_LINKS = [
 
 const SUPPORT_URL = "";
 
+function normalizePathForPrefill(path) {
+  return (path || "/").replace(/\/index\.html$/, "/").replace(/\/+$/, "/") || "/";
+}
+
+function prefillStorageKey(path) {
+  return "wordfindlab:prefill:" + normalizePathForPrefill(path);
+}
+
+function savePrefill(path, letters) {
+  const value = (letters || "").trim();
+  if (!value) return;
+  try {
+    localStorage.setItem(prefillStorageKey(path), value);
+  } catch (err) {}
+}
+
+function consumePrefill(path) {
+  const key = prefillStorageKey(path);
+  try {
+    const value = localStorage.getItem(key);
+    if (!value) return "";
+    localStorage.removeItem(key);
+    return value;
+  } catch (err) {
+    return "";
+  }
+}
+
+function installPrefillLinks() {
+  if (window.__wflPrefillLinksInstalled) return;
+  window.__wflPrefillLinksInstalled = true;
+
+  document.addEventListener("click", function (event) {
+    const link = event.target && event.target.closest ? event.target.closest("a[data-prefill-letters]") : null;
+    if (!link) return;
+    const letters = link.getAttribute("data-prefill-letters") || "";
+    if (!letters) return;
+    savePrefill(link.getAttribute("href") || "/", letters);
+  });
+}
+
 function injectNav() {
   const nav  = document.createElement("nav");
   nav.className = "site-nav";
@@ -472,6 +513,7 @@ document.addEventListener("DOMContentLoaded", injectFooterLinks);
 document.addEventListener("DOMContentLoaded", injectSupportCard);
 document.addEventListener("DOMContentLoaded", normalizeFooterStatus);
 document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
+document.addEventListener("DOMContentLoaded", installPrefillLinks);
 
 window.WFL = window.WFL || {};
 window.WFL.loadDictionary = loadDictionary;
@@ -480,6 +522,8 @@ window.WFL.renderWordGroups = renderWordGroups;
 window.WFL.scrabbleScore = scrabbleScore;
 window.WFL.wwfScore = wwfScore;
 window.WFL.runSearch = runSearch;
+window.WFL.savePrefill = savePrefill;
+window.WFL.consumePrefill = consumePrefill;
 
 
 
