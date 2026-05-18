@@ -582,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (t.href === currentPath || (t.href === "/" && (currentPath === "/" || currentPath === ""))) {
       a.className = "active";
     }
-    a.innerHTML = `<span class="ico">${t.badge}</span>${t.label}`;
+    a.innerHTML = `<span class="ico">${t.badge || t.icon || ""}</span>${t.label}`;
     wrap.appendChild(a);
   });
 })();

@@ -291,7 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const a = document.createElement("a");
     a.href = t.href;
     if (t.href === currentPath) a.className = "active";
-    a.innerHTML = '<span class="ico">' + t.icon + '</span>' + t.label;
+    a.innerHTML = '<span class="ico">' + (t.icon || t.badge || "") + '</span>' + t.label;
     wrap.appendChild(a);
   });
 })();
@@ -431,6 +431,7 @@ document.getElementById("letters").focus();
 <script src="/assets/sitewide-ads.js?v=20260518"></script>
 </body>
 </html>
+
 
 
 
