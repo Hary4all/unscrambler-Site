@@ -30,8 +30,8 @@ const TYPE_METAS = {
 const MODE_COPY = {
   kids: {
     bodyClass: "crossword-kids-mode",
-    note: "Kids Mode loaded! Pick a theme and let?s play!",
-    startPuzzle: "Let?s Play!",
+    note: "Kids Mode loaded! Pick a theme and let's play!",
+    startPuzzle: "Let's Play!",
     hint: "Help Me!",
     check: "Check It!",
     revealWord: "Show Word",
@@ -601,7 +601,7 @@ function initializeState(puzzle, settings) {
     if (dailyStatus && dailyStatus.signature === puzzle.signature && dailyStatus.completed) {
       setStatus("Today's crossword has already been completed here. You can still replay it.", "info");
     } else {
-      setStatus("Daily puzzle loaded. Start solving when you?re ready.", "info");
+      setStatus("Daily puzzle loaded. Start solving when you're ready.", "info");
     }
   } else {
     setStatus(getModeCopy().ready, "info");
