@@ -306,6 +306,8 @@ function updateModeSwitchUI() {
   const kidsActive = mode === "kids";
   if (DOM.modeKids) DOM.modeKids.classList.toggle("is-active", kidsActive);
   if (DOM.modeAdults) DOM.modeAdults.classList.toggle("is-active", !kidsActive);
+  document.querySelector(".crossword-mode-showcase__card--kids")?.classList.toggle("is-active", kidsActive);
+  document.querySelector(".crossword-mode-showcase__card--adult")?.classList.toggle("is-active", !kidsActive);
   if (DOM.modeNote) DOM.modeNote.textContent = getModeCopy(mode).note;
 }
 
