@@ -1056,23 +1056,28 @@ async function shareResult() {
   const text = `I played WordFindLab Crossword Game: ${state.score} points, ${solved}/${total} words solved, ${formatTime(state.remaining)} left. Try it at https://wordfindlab.com/crossword-game/`;
 
   try {
-    if (navigator.share) {
-      await navigator.share({
-        title: "WordFindLab Crossword Game",
-        text,
-        url: "https://wordfindlab.com/crossword-game/",
-      });
-    } else if (navigator.clipboard) {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://wordfindlab.com/crossword-game/")}&quote=${encodeURIComponent(text)}`;
+    window.open(shareUrl, "_blank", "noopener,noreferrer");
+  } catch (err) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(() => {});
+      setStatus("Result copied to clipboard.", "info");
+    }
+  }
+}
+
+async function copyResultLink() {
+  if (!state.puzzle) return;
+  const text = "Play the WordFindLab Crossword Game: https://wordfindlab.com/crossword-game/";
+  try {
+    if (navigator.clipboard) {
       await navigator.clipboard.writeText(text);
       setStatus("Result copied to clipboard.", "info");
     } else {
       setStatus(text, "info");
     }
   } catch (err) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).catch(() => {});
-      setStatus("Result copied to clipboard.", "info");
-    }
+    setStatus(text, "info");
   }
 }
 
@@ -1083,7 +1088,9 @@ function buildModalActions(completed) {
       <button type="button" class="cw-action cw-action--soft" data-modal-action="play-again">Play Again</button>
       <button type="button" class="cw-action cw-action--soft" data-modal-action="try-kids">Try Kids Mode</button>
       <button type="button" class="cw-action cw-action--soft" data-modal-action="try-adults">Try Adults Mode</button>
-      <button type="button" class="cw-action cw-action--primary" data-modal-action="share">Share Result</button>
+      <button type="button" class="cw-action cw-action--primary" data-modal-action="share">Facebook Share</button>
+      <button type="button" class="cw-action cw-action--soft" data-modal-action="copy-link">Copy Link</button>
+      <a class="cw-action cw-action--soft" href="https://www.facebook.com/profile.php?id=61589971622325" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
     `;
   }
   return `
@@ -1440,6 +1447,8 @@ function initEventDelegation() {
       takeHint();
     } else if (action === "share") {
       shareResult();
+    } else if (action === "copy-link") {
+      copyResultLink();
     } else if (action === "try-kids") {
       closeResultModal();
       DOM.modeKids.click();

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
+  <title>Printable Word Search Puzzles for Kids | WordFindLab</title>
+  <meta name="description" content="Create and print beautiful word search activities for kids, students, classrooms, and family fun.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wordfindlab.com/printable-word-search/">
+  <meta property="og:title" content="Printable Word Search Puzzles for Kids | WordFindLab">
+  <meta property="og:description" content="Create and print beautiful word search activities for kids, students, classrooms, and family fun.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wordfindlab.com/printable-word-search/">
+  <meta property="og:site_name" content="WordFindLab">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="stylesheet" href="/assets/style.css?v=20260519">
+  <link rel="stylesheet" href="/assets/family-games.css?v=20260519">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wordfindlab.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Printable Word Search", "item": "https://wordfindlab.com/printable-word-search/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can I print puzzles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can print the word search or save it as a PDF from the browser print dialog." } },
+          { "@type": "Question", "name": "Is it free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The printable word search tool is free to use." } },
+          { "@type": "Question", "name": "Can teachers use these activities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The printable layouts are designed for classrooms and family learning." } },
+          { "@type": "Question", "name": "Can I show the answer key?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can toggle the answer key before printing." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="family-page family-page--printable">
+  <div class="page-wrap">
+    <main class="page-main">
+      <section class="family-hero">
+        <div class="family-kicker">
+          <span aria-hidden="true">ðŸ–¨ï¸</span>
+          Printable Word Search Puzzles
+        </div>
+        <h1 class="family-title">Create and Print Word Search Activities</h1>
+        <p class="family-subtitle">Choose a category and difficulty, generate a clean puzzle, and print it for kids, students, classrooms, or family fun. Save as PDF from your browser with one click.</p>
+        <div class="family-social-row">
+          <a class="family-btn family-btn--facebook" href="https://www.facebook.com/profile.php?id=61589971622325" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
+          <button class="family-btn family-btn--soft" type="button" id="printableFacebook" data-facebook-share="https://wordfindlab.com/printable-word-search/" data-facebook-quote="Create printable word search puzzles for kids and families on WordFindLab!">Facebook Share</button>
+          <button class="family-btn family-btn--ghost" type="button" id="printableCopy" data-copy-link="https://wordfindlab.com/printable-word-search/">Copy Link</button>
+        </div>
+        <div class="family-badges">
+          <span class="family-badge">A4 Printable</span>
+          <span class="family-badge">Free to Play</span>
+          <span class="family-badge">Answer Key Optional</span>
+          <span class="family-badge">Created with WordFindLab.com</span>
+        </div>
+      </section>
+
+      <section class="family-section family-grid">
+        <div class="family-board">
+          <div class="family-board__header">
+            <div>
+              <p class="family-section-label">Printable Builder</p>
+              <h2 class="family-board__title">Generate a new puzzle</h2>
+            </div>
+            <div class="family-board__meta" id="printableStatus">Pick a category and make a puzzle.</div>
+          </div>
+
+          <div class="family-controls">
+            <label class="family-label">
+              Category
+              <select id="printableCategory" class="family-select">
+                <option value="animals">Animals</option>
+                <option value="food">Food</option>
+                <option value="school">School</option>
+                <option value="nature">Nature</option>
+                <option value="family">Family</option>
+                <option value="colors">Colors</option>
+                <option value="all">All Categories</option>
+              </select>
+            </label>
+            <label class="family-label">
+              Difficulty
+              <select id="printableDifficulty" class="family-select">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+            <label class="family-label">
+              Answer Key
+              <input id="printableAnswerKey" type="checkbox" class="family-select" style="width:auto; min-height:auto; padding:14px 0">
+            </label>
+            <div class="family-label">
+              Build / Print
+              <div class="family-print-toolbar">
+                <button id="printableGenerate" class="family-btn family-btn--primary" type="button">Generate Puzzle</button>
+                <button id="printablePrint" class="family-btn family-btn--soft" type="button">Download PDF</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="family-print-preview" style="margin-top:18px">
+            <div class="family-print-sheet" id="printableSheet">
+              <div class="family-section-label">Puzzle Preview</div>
+              <h2 id="printableTitle" style="margin:0; font-size:28px; letter-spacing:-.04em">Animals Word Search</h2>
+              <p id="printableMeta" class="family-subtitle" style="margin-top:6px">Easy â€¢ 6 words â€¢ A4 printable</p>
+              <div id="printableGrid" class="family-print-grid" aria-label="Printable word search grid"></div>
+              <div>
+                <div class="family-section-label">Word List</div>
+                <div id="printableWordList" class="family-word-list" style="margin-top:10px"></div>
+              </div>
+            </div>
+            <div class="family-print-sheet" id="printableAnswerSheet" hidden>
+              <div class="family-section-label">Answer Key</div>
+              <h2 style="margin:0; font-size:28px; letter-spacing:-.04em">Solved words and highlighted grid</h2>
+              <p id="printableAnswerMeta" class="family-subtitle" style="margin-top:6px">Teacher copy with answer key enabled.</p>
+              <div id="printableAnswerGrid" class="family-print-grid" aria-label="Printable answer key grid"></div>
+              <div>
+                <div class="family-section-label">Solved Words</div>
+                <div id="printableAnswerWords" class="family-word-list" style="margin-top:10px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="family-panel">
+          <div class="family-section-label">How it works</div>
+          <h2 style="margin:10px 0 8px; font-size:26px; letter-spacing:-.04em">Make a classroom-ready puzzle</h2>
+          <ol class="crossword-bullets">
+            <li>Choose a category and difficulty.</li>
+            <li>Generate a fresh puzzle and preview it on screen.</li>
+            <li>Turn on the answer key if you want a teacher copy.</li>
+            <li>Use Print or Download PDF to save the worksheet.</li>
+          </ol>
+          <div class="family-recommendation" style="margin-top:16px">
+            <div class="family-section-label">Follow &amp; Share</div>
+            <h3>Keep the puzzle fun going</h3>
+            <p>Share the page with families or classmates and follow WordFindLab for new puzzle ideas.</p>
+            <div class="family-recommendation__buttons">
+              <button class="family-btn family-btn--soft" type="button" data-facebook-share="https://wordfindlab.com/printable-word-search/" data-facebook-quote="Create printable word search puzzles for kids and families on WordFindLab!">Facebook Share</button>
+              <button class="family-btn family-btn--ghost" type="button" data-copy-link="https://wordfindlab.com/printable-word-search/">Copy Link</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="family-section family-card">
+        <div class="family-section__title">
+          <div>
+            <p class="family-section-label">FAQ</p>
+            <h2>Printable puzzle questions</h2>
+          </div>
+        </div>
+        <div class="family-faq-list">
+          <details class="family-faq-item" open>
+            <summary>Can I print puzzles?</summary>
+            <p>Yes. Use the print button or save the puzzle as a PDF from your browser.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Is it free to use?</summary>
+            <p>Yes. The printable word search tool is free to use.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Can teachers use these activities?</summary>
+            <p>Yes. The printable layouts are designed for classrooms and family learning.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Can I show the answer key?</summary>
+            <p>Yes. You can toggle the answer key before printing.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/wordfindlab.js?v=20260519"></script>
+  <script type="module" src="/assets/printable-word-search.js?v=20260519"></script>
+</body>
+</html>

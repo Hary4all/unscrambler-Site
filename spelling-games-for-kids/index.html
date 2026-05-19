@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
+  <title>Easy Spelling Games for Kids | WordFindLab</title>
+  <meta name="description" content="Enjoy fun spelling adventures for kids with hints, rewards, and interactive learning challenges.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wordfindlab.com/spelling-games-for-kids/">
+  <meta property="og:title" content="Easy Spelling Games for Kids | WordFindLab">
+  <meta property="og:description" content="Enjoy fun spelling adventures for kids with hints, rewards, and interactive learning challenges.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wordfindlab.com/spelling-games-for-kids/">
+  <meta property="og:site_name" content="WordFindLab">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="stylesheet" href="/assets/style.css?v=20260519">
+  <link rel="stylesheet" href="/assets/family-games.css?v=20260519">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wordfindlab.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Spelling Games for Kids", "item": "https://wordfindlab.com/spelling-games-for-kids/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Are these spelling games free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. WordFindLab spelling games are free to enjoy." } },
+          { "@type": "Question", "name": "Can kids play safely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The page is designed to be family-friendly, encouraging, and easy to use." } },
+          { "@type": "Question", "name": "Can I use hints?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Hints help children learn and stay encouraged while they play." } },
+          { "@type": "Question", "name": "Can I share my result?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can share on Facebook or copy the page link." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="family-page family-page--spelling family-kids-mode">
+  <div class="page-wrap">
+    <main class="page-main">
+      <section class="family-hero">
+        <div class="family-kicker">
+          <span aria-hidden="true">âœï¸</span>
+          Easy Spelling Games for Kids
+        </div>
+        <h1 class="family-title">Fun Spelling Adventures for Curious Kids</h1>
+        <p class="family-subtitle">Type the word that matches the clue, collect stars, and enjoy a cheerful learning challenge that feels rewarding at every step.</p>
+        <div class="family-social-row">
+          <a class="family-btn family-btn--facebook" href="https://www.facebook.com/profile.php?id=61589971622325" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
+          <button class="family-btn family-btn--soft" type="button" id="spellingShareFacebook" data-facebook-share="https://wordfindlab.com/spelling-games-for-kids/" data-facebook-quote="Try these fun spelling games for kids on WordFindLab!">Facebook Share</button>
+          <button class="family-btn family-btn--ghost" type="button" id="spellingCopyLink" data-copy-link="https://wordfindlab.com/spelling-games-for-kids/">Copy Link</button>
+        </div>
+        <div class="family-badges">
+          <span class="family-badge">Free to Play</span>
+          <span class="family-badge">Hints Included</span>
+          <span class="family-badge">Mobile Friendly</span>
+          <span class="family-badge">Family Safe</span>
+        </div>
+      </section>
+
+      <section class="family-section family-grid">
+        <div class="family-board">
+          <div class="family-board__header">
+            <div>
+              <p class="family-section-label">Spelling Challenge</p>
+              <h2 class="family-board__title">Listen, spell, and win stars</h2>
+            </div>
+            <div class="family-board__meta" id="spellingProgress">1/6</div>
+          </div>
+
+          <div class="family-controls" aria-label="Spelling controls">
+            <label class="family-label">
+              Mode
+              <div class="family-actions">
+                <button class="family-btn family-btn--primary" type="button" data-spelling-mode="beginner">Beginner</button>
+                <button class="family-btn family-btn--soft" type="button" data-spelling-mode="easy">Easy</button>
+                <button class="family-btn family-btn--ghost" type="button" data-spelling-mode="challenge">Challenge</button>
+              </div>
+            </label>
+            <label class="family-label">
+              Category
+              <div class="family-actions">
+                <button class="family-btn family-btn--primary" type="button" data-spelling-category="all">All</button>
+                <button class="family-btn family-btn--soft" type="button" data-spelling-category="animals">Animals</button>
+                <button class="family-btn family-btn--ghost" type="button" data-spelling-category="food">Food</button>
+                <button class="family-btn family-btn--ghost" type="button" data-spelling-category="school">School</button>
+                <button class="family-btn family-btn--ghost" type="button" data-spelling-category="nature">Nature</button>
+                <button class="family-btn family-btn--ghost" type="button" data-spelling-category="family">Family</button>
+              </div>
+            </label>
+          </div>
+
+          <div class="family-stats" style="margin-top:16px">
+            <div class="family-stat"><strong id="spellingScore">0</strong><span>Score</span></div>
+            <div class="family-stat"><strong id="spellingBest">0</strong><span>Best Score</span></div>
+            <div class="family-stat"><strong id="spellingStreak">0</strong><span>Streak</span></div>
+            <div class="family-stat"><strong id="spellingCategoryLabel">All Categories</strong><span>Filter</span></div>
+          </div>
+
+          <div class="family-board" style="margin-top:16px; padding:18px">
+            <div class="family-section-label">Word Prompt</div>
+            <div class="family-board__title" id="spellingModeTitle">Beginner</div>
+            <p class="family-subtitle" id="spellingModeCopy" style="margin-top:8px">Super simple clues and big rewards.</p>
+            <div class="family-card-grid" style="margin-top:18px">
+              <div class="family-card" id="spellingCurrentWord">
+                <div class="family-card__icon family-card__icon--yellow" id="spellingEmoji" aria-hidden="true">ðŸ±</div>
+                <h3 id="spellingClue">A small furry pet that says meow</h3>
+                <p>Type the spelling in the box below.</p>
+              </div>
+              <div class="family-card">
+                <div class="family-section-label">Your Answer</div>
+                <input id="spellingAnswer" class="family-input" type="text" inputmode="text" autocomplete="off" aria-label="Type the word">
+                <div class="family-actions" style="margin-top:12px">
+                  <button id="spellingCheck" class="family-btn family-btn--primary" type="button">Check Word</button>
+                  <button id="spellingHint" class="family-btn family-btn--soft" type="button">Hint</button>
+                  <button id="spellingNext" class="family-btn family-btn--ghost" type="button">Next</button>
+                </div>
+                <div class="family-prompt" id="spellingFeedback" style="margin-top:12px">Type the word that matches the clue.</div>
+              </div>
+            </div>
+
+            <div class="family-actions" style="margin-top:16px">
+              <button id="spellingPlayAgain" class="family-btn family-btn--soft" type="button">Play Again</button>
+              <a class="family-btn family-btn--facebook" href="https://www.facebook.com/profile.php?id=61589971622325" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="family-panel">
+          <div class="family-section-label">Solved Words</div>
+          <h2 style="margin:10px 0 8px; font-size:26px; letter-spacing:-.04em">Rewards and streaks</h2>
+          <div id="spellingSolvedList" class="family-word-list"></div>
+          <div class="family-recommendation" style="margin-top:18px">
+            <div class="family-section-label">Share &amp; Invite</div>
+            <h3>Show the challenge to a friend</h3>
+            <p>Use Facebook Share or Copy Link to let someone else try the same spelling fun.</p>
+            <div class="family-recommendation__buttons">
+              <button class="family-btn family-btn--soft" type="button" id="spellingShareFacebookSidebar" data-facebook-share="https://wordfindlab.com/spelling-games-for-kids/" data-facebook-quote="Try these fun spelling games for kids on WordFindLab!">Facebook Share</button>
+              <button class="family-btn family-btn--ghost" type="button" data-copy-link="https://wordfindlab.com/spelling-games-for-kids/">Copy Link</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="family-section family-card">
+        <div class="family-section__title">
+          <div>
+            <p class="family-section-label">How to Play</p>
+            <h2>Simple spelling steps</h2>
+          </div>
+        </div>
+        <ol class="crossword-bullets">
+          <li>Choose Beginner, Easy, or Challenge mode.</li>
+          <li>Pick a category like Animals, Food, or School.</li>
+          <li>Look at the emoji clue and type the word.</li>
+          <li>Use a hint if you need a little help.</li>
+          <li>Keep going to build your score and streak.</li>
+        </ol>
+      </section>
+
+      <section class="family-section family-card">
+        <div class="family-section__title">
+          <div>
+            <p class="family-section-label">FAQ</p>
+            <h2>Spelling game questions</h2>
+          </div>
+        </div>
+        <div class="family-faq-list">
+          <details class="family-faq-item" open>
+            <summary>Are these spelling games free?</summary>
+            <p>Yes. WordFindLab spelling adventures are free to enjoy.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Can kids play safely?</summary>
+            <p>Yes. The page is built to stay bright, simple, and family-friendly.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Can I use hints?</summary>
+            <p>Yes. Hints help keep the game encouraging and supportive.</p>
+          </details>
+          <details class="family-faq-item">
+            <summary>Can I share my result?</summary>
+            <p>Yes. You can share on Facebook or copy the page link.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="spellingModal" class="family-celebration" hidden aria-hidden="true">
+    <div class="family-celebration__card" role="dialog" aria-modal="true" aria-labelledby="spellingModalTitle">
+      <button type="button" id="spellingModalClose" class="cw-modal-close" aria-label="Close celebration">Ã—</button>
+      <div class="family-celebration__emoji" id="spellingModalEmoji" aria-hidden="true">ðŸŒŸ</div>
+      <h2 class="family-celebration__title" id="spellingModalTitle">Amazing!</h2>
+      <p class="family-celebration__copy" id="spellingModalMessage">You finished the spelling challenge!</p>
+      <div class="family-stats" style="margin-top:16px">
+        <div class="family-stat"><strong id="spellingModalScore">0</strong><span>Score</span></div>
+        <div class="family-stat"><strong id="spellingModalStreak">0</strong><span>Streak</span></div>
+        <div class="family-stat"><strong id="spellingModalBest">0</strong><span>Best Score</span></div>
+        <div class="family-stat"><strong>ðŸ…</strong><span>Winner</span></div>
+      </div>
+      <div class="family-celebration__actions">
+        <a class="family-btn family-btn--facebook" id="spellingModalFacebook" href="https://www.facebook.com/profile.php?id=61589971622325" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
+        <button type="button" class="family-btn family-btn--soft" id="spellingModalShare" data-facebook-share="https://wordfindlab.com/spelling-games-for-kids/" data-facebook-quote="I just finished a WordFindLab spelling game!">Facebook Share</button>
+        <button type="button" class="family-btn family-btn--ghost" id="spellingModalCopy" data-copy-link="https://wordfindlab.com/spelling-games-for-kids/">Copy Link</button>
+        <button type="button" class="family-btn family-btn--primary" id="spellingModalPlayAgain">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/wordfindlab.js?v=20260519"></script>
+  <script type="module" src="/assets/spelling-games.js?v=20260519"></script>
+</body>
+</html>

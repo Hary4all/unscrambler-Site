@@ -334,6 +334,7 @@ const FOOTER_LINKS = [
   { href: "/privacy-policy/", label: "Privacy Policy" },
   { href: "/terms/", label: "Terms" },
   { href: "/crossword-game/", label: "Crossword Game" },
+  { href: "https://www.facebook.com/profile.php?id=61589971622325", label: "Facebook", external: true },
 ];
 
 const SUPPORT_URL = "";
@@ -461,6 +462,10 @@ function injectFooterLinks() {
       const a = document.createElement("a");
       a.href = item.href;
       a.textContent = item.label;
+      if (item.external) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
       group.appendChild(a);
     });
   });

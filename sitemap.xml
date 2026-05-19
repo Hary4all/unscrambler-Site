@@ -3060,4 +3060,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+<url>
+    <loc>https://wordfindlab.com/family-word-games/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/word-search-for-kids/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/printable-word-search/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/spelling-games-for-kids/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
