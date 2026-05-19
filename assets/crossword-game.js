@@ -304,10 +304,14 @@ function applyModeTheme() {
 function updateModeSwitchUI() {
   const mode = getGameMode();
   const kidsActive = mode === "kids";
-  if (DOM.modeKids) DOM.modeKids.classList.toggle("is-active", kidsActive);
-  if (DOM.modeAdults) DOM.modeAdults.classList.toggle("is-active", !kidsActive);
-  document.querySelector(".crossword-mode-showcase__card--kids")?.classList.toggle("is-active", kidsActive);
-  document.querySelector(".crossword-mode-showcase__card--adult")?.classList.toggle("is-active", !kidsActive);
+  if (DOM.modeKids) {
+    DOM.modeKids.classList.toggle("is-active", kidsActive);
+    DOM.modeKids.setAttribute("aria-pressed", kidsActive ? "true" : "false");
+  }
+  if (DOM.modeAdults) {
+    DOM.modeAdults.classList.toggle("is-active", !kidsActive);
+    DOM.modeAdults.setAttribute("aria-pressed", !kidsActive ? "true" : "false");
+  }
   if (DOM.modeNote) DOM.modeNote.textContent = getModeCopy(mode).note;
 }
 
