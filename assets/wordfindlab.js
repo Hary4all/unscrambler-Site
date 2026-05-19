@@ -305,12 +305,13 @@ function copyWord(el, word) {
 /* ---------- Nav injection ---------- */
 
 const NAV_LINKS = [
+  { href: "/",                          label: "Home" },
+  { href: "/crossword-game/",           label: "Crossword Game", badge: "NEW" },
   { href: "/scrabble-word-finder/",     label: "Scrabble Finder" },
   { href: "/wordle-solver/",            label: "Wordle Solver" },
   { href: "/anagram-solver/",           label: "Anagram Solver" },
   { href: "/words-with-friends-cheat/", label: "Words With Friends" },
   { href: "/jumble-solver/",            label: "Jumble Solver" },
-  { href: "/crossword-game/",           label: "Crossword Game" },
   { href: "/word-patterns/",            label: "Patterns" },
   { href: "/guides/",                   label: "Guides" },
   { href: "/dictionary/",               label: "Dictionary" },
@@ -403,10 +404,15 @@ function injectNav() {
   NAV_LINKS.forEach(item => {
     const a = document.createElement("a");
     a.href  = item.href;
-    a.innerHTML = item.label + (item.caret ? '<span class="nav-caret" aria-hidden="true"></span>' : "");
+    a.classList.toggle("nav-link--spotlight", item.badge === "NEW");
+    a.innerHTML = `
+      <span class="nav-link-label">${item.label}</span>
+      ${item.badge ? `<span class="nav-link-badge">${item.badge}</span>` : ""}
+      ${item.caret ? '<span class="nav-caret" aria-hidden="true"></span>' : ""}
+    `;
     const isHome  = item.href === "/" && (currentPath === "/" || currentPath === "");
     const isMatch = item.href !== "/" && currentPath.startsWith(item.href);
-    if (isHome || isMatch) a.className = "active";
+    if (isHome || isMatch) a.classList.add("active");
     links.appendChild(a);
   });
 
