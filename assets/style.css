@@ -4189,13 +4189,13 @@ a.announce-bar:hover {
 /* ---------- Sitewide Cat Mascot ---------- */
 .wfl-cat-mascot {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: clamp(88px, 9vw, 132px);
+  right: 14px;
+  bottom: 14px;
+  width: clamp(56px, 5.5vw, 82px);
   aspect-ratio: 1 / 1;
-  z-index: 170;
+  z-index: 120;
   pointer-events: none;
-  filter: drop-shadow(0 16px 24px rgba(15,23,42,.16));
+  filter: drop-shadow(0 10px 16px rgba(15,23,42,.14));
   transform-origin: 50% 90%;
   animation: wflCatFloat 5.5s ease-in-out infinite;
 }
@@ -4251,18 +4251,18 @@ a.announce-bar:hover {
 
 @media (max-width: 900px) {
   .wfl-cat-mascot {
-    right: 12px;
-    bottom: 12px;
-    width: 76px;
+    right: 10px;
+    bottom: 10px;
+    width: 68px;
   }
 }
 
 @media (max-width: 640px) {
   .wfl-cat-mascot {
-    width: 60px;
-    right: 10px;
-    bottom: 10px;
-    opacity: .95;
+    width: 56px;
+    right: 8px;
+    bottom: 8px;
+    opacity: .93;
   }
 }
 
