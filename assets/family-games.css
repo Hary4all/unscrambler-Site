@@ -580,6 +580,11 @@ body.family-page .page-wrap {
   50% { transform: translateY(-4px); opacity: 1; }
 }
 
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-14px) rotate(4deg); }
+}
+
 .family-section__title {
   display: flex;
   flex-wrap: wrap;
@@ -1124,6 +1129,771 @@ body.family-page .page-wrap {
 
   .spelling-side-panel {
     position: static;
+  }
+}
+
+@media print {
+  body.family-page {
+    background: #fff !important;
+  }
+
+  .site-nav,
+  .site-footer,
+  .family-social-row,
+  .family-actions,
+  .family-print-toolbar,
+  .family-share-toolbar,
+  .family-recommendation,
+  .family-faq-card,
+  .ad-wrap,
+  .family-hero .family-badges {
+    display: none !important;
+  }
+
+  .family-print-sheet {
+    box-shadow: none !important;
+  }
+}
+
+/* ----------------------------- Spelling redesign override ------------------------------ */
+body.family-page--spelling {
+  --spelling-hero-top: #b8ecff;
+  --spelling-hero-mid: #e8f9ff;
+  --spelling-hero-bottom: #fff7d8;
+  --spelling-ink: #26324b;
+  --spelling-soft: #56627a;
+  --spelling-pink: #ff7fb7;
+  --spelling-pink-deep: #ef5e9f;
+  --spelling-yellow: #ffd964;
+  --spelling-yellow-deep: #f7bd2d;
+  --spelling-green: #6edb95;
+  --spelling-green-deep: #2ba963;
+  --spelling-blue: #61bdf7;
+  --spelling-blue-deep: #278fd0;
+  --spelling-purple: #aa8cff;
+  --spelling-purple-deep: #7859db;
+  --spelling-card: rgba(255, 255, 255, 0.92);
+  --spelling-shadow: 0 22px 60px rgba(56, 82, 125, 0.18);
+  --spelling-shadow-soft: 0 14px 30px rgba(56, 82, 125, 0.12);
+  --spelling-border: rgba(48, 75, 120, 0.1);
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.95) 0 8%, transparent 9%),
+    radial-gradient(circle at 90% 7%, rgba(255, 255, 255, 0.9) 0 7%, transparent 8%),
+    linear-gradient(180deg, var(--spelling-hero-top) 0%, var(--spelling-hero-mid) 38%, var(--spelling-hero-bottom) 100%);
+}
+
+body.family-page--spelling::before,
+body.family-page--spelling::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+body.family-page--spelling::before {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: 22%;
+  background: rgba(255, 185, 220, 0.32);
+}
+
+body.family-page--spelling::after {
+  width: 480px;
+  height: 480px;
+  right: -160px;
+  top: 52%;
+  background: rgba(151, 228, 255, 0.38);
+}
+
+body.family-page--spelling .float-letter {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  font-weight: 900;
+  font-size: 1.7rem;
+  color: #fff;
+  box-shadow: 0 15px 26px rgba(39, 73, 118, 0.18);
+  animation: bob 4.8s ease-in-out infinite;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.family-page--spelling .letter-a { left: 1%; top: 120px; background: linear-gradient(135deg, #ff7fb7, #ef5e9f); }
+body.family-page--spelling .letter-b { right: 4%; top: 260px; background: linear-gradient(135deg, #aa8cff, #7859db); animation-delay: 0.8s; }
+body.family-page--spelling .letter-c { left: 3%; top: 760px; background: linear-gradient(135deg, #6edb95, #2ba963); animation-delay: 1.4s; }
+body.family-page--spelling .letter-star { right: 2%; top: 980px; background: linear-gradient(135deg, #ffd964, #f7bd2d); animation-delay: 2s; }
+
+body.family-page--spelling .page-wrap {
+  width: min(1220px, calc(100% - 32px));
+  max-width: 1220px;
+}
+
+body.family-page--spelling .page-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body.family-page--spelling .page-main > section {
+  margin-top: 0;
+}
+
+body.family-page--spelling .page-main > section:nth-of-type(1) { order: 1; }
+body.family-page--spelling .page-main > section:nth-of-type(3) { order: 2; }
+body.family-page--spelling .page-main > section:nth-of-type(4) { order: 3; }
+body.family-page--spelling .page-main > section:nth-of-type(2) { order: 4; }
+body.family-page--spelling .page-main > section:nth-of-type(5) { order: 5; }
+body.family-page--spelling .page-main > section:nth-of-type(6) { order: 6; }
+body.family-page--spelling .page-main > section:nth-of-type(7) { order: 7; }
+body.family-page--spelling .page-main > section:nth-of-type(8) { order: 8; }
+body.family-page--spelling .page-main > section:nth-of-type(9) { order: 9; }
+
+body.family-page--spelling .family-hero,
+body.family-page--spelling .family-section,
+body.family-page--spelling .family-board,
+body.family-page--spelling .family-panel,
+body.family-page--spelling .family-card,
+body.family-page--spelling .family-recommendation,
+body.family-page--spelling .family-faq-item {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 22px 60px rgba(56, 82, 125, 0.10);
+}
+
+body.family-page--spelling .family-section {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+body.family-page--spelling .family-section > .family-section__title,
+body.family-page--spelling .family-section > .spelling-category-grid,
+body.family-page--spelling .family-section > .spelling-mode-grid,
+body.family-page--spelling .family-section > .spelling-step-grid,
+body.family-page--spelling .family-section > .spelling-practice-grid,
+body.family-page--spelling .family-section > .spelling-keep-grid,
+body.family-page--spelling .family-section > .family-grid,
+body.family-page--spelling .family-section > .family-faq-list {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  box-shadow: var(--spelling-shadow-soft);
+  border-radius: 34px;
+  padding: 30px;
+}
+
+body.family-page--spelling .family-section__title {
+  margin-bottom: 0;
+}
+
+body.family-page--spelling .spelling-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 30px;
+  align-items: center;
+  padding: 34px;
+  min-height: 710px;
+  border-radius: 48px;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,0.88) 0 13%, transparent 14%),
+    radial-gradient(circle at 88% 18%, rgba(255,255,255,0.8) 0 10%, transparent 11%),
+    linear-gradient(140deg, rgba(255,255,255,0.82), rgba(255,244,198,0.86));
+  overflow: hidden;
+}
+
+body.family-page--spelling .spelling-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -90px -10%;
+  height: 230px;
+  background:
+    radial-gradient(circle at 20% 0%, #98e9ae 0 28%, transparent 29%),
+    radial-gradient(circle at 52% 5%, #8dde9b 0 29%, transparent 30%),
+    radial-gradient(circle at 80% 10%, #73d98e 0 30%, transparent 31%);
+  opacity: 0.9;
+}
+
+body.family-page--spelling .spelling-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -20px -24px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 185, 79, 0.18), transparent 68%);
+  pointer-events: none;
+}
+
+body.family-page--spelling .spelling-hero__copy,
+body.family-page--spelling .spelling-hero__mascot {
+  position: relative;
+  z-index: 2;
+}
+
+body.family-page--spelling .spelling-hero__copy {
+  padding: 18px 6px 18px 8px;
+  display: grid;
+  gap: 12px;
+}
+
+body.family-page--spelling .family-title {
+  margin: 16px 0 2px;
+  font-size: clamp(3rem, 6.2vw, 5.8rem);
+  line-height: 0.93;
+  letter-spacing: -0.065em;
+  max-width: 720px;
+}
+
+body.family-page--spelling .family-title span {
+  display: block;
+  color: var(--spelling-pink-deep);
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.75);
+}
+
+body.family-page--spelling .spelling-hero .family-subtitle {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.72;
+  color: var(--spelling-soft);
+  font-weight: 700;
+}
+
+body.family-page--spelling .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+body.family-page--spelling .trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.family-page--spelling .trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.96);
+  font-weight: 900;
+  color: #536079;
+  box-shadow: var(--spelling-shadow-soft);
+}
+
+body.family-page--spelling .spelling-hero__mascot {
+  min-height: 635px;
+  display: grid;
+  align-items: center;
+}
+
+body.family-page--spelling .scene-shell {
+  position: relative;
+  min-height: 630px;
+  border-radius: 42px;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 14%, rgba(255,255,255,0.95) 0 11%, transparent 12%),
+    linear-gradient(180deg, rgba(213,245,255,0.98), rgba(255,240,194,0.95));
+  border: 1px solid rgba(255,255,255,0.94);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), var(--spelling-shadow);
+  overflow: hidden;
+}
+
+body.family-page--spelling .scene-shell::before {
+  content: "";
+  position: absolute;
+  inset: auto -15% -45px -15%;
+  height: 190px;
+  background:
+    radial-gradient(circle at 15% 10%, #84df9c 0 26%, transparent 27%),
+    radial-gradient(circle at 44% 5%, #76d78f 0 29%, transparent 30%),
+    radial-gradient(circle at 76% 10%, #69cd87 0 28%, transparent 29%);
+}
+
+body.family-page--spelling .speech {
+  position: absolute;
+  top: 26px;
+  right: 22px;
+  width: min(290px, calc(100% - 44px));
+  background: #fff;
+  border-radius: 26px;
+  padding: 18px 18px 20px;
+  box-shadow: var(--spelling-shadow-soft);
+  font-weight: 900;
+  color: var(--spelling-purple-deep);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  z-index: 5;
+}
+
+body.family-page--spelling .speech::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: -12px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+body.family-page--spelling .mascot-stage {
+  position: absolute;
+  left: 10px;
+  bottom: 70px;
+  width: 45%;
+  height: 470px;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  z-index: 3;
+}
+
+body.family-page--spelling .mascot-img {
+  width: 100%;
+  max-width: 330px;
+  max-height: 460px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 24px rgba(65, 72, 100, 0.2));
+  animation: mascotFloat 4.2s ease-in-out infinite;
+}
+
+body.family-page--spelling .hero-mini-game {
+  position: absolute;
+  right: 18px;
+  bottom: 52px;
+  z-index: 4;
+  width: min(365px, calc(100% - 36px));
+  border-radius: 34px;
+  padding: 22px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.98);
+  box-shadow: var(--spelling-shadow);
+}
+
+body.family-page--spelling .mini-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  background: #fff2cb;
+  color: #946000;
+  font-weight: 900;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+body.family-page--spelling .mini-clue {
+  margin: 0 0 14px;
+  font-size: 1.08rem;
+  line-height: 1.48;
+  font-weight: 900;
+}
+
+body.family-page--spelling .letter-boxes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+body.family-page--spelling .letter-box {
+  width: 52px;
+  height: 60px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  font-weight: 1000;
+  color: var(--spelling-purple-deep);
+  background: linear-gradient(180deg, #ffffff, #f4f0ff);
+  border: 2px solid rgba(120, 89, 219, 0.18);
+  box-shadow: 0 10px 20px rgba(95, 75, 160, 0.12);
+}
+
+body.family-page--spelling .star-sparkle {
+  position: absolute;
+  font-size: 1.7rem;
+  animation: sparkle 3.8s ease-in-out infinite;
+}
+
+body.family-page--spelling .spark-1 { top: 134px; left: 42%; }
+body.family-page--spelling .spark-2 { top: 220px; right: 26px; animation-delay: 1s; }
+body.family-page--spelling .spark-3 { bottom: 180px; left: 42%; animation-delay: 1.8s; }
+
+body.family-page--spelling .spelling-mascot {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 18px 18px 14px;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.88), transparent 14%),
+    radial-gradient(circle at 80% 16%, rgba(255, 255, 255, 0.82), transparent 16%),
+    linear-gradient(180deg, #fff9ef 0%, #ffe7c4 100%);
+  border: 1px solid rgba(248, 180, 66, 0.24);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.10);
+}
+
+body.family-page--spelling .spelling-mascot::before,
+body.family-page--spelling .spelling-mascot::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+body.family-page--spelling .spelling-mascot::before {
+  inset: 24px auto auto -8px;
+  width: 16px;
+  height: 16px;
+  background: #f59e0b;
+  box-shadow:
+    42px 18px 0 0 #f97316,
+    78px 2px 0 0 #fde047,
+    120px 24px 0 0 #38bdf8,
+    180px 10px 0 0 #fb7185,
+    248px 18px 0 0 #22c55e,
+    310px 4px 0 0 #8b5cf6,
+    364px 28px 0 0 #f59e0b;
+  animation: spellingDrift 8s ease-in-out infinite;
+}
+
+body.family-page--spelling .spelling-mascot::after {
+  inset: auto 24px 18px auto;
+  width: 18px;
+  height: 18px;
+  background: #fde68a;
+  box-shadow:
+    -48px -10px 0 0 #f97316,
+    -88px 24px 0 0 #38bdf8,
+    -134px 2px 0 0 #f472b6,
+    -178px 20px 0 0 #22c55e;
+}
+
+body.family-page--spelling .spelling-mascot__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: 50% 80%;
+  animation: spellingFloat 5.8s ease-in-out infinite;
+}
+
+body.family-page--spelling .spelling-mascot__tail {
+  transform-origin: 80% 55%;
+  animation: spellingTail 4.8s ease-in-out infinite;
+}
+
+body.family-page--spelling .spelling-mascot__bubble {
+  position: absolute;
+  z-index: 2;
+  max-width: 220px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 28px rgba(15, 23, 42, 0.10);
+  color: #1e293b;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+body.family-page--spelling .spelling-mascot__bubble--primary {
+  top: 18px;
+  right: 18px;
+  background: linear-gradient(135deg, #fff7ed, #fff);
+}
+
+body.family-page--spelling .spelling-mascot__bubble--soft {
+  left: 22px;
+  bottom: 30px;
+}
+
+body.family-page--spelling .spelling-mascot__bubble--accent {
+  right: 20px;
+  bottom: 34px;
+  background: linear-gradient(135deg, #eff6ff, #fff);
+}
+
+body.family-page--spelling .spelling-mode-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.family-page--spelling .spelling-category-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body.family-page--spelling .spelling-mode-card,
+body.family-page--spelling .spelling-category-card {
+  min-height: 150px;
+  border-radius: 24px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.82), transparent 18%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+body.family-page--spelling .spelling-mode-card p,
+body.family-page--spelling .spelling-category-card p {
+  font-size: 0.97rem;
+}
+
+body.family-page--spelling .spelling-game-layout {
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+body.family-page--spelling .spelling-game-layout .family-board,
+body.family-page--spelling .spelling-game-layout .family-panel {
+  border-radius: 34px;
+  padding: 22px;
+}
+
+body.family-page--spelling .spelling-board {
+  position: relative;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(255,255,255,0.88) 0 12%, transparent 13%),
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(245,249,255,0.93));
+}
+
+body.family-page--spelling .spelling-board::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 22px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(59, 130, 246, 0.08), transparent 15%),
+    radial-gradient(circle at 82% 16%, rgba(236, 72, 153, 0.06), transparent 16%),
+    radial-gradient(circle at 50% 84%, rgba(245, 158, 11, 0.06), transparent 18%);
+}
+
+body.family-page--spelling .spelling-board > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.family-page--spelling .spelling-side-panel {
+  position: sticky;
+  top: 16px;
+}
+
+body.family-page--spelling .family-board__title {
+  font-size: clamp(22px, 2.8vw, 36px);
+  letter-spacing: -.04em;
+}
+
+body.family-page--spelling .family-board__meta {
+  color: var(--family-muted);
+  font-size: 14px;
+}
+
+body.family-page--spelling .family-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.family-page--spelling .family-stat {
+  border-radius: 22px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+body.family-page--spelling .family-stat strong {
+  font-size: 1.75rem;
+}
+
+body.family-page--spelling .family-prompt {
+  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  border: 1px solid #dbeafe;
+  color: #1d4ed8;
+}
+
+body.family-page--spelling .family-word-list {
+  min-height: 44px;
+}
+
+body.family-page--spelling .spelling-game-layout .family-board .family-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+body.family-page--spelling .challenge-section {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.family-page--spelling .challenge-section > .surface,
+body.family-page--spelling .challenge-section {
+  border-radius: 40px;
+}
+
+body.family-page--spelling .challenge-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.family-page--spelling .challenge-card {
+  border-radius: 34px;
+  min-height: 246px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.family-page--spelling .learning-strip {
+  border-radius: 40px;
+  background: rgba(255,255,255,0.88);
+  box-shadow: var(--spelling-shadow);
+}
+
+body.family-page--spelling .steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.family-page--spelling .parent-panel,
+body.family-page--spelling .more-games,
+body.family-page--spelling .faq {
+  border-radius: 40px;
+}
+
+body.family-page--spelling .game-link-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.family-page--spelling .family-faq-list {
+  gap: 14px;
+}
+
+body.family-page--spelling .family-celebration__card {
+  border-radius: 40px;
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.25) rotate(14deg); opacity: 1; }
+}
+
+@keyframes spellingFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.01); }
+}
+
+@keyframes spellingTail {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes spellingDrift {
+  0%, 100% { transform: translateY(0); opacity: .9; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+@media (max-width: 1180px) {
+  body.family-page--spelling .spelling-hero,
+  body.family-page--spelling .spelling-game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.family-page--spelling .spelling-category-grid,
+  body.family-page--spelling .challenge-grid,
+  body.family-page--spelling .game-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.family-page--spelling .spelling-side-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  body.family-page--spelling .page-wrap {
+    width: min(100% - 20px, 1220px);
+    padding-top: 12px;
+  }
+
+  body.family-page--spelling .family-hero,
+  body.family-page--spelling .family-section > .family-section__title,
+  body.family-page--spelling .family-section > .spelling-category-grid,
+  body.family-page--spelling .family-section > .spelling-mode-grid,
+  body.family-page--spelling .family-section > .spelling-step-grid,
+  body.family-page--spelling .family-section > .spelling-practice-grid,
+  body.family-page--spelling .family-section > .spelling-keep-grid,
+  body.family-page--spelling .family-section > .family-grid,
+  body.family-page--spelling .family-section > .family-faq-list {
+    padding: 20px;
+    border-radius: 28px;
+  }
+
+  body.family-page--spelling .spelling-hero {
+    min-height: unset;
+  }
+
+  body.family-page--spelling .spelling-hero__mascot,
+  body.family-page--spelling .scene-shell {
+    min-height: 640px;
+  }
+
+  body.family-page--spelling .spelling-category-grid,
+  body.family-page--spelling .spelling-mode-grid,
+  body.family-page--spelling .challenge-grid,
+  body.family-page--spelling .steps,
+  body.family-page--spelling .game-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.family-page--spelling .float-letter {
+    display: none;
+  }
+
+  body.family-page--spelling .hero-mini-game {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+
+  body.family-page--spelling .speech {
+    left: 16px;
+    right: 16px;
+    top: 16px;
+    width: auto;
+  }
+
+  body.family-page--spelling .mascot-stage {
+    width: 100%;
+    left: 0;
+    bottom: 220px;
+    height: 300px;
+  }
+
+  body.family-page--spelling .spelling-mascot__bubble {
+    max-width: 170px;
+    font-size: 13px;
   }
 }
 

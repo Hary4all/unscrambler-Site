@@ -84,7 +84,9 @@ function updateTopBar() {
   els.scoreText.textContent = String(state.score);
   els.bestText.textContent = String(state.best);
   els.streakText.textContent = String(state.streak);
-  els.progressText.textContent = `${Math.min(state.index + 1, state.queue.length)}/${state.queue.length || 0}`;
+  const totalRounds = state.queue.length || MODE_META[state.settings.difficulty]?.rounds || 0;
+  const currentRound = state.queue.length ? Math.min(state.index + 1, state.queue.length) : 0;
+  els.progressText.textContent = `${currentRound}/${totalRounds}`;
 }
 
 function currentItem() {
