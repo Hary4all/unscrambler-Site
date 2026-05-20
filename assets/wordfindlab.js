@@ -500,89 +500,6 @@ function injectSupportCard() {
   footer.parentNode.insertBefore(wrap, footer);
 }
 
-function injectCatMascot() {
-  if (document.querySelector(".wfl-cat-mascot")) return;
-  if (!document.body) return;
-
-  const wrap = document.createElement("div");
-  wrap.className = "wfl-cat-mascot";
-  wrap.setAttribute("aria-hidden", "true");
-  wrap.innerHTML = `
-    <svg class="wfl-cat-mascot__svg" viewBox="0 0 260 260" role="presentation" focusable="false" aria-hidden="true">
-      <defs>
-        <linearGradient id="wfl-cat-fur" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ffbb54" />
-          <stop offset="42%" stop-color="#ff8b1f" />
-          <stop offset="100%" stop-color="#f46b00" />
-        </linearGradient>
-        <radialGradient id="wfl-cat-highlight" cx="30%" cy="22%" r="80%">
-          <stop offset="0%" stop-color="#ffdca6" stop-opacity=".95" />
-          <stop offset="55%" stop-color="#ffd18e" stop-opacity=".45" />
-          <stop offset="100%" stop-color="#ffd18e" stop-opacity="0" />
-        </radialGradient>
-        <radialGradient id="wfl-cat-belly" cx="50%" cy="35%" r="70%">
-          <stop offset="0%" stop-color="#fff8ef" />
-          <stop offset="100%" stop-color="#ffe4c8" />
-        </radialGradient>
-        <radialGradient id="wfl-cat-eye" cx="35%" cy="32%" r="70%">
-          <stop offset="0%" stop-color="#4c2300" />
-          <stop offset="100%" stop-color="#120900" />
-        </radialGradient>
-        <linearGradient id="wfl-cat-collar" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ef4444" />
-          <stop offset="100%" stop-color="#b91c1c" />
-        </linearGradient>
-        <radialGradient id="wfl-cat-bell" cx="35%" cy="30%" r="75%">
-          <stop offset="0%" stop-color="#fff3a4" />
-          <stop offset="100%" stop-color="#f59e0b" />
-        </radialGradient>
-        <filter id="wfl-cat-shadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity=".18"/>
-        </filter>
-      </defs>
-      <g filter="url(#wfl-cat-shadow)">
-        <ellipse cx="132" cy="181" rx="84" ry="62" fill="url(#wfl-cat-fur)" />
-        <ellipse cx="128" cy="189" rx="56" ry="42" fill="url(#wfl-cat-belly)" />
-        <ellipse cx="119" cy="111" rx="72" ry="62" fill="url(#wfl-cat-fur)" />
-        <ellipse cx="118" cy="92" rx="64" ry="52" fill="url(#wfl-cat-highlight)" opacity=".7" />
-        <polygon points="72,78 92,31 112,84" fill="url(#wfl-cat-fur)" />
-        <polygon points="176,83 196,31 218,78" fill="url(#wfl-cat-fur)" />
-        <polygon points="83,72 93,45 103,76" fill="#ffd9c9" />
-        <polygon points="186,74 194,46 205,73" fill="#ffd9c9" />
-        <ellipse cx="109" cy="101" rx="18" ry="22" fill="#fff" />
-        <ellipse cx="148" cy="101" rx="18" ry="22" fill="#fff" />
-        <circle cx="109" cy="104" r="10" fill="url(#wfl-cat-eye)" />
-        <circle cx="148" cy="104" r="10" fill="url(#wfl-cat-eye)" />
-        <circle cx="104" cy="98" r="3.5" fill="#fff" />
-        <circle cx="143" cy="98" r="3.5" fill="#fff" />
-        <ellipse cx="129" cy="120" rx="24" ry="20" fill="#fff5eb" />
-        <path d="M121 123 C127 117 134 117 140 123" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" fill="none" />
-        <path d="M128 123 L122 130" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M128 123 L134 130" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M92 122 L57 112" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M91 128 L53 129" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M92 134 L58 145" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M167 122 L202 112" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M168 128 L206 129" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <path d="M168 134 L202 145" stroke="#fff1e5" stroke-width="2.5" stroke-linecap="round" />
-        <rect x="74" y="167" width="32" height="38" rx="15" fill="url(#wfl-cat-fur)" />
-        <rect x="112" y="173" width="32" height="36" rx="15" fill="url(#wfl-cat-fur)" />
-        <rect x="150" y="167" width="32" height="38" rx="15" fill="url(#wfl-cat-fur)" />
-        <rect x="184" y="174" width="26" height="36" rx="13" fill="url(#wfl-cat-fur)" />
-        <path d="M206 168 C230 158 234 134 220 122 C210 113 198 115 192 124" fill="none" stroke="url(#wfl-cat-fur)" stroke-width="18" stroke-linecap="round"/>
-        <path d="M206 168 C225 160 230 137 217 126" fill="none" stroke="#ffd18e" stroke-width="6" stroke-linecap="round"/>
-        <path d="M91 151 C104 144 118 142 132 142 C146 142 160 144 173 151" fill="none" stroke="url(#wfl-cat-collar)" stroke-width="16" stroke-linecap="round"/>
-        <circle cx="132" cy="158" r="14" fill="url(#wfl-cat-bell)" />
-        <path d="M132 150 C137 154 137 160 132 164 C127 160 127 154 132 150Z" fill="#7c2d12" opacity=".85"/>
-        <path d="M132 144 L132 138" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
-        <path d="M208 123 C214 110 214 95 207 83 C200 71 192 66 184 62" fill="none" stroke="#e85f00" stroke-width="8" stroke-linecap="round"/>
-      </g>
-    </svg>
-  `;
-
-  document.body.appendChild(wrap);
-}
-
 function normalizeFooterStatus() {
   document.querySelectorAll("#dictStat").forEach(el => {
     if (!el || el.dataset.wflFooterStatus === "1") return;
@@ -606,7 +523,6 @@ function normalizeBrandLinks() {
 document.addEventListener("DOMContentLoaded", injectNav);
 document.addEventListener("DOMContentLoaded", injectFooterLinks);
 document.addEventListener("DOMContentLoaded", injectSupportCard);
-document.addEventListener("DOMContentLoaded", injectCatMascot);
 document.addEventListener("DOMContentLoaded", normalizeFooterStatus);
 document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
 document.addEventListener("DOMContentLoaded", installPrefillLinks);
