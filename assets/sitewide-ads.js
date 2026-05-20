@@ -65,7 +65,7 @@
     block.className = "ad-wrap ad-supplemental-ads";
     block.style.width = "100%";
     block.style.maxWidth = "970px";
-    block.style.margin = "32px auto";
+    block.style.margin = "24px auto";
     block.style.padding = "0 16px";
     block.style.boxSizing = "border-box";
 

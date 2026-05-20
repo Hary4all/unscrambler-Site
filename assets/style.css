@@ -155,7 +155,7 @@ img { max-width: 100%; }
 
 /* ---------- Page header ---------- */
 .page-header {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .page-header h1 {
   font-size: clamp(22px, 3vw, 32px);
@@ -177,7 +177,7 @@ img { max-width: 100%; }
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .card:last-child { margin-bottom: 0; }
 
@@ -970,7 +970,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   color: var(--muted);
   font-size: 12px;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .ad-slot-banner  { height: 90px; }
 .ad-slot-rect    { height: 250px; }
@@ -1040,7 +1040,7 @@ details.advanced[open] summary::before { content: "▾ "; }
     position: sticky;
     bottom: 8px;
     z-index: 120;
-    margin: 16px auto 28px;
+    margin: 12px auto 20px;
   }
   .ad-mobile-bottom .ad-label {
     align-self: center;
@@ -1156,7 +1156,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--ink-2);
   font-size: 14px;
   line-height: 1.75;
@@ -1188,7 +1188,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   display: flex;
   flex-wrap: wrap;
   gap: 6px 16px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .footer-links a { color: #8891a8; }
 .footer-links a:hover { color: #fff; }
@@ -1634,9 +1634,9 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 
 /* ─── Ad label wrapper (AdSense-safe) ─── */
-.ad-wrap { margin-bottom: 16px; }
+.ad-wrap { margin-bottom: 12px; }
 .ad-wrap {
-  margin: 32px auto;
+  margin: 24px auto;
   max-width: 970px;
   border-radius: 16px;
 }
@@ -1667,7 +1667,7 @@ details.advanced[open] summary::before { content: "▾ "; }
     background-attachment: scroll;
   }
   .ad-wrap {
-    margin: 24px auto;
+    margin: 16px auto;
     max-width: 100%;
   }
 }
@@ -3250,7 +3250,7 @@ a.announce-bar:hover {
   letter-spacing: -.03em;
   color: #0f172a;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .feature-grid {
   display: grid;
@@ -3654,12 +3654,12 @@ a.announce-bar:hover {
   .hero-subcopy {
     font-size: 16px;
     line-height: 1.45;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
   .hero-feature-row {
     grid-template-columns: 1fr;
     gap: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
   .hero-feature {
     padding: 12px;
@@ -3828,7 +3828,7 @@ a.announce-bar:hover {
 
 /* ─── Mid-content ad (between results and strategy) ─────────────────────── */
 .ad-mid-content {
-  margin: 8px 0 4px;
+  margin: 4px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3930,7 +3930,7 @@ a.announce-bar:hover {
   border-color: #bfdbfe;
 }
 .programmatic-sidebar .card {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .programmatic-faq .faq-item {
   padding: 12px 0;
@@ -4123,7 +4123,7 @@ a.announce-bar:hover {
 /* Hub page */
 .wotd-hub-intro { margin-bottom: 16px; }
 .wotd-hub-links {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .wotd-hub-links p {
   margin: 0 0 14px;

@@ -1238,7 +1238,7 @@ body.family-page--spelling .page-wrap {
 body.family-page--spelling .page-main {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
 }
 
 body.family-page--spelling .page-main > section {
@@ -1287,7 +1287,7 @@ body.family-page--spelling .family-section > .family-faq-list {
   border: 1px solid rgba(255, 255, 255, 0.94);
   box-shadow: var(--spelling-shadow-soft);
   border-radius: 34px;
-  padding: 30px;
+  padding: 24px;
 }
 
 body.family-page--spelling .family-section__title {
@@ -1300,8 +1300,8 @@ body.family-page--spelling .spelling-hero {
   grid-template-columns: 1.02fr 0.98fr;
   gap: 30px;
   align-items: center;
-  padding: 34px;
-  min-height: 710px;
+  padding: 30px;
+  min-height: 680px;
   border-radius: 48px;
   background:
     radial-gradient(circle at 20% 15%, rgba(255,255,255,0.88) 0 13%, transparent 14%),
@@ -1340,9 +1340,9 @@ body.family-page--spelling .spelling-hero__mascot {
 }
 
 body.family-page--spelling .spelling-hero__copy {
-  padding: 18px 6px 18px 8px;
+  padding: 14px 4px 14px 6px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 body.family-page--spelling .family-title {
@@ -1371,8 +1371,8 @@ body.family-page--spelling .spelling-hero .family-subtitle {
 body.family-page--spelling .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 6px;
+  gap: 12px;
+  margin-top: 4px;
 }
 
 body.family-page--spelling .trust-row {
@@ -1396,7 +1396,7 @@ body.family-page--spelling .trust-pill {
 }
 
 body.family-page--spelling .spelling-hero__mascot {
-  min-height: 635px;
+  min-height: 610px;
   display: grid;
   align-items: center;
 }
@@ -1658,14 +1658,14 @@ body.family-page--spelling .spelling-category-card p {
 body.family-page--spelling .spelling-game-layout {
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
-  gap: 22px;
+  gap: 16px;
   align-items: stretch;
 }
 
 body.family-page--spelling .spelling-game-layout .family-board,
 body.family-page--spelling .spelling-game-layout .family-panel {
   border-radius: 34px;
-  padding: 22px;
+  padding: 18px;
 }
 
 body.family-page--spelling .spelling-board {
@@ -1694,7 +1694,7 @@ body.family-page--spelling .spelling-board > * {
 
 body.family-page--spelling .spelling-side-panel {
   position: sticky;
-  top: 16px;
+  top: 12px;
 }
 
 body.family-page--spelling .family-board__title {
