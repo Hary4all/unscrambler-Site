@@ -5,17 +5,17 @@ const DATA_URL = "/data/family-word-games.json?v=20260519";
 
 const MODE_META = {
   beginner: {
-    title: "Beginner",
-    copy: "Super simple clues and big rewards.",
+    title: "Little Learner",
+    copy: "Simple clues, gentle encouragement, and quick wins.",
     rounds: 6,
   },
   easy: {
-    title: "Easy",
-    copy: "Fun spelling practice with friendly hints.",
+    title: "Word Explorer",
+    copy: "Playful spelling practice with friendly hints.",
     rounds: 7,
   },
   challenge: {
-    title: "Challenge",
+    title: "Spelling Star",
     copy: "A bigger brain workout with stronger clues.",
     rounds: 8,
   },
@@ -98,7 +98,7 @@ function renderItem() {
   els.clue.textContent = item.clue;
   els.answer.value = "";
   els.feedback.textContent = state.settings.difficulty === "challenge"
-    ? "Try your best and type the spelling."
+    ? "Take your time and type the spelling."
     : "Type the word that matches the clue.";
   els.input.focus();
   updateTopBar();
@@ -117,7 +117,14 @@ function correctAnswer() {
   state.streak += 1;
   state.best = setBestScore(state.score);
   els.currentWord.classList.add("is-correct");
-  showFeedback(state.settings.difficulty === "beginner" ? "Great job!" : "Nice work!", true);
+  showFeedback(
+    state.settings.difficulty === "beginner"
+      ? "Yay! Great job!"
+      : state.settings.difficulty === "challenge"
+        ? "Spelling Star!"
+        : "Great spelling!",
+    true
+  );
   updateTopBar();
   window.setTimeout(() => {
     els.currentWord.classList.remove("is-correct");
@@ -151,8 +158,8 @@ function finishGame() {
   state.finished = true;
   state.best = setBestScore(state.score);
   updateTopBar();
-  els.modalTitle.textContent = "Amazing!";
-  els.modalMessage.textContent = "You finished the spelling challenge!";
+  els.modalTitle.textContent = state.settings.difficulty === "challenge" ? "Spelling Star!" : "Amazing!";
+  els.modalMessage.textContent = "You finished the spelling adventure!";
   els.modalEmoji.textContent = "🌟";
   els.modalScore.textContent = String(state.score);
   els.modalStreak.textContent = String(state.streak);
@@ -185,9 +192,7 @@ function resetGame() {
 function applyMode(mode) {
   state.settings.difficulty = mode;
   saveFamilyPreferences({ spellingMode: mode });
-  document.body.classList.toggle("spelling-beginner", mode === "beginner");
-  document.body.classList.toggle("spelling-easy", mode === "easy");
-  document.body.classList.toggle("spelling-challenge", mode === "challenge");
+  syncModeBody();
   resetGame();
 }
 
@@ -195,6 +200,12 @@ function applyCategory(category) {
   state.settings.category = category;
   saveFamilyPreferences({ spellingCategory: category });
   resetGame();
+}
+
+function syncModeBody() {
+  document.body.classList.toggle("spelling-beginner", state.settings.difficulty === "beginner");
+  document.body.classList.toggle("spelling-easy", state.settings.difficulty === "easy");
+  document.body.classList.toggle("spelling-challenge", state.settings.difficulty === "challenge");
 }
 
 function giveHint() {
@@ -302,6 +313,7 @@ async function init() {
   const prefs = getFamilyPreferences();
   if (prefs.spellingMode) state.settings.difficulty = prefs.spellingMode;
   if (prefs.spellingCategory) state.settings.category = prefs.spellingCategory;
+  syncModeBody();
   els.modeButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.spellingMode === state.settings.difficulty);
   });
@@ -316,3 +328,5 @@ async function init() {
 }
 
 window.addEventListener("DOMContentLoaded", init);
+
+
