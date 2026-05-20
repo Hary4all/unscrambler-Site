@@ -1,4 +1,4 @@
-import { FACEBOOK_PAGE_URL, copyLink, openFacebookShare, wireShareGroup } from "/assets/family-social.js";
+import { wireShareGroup } from "/assets/family-social.js";
 import { getFamilyPreferences, saveFamilyPreferences, getBestScore, setBestScore } from "/assets/family-storage.js";
 
 const DATA_URL = "/data/family-word-games.json?v=20260519";
@@ -166,11 +166,6 @@ function finishGame() {
   els.modalScore.textContent = String(state.score);
   els.modalStreak.textContent = String(state.streak);
   els.modalBest.textContent = String(state.best);
-  els.modalFacebook.href = FACEBOOK_PAGE_URL;
-  els.modalFacebook.target = "_blank";
-  els.modalFacebook.rel = "noopener noreferrer";
-  els.modalShare.dataset.facebookShare = window.location.href;
-  els.modalCopy.dataset.copyLink = window.location.href;
   els.modal.classList.add("is-open");
   els.modal.hidden = false;
 }
@@ -258,12 +253,6 @@ function wireButtons() {
     els.modal.hidden = true;
     els.modal.classList.remove("is-open");
   });
-  els.shareFacebook.addEventListener("click", () => openFacebookShare(window.location.href, document.title));
-  els.copyLink.addEventListener("click", async () => {
-    const ok = await copyLink(window.location.href);
-    els.copyLink.textContent = ok ? "Copied!" : "Copy failed";
-    window.setTimeout(() => { els.copyLink.textContent = "Copy Link"; }, 1200);
-  });
 }
 
 function wireInput() {
@@ -294,8 +283,6 @@ async function init() {
   els.hint = $("spellingHint");
   els.next = $("spellingNext");
   els.playAgain = $("spellingPlayAgain");
-  els.shareFacebook = $("spellingShareFacebook");
-  els.copyLink = $("spellingCopyLink");
   els.modal = $("spellingModal");
   els.modalClose = $("spellingModalClose");
   els.modalTitle = $("spellingModalTitle");
@@ -304,9 +291,6 @@ async function init() {
   els.modalScore = $("spellingModalScore");
   els.modalStreak = $("spellingModalStreak");
   els.modalBest = $("spellingModalBest");
-  els.modalFacebook = $("spellingModalFacebook");
-  els.modalShare = $("spellingModalShare");
-  els.modalCopy = $("spellingModalCopy");
   els.modalPlayAgain = $("spellingModalPlayAgain");
   els.solvedList = $("spellingSolvedList");
   els.modeButtons = Array.from(document.querySelectorAll("[data-spelling-mode]"));
@@ -325,6 +309,12 @@ async function init() {
 
   wireButtons();
   wireInput();
+  document.querySelectorAll("[data-copy-link]").forEach((button) => {
+    button.dataset.copyLink = window.location.href;
+  });
+  document.querySelectorAll("[data-facebook-share]").forEach((button) => {
+    button.dataset.facebookShare = window.location.href;
+  });
   wireShareGroup(document);
   resetGame();
 }
