@@ -73,7 +73,7 @@ body.family-page .page-wrap {
 }
 
 .family-hero {
-  padding: 26px;
+  padding: 22px;
   position: relative;
   overflow: hidden;
 }
@@ -111,7 +111,7 @@ body.family-page .page-wrap {
 }
 
 .family-title {
-  margin: 18px 0 10px;
+  margin: 14px 0 8px;
   font-size: clamp(34px, 4.4vw, 56px);
   line-height: 1;
   letter-spacing: -.06em;
@@ -123,7 +123,7 @@ body.family-page .page-wrap {
   margin: 0;
   color: var(--family-muted);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .family-actions,
@@ -135,7 +135,7 @@ body.family-page .page-wrap {
 }
 
 .family-social-row {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .family-btn {
@@ -591,7 +591,7 @@ body.family-page .page-wrap {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 
 .family-section__title h2 {
@@ -620,12 +620,12 @@ body.family-page .page-wrap {
 .family-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .family-card {
-  padding: 16px;
-  min-height: 210px;
+  padding: 14px;
+  min-height: 196px;
   position: relative;
   overflow: hidden;
   text-decoration: none;
@@ -661,7 +661,7 @@ body.family-page .page-wrap {
 .family-card__icon--purple { background: linear-gradient(135deg, #ddd6fe, #c4b5fd); }
 
 .family-card h3 {
-  margin: 10px 0 6px;
+  margin: 8px 0 6px;
   font-size: 24px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -1272,7 +1272,7 @@ body.family-page--spelling .page-wrap {
 body.family-page--spelling .page-main {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 body.family-page--spelling .page-main > section {
@@ -1321,7 +1321,7 @@ body.family-page--spelling .family-section > .family-faq-list {
   border: 1px solid rgba(255, 255, 255, 0.94);
   box-shadow: var(--spelling-shadow-soft);
   border-radius: 34px;
-  padding: 18px;
+  padding: 14px;
 }
 
 body.family-page--spelling .family-section__title {
@@ -1332,10 +1332,10 @@ body.family-page--spelling .spelling-hero {
   position: relative;
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
-  gap: 24px;
+  gap: 18px;
   align-items: center;
-  padding: 26px;
-  min-height: 650px;
+  padding: 20px;
+  min-height: 610px;
   border-radius: 48px;
   background:
     radial-gradient(circle at 20% 15%, rgba(255,255,255,0.88) 0 13%, transparent 14%),
@@ -1991,12 +1991,12 @@ body.family-page .page-wrap {
 .family-recommendation,
 .family-faq-item,
 .family-print-card {
-  padding: 14px;
+  padding: 12px;
 }
 
 body.family-page--spelling .spelling-hero {
-  gap: 18px;
-  padding: 22px;
+  gap: 16px;
+  padding: 18px;
 }
 
 body.family-page--spelling .family-section > .family-section__title,
@@ -2007,14 +2007,14 @@ body.family-page--spelling .family-section > .spelling-practice-grid,
 body.family-page--spelling .family-section > .spelling-keep-grid,
 body.family-page--spelling .family-section > .family-grid,
 body.family-page--spelling .family-section > .family-faq-list {
-  padding: 16px;
+  padding: 12px;
 }
 
 body.family-page--spelling .spelling-playboard,
 body.family-page--spelling .spelling-side-panel,
 body.family-page--spelling .challenge-card,
 body.family-page--spelling .game-link {
-  padding: 14px;
+  padding: 12px;
 }
 
 @media (max-width: 760px) {
@@ -2025,7 +2025,7 @@ body.family-page--spelling .game-link {
 
   .family-hero,
   body.family-page--spelling .spelling-hero {
-    padding: 16px;
+    padding: 12px;
   }
 
   .family-section {
@@ -2040,6 +2040,6 @@ body.family-page--spelling .game-link {
   body.family-page--spelling .family-section > .spelling-keep-grid,
   body.family-page--spelling .family-section > .family-grid,
   body.family-page--spelling .family-section > .family-faq-list {
-    padding: 14px;
+    padding: 12px;
   }
 }

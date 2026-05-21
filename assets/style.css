@@ -143,11 +143,11 @@ img { max-width: 100%; }
 .page-wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 18px 34px;
+  padding: 16px 16px 28px;
   display: grid;
   grid-template-columns: 1fr 300px;
   grid-template-rows: auto;
-  gap: 18px;
+  gap: 14px;
   align-items: start;
 }
 .page-main { min-width: 0; }
@@ -175,9 +175,9 @@ img { max-width: 100%; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 16px;
   box-shadow: var(--shadow);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .card:last-child { margin-bottom: 0; }
 
@@ -3218,14 +3218,14 @@ a.announce-bar:hover {
 
 .page-wrap {
   max-width: 1360px;
-  padding: 18px 20px 38px;
-  gap: 16px;
+  padding: 16px 18px 30px;
+  gap: 14px;
   grid-template-columns: minmax(0, 1fr) 324px;
 }
 .page-main {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .feature-hub {
@@ -3941,20 +3941,20 @@ a.announce-bar:hover {
   display: block;
   max-width: 760px;
   margin: 0 auto;
-  padding: 16px 16px 30px;
+  padding: 14px 14px 24px;
 }
 
 /* WOTD card */
 .wotd-card {
-  padding: 16px;
-  margin-bottom: 10px;
+  padding: 14px;
+  margin-bottom: 8px;
 }
 
 /* Header */
 .wotd-header {
   text-align: center;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
   border-bottom: 2px solid var(--border, #e2e8f0);
 }
 .wotd-date {
@@ -4257,7 +4257,7 @@ a.announce-bar:hover {
 }
 
 .hero-visual {
-  min-height: 620px;
+  min-height: 580px;
 }
 
 .hero-board {
@@ -4285,7 +4285,7 @@ a.announce-bar:hover {
 }
 
 .crossword-home-banner__main {
-  padding: 16px;
+  padding: 12px;
 }
 
 .crossword-home-banner p {
@@ -4319,20 +4319,20 @@ a.announce-bar:hover {
 
 .programmatic-hero,
 .wotd-card {
-  padding: 16px;
+  padding: 14px;
 }
 
 .wotd-header {
-  margin-bottom: 12px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .wotd-section {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .ad-wrap {
-  margin: 10px auto;
+  margin: 8px auto;
 }
 
 .ad-slot,
@@ -4357,12 +4357,12 @@ a.announce-bar:hover {
   }
 
   .page-wrap {
-    padding: 8px 12px 22px;
+    padding: 8px 10px 20px;
     gap: 8px;
   }
 
   .hero-shell {
-    padding: 10px 12px 6px;
+    padding: 10px 10px 6px;
   }
 
   .hero-title {
