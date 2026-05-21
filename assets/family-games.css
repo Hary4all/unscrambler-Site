@@ -1919,3 +1919,93 @@ body.family-page--spelling .family-celebration__card {
     box-shadow: none !important;
   }
 }
+
+/* Compact spacing pass for family and kids game pages. */
+body.family-page .page-wrap {
+  padding-top: 12px;
+  padding-bottom: 30px;
+}
+
+.family-hero {
+  padding: 22px;
+}
+
+.family-title {
+  margin: 12px 0 8px;
+}
+
+.family-subtitle {
+  line-height: 1.58;
+}
+
+.family-badges,
+.family-social-row {
+  margin-top: 10px;
+}
+
+.family-section {
+  margin-top: 12px;
+}
+
+.family-section__title {
+  margin-bottom: 8px;
+}
+
+.family-card,
+.family-board,
+.family-panel,
+.family-recommendation,
+.family-faq-item,
+.family-print-card {
+  padding: 14px;
+}
+
+body.family-page--spelling .spelling-hero {
+  gap: 18px;
+  padding: 22px;
+}
+
+body.family-page--spelling .family-section > .family-section__title,
+body.family-page--spelling .family-section > .spelling-category-grid,
+body.family-page--spelling .family-section > .spelling-mode-grid,
+body.family-page--spelling .family-section > .spelling-step-grid,
+body.family-page--spelling .family-section > .spelling-practice-grid,
+body.family-page--spelling .family-section > .spelling-keep-grid,
+body.family-page--spelling .family-section > .family-grid,
+body.family-page--spelling .family-section > .family-faq-list {
+  padding: 16px;
+}
+
+body.family-page--spelling .spelling-playboard,
+body.family-page--spelling .spelling-side-panel,
+body.family-page--spelling .challenge-card,
+body.family-page--spelling .game-link {
+  padding: 14px;
+}
+
+@media (max-width: 760px) {
+  body.family-page .page-wrap {
+    padding-top: 10px;
+    padding-bottom: 24px;
+  }
+
+  .family-hero,
+  body.family-page--spelling .spelling-hero {
+    padding: 16px;
+  }
+
+  .family-section {
+    margin-top: 10px;
+  }
+
+  body.family-page--spelling .family-section > .family-section__title,
+  body.family-page--spelling .family-section > .spelling-category-grid,
+  body.family-page--spelling .family-section > .spelling-mode-grid,
+  body.family-page--spelling .family-section > .spelling-step-grid,
+  body.family-page--spelling .family-section > .spelling-practice-grid,
+  body.family-page--spelling .family-section > .spelling-keep-grid,
+  body.family-page--spelling .family-section > .family-grid,
+  body.family-page--spelling .family-section > .family-faq-list {
+    padding: 14px;
+  }
+}

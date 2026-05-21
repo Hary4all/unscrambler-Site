@@ -4193,3 +4193,226 @@ a.announce-bar:hover {
   .nav-btn { padding: 8px 12px; font-size: 0.82rem; }
   .tile { width: 38px; height: 42px; font-size: 1.1rem; }
 }
+
+/* ============================================================
+   Site-wide spacing cleanup
+   Keeps key sections closer together without changing markup.
+============================================================ */
+.card {
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.page-wrap {
+  padding-top: 12px;
+  padding-bottom: 32px;
+  gap: 14px;
+}
+
+.page-main {
+  gap: 10px;
+}
+
+.hero-shell {
+  padding: 20px 24px 8px;
+}
+
+.hero-shell__inner {
+  gap: 20px;
+}
+
+.hero-title {
+  margin: 12px 0 10px;
+}
+
+.hero-subcopy {
+  margin-bottom: 14px;
+}
+
+.hero-feature-row {
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hero-feature {
+  padding: 12px;
+}
+
+.hero-search-card {
+  padding: 16px;
+}
+
+.hero-search-label {
+  margin-bottom: 8px;
+}
+
+.hero-search-row {
+  gap: 10px;
+}
+
+.hero-search-row .input-letters,
+.hero-search-row .btn {
+  height: 54px;
+}
+
+.hero-enter-hint,
+.hero-search-card .demo-box,
+.demo-box {
+  margin-top: 8px;
+}
+
+.demo-box {
+  padding: 10px 12px;
+}
+
+.trust-badges--compact {
+  margin-top: 10px;
+}
+
+.hero-visual {
+  min-height: 620px;
+}
+
+.hero-board {
+  top: 26px;
+}
+
+.hero-sidecard {
+  top: 238px;
+}
+
+.hero-playbook {
+  top: 196px;
+}
+
+.hero-trending-card {
+  bottom: 92px;
+}
+
+.hero-trust-row {
+  bottom: 16px;
+}
+
+.crossword-home-banner {
+  margin-top: 8px;
+}
+
+.crossword-home-banner__main {
+  padding: 16px;
+}
+
+.crossword-home-banner p {
+  margin-top: 8px;
+}
+
+.crossword-home-banner__actions {
+  margin-top: 10px;
+}
+
+.crossword-home-banner__badges {
+  margin-top: 10px;
+}
+
+.crossword-home-banner__art {
+  padding: 14px 14px 14px 0;
+}
+
+.crossword-home-banner__plate {
+  padding: 14px 16px;
+}
+
+.feature-card,
+.stats-item,
+.tools-widget,
+.proof-panel,
+.wotd-widget,
+.homepage-wotd {
+  margin-bottom: 8px;
+}
+
+.programmatic-hero,
+.wotd-card {
+  padding: 18px;
+}
+
+.wotd-header {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+}
+
+.wotd-section {
+  margin-bottom: 22px;
+}
+
+.ad-wrap {
+  margin: 12px auto;
+}
+
+.ad-slot,
+.ad-mid-content {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1180px) {
+  .hero-visual {
+    min-height: 640px;
+  }
+
+  .hero-trending-card {
+    bottom: 88px;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: 14px;
+    margin-bottom: 8px;
+  }
+
+  .page-wrap {
+    padding: 10px 12px 24px;
+    gap: 10px;
+  }
+
+  .hero-shell {
+    padding: 12px 12px 6px;
+  }
+
+  .hero-title {
+    margin: 10px 0 8px;
+  }
+
+  .hero-subcopy,
+  .hero-feature-row {
+    margin-bottom: 10px;
+  }
+
+  .hero-search-card {
+    padding: 12px;
+  }
+
+  .hero-search-row {
+    gap: 8px;
+  }
+
+  .hero-search-row .input-letters,
+  .hero-search-row .btn {
+    height: 50px;
+  }
+
+  .crossword-home-banner {
+    margin-top: 6px;
+  }
+
+  .crossword-home-banner__main {
+    padding: 14px 14px 8px;
+  }
+
+  .crossword-home-banner__art {
+    padding: 0 14px 14px;
+  }
+
+  .ad-wrap {
+    margin: 10px auto;
+  }
+}
