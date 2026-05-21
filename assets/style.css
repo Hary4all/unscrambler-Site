@@ -1629,9 +1629,9 @@ details.advanced[open] summary::before { content: "v "; }
 }
 
 /* --- Ad label wrapper (AdSense-safe) --- */
-.ad-wrap { margin-bottom: 12px; }
+.ad-wrap { margin-bottom: 8px; }
 .ad-wrap {
-  margin: 20px auto;
+  margin: 14px auto;
   max-width: 970px;
   border-radius: 16px;
 }
@@ -3941,20 +3941,20 @@ a.announce-bar:hover {
   display: block;
   max-width: 760px;
   margin: 0 auto;
-  padding: 20px 16px 40px;
+  padding: 16px 16px 30px;
 }
 
 /* WOTD card */
 .wotd-card {
-  padding: 20px;
-  margin-bottom: 14px;
+  padding: 16px;
+  margin-bottom: 10px;
 }
 
 /* Header */
 .wotd-header {
   text-align: center;
-  margin-bottom: 16px;
-  padding-bottom: 14px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 2px solid var(--border, #e2e8f0);
 }
 .wotd-date {
@@ -3984,7 +3984,7 @@ a.announce-bar:hover {
 
 /* Sections */
 .wotd-section {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .wotd-section h2 {
   font-size: 0.75rem;
@@ -4186,55 +4186,55 @@ a.announce-bar:hover {
    Keeps key sections closer together without changing markup.
 ============================================================ */
 .card {
-  padding: 16px;
-  margin-bottom: 8px;
+  padding: 14px;
+  margin-bottom: 6px;
 }
 
 .page-wrap {
-  padding-top: 12px;
-  padding-bottom: 32px;
-  gap: 14px;
+  padding-top: 8px;
+  padding-bottom: 24px;
+  gap: 12px;
 }
 
 .page-main {
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero-shell {
-  padding: 20px 24px 8px;
+  padding: 18px 22px 6px;
 }
 
 .hero-shell__inner {
-  gap: 20px;
+  gap: 16px;
 }
 
 .hero-title {
-  margin: 12px 0 10px;
+  margin: 10px 0 8px;
 }
 
 .hero-subcopy {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .hero-feature-row {
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .hero-feature {
-  padding: 12px;
+  padding: 10px 12px;
 }
 
 .hero-search-card {
-  padding: 16px;
+  padding: 14px;
 }
 
 .hero-search-label {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .hero-search-row {
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero-search-row .input-letters,
@@ -4245,7 +4245,7 @@ a.announce-bar:hover {
 .hero-enter-hint,
 .hero-search-card .demo-box,
 .demo-box {
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .demo-box {
@@ -4319,20 +4319,20 @@ a.announce-bar:hover {
 
 .programmatic-hero,
 .wotd-card {
-  padding: 18px;
+  padding: 16px;
 }
 
 .wotd-header {
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
 }
 
 .wotd-section {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .ad-wrap {
-  margin: 12px auto;
+  margin: 10px auto;
 }
 
 .ad-slot,
@@ -4353,16 +4353,16 @@ a.announce-bar:hover {
 @media (max-width: 760px) {
   .card {
     padding: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .page-wrap {
-    padding: 10px 12px 24px;
-    gap: 10px;
+    padding: 8px 12px 22px;
+    gap: 8px;
   }
 
   .hero-shell {
-    padding: 12px 12px 6px;
+    padding: 10px 12px 6px;
   }
 
   .hero-title {
