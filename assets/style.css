@@ -4412,7 +4412,64 @@ a.announce-bar:hover {
     padding: 0 14px 14px;
   }
 
-  .ad-wrap {
+.ad-wrap {
     margin: 10px auto;
+  }
+}
+
+/* Homepage tool cards: compact tile layout instead of tall stretched columns. */
+.feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: start;
+  gap: 10px;
+}
+
+.feature-card {
+  align-self: start;
+  min-height: 0;
+  height: auto;
+  padding: 14px;
+  gap: 8px;
+}
+
+.feature-card-copy {
+  flex: 0 0 auto;
+  line-height: 1.45;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.feature-card-title {
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.feature-card-link {
+  margin-top: 2px;
+}
+
+@media (min-width: 1181px) {
+  .feature-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-card {
+    padding: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }
