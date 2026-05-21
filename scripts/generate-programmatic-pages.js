@@ -237,7 +237,6 @@ function renderPage(spec) {
     </section>
 
     <div class="ad-wrap ad-top">
-      <span class="ad-label" hidden>WordFindLab Picks</span>
       <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
     </div>
 
@@ -251,7 +250,6 @@ function renderPage(spec) {
     </section>
 
     <div class="ad-wrap ad-mid-content">
-      <span class="ad-label" hidden>WordFindLab Picks</span>
       <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
     </div>
 
@@ -300,7 +298,6 @@ function renderPage(spec) {
 </main>
 
 <div class="ad-wrap ad-mobile-bottom">
-  <span class="ad-label" hidden>WordFindLab Picks</span>
   <div class="ad-slot ad-slot-mobile-bottom adsterra-slot" data-adsterra-placement="mobile-bottom"></div>
 </div>
 
@@ -374,7 +371,6 @@ function renderHubPage() {
     </section>
 
     <div class="ad-wrap ad-top">
-      <span class="ad-label" hidden>WordFindLab Picks</span>
       <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
     </div>
 
@@ -391,7 +387,6 @@ function renderHubPage() {
     </section>
 
     <div class="ad-wrap ad-mid-content">
-      <span class="ad-label" hidden>WordFindLab Picks</span>
       <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
     </div>
 
@@ -438,7 +433,6 @@ function renderHubPage() {
 </main>
 
 <div class="ad-wrap ad-mobile-bottom">
-  <span class="ad-label" hidden>WordFindLab Picks</span>
   <div class="ad-slot ad-slot-mobile-bottom adsterra-slot" data-adsterra-placement="mobile-bottom"></div>
 </div>
 

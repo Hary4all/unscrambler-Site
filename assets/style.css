@@ -961,15 +961,10 @@ details.advanced[open] summary::before { content: "▾ "; }
 
 /* ---------- Sidebar ---------- */
 .ad-slot {
-  background: var(--surface);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
+  overflow: hidden;
   margin-bottom: 12px;
 }
 .ad-slot-banner  { height: 90px; }
@@ -1043,7 +1038,7 @@ details.advanced[open] summary::before { content: "▾ "; }
     margin: 10px auto 16px;
   }
   .ad-mobile-bottom .ad-label {
-    align-self: center;
+    display: none !important;
   }
 }
 
@@ -1641,15 +1636,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   border-radius: 16px;
 }
 .ad-label {
-  display: block;
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  text-align: center;
-  margin-bottom: 3px;
-  opacity: .75;
+  display: none !important;
 }
 .ad-wrap .ad-slot { margin-bottom: 0; }
 @media (max-width: 640px) {
