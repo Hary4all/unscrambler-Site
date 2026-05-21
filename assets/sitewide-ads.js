@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260518";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260521";
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -58,16 +58,43 @@
     return slot;
   }
 
+  function wrapSlot(slot, maxWidth) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "ad-wrap ad-supplemental-slot";
+    wrapper.style.width = "100%";
+    wrapper.style.maxWidth = maxWidth;
+    wrapper.style.margin = "0";
+    wrapper.style.padding = "0";
+    wrapper.style.boxSizing = "border-box";
+    wrapper.appendChild(slot);
+    return wrapper;
+  }
+
+  function insertBeforeFooter(node) {
+    const footer = document.querySelector(".site-footer, footer");
+    if (footer && footer.parentNode) {
+      footer.parentNode.insertBefore(node, footer);
+      return;
+    }
+
+    document.body.appendChild(node);
+  }
+
   function ensureSupplementalAdSlots() {
-    if (document.querySelector(".ad-supplemental-ads")) return;
+    if (document.querySelector(".ad-supplemental-ads")) return false;
 
     const block = document.createElement("div");
-    block.className = "ad-wrap ad-supplemental-ads";
+    block.className = "ad-supplemental-ads";
     block.style.width = "100%";
     block.style.maxWidth = "970px";
     block.style.margin = "24px auto";
     block.style.padding = "0 16px";
     block.style.boxSizing = "border-box";
+    block.style.display = "flex";
+    block.style.flexWrap = "wrap";
+    block.style.justifyContent = "center";
+    block.style.alignItems = "flex-start";
+    block.style.gap = "16px";
 
     const wide = createSlot("wide", "ad-slot-wide");
     wide.style.maxWidth = "468px";
@@ -77,19 +104,43 @@
     sidebar.style.maxWidth = "160px";
     sidebar.style.minHeight = "300px";
 
+    const skyscraper = createSlot("skyscraper", "ad-slot-skyscraper");
+    skyscraper.style.maxWidth = "160px";
+    skyscraper.style.minHeight = "600px";
+
     const mobileInline = createSlot("mobile-inline", "ad-slot-mobile-inline");
     mobileInline.style.maxWidth = "320px";
     mobileInline.style.minHeight = "50px";
 
-    block.appendChild(wide);
-    block.appendChild(sidebar);
-    block.appendChild(mobileInline);
+    block.appendChild(wrapSlot(wide, "468px"));
+    block.appendChild(wrapSlot(sidebar, "160px"));
+    block.appendChild(wrapSlot(skyscraper, "160px"));
+    block.appendChild(wrapSlot(mobileInline, "320px"));
     insertBeforeFooter(block);
+    return true;
+  }
+
+  function refreshMountedAds() {
+    if (window.WordFindLabAds && typeof window.WordFindLabAds.refresh === "function") {
+      window.WordFindLabAds.refresh();
+      return;
+    }
+
+    try {
+      document.dispatchEvent(new CustomEvent("wfl:ads-slots-added"));
+    } catch (err) {
+      const event = document.createEvent("Event");
+      event.initEvent("wfl:ads-slots-added", true, true);
+      document.dispatchEvent(event);
+    }
   }
 
   function injectAdsterra() {
-    if (hasScript(AD_STERRA_SRC)) return;
-    ensureSupplementalAdSlots();
+    const addedSlots = ensureSupplementalAdSlots();
+    if (hasScript(AD_STERRA_SRC)) {
+      if (addedSlots) refreshMountedAds();
+      return;
+    }
     injectScript(AD_STERRA_SRC);
   }
 

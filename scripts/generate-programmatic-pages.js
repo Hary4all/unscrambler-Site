@@ -317,7 +317,7 @@ function renderPage(spec) {
   </div>
 </footer>
 
-<script src="/assets/sitewide-ads.js?v=20260517"></script>
+<script src="/assets/sitewide-ads.js?v=20260521"></script>
 <script src="/assets/wordfindlab.js?v=20260521"></script>
 <script src="/assets/programmatic.js?v=20260515"></script>
 <script src="/assets/noindex-query.js?v=20260518"></script>
@@ -454,7 +454,7 @@ function renderHubPage() {
   </div>
 </footer>
 
-<script src="/assets/sitewide-ads.js?v=20260517"></script>
+<script src="/assets/sitewide-ads.js?v=20260521"></script>
 <script src="/assets/wordfindlab.js?v=20260521"></script>
 <script src="/assets/programmatic.js?v=20260515"></script>
 <script src="/assets/noindex-query.js?v=20260518"></script>

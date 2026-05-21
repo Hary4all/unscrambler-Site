@@ -33,6 +33,12 @@
       width: 160,
       height: 300
     },
+    skyscraper: {
+      key: "b22523f470988b1b897c1c4767a04ceb",
+      src: "https://www.highperformanceformat.com/b22523f470988b1b897c1c4767a04ceb/invoke.js",
+      width: 160,
+      height: 600
+    },
     mobileInline: {
       key: "41a12246620488db5d5241a65f9b3372",
       src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
@@ -42,10 +48,15 @@
     native: {
       src: "https://pl29436369.effectivecpmnetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
       containerId: "container-45c605ec5d3e652b4f213084a41b650b"
+    },
+    socialBar: {
+      src: "https://pl29454446.effectivecpmnetwork.com/8e/92/a4/8e92a453b4a6662fbe20618f78c82e3a.js"
     }
   };
 
   let booted = false;
+  let socialBarMounted = false;
+  let frameAdQueue = Promise.resolve();
 
   function isMobileWidth() {
     try {
@@ -154,73 +165,63 @@
     return script;
   }
 
+  function hasScript(src) {
+    return Array.from(document.scripts || []).some((script) => script.src === src);
+  }
+
+  function mountFrameAd(slot, cfg) {
+    prepareSlot(slot, cfg.height);
+
+    frameAdQueue = frameAdQueue.then(() => new Promise((resolve) => {
+      let released = false;
+      const release = () => {
+        if (released) return;
+        released = true;
+        window.setTimeout(resolve, 250);
+      };
+
+      window.atOptions = {
+        key: cfg.key,
+        format: "iframe",
+        height: cfg.height,
+        width: cfg.width,
+        params: {}
+      };
+
+      const script = loadScript(cfg.src, slot);
+      script.addEventListener("load", release, { once: true });
+      script.addEventListener("error", () => {
+        collapseSlot(slot);
+        release();
+      }, { once: true });
+      waitForAd(slot, 6500);
+
+      window.setTimeout(release, 1800);
+    }));
+
+    return frameAdQueue;
+  }
+
   function mountTop(slot) {
     const mobile = isMobileWidth();
     const cfg = mobile ? ADS.mobileTop : ADS.desktopTop;
-    prepareSlot(slot, cfg.height);
-
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
-
-    const script = loadScript(cfg.src, slot);
-    waitForAd(slot, 6500);
-    return script;
+    return mountFrameAd(slot, cfg);
   }
 
   function mountBox(slot) {
-    const cfg = ADS.box;
-    prepareSlot(slot, cfg.height);
-
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
-
-    const script = loadScript(cfg.src, slot);
-    waitForAd(slot, 6500);
-    return script;
+    return mountFrameAd(slot, ADS.box);
   }
 
   function mountWide(slot) {
-    const cfg = ADS.wide;
-    prepareSlot(slot, cfg.height);
-
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
-
-    const script = loadScript(cfg.src, slot);
-    waitForAd(slot, 6500);
-    return script;
+    return mountFrameAd(slot, ADS.wide);
   }
 
   function mountSidebar(slot) {
-    const cfg = ADS.sidebar;
-    prepareSlot(slot, cfg.height);
+    return mountFrameAd(slot, ADS.sidebar);
+  }
 
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
-
-    const script = loadScript(cfg.src, slot);
-    waitForAd(slot, 6500);
-    return script;
+  function mountSkyscraper(slot) {
+    return mountFrameAd(slot, ADS.skyscraper);
   }
 
   function mountMobileInline(slot) {
@@ -229,31 +230,29 @@
       return;
     }
 
-    const cfg = ADS.mobileInline;
-    prepareSlot(slot, cfg.height);
+    return mountFrameAd(slot, ADS.mobileInline);
+  }
 
-    window.atOptions = {
-      key: cfg.key,
-      format: "iframe",
-      height: cfg.height,
-      width: cfg.width,
-      params: {}
-    };
+  function mountNative(slot) {
+    if (document.getElementById(ADS.native.containerId)) {
+      collapseSlot(slot);
+      return;
+    }
 
-    const script = loadScript(cfg.src, slot);
+    prepareSlot(slot, 90);
+
+    const container = document.createElement("div");
+    container.id = ADS.native.containerId;
+    slot.appendChild(container);
+    const script = loadScript(ADS.native.src, slot, { "data-cfasync": "false" });
     waitForAd(slot, 6500);
     return script;
   }
 
-  function mountNative(slot) {
-    prepareSlot(slot, 90);
-
-    const script = loadScript(ADS.native.src, slot, { "data-cfasync": "false" });
-    const container = document.createElement("div");
-    container.id = ADS.native.containerId;
-    slot.appendChild(container);
-    waitForAd(slot, 6500);
-    return script;
+  function mountSocialBar() {
+    if (socialBarMounted || hasScript(ADS.socialBar.src)) return;
+    socialBarMounted = true;
+    loadScript(ADS.socialBar.src, document.body || document.documentElement);
   }
 
   function inferPlacement(slot, index) {
@@ -298,6 +297,15 @@
       return;
     }
 
+    if (placement === "skyscraper") {
+      if (isMobileWidth()) {
+        collapseSlot(slot);
+        return;
+      }
+      mountSkyscraper(slot);
+      return;
+    }
+
     if (placement === "mobile-inline") {
       mountMobileInline(slot);
       return;
@@ -317,8 +325,11 @@
   }
 
   function boot() {
-    if (booted) return;
-    booted = true;
+    if (!booted) {
+      booted = true;
+    }
+
+    mountSocialBar();
 
     const slots = Array.from(document.querySelectorAll(".ad-slot"));
     if (!slots.length) return;
@@ -327,6 +338,10 @@
       mountSlot(slots[i], inferPlacement(slots[i], i));
     }
   }
+
+  window.WordFindLabAds = window.WordFindLabAds || {};
+  window.WordFindLabAds.refresh = boot;
+  document.addEventListener("wfl:ads-slots-added", boot);
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot, { once: true });
