@@ -494,7 +494,7 @@ function injectSupportCard() {
     <div class="support-card-kicker">Support this free tool</div>
     <h2 class="support-card-title">WordFindLab is free to use</h2>
     <p class="support-card-copy">If it helped you solve a puzzle, win a word game, or save time, you can support future improvements with a small coffee.</p>
-    <a class="btn support-card-btn" href="${SUPPORT_URL}" target="_blank" rel="noopener noreferrer">☕ Support WordFindLab</a>
+    <a class="btn support-card-btn" href="${SUPPORT_URL}" target="_blank" rel="noopener noreferrer"> Support WordFindLab</a>
   `;
 
   footer.parentNode.insertBefore(wrap, footer);

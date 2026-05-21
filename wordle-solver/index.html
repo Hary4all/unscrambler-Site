@@ -22,8 +22,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
 <link rel="canonical" href="https://wordfindlab.com/wordle-solver/">
-<title>Wordle Solver — Find Today's Answer Fast</title>
-<meta name="description" content="Free Wordle solver. Enter your green, yellow, and gray clues and get a list of every possible answer word. Solve Wordle in 2–3 guesses.">
+<title>Wordle Solver - Find Today's Answer Fast</title>
+<meta name="description" content="Free Wordle solver. Enter your green, yellow, and gray clues and get a list of every possible answer word. Solve Wordle in 2-3 guesses.">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
   /* Wordle UI overrides */
@@ -169,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="page-header">
       <h1>Wordle Solver</h1>
-      <p>Enter your guesses, mark each letter green · yellow · gray, and get every word that could still be the answer.</p>
+      <p>Enter your guesses, mark each letter green - yellow - gray, and get every word that could still be the answer.</p>
     </div>
 
     <div class="ad-wrap">
@@ -184,7 +184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="clue-grid" id="clueGrid"></div>
-    <button class="add-guess-btn" id="addGuessBtn">➕ Add another guess row</button>
+    <button class="add-guess-btn" id="addGuessBtn">+ Add another guess row</button>
 
     <div class="actions" style="margin-top:18px">
       <button id="go" class="btn">Find Answers</button>
@@ -233,7 +233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="definition-note" id="definition-note"></p>
   </section>
 
-  <!-- Mid-content ad — renders between results and strategy guide -->
+  <!-- Mid-content ad - renders between results and strategy guide -->
   <div class="ad-wrap ad-mid-content">
         <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
   </div>
@@ -242,21 +242,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>How to use the Wordle solver</h2>
     <p>Type each letter you guessed into the row, then click the coloured dots below each letter to set its clue state. Green means the letter is in the right position; yellow means it's in the word but in the wrong spot; gray means it's not in the word at all. Hit <b>Find Answers</b> to see every word that still fits.</p>
     <h2>Best opening words for Wordle</h2>
-    <p>Good opening guesses cover common letters. Top picks include <b>CRANE</b>, <b>SLATE</b>, <b>AUDIO</b>, <b>RAISE</b>, and <b>STARE</b> — each hits high-frequency letters across multiple positions. If your opener reveals 2–3 greens, you've usually got it in 3 guesses.</p>
+    <p>Good opening guesses cover common letters. Top picks include <b>CRANE</b>, <b>SLATE</b>, <b>AUDIO</b>, <b>RAISE</b>, and <b>STARE</b> - each hits high-frequency letters across multiple positions. If your opener reveals 2-3 greens, you've usually got it in 3 guesses.</p>
     <h2>Wordle strategy tips</h2>
     <ul>
       <li>Use your second guess to eliminate as many letters as possible, even if it doesn't build on green clues.</li>
-      <li>Common endings: <b>-ING</b>, <b>-ED</b>, <b>-ER</b>, <b>-LY</b> — worth targeting if yellow letters suggest them.</li>
-      <li>Double letters do appear (ABBEY, ALLEY, VIVID) — don't rule them out if you're stuck.</li>
-      <li>The answer is always a common English word — obscure words almost never appear.</li>
+      <li>Common endings: <b>-ING</b>, <b>-ED</b>, <b>-ER</b>, <b>-LY</b> - worth targeting if yellow letters suggest them.</li>
+      <li>Double letters do appear (ABBEY, ALLEY, VIVID) - don't rule them out if you're stuck.</li>
+      <li>The answer is always a common English word - obscure words almost never appear.</li>
     </ul>
 
     <div class="related-tools">
       <div class="related-tools-label">Related Tools &amp; Resources</div>
       <div class="related-links">
-        <a class="related-link" href="/">🔤 WordFindLab</a>
-        <a class="related-link" href="/anagram-solver/">🔤 Anagram Solver</a>
-        <a class="related-link" href="/scrabble-word-finder/">🎯 Scrabble Finder</a>
+        <a class="related-link" href="/"> WordFindLab</a>
+        <a class="related-link" href="/anagram-solver/"> Anagram Solver</a>
+        <a class="related-link" href="/scrabble-word-finder/"> Scrabble Finder</a>
         <a class="related-link" href="/5-letter-words/">5-Letter Words</a>
         <a class="related-link" href="/word-lists/best-wordle-starting-words/">Best Wordle Starters</a>
         <a class="related-link" href="/wordle-strategy/">Wordle Strategy Guide</a>
@@ -328,7 +328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">Word tools and strategy.</span></div>
+    <div class="footer-copy">(c) 2026 WordFindLab &nbsp;-&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;-&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;-&nbsp; <span id="dictStat">Word tools and strategy.</span></div>
   </div>
 </footer>
 
@@ -459,7 +459,7 @@ document.getElementById("addGuessBtn").addEventListener("click", () => {
 /* ---- Solve ---- */
 async function solve() {
   if (!CURRENT_DICT) {
-    setStatus('<span class="loader"></span> Loading dictionary…');
+    setStatus('<span class="loader"></span> Loading dictionary...');
     const ok = await loadDictionary("common");
     if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
   }
@@ -513,7 +513,7 @@ async function solve() {
     }
     if (!ok) continue;
 
-    // Check grays (letter not in word at all — unless also green/yellow)
+    // Check grays (letter not in word at all - unless also green/yellow)
     for (const ch of grays) {
       if (word.includes(ch)) { ok = false; break; }
     }
@@ -534,13 +534,13 @@ async function solve() {
     const meaningfulOnly = document.getElementById("meaningful-toggle")?.checked;
     const filtered = await WordFindLabDictionary.filterMeaningfulWords(matches, meaningfulOnly);
     document.getElementById("resultsMeta").textContent =
-      filtered.length.toLocaleString() + " possible answers · " + ms.toFixed(0) + " ms";
+      filtered.length.toLocaleString() + " possible answers - " + ms.toFixed(0) + " ms";
 
   renderWordResults(filtered);
   setStatus("", "");
   document.getElementById("guessCount").textContent =
-    filtered.length === 0 ? "No matches — check your clues for typos." :
-    filtered.length <= 3  ? "🎯 Almost there — only " + filtered.length + " word(s) left!" :
+    filtered.length === 0 ? "No matches - check your clues for typos." :
+    filtered.length <= 3  ? " Almost there - only " + filtered.length + " word(s) left!" :
     "";
 }
 
@@ -549,7 +549,7 @@ function renderWordResults(words) {
   out.innerHTML = "";
 
   if (words.length === 0) {
-    out.innerHTML = '<div class="empty">No matching words — double-check your green/yellow/gray clues.</div>';
+    out.innerHTML = '<div class="empty">No matching words - double-check your green/yellow/gray clues.</div>';
     return;
   }
 

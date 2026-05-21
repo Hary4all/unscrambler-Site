@@ -20,11 +20,11 @@ const TYPE_TITLES = {
 };
 
 const TYPE_METAS = {
-  mini: "7x7 • 4–6 words • 5 minutes",
-  kids: "7x7 • 4–6 words • 5 minutes",
-  themed: "9x9+ • 7–14 words • up to 10 minutes",
-  vocabulary: "9x9 • 7–10 words • 7 minutes",
-  daily: "Daily puzzle • varies by difficulty",
+  mini: "7x7 - 4-6 words - 5 minutes",
+  kids: "7x7 - 4-6 words - 5 minutes",
+  themed: "9x9+ - 7-14 words - up to 10 minutes",
+  vocabulary: "9x9 - 7-10 words - 7 minutes",
+  daily: "Daily puzzle - varies by difficulty",
 };
 
 const MODE_COPY = {
@@ -63,7 +63,7 @@ const MODE_COPY = {
 const THEME_COPY = {
   space: {
     label: "Space Theme",
-    mascot: "🚀",
+    mascot: "",
     mascotName: "Cosmo Owl",
     mascotMessage: "Blast off into a starry word quest!",
     bodyClass: "crossword-theme-space",
@@ -71,7 +71,7 @@ const THEME_COPY = {
   },
   jungle: {
     label: "Jungle Theme",
-    mascot: "🦜",
+    mascot: "",
     mascotName: "Jungle Pal",
     mascotMessage: "Swing through the clues like a word explorer!",
     bodyClass: "crossword-theme-jungle",
@@ -79,7 +79,7 @@ const THEME_COPY = {
   },
   underwater: {
     label: "Underwater Theme",
-    mascot: "🐠",
+    mascot: "",
     mascotName: "Blue Buddy",
     mascotMessage: "Dive deep and find the hidden words!",
     bodyClass: "crossword-theme-underwater",
@@ -87,7 +87,7 @@ const THEME_COPY = {
   },
   candy: {
     label: "Candy Theme",
-    mascot: "🍭",
+    mascot: "",
     mascotName: "Sweet Spark",
     mascotMessage: "A cheerful puzzle adventure with extra sprinkles!",
     bodyClass: "crossword-theme-candy",
@@ -95,15 +95,15 @@ const THEME_COPY = {
   },
   dinosaur: {
     label: "Dinosaur Theme",
-    mascot: "🦕",
+    mascot: "",
     mascotName: "Dino Word",
-    mascotMessage: "Roar! Let’s uncover the next word fossil!",
+    mascotMessage: "Roar! Let's uncover the next word fossil!",
     bodyClass: "crossword-theme-dinosaur",
     accent: "dino",
   },
   magic: {
     label: "Magic Castle",
-    mascot: "🪄",
+    mascot: "",
     mascotName: "Word Wizard",
     mascotMessage: "A sparkle spell can reveal a clue or two!",
     bodyClass: "crossword-theme-magic",
@@ -111,7 +111,7 @@ const THEME_COPY = {
   },
   school: {
     label: "School Theme",
-    mascot: "📚",
+    mascot: "",
     mascotName: "Smarty Kit",
     mascotMessage: "Practice, play, and build your word power!",
     bodyClass: "crossword-theme-school",
@@ -119,7 +119,7 @@ const THEME_COPY = {
   },
   superhero: {
     label: "Superhero Theme",
-    mascot: "🦸",
+    mascot: "",
     mascotName: "Captain Word",
     mascotMessage: "Use your word powers to save the puzzle!",
     bodyClass: "crossword-theme-superhero",
@@ -127,7 +127,7 @@ const THEME_COPY = {
   },
   classic: {
     label: "Classic Theme",
-    mascot: "✏️",
+    mascot: "",
     mascotName: "Puzzle Coach",
     mascotMessage: "A clean, calm board for sharp thinking.",
     bodyClass: "crossword-theme-classic",
@@ -135,7 +135,7 @@ const THEME_COPY = {
   },
   blueprint: {
     label: "Blueprint",
-    mascot: "🧠",
+    mascot: "",
     mascotName: "Focus Buddy",
     mascotMessage: "A crisp, modern layout for smart solving.",
     bodyClass: "crossword-theme-blueprint",
@@ -143,7 +143,7 @@ const THEME_COPY = {
   },
   calm: {
     label: "Calm Theme",
-    mascot: "🌤️",
+    mascot: "",
     mascotName: "Calm Coach",
     mascotMessage: "Take your time and solve clue by clue.",
     bodyClass: "crossword-theme-calm",
@@ -151,7 +151,7 @@ const THEME_COPY = {
   },
   focus: {
     label: "Focus Theme",
-    mascot: "🎯",
+    mascot: "",
     mascotName: "Focus Coach",
     mascotMessage: "A steady layout for a sharp challenge.",
     bodyClass: "crossword-theme-focus",
@@ -166,22 +166,22 @@ const THEME_SETS = {
 
 const BLOCK_PATTERNS = {
   kids: [
-    ["⭐", "✏️", "📘"],
-    ["🎈", "🧸", "🧩"],
-    ["🐱", "🌈", "🔤"],
-    ["🍎", "🚀", "📚"],
-    ["🎉", "✏️", "⭐"],
-    ["🦊", "🎒", "🧠"],
-    ["🪁", "📓", "🐻"],
+    ["*", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", "*"],
+    ["", "", ""],
+    ["", "", ""],
   ],
   adults: [
-    ["🔍", "💡", "🧠"],
-    ["✍️", "📘", "🎯"],
-    ["🗝️", "✨", "📖"],
-    ["⚡", "🧩", "🎓"],
-    ["📚", "🔎", "✅"],
-    ["🧭", "🗂️", "✒️"],
-    ["📝", "🎯", "💬"],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "*", ""],
+    ["", "", ""],
+    ["", "", "OK"],
+    ["", "", ""],
+    ["", "", ""],
   ],
 };
 
@@ -881,8 +881,8 @@ function buildKeyboardHTML() {
 
   const controls = `
     <div class="cw-key-row cw-key-row--actions">
-      <button type="button" class="cw-key is-soft" data-key="backspace" aria-label="Backspace">⌫ Backspace</button>
-      <button type="button" class="cw-key is-soft" data-key="toggle" aria-label="Switch direction">↔ Direction</button>
+      <button type="button" class="cw-key is-soft" data-key="backspace" aria-label="Backspace">Backspace Backspace</button>
+      <button type="button" class="cw-key is-soft" data-key="toggle" aria-label="Switch direction">Direction Direction</button>
       <button type="button" class="cw-key is-primary" data-key="hint" aria-label="Take a hint">Hint</button>
       <button type="button" class="cw-key is-primary" data-key="check" aria-label="Check answer">Check</button>
     </div>

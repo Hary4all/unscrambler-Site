@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 /* ============================================================
-   WordFindLab — Shared Stylesheet
+   WordFindLab - Shared Stylesheet
    Clean light theme, minimal, tool-focused
 ============================================================ */
 
@@ -247,8 +247,8 @@ details.advanced summary {
   user-select: none;
 }
 details.advanced summary::-webkit-details-marker { display: none; }
-details.advanced summary::before { content: "▸ "; font-size: 10px; }
-details.advanced[open] summary::before { content: "▾ "; }
+details.advanced summary::before { content: "> "; font-size: 10px; }
+details.advanced[open] summary::before { content: "v "; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -1261,7 +1261,7 @@ details.advanced[open] summary::before { content: "▾ "; }
     grid-template-columns: 1fr;
   }
   .page-sidebar {
-    display: none; /* hide sidebar on mobile — show inline ad slots instead */
+    display: none; /* hide sidebar on mobile - show inline ad slots instead */
   }
 }
 @media (max-width: 600px) {
@@ -1272,11 +1272,11 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 
 /* ============================================================
-   WordFindLab — UI/UX Upgrade v2
-   Production-safe additions. All new classes — nothing removed.
+   WordFindLab - UI/UX Upgrade v2
+   Production-safe additions. All new classes - nothing removed.
 ============================================================ */
 
-/* ─── Contrast improvements ─── */
+/* --- Contrast improvements --- */
 .page-header p { color: #3a4160; }
 .seo-section    { color: #3a4160; }
 .seo-section h2 { color: #1a1d2e; }
@@ -1284,7 +1284,7 @@ details.advanced[open] summary::before { content: "▾ "; }
 .meta           { color: #555e7a; }
 .hint           { color: #555e7a; }
 
-/* ─── Site Hero — 3D Edition ─── */
+/* --- Site Hero - 3D Edition --- */
 .site-hero {
   background:
     linear-gradient(135deg,
@@ -1314,7 +1314,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   z-index: 0;
 }
 
-/* Perspective grid — vanishing-point feel */
+/* Perspective grid - vanishing-point feel */
 .site-hero::after {
   content: "";
   position: absolute;
@@ -1332,7 +1332,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   z-index: 0;
 }
 
-/* ─── Floating letter tiles (3D) ─── */
+/* --- Floating letter tiles (3D) --- */
 .hero-tiles {
   position: absolute;
   inset: 0;
@@ -1372,7 +1372,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   50%      { transform: translateY(-13px); }
 }
 
-/* ─── Hero inner content ─── */
+/* --- Hero inner content --- */
 .hero-inner {
   max-width: 680px;
   margin: 0 auto;
@@ -1451,7 +1451,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   box-shadow: 0 0 8px rgba(34,197,94,.25);
 }
 
-/* ─── Hero search wrap (rises up into hero) ─── */
+/* --- Hero search wrap (rises up into hero) --- */
 .hero-search-wrap {
   background: linear-gradient(to bottom, #1a1760 0%, var(--bg) 56px);
   padding: 0 20px 0;
@@ -1522,7 +1522,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   .htile            { width: 36px; height: 36px; font-size: 16px; }
 }
 
-/* ─── Tool Cards grid ─── */
+/* --- Tool Cards grid --- */
 .tool-cards-section { margin-bottom: 16px; }
 .section-label {
   font-size: 11px;
@@ -1570,7 +1570,7 @@ details.advanced[open] summary::before { content: "▾ "; }
 .tool-card-name { font-size: 13.5px; font-weight: 700; color: var(--ink); }
 .tool-card-desc { font-size: 12px; color: var(--ink-2); line-height: 1.45; }
 .tool-card-cta  { font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 5px; }
-.tool-card-cta::after { content: " →"; }
+.tool-card-cta::after { content: " ->"; }
 
 @media (max-width: 720px) {
   .tool-cards { grid-template-columns: repeat(2, 1fr); }
@@ -1585,7 +1585,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   .tool-card-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
 }
 
-/* ─── Demo example chips (inside tool cards) ─── */
+/* --- Demo example chips (inside tool cards) --- */
 .demo-box {
   background: #f8faff;
   border: 1px dashed #c7d2fe;
@@ -1628,7 +1628,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   box-shadow: 0 6px 14px rgba(37,99,235,.10);
 }
 
-/* ─── Ad label wrapper (AdSense-safe) ─── */
+/* --- Ad label wrapper (AdSense-safe) --- */
 .ad-wrap { margin-bottom: 12px; }
 .ad-wrap {
   margin: 20px auto;
@@ -1659,7 +1659,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   }
 }
 
-/* ─── Related tools strip (bottom of tool pages) ─── */
+/* --- Related tools strip (bottom of tool pages) --- */
 .related-tools {
   margin-top: 12px;
   padding-top: 10px;
@@ -1699,7 +1699,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   text-decoration: none;
 }
 
-/* ─── Bingo / high-score result badges ─── */
+/* --- Bingo / high-score result badges --- */
 .badge-bingo {
   display: inline-block;
   background: #dcfce7;
@@ -1727,7 +1727,7 @@ details.advanced[open] summary::before { content: "▾ "; }
   vertical-align: middle;
 }
 
-/* ─── Mobile nav (hamburger) ─── */
+/* --- Mobile nav (hamburger) --- */
 .nav-toggle {
   display: none;
   background: none;
@@ -1771,11 +1771,11 @@ details.advanced[open] summary::before { content: "▾ "; }
   .site-nav  { overflow: visible; }
 }
 
-/* ─── WWF teal button fix ─── */
+/* --- WWF teal button fix --- */
 .btn.teal            { background: var(--accent-2); color: #fff; }
 .btn.teal:hover      { background: #047857; }
 
-/* ─── Mobile hero / cards ─── */
+/* --- Mobile hero / cards --- */
 @media (max-width: 600px) {
   .site-hero        { padding: 36px 16px 30px; }
   .hero-chips       { gap: 6px; }
@@ -1785,10 +1785,10 @@ details.advanced[open] summary::before { content: "▾ "; }
 }
 
 /* ============================================================
-   Visual Upgrade v3 — Announcement bar, CTA buttons, accents
+   Visual Upgrade v3 - Announcement bar, CTA buttons, accents
 ============================================================ */
 
-/* ─── Top announcement bar ─── */
+/* --- Top announcement bar --- */
 a.announce-bar {
   display: block;
   background: linear-gradient(90deg, #F59E0B 0%, #F97316 100%);
@@ -1823,7 +1823,7 @@ a.announce-bar:hover .bar-arrow {
   a.announce-bar { font-size: 12.5px; padding: 10px 14px; }
 }
 
-/* ─── Green CTA button (primary action) ─── */
+/* --- Green CTA button (primary action) --- */
 .btn-cta {
   background: linear-gradient(90deg, #22C55E 0%, #16A34A 100%);
   color: #fff !important;
@@ -1842,7 +1842,7 @@ a.announce-bar:hover .bar-arrow {
   transform: translateY(0) scale(.99);
 }
 
-/* ─── Outline/secondary button ─── */
+/* --- Outline/secondary button --- */
 .btn-outline {
   background: transparent;
   color: #38BDF8 !important;
@@ -1856,23 +1856,23 @@ a.announce-bar:hover .bar-arrow {
   transform: translateY(-1px);
 }
 
-/* ─── Accent color helpers ─── */
+/* --- Accent color helpers --- */
 .text-sky   { color: #38BDF8; }
 .text-green { color: #22C55E; }
 
-/* ─── Hero sub-text contrast boost ─── */
+/* --- Hero sub-text contrast boost --- */
 .hero-sub {
   color: #afc5db;
 }
 
-/* ─── Search box Find Words button glow ─── */
+/* --- Search box Find Words button glow --- */
 .hero-search-row .btn-cta {
   box-shadow: 0 3px 16px rgba(34,197,94,.42), inset 0 1px 0 rgba(255,255,255,.18);
   font-size: 16px;
   letter-spacing: .01em;
 }
 
-/* ─── Clear button inside hero search row ─── */
+/* --- Clear button inside hero search row --- */
 .hero-search-row .btn.ghost {
   flex-shrink: 0;
   padding: 12px 18px;
@@ -1880,7 +1880,7 @@ a.announce-bar:hover .bar-arrow {
   white-space: nowrap;
 }
 
-/* ─── Results wrap (sits between hero-search-wrap and page-wrap) ─── */
+/* --- Results wrap (sits between hero-search-wrap and page-wrap) --- */
 .results-wrap {
   max-width: 780px;
   margin: 12px auto 0;
@@ -1899,7 +1899,7 @@ a.announce-bar:hover .bar-arrow {
   .hero-search-row .btn.ghost { padding: 12px 12px; font-size: 13px; }
 }
 
-/* ─── Tool card CTA link — use sky blue ─── */
+/* --- Tool card CTA link - use sky blue --- */
 .tool-card-cta { color: #2563eb; }
 .tool-card:hover .tool-card-cta { color: #38BDF8; }
 
@@ -3146,7 +3146,7 @@ a.announce-bar:hover {
 }
 
 .hero-trending-list a::after {
-  content: "→";
+  content: "->";
   color: #38bdf8;
   font-weight: 900;
 }
@@ -3796,11 +3796,11 @@ a.announce-bar:hover {
   }
 }
 
-/* ─── Sticky sidebar — high viewability ad ─────────────────────────────────
+/* --- Sticky sidebar - high viewability ad ---------------------------------
    Keeps the sidebar ad in the viewport as the user scrolls through long
    results lists. align-self:start is required for sticky inside a grid.
    scrollbar-width:none hides the internal scroll track on Firefox/Chrome.
-───────────────────────────────────────────────────────────────────────────── */
+----------------------------------------------------------------------------- */
 @media (min-width: 901px) {
   .page-sidebar {
     position: sticky;
@@ -3813,7 +3813,7 @@ a.announce-bar:hover {
   .page-sidebar::-webkit-scrollbar { display: none; }
 }
 
-/* ─── Mid-content ad (between results and strategy) ─────────────────────── */
+/* --- Mid-content ad (between results and strategy) ----------------------- */
 .ad-mid-content {
   margin: 2px 0 0;
   display: flex;
@@ -3933,7 +3933,7 @@ a.announce-bar:hover {
 
 
 /* ============================================================
-   WORD OF THE DAY — page styles
+   WORD OF THE DAY - page styles
    ============================================================ */
 
 /* Single-column layout override (no sidebar) */

@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
 <link rel="canonical" href="https://wordfindlab.com/anagram-solver/">
-<title>Anagram Solver — Find Perfect Anagrams of Any Word</title>
+<title>Anagram Solver - Find Perfect Anagrams of Any Word</title>
 <meta name="description" content="Free anagram solver. Enter any word or phrase and instantly find every perfect anagram that uses all of your letters. Great for crossword clues and word puzzles.">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
@@ -124,7 +124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="page-header">
       <h1>Anagram Solver</h1>
-      <p>Enter any word or set of letters and find every anagram that uses <em>all</em> of your letters — perfect for crossword clues and word puzzles.</p>
+      <p>Enter any word or set of letters and find every anagram that uses <em>all</em> of your letters - perfect for crossword clues and word puzzles.</p>
     </div>
 
     <div class="ad-wrap">
@@ -186,7 +186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="definition-note" id="definition-note"></p>
   </section>
 
-  <!-- Mid-content ad — renders between results and strategy guide -->
+  <!-- Mid-content ad - renders between results and strategy guide -->
   <div class="ad-wrap ad-mid-content">
         <div class="ad-slot adsterra-slot" data-adsterra-placement="mid"></div>
   </div>
@@ -196,23 +196,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>An anagram is a word or phrase formed by rearranging all the letters of another word or phrase. Unlike a general WordFindLab, an anagram solver only shows words that use <em>every single letter</em> exactly once. For example, the letters in <b>LISTEN</b> rearrange into <b>SILENT</b>, <b>ENLIST</b>, and <b>TINSEL</b>.</p>
     <h2>Famous anagram pairs</h2>
     <ul>
-      <li><b>ASTRONOMER</b> Ã¢â€ ’ MOON STARER</li>
-      <li><b>DORMITORY</b> Ã¢â€ ’ DIRTY ROOM</li>
-      <li><b>CONVERSATION</b> Ã¢â€ ’ VOICES RANT ON</li>
-      <li><b>SCHOOL MASTER</b> Ã¢â€ ’ THE CLASSROOM</li>
-      <li><b>ELECTION RESULTS</b> Ã¢â€ ’ LIES, LET'S RECOUNT</li>
+      <li><b>ASTRONOMER</b> -> MOON STARER</li>
+      <li><b>DORMITORY</b> -> DIRTY ROOM</li>
+      <li><b>CONVERSATION</b> -> VOICES RANT ON</li>
+      <li><b>SCHOOL MASTER</b> -> THE CLASSROOM</li>
+      <li><b>ELECTION RESULTS</b> -> LIES, LET'S RECOUNT</li>
     </ul>
     <h2>Using anagrams in crosswords</h2>
-    <p>Cryptic crossword clues often include an anagram indicator — words like <em>scrambled, confused, rearranged, mixed, wild,</em> or <em>around</em>. When you spot one of these signal words next to a cluster of letters, enter them here to find the answer word instantly.</p>
+    <p>Cryptic crossword clues often include an anagram indicator - words like <em>scrambled, confused, rearranged, mixed, wild,</em> or <em>around</em>. When you spot one of these signal words next to a cluster of letters, enter them here to find the answer word instantly.</p>
 
     <div class="related-tools">
       <div class="related-tools-label">Related Tools</div>
       <div class="related-links">
-        <a class="related-link" href="/">🔤 WordFindLab</a>
-        <a class="related-link" href="/scrabble-word-finder/">🎯 Scrabble Finder</a>
-        <a class="related-link" href="/wordle-solver/">🟩 Wordle Solver</a>
-        <a class="related-link" href="/words-with-friends-cheat/">💬 Words With Friends</a>
-        <a class="related-link" href="/jumble-solver/">🧩 Jumble Solver</a>
+        <a class="related-link" href="/"> WordFindLab</a>
+        <a class="related-link" href="/scrabble-word-finder/"> Scrabble Finder</a>
+        <a class="related-link" href="/wordle-solver/"> Wordle Solver</a>
+        <a class="related-link" href="/words-with-friends-cheat/"> Words With Friends</a>
+        <a class="related-link" href="/jumble-solver/"> Jumble Solver</a>
           <a class="related-link" href="/guides/">Guides Hub</a>
       </div>
     </div>
@@ -275,7 +275,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/words-with-friends-cheat/">Words With Friends</a>
       <a href="/jumble-solver/">Jumble Solver</a>
     </div>
-    <div class="footer-copy">© 2026 WordFindLab &nbsp;·&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;·&nbsp; <span id="dictStat">Word tools and strategy.</span></div>
+    <div class="footer-copy">(c) 2026 WordFindLab &nbsp;-&nbsp; <a href="/privacy-policy/" style="color:#8891a8">Privacy Policy</a> &nbsp;-&nbsp; <a href="/terms/" style="color:#8891a8">Terms</a> &nbsp;-&nbsp; <span id="dictStat">Word tools and strategy.</span></div>
   </div>
 </footer>
 
@@ -325,7 +325,7 @@ document.getElementById("letters").addEventListener("input", updateLetterDisplay
 /* ---- Search ---- */
 async function search() {
   if (!CURRENT_DICT) {
-    setStatus('<span class="loader"></span> Loading dictionary…');
+    setStatus('<span class="loader"></span> Loading dictionary...');
     const ok = await loadDictionary("all");
     if (!ok) { setStatus("Dictionary failed to load. Please check your connection.", "warn"); return; }
   }
@@ -352,7 +352,7 @@ async function search() {
   card.hidden = false;
 
   document.getElementById("resultsMeta").textContent =
-    matches.length + " perfect anagram" + (matches.length !== 1 ? "s" : "") + " · " + ms.toFixed(1) + " ms";
+    matches.length + " perfect anagram" + (matches.length !== 1 ? "s" : "") + " - " + ms.toFixed(1) + " ms";
 
   // Stats
   const statBlock = document.getElementById("statBlock");

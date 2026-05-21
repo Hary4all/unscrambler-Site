@@ -494,7 +494,7 @@
     if (synonymsEl) synonymsEl.innerHTML = "";
     if (stateEl) stateEl.textContent = "";
 
-    const dateLabel = `Word of the Day — ${formatWordOfTheDayDate()}`;
+    const dateLabel = `Word of the Day - ${formatWordOfTheDayDate()}`;
     if (dateEl) dateEl.textContent = dateLabel;
 
     const apiEntry = await fetchJson(WOTD_API_URL, 5000);

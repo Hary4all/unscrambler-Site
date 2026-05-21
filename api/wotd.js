@@ -62,7 +62,7 @@ async function buildWordOfTheDayPayload(word, source) {
     meanings: entry?.meanings || [],
     synonyms: entry?.synonyms || [],
     antonyms: entry?.antonyms || [],
-    dateLabel: `Word of the Day — ${date}`,
+    dateLabel: `Word of the Day - ${date}`,
     source,
   };
 }

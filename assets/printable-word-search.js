@@ -1,4 +1,4 @@
-﻿import { FACEBOOK_PAGE_URL, copyLink, openFacebookShare, wireShareGroup } from "/assets/family-social.js";
+import { FACEBOOK_PAGE_URL, copyLink, openFacebookShare, wireShareGroup } from "/assets/family-social.js";
 import { getFamilyPreferences, saveFamilyPreferences } from "/assets/family-storage.js";
 
 const DATA_URL = "/data/family-word-games.json?v=20260519";
@@ -153,7 +153,7 @@ function renderPuzzle() {
   els.answerWords.innerHTML = placements.map((item) => `<span class="family-word-pill is-found">${item.display || item.word}</span>`).join("");
   els.answerSheet.hidden = !state.settings.answerKey;
   els.title.textContent = `${els.category.options[els.category.selectedIndex].text} Word Search`;
-  els.meta.textContent = `${state.settings.difficulty.charAt(0).toUpperCase() + state.settings.difficulty.slice(1)} • ${placements.length} words • A4 printable`;
+  els.meta.textContent = `${state.settings.difficulty.charAt(0).toUpperCase() + state.settings.difficulty.slice(1)} - ${placements.length} words - A4 printable`;
   els.status.textContent = state.settings.answerKey ? "Answer key is visible for easy checking." : "Hidden words ready to print and solve.";
 }
 

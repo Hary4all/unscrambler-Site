@@ -96,7 +96,7 @@ function currentItem() {
 function renderItem() {
   const item = currentItem();
   if (!item) return;
-  els.emoji.textContent = item.emoji || "✨";
+  els.emoji.textContent = item.emoji || "*";
   els.clue.textContent = item.clue;
   els.answer.value = "";
   els.feedback.textContent = state.settings.difficulty === "challenge"
@@ -138,7 +138,7 @@ function wrongAnswer() {
   state.streak = 0;
   state.score = Math.max(0, state.score - 5);
   els.currentWord.classList.add("is-wrong");
-  showFeedback("Almost there — try again!", false);
+  showFeedback("Almost there - try again!", false);
   updateTopBar();
   window.setTimeout(() => els.currentWord.classList.remove("is-wrong"), 320);
 }
@@ -162,7 +162,7 @@ function finishGame() {
   updateTopBar();
   els.modalTitle.textContent = state.settings.difficulty === "challenge" ? "Spelling Star!" : "Amazing!";
   els.modalMessage.textContent = "You finished the spelling adventure!";
-  els.modalEmoji.textContent = "🌟";
+  els.modalEmoji.textContent = "";
   els.modalScore.textContent = String(state.score);
   els.modalStreak.textContent = String(state.streak);
   els.modalBest.textContent = String(state.best);

@@ -527,13 +527,13 @@ function endGame(success) {
       message: state.settings.mode === "kids"
         ? "You solved the crossword! Great job!"
         : "Great work. You solved every word.",
-      emoji: state.settings.mode === "kids" ? "🌟" : "🧠",
+      emoji: state.settings.mode === "kids" ? "" : "",
     });
   } else {
     showModal({
       title: "Almost there!",
       message: "Want to try one more puzzle?",
-      emoji: "✨",
+      emoji: "*",
       retry: true,
     });
   }
@@ -583,7 +583,7 @@ function newPuzzle() {
     return;
   }
   els.puzzleTitle.textContent = `${getCategoryLabel(state.settings.category)} ${state.settings.mode === "kids" ? "Kids" : "Family"} Search`;
-  els.puzzleMeta.textContent = `${getDifficultyMeta().minutes} minutes • ${state.puzzle.placements.length} words • ${getCategoryLabel(state.settings.category)}`;
+  els.puzzleMeta.textContent = `${getDifficultyMeta().minutes} minutes - ${state.puzzle.placements.length} words - ${getCategoryLabel(state.settings.category)}`;
   els.timerText.textContent = formatTime(getDifficultyMeta().minutes * 60);
   els.hintToggle.textContent = state.settings.mode === "kids" ? "Hint" : "Hint";
   renderPuzzle();
