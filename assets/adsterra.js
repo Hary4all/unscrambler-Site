@@ -48,14 +48,10 @@
     native: {
       src: "https://pl29436369.effectivecpmnetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
       containerId: "container-45c605ec5d3e652b4f213084a41b650b"
-    },
-    socialBar: {
-      src: "https://pl29454446.effectivecpmnetwork.com/8e/92/a4/8e92a453b4a6662fbe20618f78c82e3a.js"
     }
   };
 
   let booted = false;
-  let socialBarMounted = false;
   let frameAdQueue = Promise.resolve();
 
   function isMobileWidth() {
@@ -249,12 +245,6 @@
     return script;
   }
 
-  function mountSocialBar() {
-    if (socialBarMounted || hasScript(ADS.socialBar.src)) return;
-    socialBarMounted = true;
-    loadScript(ADS.socialBar.src, document.body || document.documentElement);
-  }
-
   function inferPlacement(slot, index) {
     if (slot.dataset.adsterraPlacement) return slot.dataset.adsterraPlacement;
     if (index === 0) return "top";
@@ -269,13 +259,16 @@
     slot.dataset.adsterraMounted = "1";
     normalizeSpacing(slot, placement);
 
-    if (placement === "top") {
-      mountTop(slot);
-      return;
-    }
-
-    if (placement === "mid") {
-      mountBox(slot);
+    if (
+      placement === "top" ||
+      placement === "mid" ||
+      placement === "sidebar" ||
+      placement === "skyscraper" ||
+      placement === "mobile-inline" ||
+      placement === "mobile-bottom" ||
+      placement === "ignore"
+    ) {
+      collapseSlot(slot);
       return;
     }
 
@@ -316,11 +309,6 @@
       return;
     }
 
-    if (placement === "mobile-bottom") {
-      collapseSlot(slot);
-      return;
-    }
-
     collapseSlot(slot);
   }
 
@@ -328,8 +316,6 @@
     if (!booted) {
       booted = true;
     }
-
-    mountSocialBar();
 
     const slots = Array.from(document.querySelectorAll(".ad-slot"));
     if (!slots.length) return;

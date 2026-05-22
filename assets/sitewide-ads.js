@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260521";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260522";
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -86,36 +86,21 @@
     const block = document.createElement("div");
     block.className = "ad-supplemental-ads";
     block.style.width = "100%";
-    block.style.maxWidth = "970px";
+    block.style.maxWidth = "468px";
     block.style.margin = "24px auto";
     block.style.padding = "0 16px";
     block.style.boxSizing = "border-box";
     block.style.display = "flex";
-    block.style.flexWrap = "wrap";
+    block.style.flexWrap = "nowrap";
     block.style.justifyContent = "center";
-    block.style.alignItems = "flex-start";
-    block.style.gap = "16px";
+    block.style.alignItems = "center";
+    block.style.gap = "0";
 
     const wide = createSlot("wide", "ad-slot-wide");
     wide.style.maxWidth = "468px";
     wide.style.minHeight = "60px";
 
-    const sidebar = createSlot("sidebar", "ad-slot-sidebar");
-    sidebar.style.maxWidth = "160px";
-    sidebar.style.minHeight = "300px";
-
-    const skyscraper = createSlot("skyscraper", "ad-slot-skyscraper");
-    skyscraper.style.maxWidth = "160px";
-    skyscraper.style.minHeight = "600px";
-
-    const mobileInline = createSlot("mobile-inline", "ad-slot-mobile-inline");
-    mobileInline.style.maxWidth = "320px";
-    mobileInline.style.minHeight = "50px";
-
     block.appendChild(wrapSlot(wide, "468px"));
-    block.appendChild(wrapSlot(sidebar, "160px"));
-    block.appendChild(wrapSlot(skyscraper, "160px"));
-    block.appendChild(wrapSlot(mobileInline, "320px"));
     insertBeforeFooter(block);
     return true;
   }
