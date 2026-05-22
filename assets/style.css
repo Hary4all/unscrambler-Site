@@ -665,8 +665,8 @@ details.advanced[open] summary::before { content: "v "; }
 }
 .crossword-home-banner {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(220px, .85fr);
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 8px;
   align-items: center;
 }
 .crossword-home-banner__main,
@@ -751,10 +751,10 @@ details.advanced[open] summary::before { content: "v "; }
   white-space: nowrap;
 }
 .crossword-home-banner__art {
-  padding: 16px 16px 16px 0;
+  padding: 12px 12px 12px 0;
   display: grid;
-  gap: 10px;
-  justify-items: end;
+  gap: 8px;
+  justify-items: start;
 }
 .crossword-home-banner__grid {
   display: grid;
@@ -777,7 +777,8 @@ details.advanced[open] summary::before { content: "v "; }
   box-shadow: 0 0 0 3px rgba(37,99,235,.08);
 }
 .crossword-home-banner__plate {
-  width: min(100%, 240px);
+  width: 100%;
+  max-width: 240px;
   padding: 16px 18px;
   border-radius: 22px;
   background: linear-gradient(135deg, #ffffff, #eff6ff);
