@@ -3815,11 +3815,10 @@ a.announce-bar:hover {
 }
 
 /* --- Mid-content ad (between results and strategy) ----------------------- */
+.ad-top,
 .ad-mid-content {
   margin: 2px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: none !important;
 }
 .ad-mid-content .ad-slot {
   width: 100%;

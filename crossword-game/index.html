@@ -1566,6 +1566,35 @@ body.adults .keyword-chip .plus{border-color:#AAB7C8;color:#74839A;}
   }
 }
 
+/* Crossword ad visibility rules:
+   - Kids Mode stays ad-free.
+   - Adults Mode keeps the end-of-page ads only.
+   - The early ad block above the game stays hidden. */
+body.kids .crossword-ad-wrap {
+  display: none !important;
+}
+body.adults .page > .toggle-wrap + .crossword-ad-wrap {
+  display: none !important;
+}
+body.adults .page > .faq-section + .crossword-ad-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+  margin: 20px auto 0;
+  padding: 0;
+}
+body.adults .page > .faq-section + .crossword-ad-wrap > * {
+  display: none !important;
+}
+body.adults .page > .faq-section + .crossword-ad-wrap > .AdsterraDesktopBanner:nth-child(2) {
+  display: block !important;
+  width: min(100%, 468px);
+  min-height: 60px;
+}
+
 /* ════════════════════════════════════════
    END ADULT 3D BLOCK BOARD REFRESH
 ════════════════════════════════════════ */

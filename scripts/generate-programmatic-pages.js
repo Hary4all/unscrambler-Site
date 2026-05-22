@@ -236,10 +236,6 @@ function renderPage(spec) {
       </div>
     </section>
 
-    <div class="ad-wrap ad-top">
-      <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
-    </div>
-
     <section class="card">
       <div class="results-head">
         <h2>Live Matches</h2>
@@ -248,10 +244,6 @@ function renderPage(spec) {
       <div id="programmatic-results"></div>
       <div id="programmatic-no-results" class="empty" hidden>No matches yet. Try a different length range or another pattern.</div>
     </section>
-
-    <div class="ad-wrap ad-mid-content">
-      <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
-    </div>
 
     <section class="card seo-section">
       <h2>Why this page is useful</h2>
@@ -370,10 +362,6 @@ function renderHubPage() {
       </div>
     </section>
 
-    <div class="ad-wrap ad-top">
-      <div class="ad-slot ad-slot-banner adsterra-slot" data-adsterra-placement="top"></div>
-    </div>
-
     <section class="card">
       <h2>Featured pages</h2>
       <div class="programmatic-grid">
@@ -385,10 +373,6 @@ function renderHubPage() {
         `).join("")}
       </div>
     </section>
-
-    <div class="ad-wrap ad-mid-content">
-      <div class="ad-slot ad-slot-rect adsterra-slot" data-adsterra-placement="mid"></div>
-    </div>
 
     <section class="card seo-section">
       <h2>Browse by intent</h2>
