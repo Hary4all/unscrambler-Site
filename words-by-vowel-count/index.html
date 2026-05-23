@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpmNTM4OGI3Ny04N2JmLTQxNzYtOGJkNS1kNGNmMmNmNDM2MzY=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T55GC2PM');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BKVHJW1RE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BKVHJW1RE');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
+  <title>Words By Vowel Count | WordFindLab</title>
+  <meta name="description" content="Browse words grouped by vowel count, from zero-vowel challenge words to richer vowel-heavy options.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://wordfindlab.com/words-by-vowel-count/">
+  <meta property="og:title" content="Words By Vowel Count | WordFindLab">
+  <meta property="og:description" content="Browse words grouped by vowel count, from zero-vowel challenge words to richer vowel-heavy options.">
+  <meta property="og:url" content="https://wordfindlab.com/words-by-vowel-count/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .vowel-shell { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
+    .vowel-hero { display: grid; gap: 10px; }
+    .vowel-kicker { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; background: rgba(37,99,235,.08); color: var(--accent); border-radius: 999px; padding: 7px 12px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .vowel-summary { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .vowel-pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-2); font-size: 13px; font-weight: 600; }
+    .vowel-pill strong { color: var(--ink); }
+    .vowel-tabbar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .vowel-tab { display: inline-flex; align-items: center; justify-content: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font-weight: 700; font-size: 13px; text-decoration: none; }
+    .vowel-tab:hover, .vowel-tab.current { background: var(--accent); border-color: var(--accent); color: #fff; text-decoration: none; }
+    .sample-chip-grid, .live-word-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sample-chip, .live-word-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink); font-weight: 700; }
+    .sample-chip { letter-spacing: .02em; }
+    .live-word-chip { background: #fff; }
+    .live-word-chip small { color: var(--muted); font-weight: 600; }
+    .live-status { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .count-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .count-card { border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 14px; text-decoration: none; color: var(--ink); box-shadow: var(--shadow-sm); transition: transform .15s, border-color .15s; }
+    .count-card:hover { transform: translateY(-1px); border-color: var(--accent); text-decoration: none; }
+    .count-card .num { font-size: 28px; font-weight: 900; color: var(--accent); line-height: 1; }
+    .count-card .label { margin-top: 4px; font-size: 13px; font-weight: 800; }
+    .count-card .copy { margin-top: 8px; font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+    .count-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .count-stat { padding: 12px; border-radius: 12px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(37,99,235,.05), rgba(37,99,235,.02)); }
+    .count-stat strong { display: block; font-size: 20px; line-height: 1; margin-bottom: 4px; }
+    .count-stat span { color: var(--ink-2); font-size: 12px; }
+    .count-note { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .count-footer-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .count-footer-links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 700; }
+    .count-footer-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .ad-wrap { margin: 0 0 14px; }
+    .vowel-faq .faq-item:first-child { border-top: 0; }
+    @media (max-width: 900px) {
+      .vowel-shell { grid-template-columns: 1fr; }
+      .count-stat-grid { grid-template-columns: 1fr; }
+      .count-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Words By Vowel Count | WordFindLab",
+  "description": "Browse words grouped by vowel count, from zero-vowel challenge words to richer vowel-heavy options.",
+  "url": "https://wordfindlab.com/words-by-vowel-count/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WordFindLab",
+    "url": "https://wordfindlab.com"
+  }
+}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+  <script src="/assets/noindex-query.js?v=20260518"></script>
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T55GC2PM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">WordFindLab</a>
+  <ul>
+    <li><a href="/scrabble-word-finder/">Scrabble Finder</a></li><li><a href="/wordle-solver/">Wordle Solver</a></li><li><a href="/anagram-solver/">Anagram Solver</a></li><li><a href="/words-with-friends-cheat/">Words With Friends</a></li><li><a href="/jumble-solver/">Jumble Solver</a></li><li><a href="/word-patterns/">Word Patterns</a></li><li><a href="/dictionary/">Dictionary</a></li>
+  </ul>
+</nav>
+
+
+  <div class="page-wrap">
+    <main class="page-main">
+      <div class="breadcrumb"><a href="/">Home</a> <span style="margin:0 5px;color:var(--muted)">&rsaquo;</span> <a href="/word-lists/">Word Lists</a> <span style="margin:0 5px;color:var(--muted)">&rsaquo;</span> <span>Words By Vowel Count</span></div>
+      
+    <div class="card vowel-hero">
+      <div class="vowel-kicker">Vowel Count Hub</div>
+      <h1>Words By Vowel Count</h1>
+      <p class="lede">Browse English words grouped by the number of standard vowels they contain. Start with 0 vowels for rare challenge words or move up to 6 vowels for richer long-form browsing. This family counts A, E, I, O, and U only.</p>
+      <div class="vowel-summary">
+        <span class="vowel-pill">Standard vowels: <strong>A, E, I, O, U</strong></span>
+        <span class="vowel-pill">Great for <strong>Scrabble</strong></span>
+        <span class="vowel-pill">Helpful for <strong>Wordle</strong></span>
+        <span class="vowel-pill">Indexable hub pages</span>
+      </div>
+    </div>
+      <section class="card">
+        <h2>Pick a vowel count</h2>
+        <p>Use these cards to jump straight into the exact count you want. Each page is a real indexable hub, not a redirect stub.</p>
+        <div class="count-grid">
+          
+    <a class="count-card" href="/words-by-vowel-count/0/">
+      <div class="num">0</div>
+      <div class="label">0 vowels</div>
+      <div class="copy">Rare-letter challenge words and tricky board plays.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/1/">
+      <div class="num">1</div>
+      <div class="label">1 vowel</div>
+      <div class="copy">Compact puzzle words with a lean vowel shape.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/2/">
+      <div class="num">2</div>
+      <div class="label">2 vowels</div>
+      <div class="copy">Balanced words that feel natural and flexible.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/3/">
+      <div class="num">3</div>
+      <div class="label">3 vowels</div>
+      <div class="copy">Mid-balance words that work well in many games.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/4/">
+      <div class="num">4</div>
+      <div class="label">4 vowels</div>
+      <div class="copy">Rich, readable words with a fuller vowel shape.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/5/">
+      <div class="num">5</div>
+      <div class="label">5 vowels</div>
+      <div class="copy">Vowel-rich words for longer searches and deeper pattern browsing.</div>
+    </a>
+  
+    <a class="count-card" href="/words-by-vowel-count/6/">
+      <div class="num">6</div>
+      <div class="label">6 vowels</div>
+      <div class="copy">Longer, richer words with a strong vowel profile.</div>
+    </a>
+  
+        </div>
+      </section>
+      <section class="card">
+        <h2>Why this family helps</h2>
+        <p>Vowel count is a fast way to compare word shape. It helps with rack balancing, clue scanning, and pattern-based searching across Scrabble, Wordle, crosswords, and other word games.</p>
+        <p class="count-note">If you want a cleaner board shape, move lower. If you want richer, more vowel-heavy words, move higher.</p>
+      </section>
+      <section class="card">
+        <h2>Frequently asked questions</h2>
+        <div class="vowel-faq">
+          <div class="faq-item">
+            <div class="faq-q">Do you count Y as a vowel?</div>
+            <div class="faq-a">No. This family counts only A, E, I, O, and U so the pages stay consistent and easy to compare.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can these pages help with puzzle solving?</div>
+            <div class="faq-a">Yes. They are useful for Scrabble, Wordle, crosswords, and any puzzle where word shape matters.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Are these pages indexable?</div>
+            <div class="faq-a">Yes. The pretty URLs are real pages, and the old redirect-only files can continue pointing here for legacy traffic.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="page-sidebar">
+      
+    <div class="ad-wrap">
+      <div class="ad-slot ad-slot-sidebar adsterra-slot" data-adsterra-placement="lower"></div>
+    </div>
+    <section class="card">
+      <div class="tools-widget-title">Browse counts</div>
+      <div class="count-footer-links" style="margin-top:10px"><a href="/words-by-vowel-count/0/">0 vowels</a><a href="/words-by-vowel-count/1/">1 vowel</a><a href="/words-by-vowel-count/2/">2 vowels</a><a href="/words-by-vowel-count/3/">3 vowels</a><a href="/words-by-vowel-count/4/">4 vowels</a><a href="/words-by-vowel-count/5/">5 vowels</a><a href="/words-by-vowel-count/6/">6 vowels</a></div>
+    </section>
+    <section class="card">
+      <div class="tools-widget-title">Word Tools</div>
+      <div class="tools-widget-links"><a href="/scrabble-word-finder/">Scrabble Finder<span>Score-first search</span></a><a href="/wordle-solver/">Wordle Solver<span>Clue helper</span></a><a href="/anagram-solver/">Anagram Solver<span>Mixed letters</span></a><a href="/jumble-solver/">Jumble Solver<span>Daily puzzle</span></a><a href="/dictionary/">Dictionary<span>Word meanings</span></a><a href="/word-lists/">Word Lists<span>Curated word pages</span></a></div>
+    </section>
+  
+    </aside>
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/word-lists/">Word Lists</a><a href="/word-patterns/">Word Patterns</a><a href="/guides/">Guides</a><a href="/blog/">Blog</a><a href="/scrabble-word-finder/">Scrabble Finder</a><a href="/wordle-solver/">Wordle Solver</a><a href="/anagram-solver/">Anagram Solver</a><a href="/dictionary/">Dictionary</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 WordFindLab &mdash; <a href="/privacy-policy/">Privacy Policy</a> &mdash; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+<script src="/assets/adsterra.js?v=20260522" defer></script>
+<script src="/assets/sitewide-ads.js?v=20260522"></script>
+</body>
+</html>

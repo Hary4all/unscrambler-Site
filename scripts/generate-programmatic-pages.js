@@ -46,8 +46,9 @@ const CONTAINS = [
 ];
 
 const EXTRA_CONTAINS = [
-  "bb","cc","dd","ff","gg","hh","jj","kk","ll","mm",
-  "nn","pp","rr","ss","zz"
+  "aa","bb","cc","dd","ee","ff","gg","hh","ii","jj",
+  "kk","ll","mm","nn","oo","pp","qq","rr","ss","tt",
+  "uu","vv","ww","xx","yy","zz"
 ];
 
 const PREFIX_LIST = Array.from(new Set([...PREFIXES, ...EXTRA_PREFIXES]));
