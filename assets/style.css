@@ -3987,20 +3987,20 @@ a.announce-bar:hover {
   display: block;
   max-width: 760px;
   margin: 0 auto;
-  padding: 14px 14px 24px;
+  padding: 12px 12px 20px;
 }
 
 /* WOTD card */
 .wotd-card {
-  padding: 14px;
-  margin-bottom: 8px;
+  padding: 12px;
+  margin-bottom: 6px;
 }
 
 /* Header */
 .wotd-header {
   text-align: center;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
   border-bottom: 2px solid var(--border, #e2e8f0);
 }
 .wotd-date {
@@ -4237,21 +4237,21 @@ a.announce-bar:hover {
 }
 
 .page-wrap {
-  padding-top: 8px;
-  padding-bottom: 24px;
-  gap: 12px;
+  padding-top: 6px;
+  padding-bottom: 20px;
+  gap: 10px;
 }
 
 .page-main {
-  gap: 8px;
+  gap: 7px;
 }
 
 .hero-shell {
-  padding: 18px 22px 6px;
+  padding: 16px 20px 4px;
 }
 
 .hero-shell__inner {
-  gap: 16px;
+  gap: 14px;
 }
 
 .hero-title {
@@ -4360,12 +4360,12 @@ a.announce-bar:hover {
 .proof-panel,
 .wotd-widget,
 .homepage-wotd {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .programmatic-hero,
 .wotd-card {
-  padding: 14px;
+  padding: 12px;
 }
 
 .wotd-header {
@@ -4374,7 +4374,7 @@ a.announce-bar:hover {
 }
 
 .wotd-section {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .ad-wrap {
@@ -4398,17 +4398,17 @@ a.announce-bar:hover {
 
 @media (max-width: 760px) {
   .card {
-    padding: 14px;
-    margin-bottom: 6px;
+    padding: 13px;
+    margin-bottom: 5px;
   }
 
   .page-wrap {
-    padding: 8px 10px 20px;
-    gap: 8px;
+    padding: 6px 10px 18px;
+    gap: 7px;
   }
 
   .hero-shell {
-    padding: 10px 10px 6px;
+    padding: 10px 10px 4px;
   }
 
   .hero-title {

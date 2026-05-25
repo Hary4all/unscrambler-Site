@@ -72,7 +72,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: #fff; text-decoration: none; font-size: 14px; font-weight: 800;
     box-shadow: 0 10px 20px rgba(37,99,235,.18);
   }
-  .blog-hero { padding: 56px 24px 24px; background: radial-gradient(circle at top left, rgba(59,130,246,.10), transparent 26%), radial-gradient(circle at top right, rgba(124,58,237,.10), transparent 22%), linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); border-bottom: 1px solid rgba(148,163,184,.16); }
+  .blog-hero { padding: 42px 24px 16px; background: radial-gradient(circle at top left, rgba(59,130,246,.10), transparent 26%), radial-gradient(circle at top right, rgba(124,58,237,.10), transparent 22%), linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); border-bottom: 1px solid rgba(148,163,184,.16); }
   .blog-hero-inner { max-width: 1200px; margin: 0 auto; }
   .breadcrumb { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
   .breadcrumb a { color: #2563eb; text-decoration: none; }
@@ -83,8 +83,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .blog-hero h1 { margin: 14px 0 12px; color: var(--navy); font-size: clamp(34px, 4vw, 56px); line-height: 1; letter-spacing: -.04em; }
   .blog-hero p { margin: 0; color: var(--muted); font-size: 17px; max-width: 760px; }
-  .blog-hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) 300px; gap: 18px; margin-top: 22px; align-items: start; }
-  .blog-hero-panel { padding: 20px; border-radius: 24px; background: #fff; border: 1px solid rgba(148,163,184,.16); box-shadow: 0 12px 28px rgba(15,23,42,.05); }
+  .blog-hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) 300px; gap: 14px; margin-top: 18px; align-items: start; }
+  .blog-hero-panel { padding: 18px; border-radius: 24px; background: #fff; border: 1px solid rgba(148,163,184,.16); box-shadow: 0 12px 28px rgba(15,23,42,.05); }
   .blog-hero-panel h2 { margin: 0 0 10px; color: var(--navy); font-size: 22px; }
   .blog-hero-panel p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
   .blog-hero-points {
@@ -117,11 +117,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .mini-list a span { display: block; color: var(--muted); font-weight: 600; font-size: 12px; margin-top: 4px; }
   .blog-paths {
     max-width: 1200px;
-    margin: 18px auto 0;
+    margin: 14px auto 0;
     padding: 0 24px;
   }
   .blog-paths-inner {
-    padding: 22px;
+    padding: 18px;
     border-radius: 28px;
     border: 1px solid rgba(148,163,184,.16);
     background:
@@ -215,11 +215,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ad-top .ad-slot { min-height: 90px; }
   .ad-mid .ad-slot { max-width: 300px; min-height: 250px; }
   .ad-lower .ad-slot { min-height: 90px; }
-  .blog-index { max-width: 1200px; margin: 0 auto; padding: 28px 24px 86px; }
+  .blog-index { max-width: 1200px; margin: 0 auto; padding: 20px 24px 70px; }
   .blog-index-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
   .blog-index-head h2 { margin: 0; color: var(--navy); font-size: 26px; letter-spacing: -.03em; }
   .blog-index-head p { margin: 0; color: var(--muted); max-width: 700px; font-size: 15px; line-height: 1.6; }
-  .blog-index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
+  .blog-index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
   .blog-card { text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 0; overflow: hidden; border-radius: 22px; border: 1px solid rgba(148,163,184,.16); background: #fff; box-shadow: 0 12px 28px rgba(15,23,42,.05); transition: transform .18s ease, box-shadow .18s ease; }
   .blog-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(37,99,235,.10); }
   .blog-card-body { padding: 18px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
@@ -573,7 +573,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
     </div>
-</main>
+
+    <section class="blog-paths" aria-labelledby="blog-faq-title">
+      <div class="blog-paths-inner">
+        <div class="blog-paths-head">
+          <div>
+            <span class="tag">FAQ</span>
+            <h2 id="blog-faq-title">Quick answers about the WordFindLab blog</h2>
+          </div>
+          <p>These are the most common questions readers ask when they want a fast answer, a study habit, or a better word-game result.</p>
+        </div>
+        <div class="blog-paths-grid">
+          <article class="blog-path-card">
+            <strong>What kind of blog posts do we publish?</strong>
+            <span>We focus on practical word-game help, vocabulary ideas, kids learning, and search-friendly guides that connect to our tools.</span>
+            <em>Useful, not fluffy</em>
+          </article>
+          <article class="blog-path-card">
+            <strong>Can kids read these posts?</strong>
+            <span>Yes. We keep the language clear and family-friendly, with plenty of examples that parents and kids can follow together.</span>
+            <em>Family-safe reading</em>
+          </article>
+          <article class="blog-path-card">
+            <strong>Do the posts help with Scrabble and Wordle?</strong>
+            <span>Absolutely. We write about starter words, short words, score boosters, and habits that support daily play.</span>
+            <em>Game-focused help</em>
+          </article>
+          <article class="blog-path-card">
+            <strong>How often do we add new posts?</strong>
+            <span>We add new articles when there is a useful topic, a good search question, or a smarter way to help players.</span>
+            <em>Quality first</em>
+          </article>
+          <article class="blog-path-card">
+            <strong>Can I jump from a blog post to the tools?</strong>
+            <span>Yes. Every post is tied back to the core WordFindLab tools like the dictionary, Wordle solver, and word lists.</span>
+            <em>Built for easy navigation</em>
+          </article>
+          <article class="blog-path-card">
+            <strong>What should I read first?</strong>
+            <span>Start with the Wordle guide, the Scrabble score guide, or the kids learning posts if you want the fastest payoff.</span>
+            <em>Best first reads</em>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
 <div class="ad-wrap ad-lower">
     <div class="ad-slot adsterra-slot" data-adsterra-placement="lower"></div>
