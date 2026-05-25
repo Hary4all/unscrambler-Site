@@ -593,6 +593,13 @@
         runLookup();
       });
     });
+
+    const params = new URLSearchParams(window.location.search);
+    const initialWord = normalizeWord(params.get("word") || params.get("q") || params.get("term") || "");
+    if (initialWord) {
+      if (input) input.value = initialWord;
+      lookupWord(initialWord).catch(() => {});
+    }
   }
 
   function init() {

@@ -44,6 +44,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "price": "0",
     "priceCurrency": "USD"
   },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://wordfindlab.com/?letters={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "WordFindLab",
@@ -179,6 +184,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Free Forever</span>
           <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> No Signup Required</span>
           <span class="trust-badge"><span class="trust-check" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24"><use href="#icon-check"></use></svg></span> Instant Results</span>
+        </div>
+        <div class="hero-quick-links" aria-label="Quick site links">
+          <a class="hero-quick-link" href="/blog/">Blog</a>
+          <a class="hero-quick-link" href="/guides/">Guides</a>
+          <a class="hero-quick-link" href="/browse/">Browse Words</a>
+          <a class="hero-quick-link" href="/pronunciation/">Pronunciation</a>
+          <a class="hero-quick-link" href="/trending-words/">Trending Words</a>
         </div>
         <div class="hero-enter-hint">Press <b>Enter</b> to search</div>
 
@@ -393,6 +405,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="wotd-featured-links">
               <a href="/dictionary/">Open Dictionary</a>
               <a href="/guides/">Browse Guides</a>
+            </div>
+          </div>
+          <div class="wotd-featured-panel">
+            <div class="wotd-featured-panel-title">Browse hubs</div>
+            <div class="wotd-featured-copy">Jump into alphabetical browsing, letter-length pages, pronunciation help, and trending words.</div>
+            <div class="wotd-featured-links">
+              <a href="/browse/">Browse Words</a>
+              <a href="/pronunciation/">Pronunciation</a>
+              <a href="/trending-words/">Trending Words</a>
             </div>
           </div>
           <div class="wotd-featured-panel">
@@ -734,6 +755,20 @@ document.getElementById("letters").addEventListener("keydown", e => {
 document.getElementById("dict").addEventListener("change", () => {
   CURRENT_DICT = null;
 });
+
+const initialLetters = new URLSearchParams(location.search).get("letters")
+  || new URLSearchParams(location.search).get("q")
+  || new URLSearchParams(location.search).get("search_term_string")
+  || "";
+if (initialLetters) {
+  const lettersInput = document.getElementById("letters");
+  if (lettersInput && !lettersInput.value) {
+    lettersInput.value = initialLetters.toUpperCase().replace(/[^A-Za-z?*]/g, "");
+    const box = document.getElementById("demoBox");
+    if (box) box.style.display = "none";
+    setTimeout(() => { search(); }, 0);
+  }
+}
 
 // Kick off dictionary load in background (non-blocking)
 loadDictionary("all");
