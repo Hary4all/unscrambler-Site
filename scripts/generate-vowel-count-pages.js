@@ -284,6 +284,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   gtag('config', 'G-2BKVHJW1RE');
 </script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.trackWFL = window.trackWFL || function(eventName, data = {}) {
+    window.dataLayer.push({
+      event: eventName,
+      page_path: window.location.pathname,
+      page_title: document.title || "",
+      ...data
+    });
+  };
+</script>
+<script defer src="/assets/wfl-measurement.js?v=20260601"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
@@ -460,7 +472,7 @@ function renderHubPage() {
 ${main}
 ${renderFooter()}
 <script src="/assets/adsterra.js?v=20260522" defer></script>
-<script src="/assets/sitewide-ads.js?v=20260522"></script>
+<script src="/assets/sitewide-ads.js?v=20260601"></script>
 </body>
 </html>`;
 }
@@ -635,7 +647,7 @@ ${main}
 ${renderFooter()}
 ${pageScript}
 <script src="/assets/adsterra.js?v=20260522" defer></script>
-<script src="/assets/sitewide-ads.js?v=20260522"></script>
+<script src="/assets/sitewide-ads.js?v=20260601"></script>
 </body>
 </html>`;
 }

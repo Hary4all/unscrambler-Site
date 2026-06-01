@@ -27,6 +27,25 @@ function shuffle(items) { return [...items].sort(() => Math.random() - 0.5); }
 function cleanWord(word) { return (word || "").toUpperCase().replace(/[^A-Z]/g, ""); }
 function cellKey(row, col) { return `${row}:${col}`; }
 
+function trackWFL(eventName, data = {}) {
+  const tracker = typeof window.trackWFL === "function"
+    ? window.trackWFL
+    : (window.WFLMeasurement && typeof window.WFLMeasurement.track === "function"
+        ? window.WFLMeasurement.track
+        : null);
+  const payload = {
+    page_path: window.location.pathname,
+    page_title: document.title || "",
+    tool_name: "printable_word_search",
+    action_location: "printable_word_search_page",
+    ...data,
+  };
+  if (tracker) return tracker(eventName, payload);
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...payload });
+  return payload;
+}
+
 async function loadData() {
   if (state.data) return state.data;
   const res = await fetch(DATA_URL, { cache: "no-store" });
@@ -155,28 +174,70 @@ function renderPuzzle() {
   els.title.textContent = `${els.category.options[els.category.selectedIndex].text} Word Search`;
   els.meta.textContent = `${state.settings.difficulty.charAt(0).toUpperCase() + state.settings.difficulty.slice(1)} - ${placements.length} words - A4 printable`;
   els.status.textContent = state.settings.answerKey ? "Answer key is visible for easy checking." : "Hidden words ready to print and solve.";
+  trackWFL("pdf_tool_clicked", {
+    action_location: "generate_puzzle",
+    filter_type: "category_difficulty",
+    result_count: placements.length,
+  });
 }
 
 function bindControls() {
   els.category.addEventListener("change", () => {
     state.settings.category = els.category.value;
     saveFamilyPreferences({ printableCategory: state.settings.category });
+    trackWFL("filter_used", {
+      action_location: "category_selector",
+      filter_type: "category",
+      value: state.settings.category,
+    });
     renderPuzzle();
   });
   els.difficulty.addEventListener("change", () => {
     state.settings.difficulty = els.difficulty.value;
     saveFamilyPreferences({ printableDifficulty: state.settings.difficulty });
+    trackWFL("filter_used", {
+      action_location: "difficulty_selector",
+      filter_type: "difficulty",
+      value: state.settings.difficulty,
+    });
     renderPuzzle();
   });
   els.answerKey.addEventListener("change", () => {
     state.settings.answerKey = els.answerKey.checked;
     saveFamilyPreferences({ printableAnswerKey: state.settings.answerKey });
+    trackWFL("filter_used", {
+      action_location: "answer_key_toggle",
+      filter_type: "answer_key",
+      value: state.settings.answerKey ? "on" : "off",
+    });
     renderPuzzle();
   });
-  els.generate.addEventListener("click", renderPuzzle);
-  els.print.addEventListener("click", () => window.print());
-  els.facebook.addEventListener("click", () => openFacebookShare(window.location.href, document.title));
+  els.generate.addEventListener("click", () => {
+    trackWFL("pdf_tool_clicked", {
+      action_location: "generate_button",
+      result_count: state.puzzle?.placements?.length || 0,
+    });
+    renderPuzzle();
+  });
+  els.print.addEventListener("click", () => {
+    trackWFL("pdf_tool_clicked", {
+      action_location: "print_button",
+      result_count: state.puzzle?.placements?.length || 0,
+    });
+    window.print();
+  });
+  els.facebook.addEventListener("click", () => {
+    trackWFL("share_clicked", {
+      action_location: "printable_share",
+      share_platform: "facebook",
+    });
+    openFacebookShare(window.location.href, document.title);
+  });
   els.copy.addEventListener("click", async () => {
+    trackWFL("share_clicked", {
+      action_location: "printable_share",
+      share_platform: "copy_link",
+    });
     const ok = await copyLink(window.location.href);
     els.copy.textContent = ok ? "Copied!" : "Copy failed";
     window.setTimeout(() => { els.copy.textContent = "Copy Link"; }, 1200);

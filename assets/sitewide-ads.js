@@ -3,6 +3,7 @@
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260522";
   const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
+  const WFL_GTM_ID = "GTM-T55GC2PM";
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -147,6 +148,36 @@
     window.WFLMeasurement.track = window.trackWFL;
   }
 
+  function injectGtmFallback() {
+    if (hasScript(`googletagmanager.com/gtm.js?id=${WFL_GTM_ID}`)) return;
+
+    window.dataLayer = window.dataLayer || [];
+    if (!window.__wflGtmBootstrapped) {
+      window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+      window.__wflGtmBootstrapped = true;
+    }
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${WFL_GTM_ID}`;
+    document.head.appendChild(script);
+
+    if (!document.querySelector(`noscript[data-wfl-gtm="${WFL_GTM_ID}"]`)) {
+      const noscript = document.createElement("noscript");
+      noscript.setAttribute("data-wfl-gtm", WFL_GTM_ID);
+      noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${WFL_GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+      if (document.body) {
+        document.body.insertBefore(noscript, document.body.firstChild);
+      } else {
+        document.addEventListener("DOMContentLoaded", function insertNoscriptOnce() {
+          if (document.body && !document.querySelector(`noscript[data-wfl-gtm="${WFL_GTM_ID}"]`)) {
+            document.body.insertBefore(noscript, document.body.firstChild);
+          }
+        }, { once: true });
+      }
+    }
+  }
+
   function injectMeasurement() {
     if (hasScript(WFL_MEASUREMENT_SRC)) return;
     injectScript(WFL_MEASUREMENT_SRC);
@@ -154,6 +185,7 @@
 
   function boot() {
     bootstrapMeasurement();
+    injectGtmFallback();
     injectMeasurement();
     injectAdsterra();
   }

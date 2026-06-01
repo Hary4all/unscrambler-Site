@@ -654,7 +654,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="/assets/wordfindlab.js?v=20260521"></script>
+<script src="/assets/wordfindlab.js?v=20260601"></script>
 <script src="/assets/js/dictionary.js?v=20260514"></script>
 <script>
 /* ---- Sidebar tool links ---- */
@@ -673,6 +673,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 
+function trackWFL(eventName, data = {}) {
+  if (typeof window.trackWFL === "function") {
+    return window.trackWFL(eventName, data);
+  }
+  window.dataLayer = window.dataLayer || [];
+  const payload = {
+    event: eventName,
+    page_path: window.location.pathname,
+    page_title: document.title || "",
+    ...data
+  };
+  window.dataLayer.push(payload);
+  return payload;
+}
+
+function homepageActionLocation(el) {
+  if (!el) return "homepage";
+  if (el.closest(".hero-quick-links")) return "homepage_quick_links";
+  if (el.closest(".hero-board-link")) return "homepage_results_card";
+  if (el.closest(".hero-search-card")) return "homepage_search_box";
+  if (el.closest(".feature-grid")) return "homepage_tool_cards";
+  if (el.closest(".family-section")) return "homepage_family_games";
+  return "homepage";
+}
+
+function homepageFilterState() {
+  return {
+    starts: document.getElementById("starts")?.value || "",
+    ends: document.getElementById("ends")?.value || "",
+    contains: document.getElementById("contains")?.value || "",
+    length: document.getElementById("length")?.value || "",
+    dictionary: document.getElementById("dict")?.value || "",
+    meaningful: !!document.getElementById("meaningful-toggle")?.checked
+  };
+}
+
+function trackHomepageFilter(filterType, extra = {}) {
+  trackWFL("filter_used", {
+    tool_name: "word_finder",
+    action_location: "homepage_filters",
+    filter_type: filterType,
+    ...homepageFilterState(),
+    ...extra
+  });
+}
+
+document.addEventListener("click", (e) => {
+  const heroLink = e.target.closest(".hero-quick-link, .hero-board-link, .feature-card, .family-card");
+  if (!heroLink) return;
+  const href = heroLink.getAttribute("href") || "";
+  const actionLocation = homepageActionLocation(heroLink);
+  const isFamily = heroLink.classList.contains("family-card") ||
+    href.includes("word-search-for-kids") ||
+    href.includes("printable-word-search") ||
+    href.includes("crossword-game") ||
+    href.includes("spelling-games-for-kids") ||
+    href.includes("family-word-games") ||
+    href.includes("wordle-solver");
+  trackWFL(isFamily ? "family_game_clicked" : "tool_card_clicked", {
+    tool_name: href.includes("blog") ? "blog" : href.includes("guides") ? "guides" : "word_finder",
+    action_location: actionLocation,
+    link_href: href
+  });
+});
+
 /* ---- Demo chips ? fill input and search ---- */
 document.getElementById("demoBox").addEventListener("click", e => {
   const chip = e.target.closest(".demo-chip");
@@ -680,6 +745,12 @@ document.getElementById("demoBox").addEventListener("click", e => {
   const val = chip.dataset.fill || chip.textContent;
   document.getElementById("letters").value = val.replace(/[^A-Za-z?]/g, "");
   document.getElementById("demoBox").style.display = "none";
+  trackWFL("popular_search_clicked", {
+    tool_name: "word_finder",
+    action_location: "homepage_demo_chips",
+    search_letters_length: val.replace(/[^A-Za-z?]/g, "").length,
+    chip_value: val.trim()
+  });
   search();
 });
 
@@ -708,6 +779,12 @@ async function search() {
     return;
   }
 
+  trackWFL("word_search_started", {
+    tool_name: "word_finder",
+    action_location: "homepage_search_box",
+    search_letters_length: rawInput.replace(/[^A-Z?]/g, "").length
+  });
+
   const exactLen = parseInt(document.getElementById("length").value, 10);
   const t0 = performance.now();
 
@@ -735,6 +812,13 @@ async function search() {
 
   renderWordGroups("results", words, scrabbleScore);
   setStatus("");
+
+  trackWFL("word_search_completed", {
+    tool_name: "word_finder",
+    action_location: "homepage_results",
+    result_count: words.length,
+    search_letters_length: rawInput.replace(/[^A-Z?]/g, "").length
+  });
 }
 
 document.getElementById("go").addEventListener("click", search);
@@ -748,13 +832,36 @@ document.getElementById("clear").addEventListener("click", () => {
   if (box) box.style.display = "";
   setStatus("");
   document.getElementById("letters").focus();
+  trackHomepageFilter("clear", { action_location: "homepage_search_box" });
 });
 document.getElementById("letters").addEventListener("keydown", e => {
   if (e.key === "Enter") search();
 });
 document.getElementById("dict").addEventListener("change", () => {
   CURRENT_DICT = null;
+  trackHomepageFilter("dictionary", { action_location: "homepage_search_box" });
 });
+
+["starts", "ends", "contains", "length", "meaningful-toggle"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener("change", () => {
+    const filterType = id === "meaningful-toggle" ? "meaningful_only" : id;
+    trackHomepageFilter(filterType, { action_location: "homepage_advanced_filters" });
+  });
+});
+
+const advancedPanel = document.querySelector(".advanced");
+if (advancedPanel) {
+  advancedPanel.addEventListener("toggle", () => {
+    trackWFL("filter_used", {
+      tool_name: "word_finder",
+      action_location: "homepage_advanced_filters",
+      filter_type: advancedPanel.open ? "open" : "close",
+      ...homepageFilterState()
+    });
+  });
+}
 
 const initialLetters = new URLSearchParams(location.search).get("letters")
   || new URLSearchParams(location.search).get("q")
@@ -776,6 +883,6 @@ WordFindLabDictionary.preloadMeaningfulWords();
 </script>
 <script src="/assets/adsterra.js?v=20260522"></script>
 
-<script src="/assets/sitewide-ads.js?v=20260522"></script>
+<script src="/assets/sitewide-ads.js?v=20260601"></script>
 </body>
 </html>

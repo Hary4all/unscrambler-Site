@@ -21,6 +21,22 @@
 <meta name="twitter:title" content="WordFindLab Crossword Game | Free Daily Crossword Puzzle"/>
 <meta name="twitter:description" content="Free daily crossword puzzles with hints, touch support, score sharing, and kid-friendly or adult challenge modes."/>
 <meta name="twitter:image" content="https://wordfindlab.com/assets/wordfindlab-share-card.png"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T55GC2PM');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BKVHJW1RE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BKVHJW1RE');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,6 +123,18 @@
   ]
 }
 </script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.trackWFL = window.trackWFL || function(eventName, data = {}) {
+    window.dataLayer.push({
+      event: eventName,
+      page_path: window.location.pathname,
+      page_title: document.title || "",
+      ...data
+    });
+  };
+</script>
+<script defer src="/assets/wfl-measurement.js?v=20260601"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
@@ -1593,6 +1621,10 @@ body.adults .page > .faq-section + .crossword-ad-wrap > .adsterra-shell {
 </style>
 </head>
 <body class="kids">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T55GC2PM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="site-nav">
   <div class="nav-inner">
@@ -4113,8 +4145,26 @@ function updateBoardShareLinks() {
   const shareText = getBoardShareText();
   const fb = document.getElementById('board-share-fb');
   const x = document.getElementById('board-share-x');
-  if(fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(puzzleUrl)}&quote=${encodeURIComponent(shareText)}`;
-  if(x) x.href = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(puzzleUrl)}`;
+  if(fb) {
+    fb.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(puzzleUrl)}&quote=${encodeURIComponent(shareText)}`;
+    fb.onclick = () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "board_share_panel",
+        share_platform: "facebook"
+      });
+    };
+  }
+  if(x) {
+    x.href = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(puzzleUrl)}`;
+    x.onclick = () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "board_share_panel",
+        share_platform: "x"
+      });
+    };
+  }
 }
 
 async function copyTextSafely(text) {
@@ -4139,12 +4189,22 @@ async function copyTextSafely(text) {
 
 async function copyCurrentPuzzleLink() {
   const ok = await copyTextSafely(getBoardPuzzleUrl());
+  trackWFL("share_clicked", {
+    tool_name: "crossword_game",
+    action_location: "board_share_panel",
+    share_platform: "copy_link"
+  });
   toast(ok ? 'Puzzle link copied! 🔗' : 'Copy failed — please copy from address bar');
 }
 
 async function openInstagramShare() {
   const text = `${getBoardShareText()} ${getBoardPuzzleUrl()}`;
   await copyTextSafely(text);
+  trackWFL("share_clicked", {
+    tool_name: "crossword_game",
+    action_location: "board_share_panel",
+    share_platform: "instagram"
+  });
   toast('Text copied — paste it on Instagram 📸');
   window.open('https://www.instagram.com/', '_blank', 'noopener');
 }
@@ -4154,12 +4214,47 @@ function setupSharing(puzzle, result) {
   const shareText = generateShareText(puzzle, result);
   const puzzleUrl = generatePuzzleUrl(puzzle);
   
-  document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(puzzleUrl)}&quote=${encodeURIComponent(shareText)}`;
-  document.getElementById('share-tw').href = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(puzzleUrl)}`;
-  document.getElementById('share-wa').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + puzzleUrl)}`;
+  const fbBtn = document.getElementById('share-fb');
+  const twBtn = document.getElementById('share-tw');
+  const waBtn = document.getElementById('share-wa');
+  if (fbBtn) {
+    fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(puzzleUrl)}&quote=${encodeURIComponent(shareText)}`;
+    fbBtn.onclick = () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "result_panel",
+        share_platform: "facebook"
+      });
+    };
+  }
+  if (twBtn) {
+    twBtn.href = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(puzzleUrl)}`;
+    twBtn.onclick = () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "result_panel",
+        share_platform: "x"
+      });
+    };
+  }
+  if (waBtn) {
+    waBtn.href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + puzzleUrl)}`;
+    waBtn.onclick = () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "result_panel",
+        share_platform: "whatsapp"
+      });
+    };
+  }
   const igBtn = document.getElementById('share-ig');
   if(igBtn) {
     igBtn.onclick = async () => {
+      trackWFL("share_clicked", {
+        tool_name: "crossword_game",
+        action_location: "result_panel",
+        share_platform: "instagram"
+      });
       await copyTextSafely(shareText + ' ' + puzzleUrl);
       toast('Text copied — paste it on Instagram 📸');
       window.open('https://www.instagram.com/', '_blank', 'noopener');
@@ -4169,25 +4264,40 @@ function setupSharing(puzzle, result) {
   // Copy buttons
   document.getElementById('copy-result').onclick = async () => {
     await copyTextSafely(shareText);
+    trackWFL("share_clicked", {
+      tool_name: "crossword_game",
+      action_location: "result_panel",
+      share_platform: "copy_result"
+    });
     toast('Result copied! 📋');
   };
   
   document.getElementById('copy-link').onclick = async () => {
     await copyTextSafely(puzzleUrl);
+    trackWFL("share_clicked", {
+      tool_name: "crossword_game",
+      action_location: "result_panel",
+      share_platform: "copy_link"
+    });
     toast('Link copied! 🔗');
   };
   
   // Native share button (if supported)
   const nativeBtn = document.getElementById('share-native');
   if(navigator.share) {
-    nativeBtn.style.display = 'flex';
-    nativeBtn.onclick = async () => {
-      try {
-        await navigator.share({
-          title: `WordFindLab: ${puzzle.title}`,
-          text: shareText,
-          url: puzzleUrl
-        });
+      nativeBtn.style.display = 'flex';
+      nativeBtn.onclick = async () => {
+        try {
+          trackWFL("share_clicked", {
+            tool_name: "crossword_game",
+            action_location: "result_panel",
+            share_platform: "native"
+          });
+          await navigator.share({
+            title: `WordFindLab: ${puzzle.title}`,
+            text: shareText,
+            url: puzzleUrl
+          });
         toast('Shared successfully! 🎉');
       } catch(err) {
         if(err.name !== 'AbortError') toast('Share cancelled');
@@ -4217,6 +4327,12 @@ function setDifficulty(difficulty) {
   if(S.difficulty === difficulty) return;
   
   S.difficulty = difficulty;
+  trackWFL("filter_used", {
+    tool_name: "crossword_game",
+    action_location: "difficulty_buttons",
+    filter_type: "difficulty",
+    difficulty
+  });
   
   // Update UI
   document.querySelectorAll('.diff-btn').forEach(btn => {
@@ -4248,6 +4364,12 @@ function switchMode(mode) {
   S.mode = mode; 
   document.body.className = mode; 
   S.pencilMode = false;
+  trackWFL("filter_used", {
+    tool_name: "crossword_game",
+    action_location: "mode_switcher",
+    filter_type: "mode",
+    mode
+  });
   
   document.querySelectorAll('.mbt').forEach(btn => {
     const isK = btn.classList.contains('kids-btn'), 

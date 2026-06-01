@@ -526,6 +526,10 @@ function checkPuzzle() {
   const found = state.found.size;
   els.statusText.textContent = `${found}/${total} words found so far.`;
   if (found === total) {
+    trackWFL("word_search_completed", {
+      action_location: "check_button",
+      result_count: total,
+    });
     endGame(true);
   }
 }
@@ -616,6 +620,12 @@ function newPuzzle() {
   els.timerText.textContent = formatTime(getDifficultyMeta().minutes * 60);
   els.hintToggle.textContent = state.settings.mode === "kids" ? "Hint" : "Hint";
   renderPuzzle();
+  if (state.puzzle) {
+    trackWFL("word_search_started", {
+      action_location: "new_puzzle",
+      result_count: state.puzzle.placements.length,
+    });
+  }
   state.remaining = getDifficultyMeta().minutes * 60;
   updateProgressText();
   if (state.settings.timer) startTimer();
@@ -630,16 +640,31 @@ function bindControls() {
   if (els.modeAdults) els.modeAdults.addEventListener("click", () => setMode("adult"));
   els.category.addEventListener("change", () => {
     state.settings.category = els.category.value;
+    trackWFL("filter_used", {
+      action_location: "category_selector",
+      filter_type: "category",
+      value: state.settings.category,
+    });
     saveFamilyPreferences(state.settings);
     newPuzzle();
   });
   els.difficulty.addEventListener("change", () => {
     state.settings.difficulty = els.difficulty.value;
+    trackWFL("filter_used", {
+      action_location: "difficulty_selector",
+      filter_type: "difficulty",
+      value: state.settings.difficulty,
+    });
     saveFamilyPreferences(state.settings);
     newPuzzle();
   });
   els.timerToggle.addEventListener("change", () => {
     state.settings.timer = els.timerToggle.value === "true";
+    trackWFL("filter_used", {
+      action_location: "timer_toggle",
+      filter_type: "timer",
+      value: state.settings.timer ? "on" : "off",
+    });
     saveFamilyPreferences(state.settings);
     newPuzzle();
   });

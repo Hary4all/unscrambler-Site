@@ -27,6 +27,7 @@ const WWF_POINTS = {
 };
 
 const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
+const WFL_GTM_ID = "GTM-T55GC2PM";
 
 function bootstrapMeasurement() {
   if (typeof window.trackWFL !== "function") {
@@ -51,6 +52,48 @@ function injectMeasurementScript() {
   script.src = WFL_MEASUREMENT_SRC;
   script.defer = true;
   document.head.appendChild(script);
+}
+
+function hasScriptSrc(fragment) {
+  return Array.from(document.scripts || []).some((script) => {
+    const src = script.src || "";
+    return src.indexOf(fragment) !== -1;
+  });
+}
+
+function injectGtmFallback() {
+  const gtmFragment = `googletagmanager.com/gtm.js?id=${WFL_GTM_ID}`;
+  if (hasScriptSrc(gtmFragment)) return;
+
+  window.dataLayer = window.dataLayer || [];
+  if (!window.__wflGtmBootstrapped) {
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    window.__wflGtmBootstrapped = true;
+  }
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${WFL_GTM_ID}`;
+  document.head.appendChild(script);
+
+  if (!document.querySelector(`noscript[data-wfl-gtm="${WFL_GTM_ID}"]`)) {
+    const noscript = document.createElement("noscript");
+    noscript.setAttribute("data-wfl-gtm", WFL_GTM_ID);
+    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${WFL_GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    if (document.body) {
+      document.body.insertBefore(noscript, document.body.firstChild);
+    } else {
+      document.addEventListener(
+        "DOMContentLoaded",
+        function insertNoscriptOnce() {
+          if (document.body && !document.querySelector(`noscript[data-wfl-gtm="${WFL_GTM_ID}"]`)) {
+            document.body.insertBefore(noscript, document.body.firstChild);
+          }
+        },
+        { once: true }
+      );
+    }
+  }
 }
 
 /* ---------- Dictionary ---------- */
@@ -555,6 +598,7 @@ document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
 document.addEventListener("DOMContentLoaded", installPrefillLinks);
 
 bootstrapMeasurement();
+injectGtmFallback();
 injectMeasurementScript();
 
 window.WFL = window.WFL || {};
@@ -566,4 +610,3 @@ window.WFL.wwfScore = wwfScore;
 window.WFL.runSearch = runSearch;
 window.WFL.savePrefill = savePrefill;
 window.WFL.consumePrefill = consumePrefill;
-
