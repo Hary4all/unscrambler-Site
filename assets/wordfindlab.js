@@ -26,6 +26,33 @@ const WWF_POINTS = {
   N:2,O:1,P:4,Q:10,R:1,S:1,T:1,U:2,V:5,W:4,X:8,Y:3,Z:10
 };
 
+const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
+
+function bootstrapMeasurement() {
+  if (typeof window.trackWFL !== "function") {
+    window.dataLayer = window.dataLayer || [];
+    window.trackWFL = function (eventName, data = {}) {
+      window.dataLayer.push({
+        event: eventName,
+        page_path: window.location.pathname,
+        page_title: document.title || "",
+        ...data,
+      });
+    };
+  }
+
+  window.WFLMeasurement = window.WFLMeasurement || {};
+  window.WFLMeasurement.track = window.trackWFL;
+}
+
+function injectMeasurementScript() {
+  if (document.querySelector(`script[src*="${WFL_MEASUREMENT_SRC}"]`)) return;
+  const script = document.createElement("script");
+  script.src = WFL_MEASUREMENT_SRC;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
 /* ---------- Dictionary ---------- */
 
 const DICT_URLS = {
@@ -527,6 +554,9 @@ document.addEventListener("DOMContentLoaded", normalizeFooterStatus);
 document.addEventListener("DOMContentLoaded", normalizeBrandLinks);
 document.addEventListener("DOMContentLoaded", installPrefillLinks);
 
+bootstrapMeasurement();
+injectMeasurementScript();
+
 window.WFL = window.WFL || {};
 window.WFL.loadDictionary = loadDictionary;
 window.WFL.collectWordsByPattern = collectWordsByPattern;
@@ -536,6 +566,4 @@ window.WFL.wwfScore = wwfScore;
 window.WFL.runSearch = runSearch;
 window.WFL.savePrefill = savePrefill;
 window.WFL.consumePrefill = consumePrefill;
-
-
 

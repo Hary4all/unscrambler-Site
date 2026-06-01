@@ -2,6 +2,7 @@
   "use strict";
 
   const AD_STERRA_SRC = "/assets/adsterra.js?v=20260522";
+  const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
 
   function scripts() {
     return Array.from(document.scripts || []);
@@ -129,7 +130,31 @@
     injectScript(AD_STERRA_SRC);
   }
 
+  function bootstrapMeasurement() {
+    if (typeof window.trackWFL !== "function") {
+      window.dataLayer = window.dataLayer || [];
+      window.trackWFL = function (eventName, data = {}) {
+        window.dataLayer.push({
+          event: eventName,
+          page_path: window.location.pathname,
+          page_title: document.title || "",
+          ...data,
+        });
+      };
+    }
+
+    window.WFLMeasurement = window.WFLMeasurement || {};
+    window.WFLMeasurement.track = window.trackWFL;
+  }
+
+  function injectMeasurement() {
+    if (hasScript(WFL_MEASUREMENT_SRC)) return;
+    injectScript(WFL_MEASUREMENT_SRC);
+  }
+
   function boot() {
+    bootstrapMeasurement();
+    injectMeasurement();
     injectAdsterra();
   }
 

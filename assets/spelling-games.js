@@ -52,6 +52,25 @@ const els = {};
 function $(id) { return document.getElementById(id); }
 function shuffle(items) { return [...items].sort(() => Math.random() - 0.5); }
 
+function trackWFL(eventName, data = {}) {
+  const tracker = typeof window.trackWFL === "function"
+    ? window.trackWFL
+    : (window.WFLMeasurement && typeof window.WFLMeasurement.track === "function"
+        ? window.WFLMeasurement.track
+        : null);
+  const payload = {
+    page_path: window.location.pathname,
+    page_title: document.title || "",
+    tool_name: "spelling_games_for_kids",
+    action_location: "spelling_game",
+    ...data,
+  };
+  if (tracker) return tracker(eventName, payload);
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...payload });
+  return payload;
+}
+
 async function loadData() {
   if (state.data) return state.data;
   const res = await fetch(DATA_URL, { cache: "no-store" });
@@ -188,6 +207,11 @@ function resetGame() {
 
 function applyMode(mode) {
   state.settings.difficulty = mode;
+  trackWFL("filter_used", {
+    action_location: "mode_switcher",
+    filter_type: "mode",
+    value: mode,
+  });
   saveFamilyPreferences({ spellingMode: mode });
   syncModeBody();
   resetGame();
@@ -195,6 +219,11 @@ function applyMode(mode) {
 
 function applyCategory(category) {
   state.settings.category = category;
+  trackWFL("filter_used", {
+    action_location: "category_switcher",
+    filter_type: "category",
+    value: category,
+  });
   saveFamilyPreferences({ spellingCategory: category });
   resetGame();
 }
@@ -320,5 +349,4 @@ async function init() {
 }
 
 window.addEventListener("DOMContentLoaded", init);
-
 

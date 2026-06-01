@@ -61,6 +61,25 @@
     return String(word || "").trim().toLowerCase().replace(/[^a-z]/g, "");
   }
 
+  function trackWFL(eventName, data = {}) {
+    const tracker = typeof window.trackWFL === "function"
+      ? window.trackWFL
+      : (window.WFLMeasurement && typeof window.WFLMeasurement.track === "function"
+          ? window.WFLMeasurement.track
+          : null);
+    const payload = {
+      page_path: window.location.pathname,
+      page_title: document.title || "",
+      tool_name: "dictionary",
+      action_location: "dictionary_page",
+      ...data,
+    };
+    if (tracker) return tracker(eventName, payload);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+    return payload;
+  }
+
   function uniqueList(items) {
     const out = [];
     const seen = new Set();
@@ -409,6 +428,12 @@
     const lookupWord = normalizeWord(word);
     if (!lookupWord) return null;
 
+    trackWFL("dictionary_opened", {
+      tool_name: "dictionary",
+      action_location: options.actionLocation || "dictionary_panel",
+      result_count: 1,
+    });
+
     const panel = ensureDefinitionPanel();
     panel.hidden = false;
     panel.dataset.currentWord = lookupWord;
@@ -456,6 +481,12 @@
 
       evt.preventDefault();
       evt.stopPropagation();
+
+      trackWFL("result_word_clicked", {
+        tool_name: "dictionary",
+        action_location: target.closest(".word-card, .words, #results, #resultsCard") ? "results_grid" : "dictionary_word",
+        result_count: document.querySelectorAll("[data-dictionary-word]").length || 1,
+      });
 
       if (evt.shiftKey || evt.altKey || evt.ctrlKey || evt.metaKey) {
         navigator.clipboard?.writeText(normalizeWord(word)).catch(() => {});
@@ -547,7 +578,7 @@
   }
 
   async function lookupWord(word) {
-    return showDefinition(word, { scroll: true });
+    return showDefinition(word, { scroll: true, actionLocation: "dictionary_lookup" });
   }
 
   function setupLookupPage() {
@@ -563,6 +594,10 @@
     const runLookup = async () => {
       const value = normalizeWord(input ? input.value : "");
       if (!value) return;
+      trackWFL("dictionary_opened", {
+        tool_name: "dictionary",
+        action_location: "dictionary_lookup",
+      });
       await lookupWord(value);
     };
 
@@ -583,6 +618,11 @@
       clearBtn.addEventListener("click", () => {
         input.value = "";
         input.focus();
+        trackWFL("filter_used", {
+          tool_name: "dictionary",
+          action_location: "dictionary_lookup",
+          filter_type: "clear",
+        });
       });
     }
 
