@@ -3417,4 +3417,23 @@
   </url>  <url>
     <loc>https://wordfindlab.com/trending-words/</loc>
     <lastmod>2026-05-24</lastmod>
-  </url></urlset>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/blog/online-word-games-ribbit-uncrossy-word-chain-word-scramble/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/blog/othello-game-double-swaps-strategy-guide/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<url>
+    <loc>https://wordfindlab.com/blog/word-count-word-scramble-study-language/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
