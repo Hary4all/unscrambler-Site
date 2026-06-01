@@ -34,6 +34,25 @@ const els = {};
 
 function $(id) { return document.getElementById(id); }
 
+function trackWFL(eventName, data = {}) {
+  const tracker = typeof window.trackWFL === "function"
+    ? window.trackWFL
+    : (window.WFLMeasurement && typeof window.WFLMeasurement.track === "function"
+        ? window.WFLMeasurement.track
+        : null);
+  const payload = {
+    page_path: window.location.pathname,
+    page_title: document.title || "",
+    tool_name: "word_search_for_kids",
+    action_location: "word_search_page",
+    ...data,
+  };
+  if (tracker) return tracker(eventName, payload);
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...payload });
+  return payload;
+}
+
 function randomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -299,7 +318,13 @@ function renderWordList() {
     chip.textContent = placement.display || placement.word;
     chip.title = placement.clue;
     chip.dataset.word = placement.word;
-    chip.addEventListener("click", () => flashPlacement(placement.word));
+    chip.addEventListener("click", () => {
+      trackWFL("result_word_clicked", {
+        action_location: "word_list_chip",
+        result_count: state.puzzle.placements.length,
+      });
+      flashPlacement(placement.word);
+    });
     if (state.found.has(placement.word)) chip.classList.add("is-found");
     els.wordList.appendChild(chip);
   });
@@ -401,6 +426,10 @@ function markFound(word) {
     els.statusText.textContent = "Nice solve!";
   }
   if (state.found.size === state.puzzle.placements.length) {
+    trackWFL("word_search_completed", {
+      action_location: "auto_complete",
+      result_count: state.puzzle.placements.length,
+    });
     endGame(true);
   }
 }
