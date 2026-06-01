@@ -86,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="p:domain_verify" content="ce85f169c38454cb352a510f074a7c62" />
-<link rel="stylesheet" href="/assets/style.css?v=20260521">
+<link rel="stylesheet" href="/assets/style.css?v=20260602">
 <script src="/assets/noindex-query.js?v=20260518"></script>
 '@
 }

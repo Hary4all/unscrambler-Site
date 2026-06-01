@@ -5071,3 +5071,208 @@ body .seo-section {
     padding: 18px;
   }
 }
+
+/* ========================================================================== */
+/* WordFindLab whitespace reduction overrides (from DOCX reference, 20260602) */
+/* Keep these at the end so they win the cascade without touching core layout. */
+/* ========================================================================== */
+
+/* Global rhythm */
+.page-wrap {
+  padding: 14px 14px 24px;
+  gap: 12px;
+}
+.page-header {
+  margin-bottom: 8px;
+}
+.section {
+  padding: 36px 0;
+}
+.section-label,
+.section-title {
+  margin-bottom: 6px;
+}
+.section-label {
+  margin-bottom: 4px;
+}
+
+/* Hero */
+body .hero-shell {
+  padding: 20px 20px 12px;
+}
+body .hero-shell__inner {
+  gap: 18px;
+}
+body .hero-kicker {
+  margin-bottom: 10px;
+}
+body .hero-title {
+  margin-bottom: 10px;
+}
+body .hero-subcopy {
+  margin-bottom: 14px;
+}
+body .hero-cta-row {
+  margin-top: 6px;
+  gap: 8px;
+}
+body .hero-cta-link {
+  min-height: 46px;
+}
+body .hero-feature-row {
+  margin: 0 0 14px;
+  gap: 10px;
+}
+body .hero-feature {
+  padding: 12px;
+}
+body .hero-feature-icon {
+  margin-bottom: 8px;
+}
+body .hero-feature p {
+  margin-top: 2px;
+}
+
+/* Search card */
+body .hero-search-card {
+  padding: 16px 16px 14px;
+  border-radius: 24px;
+}
+body .hero-search-label {
+  margin-bottom: 8px;
+}
+body .hero-search-row {
+  gap: 10px;
+}
+body .hero-search-row .input-letters,
+body .hero-search-row .btn {
+  height: 54px;
+}
+body .hero-quick-links {
+  margin-top: 10px;
+}
+body .hero-enter-hint {
+  margin-top: 6px;
+}
+body .trust-badges--compact {
+  margin-top: 10px;
+  gap: 8px 12px;
+}
+
+/* Word of the day / small supporting content */
+body .wotd-section {
+  margin-bottom: 12px;
+}
+
+/* Today's games */
+body .today-games-section {
+  padding: 20px;
+}
+body .today-games-section .family-section__title {
+  gap: 10px;
+}
+body .today-games-section .family-section-label {
+  padding: 6px 10px;
+}
+body .family-section-copy {
+  margin-top: 6px;
+}
+body .today-games-grid {
+  gap: 10px;
+}
+body .today-game-card {
+  padding: 16px 18px;
+  gap: 8px;
+  min-height: 170px;
+}
+body .today-game-badge {
+  width: 40px;
+  height: 40px;
+}
+body .today-game-card strong {
+  font-size: 16px;
+}
+body .today-game-card p {
+  line-height: 1.5;
+}
+body .today-game-cta {
+  padding: 5px 10px;
+}
+
+/* Popular searches + SEO cards */
+body .popular-searches-section {
+  gap: 12px;
+  padding: 18px;
+}
+body .popular-searches-head h2 {
+  margin-top: 2px;
+}
+body .seo-section {
+  margin-top: 16px;
+}
+body .seo-section--grid {
+  gap: 12px;
+}
+body .seo-section-card {
+  padding: 18px 20px;
+  gap: 10px;
+}
+body .seo-section-card h2 {
+  margin-bottom: 0;
+}
+body .seo-section-card .related-tools {
+  margin-top: 2px;
+}
+body .seo-section-card .related-links {
+  margin-top: 8px;
+}
+
+/* Footer */
+.site-footer {
+  padding: 26px 20px 18px;
+  margin-top: 28px;
+}
+.footer-inner {
+  max-width: 1200px;
+}
+.footer-links {
+  gap: 6px 14px;
+  margin-bottom: 8px;
+}
+.footer-copy {
+  line-height: 1.5;
+}
+
+/* Keep the reference doc's intent available for any matching legacy sections. */
+.wotd-card {
+  padding: 22px 28px;
+  gap: 32px;
+}
+.wotd-word {
+  margin-bottom: 2px;
+}
+.wotd-phonetic,
+.wotd-pos {
+  margin-bottom: 8px;
+}
+.wotd-def {
+  margin-bottom: 6px;
+}
+.wotd-example {
+  margin-bottom: 12px;
+}
+.wotd-panel {
+  padding: 14px 16px;
+}
+.wotd-panel-title {
+  margin-bottom: 8px;
+}
+.wotd-aside {
+  gap: 10px;
+}
+.wotd-eyebrow {
+  margin-bottom: 4px;
+}
+.wotd-quick-link {
+  padding: 4px 0;
+}
