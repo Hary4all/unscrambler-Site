@@ -4756,22 +4756,34 @@ body .hero-stat-badge {
 body .hero-feature-row {
   margin-bottom: 2px;
 }
+body .homepage-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+body .homepage-hub-grid .homepage-wotd--featured {
+  margin: 0;
+  height: 100%;
+}
+body .page-main {
+  gap: 7px;
+}
 
 body .feature-hub {
-  margin-top: 14px;
+  margin-top: 0;
 }
 body .feature-hub-title {
   text-align: left;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 body .feature-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 8px;
 }
 body .feature-card {
   position: relative;
   overflow: hidden;
-  min-height: 182px;
+  min-height: 160px;
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border-color: rgba(148,163,184,.16);
@@ -4790,11 +4802,11 @@ body .feature-card:hover {
   box-shadow: 0 22px 40px rgba(37,99,235,.10);
 }
 body .feature-card-title {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.25;
 }
 body .feature-card-copy {
-  font-size: 13.5px;
+  font-size: 12.5px;
 }
 body .feature-card-link {
   margin-top: auto;
@@ -4805,8 +4817,8 @@ body .feature-card--all {
 
 body .today-games-section {
   display: grid;
-  gap: 14px;
-  padding: 24px;
+  gap: 12px;
+  padding: 16px;
   border-radius: 30px;
   background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(245,250,255,.96));
   border: 1px solid rgba(148,163,184,.15);
@@ -4814,7 +4826,7 @@ body .today-games-section {
 }
 body .today-games-section .family-section__title {
   align-items: end;
-  gap: 12px;
+  gap: 10px;
 }
 body .today-games-section .family-section-label {
   display: inline-flex;
@@ -4829,7 +4841,7 @@ body .today-games-section .family-section-label {
 }
 body .today-games-section h2 {
   margin: 6px 0 0;
-  font-size: clamp(26px, 2.8vw, 36px);
+  font-size: clamp(24px, 2.4vw, 32px);
   line-height: 1.05;
   letter-spacing: -.04em;
 }
@@ -4842,21 +4854,21 @@ body .family-section-copy {
 body .today-games-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  gap: 8px;
 }
 body .today-game-card {
   position: relative;
   overflow: hidden;
   display: grid;
   gap: 10px;
-  padding: 20px;
+  padding: 16px 18px;
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border: 1px solid rgba(148,163,184,.16);
   box-shadow: 0 14px 28px rgba(15,23,42,.06);
   color: #0f172a;
   text-decoration: none;
-  min-height: 194px;
+  min-height: 170px;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 body .today-game-card:hover {
@@ -4922,8 +4934,8 @@ body .today-game-card--pink { background: linear-gradient(180deg, rgba(255,241,2
 
 body .popular-searches-section {
   display: grid;
-  gap: 14px;
-  padding: 22px;
+  gap: 12px;
+  padding: 16px;
   border-radius: 26px;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border: 1px solid rgba(148,163,184,.16);
@@ -4939,12 +4951,12 @@ body .popular-searches-head h2 {
 body .seo-section--grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 10px;
 }
 body .seo-section-card {
   display: grid;
-  gap: 12px;
-  padding: 20px;
+  gap: 10px;
+  padding: 16px 18px;
   border-radius: 24px;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border: 1px solid rgba(148,163,184,.16);
@@ -4952,7 +4964,7 @@ body .seo-section-card {
 }
 body .seo-section-card h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 1.15;
   letter-spacing: -.04em;
 }
@@ -4976,7 +4988,16 @@ body .seo-section-card .related-links {
 }
 
 body .seo-section {
-  margin-top: 18px;
+  margin-top: 8px;
+}
+
+body .homepage-wotd--featured .wotd-featured-layout {
+  padding: 16px;
+  gap: 10px;
+}
+
+body .homepage-wotd--featured .wotd-featured-panel {
+  padding: 16px;
 }
 
 @media (max-width: 1180px) {
@@ -4985,6 +5006,9 @@ body .seo-section {
   }
   body .hero-visual {
     min-height: 760px;
+  }
+  body .homepage-hub-grid {
+    grid-template-columns: 1fr;
   }
   body .today-games-section {
     padding: 20px;
@@ -5075,6 +5099,12 @@ body .seo-section {
   }
   body .seo-section-card {
     padding: 18px;
+  }
+  body .homepage-hub-grid {
+    gap: 10px;
+  }
+  body .feature-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -5172,7 +5202,7 @@ body .wotd-section {
 
 /* Today's games */
 body .today-games-section {
-  padding: 20px;
+  padding: 16px;
 }
 body .today-games-section .family-section__title {
   gap: 10px;
@@ -5184,7 +5214,7 @@ body .family-section-copy {
   margin-top: 6px;
 }
 body .today-games-grid {
-  gap: 10px;
+  gap: 8px;
 }
 body .today-game-card {
   padding: 16px 18px;
@@ -5208,19 +5238,19 @@ body .today-game-cta {
 /* Popular searches + SEO cards */
 body .popular-searches-section {
   gap: 12px;
-  padding: 18px;
+  padding: 16px;
 }
 body .popular-searches-head h2 {
   margin-top: 2px;
 }
 body .seo-section {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 body .seo-section--grid {
-  gap: 12px;
+  gap: 10px;
 }
 body .seo-section-card {
-  padding: 18px 20px;
+  padding: 16px 18px;
   gap: 10px;
 }
 body .seo-section-card h2 {
