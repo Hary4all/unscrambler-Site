@@ -5193,21 +5193,19 @@ body.home-page .affiliate-button {
 
 /* Final homepage layout lock: keep the dashboard wide and horizontal on desktop. */
 body.home-page .site-nav .nav-inner {
-  flex-wrap: wrap;
-  row-gap: 6px;
+  flex-wrap: nowrap;
 }
 
 body.home-page .site-nav .nav-links {
-  order: 3;
-  flex: 1 1 100%;
-  margin-left: 0;
-  gap: 2px;
-  flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 body.home-page .site-nav .nav-actions {
-  order: 2;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 body.home-page .page-wrap {
@@ -5225,7 +5223,7 @@ body.home-page .page-sidebar {
 }
 
 body.home-page .homepage-hub-grid {
-  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 16px !important;
 }
 
@@ -5234,16 +5232,16 @@ body.home-page .homepage-wotd--featured {
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-layout {
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, .92fr) minmax(0, .92fr) minmax(0, .92fr) !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr) !important;
   gap: 16px !important;
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-aside {
-  display: contents !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-panel--wide {
-  grid-column: auto !important;
+  grid-column: 1 / -1 !important;
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-list {
@@ -5251,12 +5249,11 @@ body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-layout {
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
   gap: 16px !important;
 }
 
 body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-aside {
-  display: grid !important;
   grid-template-columns: 1fr !important;
 }
 
@@ -5305,7 +5302,6 @@ body.home-page .affiliate-section {
 
   body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-aside,
   body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-aside {
-    display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
@@ -5318,20 +5314,20 @@ body.home-page .affiliate-section {
 
 @media (max-width: 760px) {
   body.home-page .site-nav .nav-inner {
-    flex-wrap: nowrap;
-    row-gap: 0;
+    flex-wrap: wrap;
+    row-gap: 6px;
   }
 
   body.home-page .site-nav .nav-links {
-    order: 0;
-    flex: 1 1 auto;
-    margin-left: 10px;
+    order: 3;
+    flex: 1 1 100%;
+    margin-left: 0;
     overflow-x: auto;
     flex-wrap: nowrap;
   }
 
   body.home-page .site-nav .nav-actions {
-    order: 0;
+    order: 2;
     margin-left: auto;
   }
 
