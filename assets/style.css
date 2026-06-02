@@ -5594,31 +5594,47 @@ body.home-page .page-sidebar {
 }
 
 body.home-page .hero-shell__inner {
-  grid-template-columns: minmax(0, 1.03fr) minmax(420px, .97fr) !important;
+  grid-template-columns: minmax(0, 1fr) !important;
   align-items: start !important;
-  gap: 22px !important;
+  gap: 18px !important;
 }
 
 body.home-page .hero-visual {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
-  grid-template-rows: auto auto auto auto;
-  gap: 12px 14px;
-  min-height: auto !important;
-  padding: 12px 0 0;
-  align-items: start;
+  display: none !important;
 }
 
 body.home-page .hero-copy {
   max-width: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+  gap: 14px 18px;
+  align-items: start;
 }
 
 body.home-page .hero-feature-row {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  grid-column: 2;
+  grid-row: 1 / span 6;
+  margin-top: 0 !important;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 10px !important;
 }
 
 body.home-page .hero-search-card {
+  grid-column: 1;
   width: 100% !important;
+}
+
+body.home-page .hero-kicker,
+body.home-page .hero-title,
+body.home-page .hero-subcopy,
+body.home-page .hero-cta-row {
+  grid-column: 1;
+}
+
+body.home-page .hero-cta-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 body.home-page .hero-search-row {
@@ -5634,14 +5650,7 @@ body.home-page .hero-search-row .btn {
 }
 
 body.home-page .hero-stat-badge {
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  grid-column: 1 / -1;
-  grid-row: 1;
-  justify-self: start;
+  display: none !important;
 }
 
 body.home-page .hero-board,
@@ -5734,6 +5743,10 @@ body.home-page .affiliate-button {
   }
 
   body.home-page .hero-visual {
+    display: none !important;
+  }
+
+  body.home-page .hero-copy {
     grid-template-columns: 1fr !important;
   }
 
@@ -5743,6 +5756,12 @@ body.home-page .affiliate-button {
   body.home-page .hero-trending-card,
   body.home-page .hero-trust-row {
     grid-column: 1 / -1 !important;
+  }
+
+  body.home-page .hero-feature-row {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -5761,5 +5780,13 @@ body.home-page .affiliate-button {
 
   body.home-page .page-wrap {
     gap: 12px !important;
+  }
+
+  body.home-page .hero-cta-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .hero-feature-row {
+    grid-template-columns: 1fr !important;
   }
 }
