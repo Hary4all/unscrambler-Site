@@ -5191,6 +5191,178 @@ body.home-page .affiliate-button {
   width: auto;
 }
 
+/* Final homepage layout lock: keep the dashboard wide and horizontal on desktop. */
+body.home-page .site-nav .nav-inner {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+body.home-page .site-nav .nav-links {
+  order: 3;
+  flex: 1 1 100%;
+  margin-left: 0;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+body.home-page .site-nav .nav-actions {
+  order: 2;
+  margin-left: auto;
+}
+
+body.home-page .page-wrap {
+  max-width: 1380px !important;
+  grid-template-columns: minmax(0, 1fr) 330px !important;
+  gap: 16px !important;
+  align-items: start !important;
+}
+
+body.home-page .page-sidebar {
+  width: 330px !important;
+  position: sticky !important;
+  top: 16px !important;
+  align-self: start !important;
+}
+
+body.home-page .homepage-hub-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 16px !important;
+}
+
+body.home-page .homepage-wotd--featured {
+  grid-column: auto !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-layout {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .92fr) minmax(0, .92fr) minmax(0, .92fr) !important;
+  gap: 16px !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-aside {
+  display: contents !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-panel--wide {
+  grid-column: auto !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-layout {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+  gap: 16px !important;
+}
+
+body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-aside {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+}
+
+body.home-page .feature-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+body.home-page .today-games-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+body.home-page .seo-section--grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+body.home-page .seo-section-card ul,
+body.home-page .seo-section-card .related-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+body.home-page .affiliate-section {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+}
+
+@media (max-width: 1180px) {
+  body.home-page .page-wrap {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .page-sidebar {
+    width: auto !important;
+    position: static !important;
+  }
+
+  body.home-page .homepage-hub-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-layout,
+  body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-aside,
+  body.home-page .homepage-wotd--featured[aria-labelledby="popular-tools-title"] .wotd-featured-aside {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.home-page .feature-grid,
+  body.home-page .today-games-grid,
+  body.home-page .seo-section--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body.home-page .site-nav .nav-inner {
+    flex-wrap: nowrap;
+    row-gap: 0;
+  }
+
+  body.home-page .site-nav .nav-links {
+    order: 0;
+    flex: 1 1 auto;
+    margin-left: 10px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  body.home-page .site-nav .nav-actions {
+    order: 0;
+    margin-left: auto;
+  }
+
+  body.home-page .homepage-hub-grid,
+  body.home-page .feature-grid,
+  body.home-page .today-games-grid,
+  body.home-page .seo-section--grid,
+  body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-aside,
+  body.home-page .homepage-wotd--featured[aria-labelledby="wotd-home-title"] .wotd-featured-list,
+  body.home-page .seo-section-card ul,
+  body.home-page .seo-section-card .related-links {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .hero-search-row {
+    flex-wrap: wrap;
+  }
+
+  body.home-page .hero-search-row .input-letters {
+    flex: 1 1 100%;
+  }
+
+  body.home-page .hero-search-row .btn {
+    flex: 1 1 0;
+  }
+
+  body.home-page .affiliate-section {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 @media (max-width: 1180px) {
   body.home-page .page-wrap {
     grid-template-columns: minmax(0, 1fr);
