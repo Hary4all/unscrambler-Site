@@ -5594,11 +5594,19 @@ body.home-page .page-sidebar {
 }
 
 body.home-page .hero-shell__inner {
-  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-columns: minmax(0, 1.03fr) minmax(420px, .97fr) !important;
+  align-items: start !important;
+  gap: 22px !important;
 }
 
 body.home-page .hero-visual {
-  display: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
+  grid-template-rows: auto auto auto auto;
+  gap: 12px 14px;
+  min-height: auto !important;
+  padding: 12px 0 0;
+  align-items: start;
 }
 
 body.home-page .hero-copy {
@@ -5623,6 +5631,59 @@ body.home-page .hero-search-row .input-letters {
 
 body.home-page .hero-search-row .btn {
   flex: 1 1 auto !important;
+}
+
+body.home-page .hero-stat-badge {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+body.home-page .hero-board,
+body.home-page .hero-sidecard,
+body.home-page .hero-playbook,
+body.home-page .hero-trending-card,
+body.home-page .hero-trust-row {
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+body.home-page .hero-board {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+body.home-page .hero-sidecard {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+body.home-page .hero-playbook {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+body.home-page .hero-trending-card {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+body.home-page .hero-trust-row {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  margin-top: 4px;
+}
+
+body.home-page .hero-mini-elements,
+body.home-page .hero-lens {
+  display: none !important;
 }
 
 body.home-page .homepage-hub-grid {
@@ -5666,6 +5727,22 @@ body.home-page .affiliate-button {
   body.home-page .page-sidebar {
     position: static !important;
     width: auto !important;
+  }
+
+  body.home-page .hero-shell__inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .hero-visual {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.home-page .hero-board,
+  body.home-page .hero-sidecard,
+  body.home-page .hero-playbook,
+  body.home-page .hero-trending-card,
+  body.home-page .hero-trust-row {
+    grid-column: 1 / -1 !important;
   }
 }
 
