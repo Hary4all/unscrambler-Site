@@ -5593,6 +5593,38 @@ body.home-page .page-sidebar {
   align-self: start !important;
 }
 
+body.home-page .hero-shell__inner {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+body.home-page .hero-visual {
+  display: none !important;
+}
+
+body.home-page .hero-copy {
+  max-width: none !important;
+}
+
+body.home-page .hero-feature-row {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+}
+
+body.home-page .hero-search-card {
+  width: 100% !important;
+}
+
+body.home-page .hero-search-row {
+  flex-wrap: wrap !important;
+}
+
+body.home-page .hero-search-row .input-letters {
+  flex: 1 1 100% !important;
+}
+
+body.home-page .hero-search-row .btn {
+  flex: 1 1 auto !important;
+}
+
 body.home-page .homepage-hub-grid {
   grid-template-columns: 1fr !important;
   gap: 12px !important;
