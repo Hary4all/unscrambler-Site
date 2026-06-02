@@ -5312,3 +5312,73 @@ body .seo-section-card .related-links {
 .wotd-quick-link {
   padding: 4px 0;
 }
+
+/* ========================================================================== */
+/* Dynamic homepage spacing layer                                             */
+/* ========================================================================== */
+:root {
+  --wfl-home-gap: clamp(8px, 1vw, 12px);
+  --wfl-home-pad: clamp(14px, 1.4vw, 18px);
+  --wfl-home-pad-lg: clamp(16px, 1.6vw, 20px);
+  --wfl-home-grid-gap: clamp(8px, 0.9vw, 12px);
+}
+
+body .page-main {
+  gap: var(--wfl-home-gap);
+}
+
+body .homepage-hub-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  gap: var(--wfl-home-gap);
+}
+
+body .homepage-wotd--featured .wotd-featured-layout {
+  padding: var(--wfl-home-pad-lg);
+  gap: var(--wfl-home-gap);
+}
+
+body .homepage-wotd--featured .wotd-featured-panel {
+  padding: var(--wfl-home-pad-lg);
+}
+
+body .feature-hub {
+  margin-top: 0;
+}
+
+body .feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .feature-card {
+  min-height: clamp(156px, 17vw, 186px);
+}
+
+body .today-games-section {
+  padding: var(--wfl-home-pad);
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .today-games-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .popular-searches-section {
+  padding: var(--wfl-home-pad);
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .seo-section {
+  margin-top: clamp(8px, 1vw, 12px);
+}
+
+body .seo-section--grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .seo-section-card {
+  padding: var(--wfl-home-pad);
+  gap: clamp(8px, 0.9vw, 10px);
+}
