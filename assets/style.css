@@ -4991,6 +4991,69 @@ body .seo-section {
   margin-top: 8px;
 }
 
+body .affiliate-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-top: 10px;
+  padding: var(--wfl-home-pad);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 48%, #f3f9ff 100%);
+  border: 1px solid rgba(148,163,184,.16);
+  box-shadow: 0 14px 28px rgba(15,23,42,.05);
+}
+
+body .affiliate-section__content {
+  display: grid;
+  gap: 8px;
+}
+
+body .affiliate-disclosure {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #64748b;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(239,246,255,.95);
+  border: 1px solid rgba(191,219,254,.9);
+}
+
+body .affiliate-section h2 {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+body .affiliate-section p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.65;
+}
+
+body .affiliate-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 14px 28px rgba(37,99,235,.18);
+  white-space: nowrap;
+}
+
+body .affiliate-button:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 18px 34px rgba(37,99,235,.22);
+}
+
 body .homepage-wotd--featured .wotd-featured-layout {
   padding: 16px;
   gap: 10px;
@@ -5099,6 +5162,15 @@ body .homepage-wotd--featured .wotd-featured-panel {
   }
   body .seo-section-card {
     padding: 18px;
+  }
+  body .seo-section-card ul {
+    columns: 1;
+  }
+  body .affiliate-section {
+    grid-template-columns: 1fr;
+  }
+  body .affiliate-button {
+    width: 100%;
   }
   body .homepage-hub-grid {
     gap: 10px;
@@ -5335,10 +5407,73 @@ body .homepage-hub-grid {
 body .homepage-wotd--featured .wotd-featured-layout {
   padding: var(--wfl-home-pad-lg);
   gap: var(--wfl-home-gap);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
 }
 
 body .homepage-wotd--featured .wotd-featured-panel {
   padding: var(--wfl-home-pad-lg);
+}
+
+body .homepage-wotd--featured .wotd-featured-aside {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--wfl-home-grid-gap);
+}
+
+body .homepage-wotd--featured .wotd-featured-panel--wide {
+  grid-column: auto;
+}
+
+body .homepage-wotd--featured .wotd-featured-panel-title {
+  font-size: 17px;
+}
+
+body .homepage-wotd--featured .wotd-featured-copy {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+body .homepage-wotd--featured .wotd-featured-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body .homepage-wotd--featured .wotd-featured-links a {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+body .homepage-wotd--featured .wotd-featured-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body .homepage-wotd--featured .wotd-featured-list li {
+  padding-left: 0;
+  margin: 0;
+}
+
+body .homepage-wotd--featured .wotd-featured-list li::before {
+  display: none;
+}
+
+body .homepage-wotd--featured .wotd-featured-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(37,99,235,.08);
 }
 
 body .feature-hub {
@@ -5381,4 +5516,23 @@ body .seo-section--grid {
 body .seo-section-card {
   padding: var(--wfl-home-pad);
   gap: clamp(8px, 0.9vw, 10px);
+}
+
+body .seo-section-card ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  columns: unset;
+  padding-left: 0;
+  list-style: none;
+}
+
+body .seo-section-card li {
+  break-inside: avoid;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f8fbff;
+  border: 1px solid rgba(191,219,254,.9);
+  line-height: 1.55;
 }
