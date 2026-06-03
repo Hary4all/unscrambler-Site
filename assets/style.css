@@ -5603,8 +5603,12 @@ body.home-page .homepage-wotd--featured {
 }
 
 body.home-page .feature-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-  gap: 12px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+body.home-page .feature-card {
+  min-height: 176px;
 }
 
 body.home-page .today-games-grid {
