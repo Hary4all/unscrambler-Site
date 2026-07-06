@@ -1,0 +1,498 @@
+/* ============================================================
+   WordFindLab — Premium Design System Layer
+   Loads AFTER style.css + enhancements.css. Purely additive:
+   refines typography, cards, buttons, inputs, focus states,
+   spacing, footer, ads (CLS), and adds scroll-reveal hooks.
+   No selectors here remove or hide any existing content.
+   ============================================================ */
+
+/* ---------- 1. Extended tokens ---------- */
+:root {
+  --pr-ink-soft: #334155;
+  --pr-border-strong: #e2e8f0;
+  --pr-surface-2: #f8fafc;
+  --pr-accent-soft: #eff6ff;
+  --pr-accent-grad: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  --pr-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --pr-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --pr-shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.05);
+  --pr-shadow-lg: 0 12px 32px -8px rgba(15, 23, 42, 0.14), 0 4px 12px -4px rgba(15, 23, 42, 0.06);
+  --pr-shadow-ring: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  --pr-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pr-space-1: 6px;
+  --pr-space-2: 10px;
+  --pr-space-3: 16px;
+  --pr-space-4: 24px;
+  --pr-space-5: 36px;
+}
+
+/* ---------- 2. Typography rhythm ---------- */
+::selection { background: rgba(37, 99, 235, 0.16); color: var(--ink); }
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+h2 { margin-top: 1.6em; margin-bottom: 0.55em; }
+h2:first-child, h3:first-child { margin-top: 0; }
+h3 { margin-top: 1.3em; margin-bottom: 0.45em; }
+
+.seo-section p,
+.seo-section li,
+.card p,
+.faq-a {
+  line-height: 1.7;
+  color: var(--pr-ink-soft);
+}
+.seo-section p { max-width: 74ch; }
+.seo-section ul { padding-left: 1.2em; }
+.seo-section li { margin-bottom: 0.45em; }
+.seo-section li::marker { color: var(--accent); }
+
+.seo-section h2 {
+  font-size: clamp(20px, 2.6vw, 26px);
+  position: relative;
+  padding-bottom: 8px;
+}
+.seo-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 44px; height: 3px;
+  border-radius: 3px;
+  background: var(--pr-accent-grad);
+}
+
+/* ---------- 3. Accessibility: focus & keyboard ---------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+a:focus-visible, button:focus-visible, .btn:focus-visible {
+  box-shadow: var(--pr-shadow-ring);
+  outline: 2px solid transparent;
+}
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  background: var(--surface);
+  color: var(--accent);
+  padding: 10px 16px;
+  border-radius: 0 0 10px 0;
+  font-weight: 600;
+  box-shadow: var(--pr-shadow-md);
+}
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+  transition: transform 0.15s var(--pr-ease), box-shadow 0.15s var(--pr-ease),
+              background-color 0.15s ease, border-color 0.15s ease;
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0) scale(0.985); }
+.btn-cta {
+  background-image: var(--pr-accent-grad);
+  box-shadow: 0 4px 14px -3px rgba(37, 99, 235, 0.45);
+}
+.btn-cta:hover { box-shadow: 0 8px 22px -4px rgba(37, 99, 235, 0.5); }
+.btn.ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--pr-accent-soft);
+}
+
+/* ---------- 5. Inputs ---------- */
+input[type="text"], input[type="number"], input[type="search"],
+input[type="email"], textarea, select {
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  border-radius: var(--radius-sm);
+}
+input[type="text"]:hover, input[type="number"]:hover, select:hover,
+input[type="search"]:hover, textarea:hover {
+  border-color: var(--pr-border-strong);
+}
+input[type="text"]:focus, input[type="number"]:focus, select:focus,
+input[type="search"]:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: var(--pr-shadow-ring);
+}
+
+/* ---------- 6. Cards: unified elevation ---------- */
+.card, .wcard, .feature-card, .game-cta-card, .family-card,
+.trust-card, .tools-widget {
+  border: 1px solid var(--pr-border-strong);
+  box-shadow: var(--pr-shadow-sm);
+  border-radius: var(--radius);
+}
+.card:hover, .wcard:hover {
+  box-shadow: var(--pr-shadow-md);
+  border-color: #dbe3ee;
+}
+a.feature-card:hover, a.game-cta-card:hover, a.family-card:hover {
+  box-shadow: var(--pr-shadow-lg);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+/* ---------- 7. FAQ blocks ---------- */
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--pr-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.faq-item:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: var(--pr-shadow-sm);
+}
+.faq-q {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.faq-q::before {
+  content: "Q";
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--pr-accent-soft);
+  border-radius: 6px;
+  padding: 2px 7px;
+  transform: translateY(-1px);
+}
+.faq-a { margin: 0; }
+
+/* ---------- 8. Word chips / grids ---------- */
+.word-link, .related-link {
+  transition: transform 0.12s var(--pr-ease), box-shadow 0.12s var(--pr-ease),
+              border-color 0.12s ease, background-color 0.12s ease;
+}
+.word-link:hover, .related-link:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--pr-shadow-sm);
+  text-decoration: none;
+}
+.pts-badge { font-variant-numeric: tabular-nums; }
+
+/* ---------- 9. Tables ---------- */
+.top-words-table table, table.top-words-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+.top-words-table th {
+  background: var(--pr-surface-2);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+}
+.top-words-table td, .top-words-table th { padding: 10px 12px; }
+.top-words-table tr:nth-child(even) td { background: rgba(248, 250, 252, 0.6); }
+.top-words-table tr:hover td { background: var(--pr-accent-soft); }
+
+/* ---------- 10. Breadcrumb ---------- */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.breadcrumb a {
+  color: var(--ink-2);
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.breadcrumb a:hover {
+  background: var(--pr-accent-soft);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- 11. Ads: CLS reservation + integration ---------- */
+.ad-wrap, .ad-supplemental-ads {
+  contain: layout;
+}
+.ad-slot {
+  border-radius: var(--radius-sm);
+  background: var(--pr-surface-2);
+}
+.ad-slot:empty { min-height: 50px; }
+.ad-slot-banner:empty { min-height: 90px; }
+.ad-slot-rect:empty { min-height: 250px; }
+.ad-slot-sidebar:empty { min-height: 250px; }
+.ad-slot.adsterra-hidden, .ad-slot.adsterra-hidden:empty {
+  min-height: 0;
+  background: transparent;
+}
+.ad-wrap { margin-top: var(--pr-space-4); margin-bottom: var(--pr-space-4); }
+
+/* ---------- 12. Existing footer polish ---------- */
+.site-footer {
+  border-top: 1px solid var(--pr-border-strong);
+}
+.footer-links a {
+  transition: color 0.12s ease;
+  border-radius: 6px;
+}
+.footer-links a:hover { color: #fff; text-decoration: none; }
+
+/* ---------- 13. Footer mega navigation (injected block) ---------- */
+.footer-mega {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 40px 20px 8px;
+}
+.footer-mega-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 28px;
+}
+.footer-mega-brand p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin: 10px 0 0;
+  max-width: 34ch;
+}
+.footer-mega-logo {
+  font-size: 19px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.footer-mega-logo span { color: #60a5fa; }
+.footer-mega-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  margin: 0 0 12px;
+}
+.footer-mega ul { list-style: none; margin: 0; padding: 0; }
+.footer-mega li { margin: 0 0 8px; }
+.footer-mega li a {
+  color: #94a3b8;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+.footer-mega li a:hover { color: #fff; }
+.footer-mega-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.footer-mega-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.footer-mega-social a:hover {
+  background: rgba(96, 165, 250, 0.2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.footer-mega-social svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 960px) {
+  .footer-mega-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-mega-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .footer-mega-inner { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ---------- 14. Scroll reveal + counters + skeletons ---------- */
+.pr-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s var(--pr-ease), transform 0.55s var(--pr-ease);
+}
+.pr-reveal.pr-visible {
+  opacity: 1;
+  transform: none;
+}
+.pr-skeleton {
+  background: linear-gradient(90deg, #eef2f7 25%, #f8fafc 50%, #eef2f7 75%);
+  background-size: 200% 100%;
+  animation: pr-shimmer 1.3s ease-in-out infinite;
+  border-radius: 8px;
+  color: transparent !important;
+  pointer-events: none;
+}
+@keyframes pr-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+[data-counter] { font-variant-numeric: tabular-nums; }
+
+/* ---------- 15. Back to top ---------- */
+.pr-top-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 300;
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--pr-border-strong);
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: var(--pr-shadow-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.pr-top-btn.pr-show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.pr-top-btn:hover { color: var(--accent); border-color: var(--accent); }
+.pr-top-btn svg { width: 18px; height: 18px; }
+
+/* ---------- 16. Sidebar + layout polish ---------- */
+@media (min-width: 1024px) {
+  .page-sidebar .tools-widget { position: sticky; top: 76px; }
+}
+.tools-widget-links a {
+  border-radius: 8px;
+  transition: background-color 0.12s ease, color 0.12s ease, padding-left 0.15s var(--pr-ease);
+}
+.tools-widget-links a:hover {
+  background: var(--pr-accent-soft);
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+/* ---------- 17. Spacing hierarchy (reduce dead gaps, keep air) ---------- */
+.page-wrap { row-gap: var(--pr-space-4); }
+.page-main > section + section,
+.page-main > section + div,
+.page-main > div + section { margin-top: var(--pr-space-4); }
+.stat-pill, .stat-block {
+  border: 1px solid var(--pr-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--pr-shadow-xs);
+}
+
+/* ---------- 17b. Homepage stats + icon chips ---------- */
+.pr-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: var(--pr-space-4) 0;
+}
+.pr-stat {
+  background: var(--surface);
+  border: 1px solid var(--pr-border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--pr-shadow-sm);
+  padding: 18px 16px;
+  text-align: center;
+}
+.pr-stat .num {
+  display: block;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  background: var(--pr-accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pr-stat .lbl {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+@media (max-width: 720px) {
+  .pr-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+.game-cta-icon svg, .trust-card-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.trust-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--pr-accent-soft);
+  color: var(--accent);
+}
+
+/* ---------- 18. Mobile polish ---------- */
+@media (max-width: 640px) {
+  .word-link { padding-top: 8px; padding-bottom: 8px; }
+  .btn { min-height: 42px; }
+  .seo-section h2 { font-size: 19px; }
+  .footer-mega { padding-top: 28px; }
+}
+
+/* ---------- 19. Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pr-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .pr-skeleton { animation: none !important; }
+  .btn, .word-link, .related-link { transition: none !important; }
+}
+
+/* ---------- 20. Live homepage layout: kill dead space ---------- */
+/* hub grid declares 2 columns but holds a single card - right half was
+   always empty. Let the card use the full row. */
+body .homepage-hub-grid { grid-template-columns: 1fr; }
+
+/* 8 feature cards in a 6-column grid left a 2-card orphan row with 4
+   empty cells. 4 columns = two balanced rows of 4. */
+@media (min-width: 1025px) {
+  .feature-grid, body .feature-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* 5 daily-game cards: on 2-column widths the 5th card sat alone next to
+   an empty cell - let it span the full row instead. */
+@media (min-width: 761px) and (max-width: 1024px) {
+  body .today-games-grid .today-game-card:last-child { grid-column: 1 / -1; }
+}
