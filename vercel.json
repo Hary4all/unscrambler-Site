@@ -4971,6 +4971,11 @@
       "source": "/words-with/z.html",
       "destination": "/words-with/z/",
       "permanent": true
+    },
+    {
+      "source": "/words-ending-with/ing/",
+      "destination": "/words-ending-with-ing/",
+      "permanent": true
     }
   ]
 }
