@@ -175,3 +175,18 @@ body.home-page .page-wrap { padding-top: 10px; }
 
 /* 6. Soften the hero background gradient pools (hard band at hero edge) */
 body.home-page .hero-shell::before { opacity: 0.45; }
+
+/* 7. Deterministic centering: block layout, hard auto margins */
+body.home-page .page-wrap {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.home-page .page-main {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
