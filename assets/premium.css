@@ -496,3 +496,55 @@ body .homepage-hub-grid { grid-template-columns: 1fr; }
 @media (min-width: 761px) and (max-width: 1024px) {
   body .today-games-grid .today-game-card:last-child { grid-column: 1 / -1; }
 }
+
+/* ---------- 21. Benefits row + Why section (RankSerps-style) ---------- */
+.pr-benefits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.pr-benefit {
+  background: var(--surface);
+  border: 1px solid var(--pr-border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--pr-shadow-sm);
+  padding: 18px;
+}
+.pr-benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: var(--pr-accent-soft);
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.pr-benefit-icon svg {
+  width: 20px; height: 20px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.pr-benefit h3 { margin: 0 0 6px; font-size: 15.5px; }
+.pr-benefit p { margin: 0; font-size: 13.5px; color: var(--pr-ink-soft); line-height: 1.55; }
+@media (max-width: 900px) { .pr-benefits { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pr-benefits { grid-template-columns: 1fr; } }
+
+.pr-why-list {
+  list-style: none;
+  margin: 12px 0 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+}
+.pr-why-list li {
+  display: flex; gap: 8px; align-items: baseline;
+  font-size: 14px; color: var(--pr-ink-soft);
+}
+.pr-why-list svg {
+  width: 14px; height: 14px; flex: 0 0 auto;
+  stroke: var(--good); fill: none;
+  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+  transform: translateY(2px);
+}
+@media (max-width: 640px) { .pr-why-list { grid-template-columns: 1fr; } }

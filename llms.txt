@@ -1,0 +1,44 @@
+# WordFindLab
+
+> WordFindLab (wordfindlab.com) is a free online word-tool platform for word game players, students, teachers, and families. It offers a word unscrambler, anagram solver, Scrabble word finder, Wordle solver, Jumble solver, more than 3,800 curated word lists, daily word games, and learning guides. All tools are free, run instantly in the browser, require no signup, and include family-safe word filtering.
+
+Key facts:
+- Dictionary size: 370,000+ English words with Scrabble and Words With Friends point values
+- Supports blank tiles/wildcards (up to 3 per search, entered as ?)
+- Works for Scrabble, Words With Friends, Wordle, Wordscapes, Boggle, Jumble, and crossword puzzles
+- 100% free, no account required, ad-supported
+
+## Word Tools
+
+- [Word Unscrambler](https://wordfindlab.com/): Enter up to 15 letters and instantly find every valid English word, sorted by Scrabble score.
+- [Anagram Solver](https://wordfindlab.com/anagram-solver/): Find perfect anagrams that use every letter exactly once.
+- [Scrabble Word Finder](https://wordfindlab.com/scrabble-word-finder/): Find the highest-scoring plays from any rack.
+- [Wordle Solver](https://wordfindlab.com/wordle-solver/): Narrow the answer using green, yellow, and gray clues.
+- [Jumble Solver](https://wordfindlab.com/jumble-solver/): Solve daily Jumble puzzles and word scrambles.
+- [Words With Friends Cheat](https://wordfindlab.com/words-with-friends-cheat/): WWF-scored word finding with the WWF letter values.
+- [Dictionary](https://wordfindlab.com/dictionary/): Definitions, pronunciation, examples, and synonyms.
+
+## Word Lists
+
+- [Word Lists Hub](https://wordfindlab.com/word-lists/): Curated lists like Q words without U, highest-scoring Scrabble words, and best Wordle starting words.
+- [5 Letter Words](https://wordfindlab.com/5-letter-words/): Complete five-letter word list for Wordle and daily puzzles.
+- [2 Letter Words](https://wordfindlab.com/2-letter-words/): Every valid two-letter word for Scrabble and WWF.
+- [Words by Length](https://wordfindlab.com/words-by-length/): Word lists from 2 to 15 letters.
+- [Words Starting With](https://wordfindlab.com/words-starting-with/): Lists by starting letter, prefix, or combination.
+- [Words Ending With](https://wordfindlab.com/words-ending-with/): Lists by ending letter or suffix.
+
+## Games & Learning
+
+- [Daily Crossword](https://wordfindlab.com/crossword-game/): Free crossword with Kids Mode and Adults Mode.
+- [Word Search for Kids](https://wordfindlab.com/word-search-for-kids/): Family-safe online word search.
+- [Printable Word Search](https://wordfindlab.com/printable-word-search/): Generate printable PDF word-search worksheets.
+- [Spelling Games for Kids](https://wordfindlab.com/spelling-games-for-kids/): Clue-based spelling practice.
+- [Guides](https://wordfindlab.com/guides/): Strategy guides for Scrabble, Wordle, and anagram solving.
+- [Blog](https://wordfindlab.com/blog/): Articles on word games, learning, and vocabulary growth.
+
+## Optional
+
+- [About](https://wordfindlab.com/about/)
+- [Contact](https://wordfindlab.com/contact/)
+- [Word of the Day](https://wordfindlab.com/word-of-the-day/)
+- [Trending Words](https://wordfindlab.com/trending-words/)
