@@ -190,3 +190,41 @@ body.home-page .page-main {
   gap: 22px;
   width: 100%;
 }
+
+/* 8. Merged how-it-works card: numbered steps */
+.pr-howto { max-width: none; }
+.pr-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0 4px;
+}
+.pr-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--pr-surface-2);
+  border: 1px solid var(--pr-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.pr-step > span {
+  flex: 0 0 auto;
+  width: 28px; height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--pr-accent-grad);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+.pr-step strong { display: block; font-size: 14.5px; margin-bottom: 2px; }
+.pr-step p { margin: 0; font-size: 13px; color: var(--pr-ink-soft); line-height: 1.5; }
+.pr-howto-note { margin: 10px 0 4px; color: var(--pr-ink-soft); }
+@media (max-width: 860px) { .pr-steps { grid-template-columns: 1fr; } }
+
+/* 9. Unfilled ad slots must not reserve blank space on the homepage */
+body.home-page .ad-slot:empty { min-height: 0; background: transparent; }
+body.home-page .ad-wrap { margin-top: 10px; margin-bottom: 10px; }
