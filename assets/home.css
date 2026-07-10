@@ -172,3 +172,6 @@ body.home-page .family-section-label {
 /* 5. Hero: trim bottom so the first section sits close */
 body.home-page .pr-hero { padding-bottom: 12px; }
 body.home-page .page-wrap { padding-top: 10px; }
+
+/* 6. Soften the hero background gradient pools (hard band at hero edge) */
+body.home-page .hero-shell::before { opacity: 0.45; }
