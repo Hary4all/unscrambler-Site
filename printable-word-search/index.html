@@ -57,6 +57,69 @@
   </script>
 <link rel="stylesheet" href="/assets/premium.css?v=20260711">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7302891841207454" crossorigin="anonymous"></script>
+<style>
+  /* On-screen polish for the printable sheet */
+  .wfl-namedate { display: flex; gap: 24px; flex-wrap: wrap; margin: 10px 0 2px; color: #64748b; font-size: 13px; }
+  .wfl-credit { margin: 14px 0 0; font-size: 12px; color: #94a3b8; }
+  .family-print-cell.is-answer { background: #dcfce7; color: #15803d; font-weight: 800; border-radius: 4px; }
+  #printableSheet h2 { color: #1d4ed8; }
+
+  /* Dedicated A4 print layout: only the sheets print */
+  @page { size: A4; margin: 12mm; }
+  #wflPrintRoot { display: none; }
+  @media print {
+    body.wfl-printing > *:not(#wflPrintRoot) { display: none !important; }
+    body.wfl-printing #wflPrintRoot { display: block !important; }
+    body.wfl-printing { background: #fff !important; }
+    .wfl-print-page {
+      page-break-after: always;
+      box-shadow: none !important;
+      border: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .wfl-print-page:last-child { page-break-after: auto; }
+    .wfl-print-page h2 {
+      font-size: 26pt !important;
+      color: #1d4ed8 !important;
+      border-bottom: 3px solid #1d4ed8;
+      padding-bottom: 6pt;
+      margin-bottom: 4pt !important;
+    }
+    .wfl-print-page .family-section-label { color: #1d4ed8 !important; }
+    .wfl-print-page .family-print-grid { margin: 10pt auto; max-width: 165mm; }
+    .wfl-print-page .family-print-cell {
+      border: 1px solid #94a3b8 !important;
+      color: #0f172a !important;
+      font-size: 13pt !important;
+      background: #fff !important;
+    }
+    .wfl-print-page .family-print-cell.is-answer {
+      background: #dcfce7 !important;
+      color: #15803d !important;
+      font-weight: 800 !important;
+    }
+    .wfl-print-page .family-print-cell.is-hidden { color: #cbd5e1 !important; }
+    .wfl-print-page .family-word-pill {
+      border: 1.5px solid #1d4ed8 !important;
+      color: #0f172a !important;
+      background: #fff !important;
+      font-size: 11pt !important;
+      padding: 3pt 8pt !important;
+    }
+    .wfl-print-page .wfl-namedate { color: #0f172a; font-size: 12pt; margin: 8pt 0; }
+    .wfl-print-page .wfl-credit {
+      margin-top: 12pt;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 6pt;
+      color: #64748b;
+      font-size: 9pt;
+    }
+  }
+</style>
 </head>
 <body class="family-page family-page--printable">
 <!-- Google Tag Manager (noscript) -->
@@ -105,6 +168,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="nature">Nature</option>
                 <option value="family">Family</option>
                 <option value="colors">Colors</option>
+                <option value="sports">Sports</option>
+                <option value="space">Space</option>
+                <option value="ocean">Ocean</option>
+                <option value="weather">Weather</option>
                 <option value="all">All Categories</option>
               </select>
             </label>
@@ -134,11 +201,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="family-section-label">Puzzle Preview</div>
               <h2 id="printableTitle" style="margin:0; font-size:28px; letter-spacing:-.04em">Animals Word Search</h2>
               <p id="printableMeta" class="family-subtitle" style="margin-top:6px">Easy - 6 words - A4 printable</p>
+              <div class="wfl-namedate" aria-hidden="true"><span>Name: ______________________</span><span>Date: ____________</span></div>
               <div id="printableGrid" class="family-print-grid" aria-label="Printable word search grid"></div>
               <div>
                 <div class="family-section-label">Word List</div>
                 <div id="printableWordList" class="family-word-list" style="margin-top:10px"></div>
               </div>
+              <p class="wfl-credit">Created free at <b>WordFindLab.com</b> &mdash; wordfindlab.com/printable-word-search</p>
             </div>
             <div class="family-print-sheet" id="printableAnswerSheet" hidden>
               <div class="family-section-label">Answer Key</div>
@@ -149,6 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="family-section-label">Solved Words</div>
                 <div id="printableAnswerWords" class="family-word-list" style="margin-top:10px"></div>
               </div>
+              <p class="wfl-credit">Answer key &mdash; created free at <b>WordFindLab.com</b></p>
             </div>
           </div>
         </div>
@@ -204,7 +274,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <script src="/assets/wordfindlab.js?v=20260601"></script>
-  <script type="module" src="/assets/printable-word-search.js?v=20260716"></script>
+  <script type="module" src="/assets/printable-word-search.js?v=20260722"></script>
 <script defer src="/assets/premium.js?v=20260706"></script>
 <script defer src="/assets/practice.js?v=20260711"></script>
 </body>

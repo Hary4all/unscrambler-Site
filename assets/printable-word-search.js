@@ -1,9 +1,9 @@
 import { FACEBOOK_PAGE_URL, copyLink, openFacebookShare, wireShareGroup } from "/assets/family-social.js";
 import { getFamilyPreferences, saveFamilyPreferences } from "/assets/family-storage.js";
 
-const DATA_URL = "/data/family-word-games.json?v=20260716";
+const DATA_URL = "/data/family-word-games.json?v=20260722";
 const SIZE_BY_DIFFICULTY = { easy: 10, medium: 12, hard: 14 };
-const WORD_COUNT_BY_DIFFICULTY = { easy: 6, medium: 8, hard: 10 };
+const WORD_COUNT_BY_DIFFICULTY = { easy: 8, medium: 10, hard: 12 };
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const DIRECTIONS = [
   [0, 1], [1, 0], [0, -1], [-1, 0],
@@ -161,7 +161,9 @@ function renderPuzzle() {
       const keyCell = document.createElement("div");
       keyCell.className = "family-print-cell";
       keyCell.textContent = letter;
-      if (!placements.some((item) => item.cells.includes(cellKey(rowIndex, colIndex)))) {
+      if (placements.some((item) => item.cells.includes(cellKey(rowIndex, colIndex)))) {
+        keyCell.classList.add("is-answer");
+      } else {
         keyCell.classList.add("is-hidden");
       }
       els.answerGrid.appendChild(keyCell);
@@ -179,6 +181,35 @@ function renderPuzzle() {
     filter_type: "category_difficulty",
     result_count: placements.length,
   });
+}
+
+
+function printSheets() {
+  const existing = document.getElementById("wflPrintRoot");
+  if (existing) existing.remove();
+  const root = document.createElement("div");
+  root.id = "wflPrintRoot";
+  const page1 = els.sheet.cloneNode(true);
+  page1.removeAttribute("id");
+  page1.classList.add("wfl-print-page");
+  root.appendChild(page1);
+  if (state.settings.answerKey) {
+    const page2 = els.answerSheet.cloneNode(true);
+    page2.removeAttribute("id");
+    page2.hidden = false;
+    page2.classList.add("wfl-print-page");
+    root.appendChild(page2);
+  }
+  document.body.appendChild(root);
+  document.body.classList.add("wfl-printing");
+  const cleanup = () => {
+    document.body.classList.remove("wfl-printing");
+    root.remove();
+    window.removeEventListener("afterprint", cleanup);
+  };
+  window.addEventListener("afterprint", cleanup);
+  window.print();
+  window.setTimeout(cleanup, 2000);
 }
 
 function bindControls() {
@@ -224,7 +255,7 @@ function bindControls() {
       action_location: "print_button",
       result_count: state.puzzle?.placements?.length || 0,
     });
-    window.print();
+    printSheets();
   });
   els.facebook.addEventListener("click", () => {
     trackWFL("share_clicked", {

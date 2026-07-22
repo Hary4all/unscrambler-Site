@@ -1,84 +1,2659 @@
 {
   "wordSearch": [
-    { "word": "CAT", "display": "Cat", "category": "animals", "difficulty": "easy", "hint": "A small pet that says meow" },
-    { "word": "DOG", "display": "Dog", "category": "animals", "difficulty": "easy", "hint": "A loyal pet that barks" },
-    { "word": "BIRD", "display": "Bird", "category": "animals", "difficulty": "easy", "hint": "A creature with feathers and wings" },
-    { "word": "RABBIT", "display": "Rabbit", "category": "animals", "difficulty": "medium", "hint": "A fluffy animal with long ears" },
-    { "word": "TURTLE", "display": "Turtle", "category": "animals", "difficulty": "medium", "hint": "A slow animal with a shell" },
-    { "word": "KITTEN", "display": "Kitten", "category": "animals", "difficulty": "medium", "hint": "A baby cat" },
-    { "word": "DOLPHIN", "display": "Dolphin", "category": "animals", "difficulty": "hard", "hint": "A smart ocean animal" },
-    { "word": "ELEPHANT", "display": "Elephant", "category": "animals", "difficulty": "hard", "hint": "A giant animal with a trunk" },
-    { "word": "KANGAROO", "display": "Kangaroo", "category": "animals", "difficulty": "hard", "hint": "A jumping animal from Australia" },
-
-    { "word": "APPLE", "display": "Apple", "category": "food", "difficulty": "easy", "hint": "A healthy snack that can be red or green" },
-    { "word": "BREAD", "display": "Bread", "category": "food", "difficulty": "easy", "hint": "A food often used for sandwiches" },
-    { "word": "MILK", "display": "Milk", "category": "food", "difficulty": "easy", "hint": "A white drink often served cold" },
-    { "word": "CARROT", "display": "Carrot", "category": "food", "difficulty": "medium", "hint": "An orange vegetable" },
-    { "word": "BANANA", "display": "Banana", "category": "food", "difficulty": "medium", "hint": "A curved yellow fruit" },
-    { "word": "CHEESE", "display": "Cheese", "category": "food", "difficulty": "medium", "hint": "A dairy food often sliced or melted" },
-    { "word": "SANDWICH", "display": "Sandwich", "category": "food", "difficulty": "hard", "hint": "A meal with filling between bread" },
-    { "word": "CROISSANT", "display": "Croissant", "category": "food", "difficulty": "hard", "hint": "A flaky breakfast pastry" },
-    { "word": "PANCAKES", "display": "Pancakes", "category": "food", "difficulty": "hard", "hint": "A breakfast treat often served with syrup" },
-
-    { "word": "BOOK", "display": "Book", "category": "school", "difficulty": "easy", "hint": "You read this in class" },
-    { "word": "PEN", "display": "Pen", "category": "school", "difficulty": "easy", "hint": "A tool for writing" },
-    { "word": "DESK", "display": "Desk", "category": "school", "difficulty": "easy", "hint": "A place where students work" },
-    { "word": "LIBRARY", "display": "Library", "category": "school", "difficulty": "medium", "hint": "A quiet place full of books" },
-    { "word": "NOTEBOOK", "display": "Notebook", "category": "school", "difficulty": "medium", "hint": "A place to write school notes" },
-    { "word": "CLASSROOM", "display": "Classroom", "category": "school", "difficulty": "medium", "hint": "Where a teacher teaches lessons" },
-    { "word": "HOMEWORK", "display": "Homework", "category": "school", "difficulty": "hard", "hint": "School work done after class" },
-    { "word": "SCIENCE", "display": "Science", "category": "school", "difficulty": "hard", "hint": "A subject about learning how the world works" },
-    { "word": "TEACHER", "display": "Teacher", "category": "school", "difficulty": "hard", "hint": "The person who leads a class" },
-
-    { "word": "TREE", "display": "Tree", "category": "nature", "difficulty": "easy", "hint": "A plant with a trunk and leaves" },
-    { "word": "CLOUD", "display": "Cloud", "category": "nature", "difficulty": "easy", "hint": "White or gray shapes in the sky" },
-    { "word": "RAIN", "display": "Rain", "category": "nature", "difficulty": "easy", "hint": "Water that falls from the sky" },
-    { "word": "FOREST", "display": "Forest", "category": "nature", "difficulty": "medium", "hint": "A place with many trees" },
-    { "word": "GARDEN", "display": "Garden", "category": "nature", "difficulty": "medium", "hint": "A place where plants grow" },
-    { "word": "FLOWER", "display": "Flower", "category": "nature", "difficulty": "medium", "hint": "A colorful plant with petals" },
-    { "word": "MOUNTAIN", "display": "Mountain", "category": "nature", "difficulty": "hard", "hint": "A very tall hill" },
-    { "word": "BUTTERFLY", "display": "Butterfly", "category": "nature", "difficulty": "hard", "hint": "An insect with colorful wings" },
-    { "word": "RAINFOREST", "display": "Rainforest", "category": "nature", "difficulty": "hard", "hint": "A wet, green forest with many plants" },
-
-    { "word": "MOM", "display": "Mom", "category": "family", "difficulty": "easy", "hint": "One parent in many families" },
-    { "word": "DAD", "display": "Dad", "category": "family", "difficulty": "easy", "hint": "The other parent in many families" },
-    { "word": "HOME", "display": "Home", "category": "family", "difficulty": "easy", "hint": "A place where a family lives" },
-    { "word": "SISTER", "display": "Sister", "category": "family", "difficulty": "medium", "hint": "A female sibling" },
-    { "word": "BROTHER", "display": "Brother", "category": "family", "difficulty": "medium", "hint": "A male sibling" },
-    { "word": "FAMILY", "display": "Family", "category": "family", "difficulty": "medium", "hint": "People who care for each other at home" },
-    { "word": "GRANDMA", "display": "Grandma", "category": "family", "difficulty": "hard", "hint": "Your mother or father's mother" },
-    { "word": "GRANDPA", "display": "Grandpa", "category": "family", "difficulty": "hard", "hint": "Your mother or father's father" },
-    { "word": "CELEBRATION", "display": "Celebration", "category": "family", "difficulty": "hard", "hint": "A happy family event" },
-
-    { "word": "RED", "display": "Red", "category": "colors", "difficulty": "easy", "hint": "The color of apples and stop signs" },
-    { "word": "BLUE", "display": "Blue", "category": "colors", "difficulty": "easy", "hint": "The color of the sky" },
-    { "word": "GOLD", "display": "Gold", "category": "colors", "difficulty": "easy", "hint": "A shiny yellow metal color" },
-    { "word": "PURPLE", "display": "Purple", "category": "colors", "difficulty": "medium", "hint": "A mix of red and blue" },
-    { "word": "ORANGE", "display": "Orange", "category": "colors", "difficulty": "medium", "hint": "A fruit and a bright color" },
-    { "word": "GREEN", "display": "Green", "category": "colors", "difficulty": "medium", "hint": "The color of grass" },
-    { "word": "RAINBOW", "display": "Rainbow", "category": "colors", "difficulty": "hard", "hint": "A colorful arc in the sky after rain" },
-    { "word": "TURQUOISE", "display": "Turquoise", "category": "colors", "difficulty": "hard", "hint": "A blue-green color" },
-    { "word": "MAGENTA", "display": "Magenta", "category": "colors", "difficulty": "hard", "hint": "A bright pink-purple color" }
+    {
+      "word": "CAT",
+      "display": "Cat",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A pet that meows"
+    },
+    {
+      "word": "DOG",
+      "display": "Dog",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A loyal pet that barks"
+    },
+    {
+      "word": "COW",
+      "display": "Cow",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "Gives us milk"
+    },
+    {
+      "word": "PIG",
+      "display": "Pig",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A farm animal that oinks"
+    },
+    {
+      "word": "FOX",
+      "display": "Fox",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A clever orange animal"
+    },
+    {
+      "word": "BEAR",
+      "display": "Bear",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A big animal that loves honey"
+    },
+    {
+      "word": "LION",
+      "display": "Lion",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "King of the jungle"
+    },
+    {
+      "word": "FISH",
+      "display": "Fish",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "It swims and has fins"
+    },
+    {
+      "word": "DUCK",
+      "display": "Duck",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A bird that says quack"
+    },
+    {
+      "word": "GOAT",
+      "display": "Goat",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A farm animal with horns"
+    },
+    {
+      "word": "FROG",
+      "display": "Frog",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A green jumper that says ribbit"
+    },
+    {
+      "word": "WOLF",
+      "display": "Wolf",
+      "category": "animals",
+      "difficulty": "easy",
+      "hint": "A wild animal that howls"
+    },
+    {
+      "word": "RABBIT",
+      "display": "Rabbit",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "It hops and loves carrots"
+    },
+    {
+      "word": "MONKEY",
+      "display": "Monkey",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "It swings from trees"
+    },
+    {
+      "word": "GIRAFFE",
+      "display": "Giraffe",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "The tallest animal"
+    },
+    {
+      "word": "DOLPHIN",
+      "display": "Dolphin",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A smart, friendly sea animal"
+    },
+    {
+      "word": "PENGUIN",
+      "display": "Penguin",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A bird that cannot fly but swims"
+    },
+    {
+      "word": "LEOPARD",
+      "display": "Leopard",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A spotted big cat"
+    },
+    {
+      "word": "OSTRICH",
+      "display": "Ostrich",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "The biggest bird of all"
+    },
+    {
+      "word": "HAMSTER",
+      "display": "Hamster",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A tiny pet with puffy cheeks"
+    },
+    {
+      "word": "TORTOISE",
+      "display": "Tortoise",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A slow animal with a shell"
+    },
+    {
+      "word": "PANTHER",
+      "display": "Panther",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A black big cat"
+    },
+    {
+      "word": "PEACOCK",
+      "display": "Peacock",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A bird with a beautiful tail"
+    },
+    {
+      "word": "DONKEY",
+      "display": "Donkey",
+      "category": "animals",
+      "difficulty": "medium",
+      "hint": "A farm animal that brays"
+    },
+    {
+      "word": "ELEPHANT",
+      "display": "Elephant",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "The biggest land animal"
+    },
+    {
+      "word": "KANGAROO",
+      "display": "Kangaroo",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "It carries babies in a pouch"
+    },
+    {
+      "word": "CROCODILE",
+      "display": "Crocodile",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A long reptile with sharp teeth"
+    },
+    {
+      "word": "RHINOCEROS",
+      "display": "Rhinoceros",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A heavy animal with a horn"
+    },
+    {
+      "word": "CHIMPANZEE",
+      "display": "Chimpanzee",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A smart ape"
+    },
+    {
+      "word": "FLAMINGO",
+      "display": "Flamingo",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A pink bird on one leg"
+    },
+    {
+      "word": "PORCUPINE",
+      "display": "Porcupine",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "Covered in sharp quills"
+    },
+    {
+      "word": "ARMADILLO",
+      "display": "Armadillo",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "It rolls into an armored ball"
+    },
+    {
+      "word": "SALAMANDER",
+      "display": "Salamander",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A small amphibian"
+    },
+    {
+      "word": "MONGOOSE",
+      "display": "Mongoose",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A snake-fighting mammal"
+    },
+    {
+      "word": "HEDGEHOG",
+      "display": "Hedgehog",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A small spiky animal"
+    },
+    {
+      "word": "ANTELOPE",
+      "display": "Antelope",
+      "category": "animals",
+      "difficulty": "hard",
+      "hint": "A fast horned runner"
+    },
+    {
+      "word": "RICE",
+      "display": "Rice",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "Small white grains"
+    },
+    {
+      "word": "MILK",
+      "display": "Milk",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A white drink from cows"
+    },
+    {
+      "word": "EGG",
+      "display": "Egg",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "It comes from a hen"
+    },
+    {
+      "word": "CAKE",
+      "display": "Cake",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A sweet birthday treat"
+    },
+    {
+      "word": "SOUP",
+      "display": "Soup",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A warm bowl you sip"
+    },
+    {
+      "word": "BREAD",
+      "display": "Bread",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "Made from flour, great for toast"
+    },
+    {
+      "word": "APPLE",
+      "display": "Apple",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A crunchy red or green fruit"
+    },
+    {
+      "word": "MANGO",
+      "display": "Mango",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A sweet yellow tropical fruit"
+    },
+    {
+      "word": "PIZZA",
+      "display": "Pizza",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A cheesy slice from Italy"
+    },
+    {
+      "word": "CORN",
+      "display": "Corn",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "Yellow kernels on a cob"
+    },
+    {
+      "word": "BEAN",
+      "display": "Bean",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A small seed you can eat"
+    },
+    {
+      "word": "TACO",
+      "display": "Taco",
+      "category": "food",
+      "difficulty": "easy",
+      "hint": "A folded Mexican treat"
+    },
+    {
+      "word": "BANANA",
+      "display": "Banana",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A long yellow fruit"
+    },
+    {
+      "word": "ORANGE",
+      "display": "Orange",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A citrus fruit and a color"
+    },
+    {
+      "word": "CARROT",
+      "display": "Carrot",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "An orange vegetable rabbits love"
+    },
+    {
+      "word": "TOMATO",
+      "display": "Tomato",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "Red and juicy, used in salad"
+    },
+    {
+      "word": "NOODLES",
+      "display": "Noodles",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "Long strands you slurp"
+    },
+    {
+      "word": "BURGER",
+      "display": "Burger",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A patty inside a bun"
+    },
+    {
+      "word": "YOGURT",
+      "display": "Yogurt",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A creamy dairy snack"
+    },
+    {
+      "word": "CHEESE",
+      "display": "Cheese",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "Made from milk, mice love it"
+    },
+    {
+      "word": "PANCAKE",
+      "display": "Pancake",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A flat breakfast treat with syrup"
+    },
+    {
+      "word": "BISCUIT",
+      "display": "Biscuit",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A crunchy tea-time snack"
+    },
+    {
+      "word": "COCONUT",
+      "display": "Coconut",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "A hairy fruit with water inside"
+    },
+    {
+      "word": "PAPAYA",
+      "display": "Papaya",
+      "category": "food",
+      "difficulty": "medium",
+      "hint": "An orange tropical fruit"
+    },
+    {
+      "word": "SPAGHETTI",
+      "display": "Spaghetti",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "Long Italian pasta"
+    },
+    {
+      "word": "CHOCOLATE",
+      "display": "Chocolate",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A sweet brown treat"
+    },
+    {
+      "word": "SANDWICH",
+      "display": "Sandwich",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "Fillings between bread slices"
+    },
+    {
+      "word": "PINEAPPLE",
+      "display": "Pineapple",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A spiky tropical fruit"
+    },
+    {
+      "word": "STRAWBERRY",
+      "display": "Strawberry",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A red berry with seeds outside"
+    },
+    {
+      "word": "WATERMELON",
+      "display": "Watermelon",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A big green fruit, red inside"
+    },
+    {
+      "word": "BLUEBERRY",
+      "display": "Blueberry",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A tiny round blue fruit"
+    },
+    {
+      "word": "AVOCADO",
+      "display": "Avocado",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A green fruit for guacamole"
+    },
+    {
+      "word": "BROCCOLI",
+      "display": "Broccoli",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A green vegetable like a tiny tree"
+    },
+    {
+      "word": "CUCUMBER",
+      "display": "Cucumber",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A cool green salad vegetable"
+    },
+    {
+      "word": "DUMPLING",
+      "display": "Dumpling",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "A little dough pocket"
+    },
+    {
+      "word": "OMELETTE",
+      "display": "Omelette",
+      "category": "food",
+      "difficulty": "hard",
+      "hint": "Beaten eggs cooked flat"
+    },
+    {
+      "word": "PEN",
+      "display": "Pen",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "You write in ink with it"
+    },
+    {
+      "word": "BOOK",
+      "display": "Book",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "Pages full of stories"
+    },
+    {
+      "word": "DESK",
+      "display": "Desk",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "You sit and work at it"
+    },
+    {
+      "word": "RULER",
+      "display": "Ruler",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "It measures and draws straight lines"
+    },
+    {
+      "word": "CHALK",
+      "display": "Chalk",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "It writes on a blackboard"
+    },
+    {
+      "word": "GLUE",
+      "display": "Glue",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "It sticks things together"
+    },
+    {
+      "word": "BAG",
+      "display": "Bag",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "You carry books in it"
+    },
+    {
+      "word": "MATH",
+      "display": "Math",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "The subject with numbers"
+    },
+    {
+      "word": "CLASS",
+      "display": "Class",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "A room full of students"
+    },
+    {
+      "word": "TEST",
+      "display": "Test",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "A quiz of what you learned"
+    },
+    {
+      "word": "QUIZ",
+      "display": "Quiz",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "A short test"
+    },
+    {
+      "word": "NOTE",
+      "display": "Note",
+      "category": "school",
+      "difficulty": "easy",
+      "hint": "A short written message"
+    },
+    {
+      "word": "PENCIL",
+      "display": "Pencil",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "Write and erase with it"
+    },
+    {
+      "word": "ERASER",
+      "display": "Eraser",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "It removes pencil marks"
+    },
+    {
+      "word": "CRAYON",
+      "display": "Crayon",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "A waxy coloring stick"
+    },
+    {
+      "word": "TEACHER",
+      "display": "Teacher",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "The person who helps you learn"
+    },
+    {
+      "word": "STUDENT",
+      "display": "Student",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "A person who learns"
+    },
+    {
+      "word": "LIBRARY",
+      "display": "Library",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "A quiet room full of books"
+    },
+    {
+      "word": "SCIENCE",
+      "display": "Science",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "The subject with experiments"
+    },
+    {
+      "word": "HISTORY",
+      "display": "History",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "The subject about the past"
+    },
+    {
+      "word": "RECESS",
+      "display": "Recess",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "Playtime between lessons"
+    },
+    {
+      "word": "LOCKER",
+      "display": "Locker",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "A small cupboard for your things"
+    },
+    {
+      "word": "MARKER",
+      "display": "Marker",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "A thick colorful pen"
+    },
+    {
+      "word": "FOLDER",
+      "display": "Folder",
+      "category": "school",
+      "difficulty": "medium",
+      "hint": "It keeps papers tidy"
+    },
+    {
+      "word": "NOTEBOOK",
+      "display": "Notebook",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "You write your lessons in it"
+    },
+    {
+      "word": "HOMEWORK",
+      "display": "Homework",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "School tasks done at home"
+    },
+    {
+      "word": "CLASSROOM",
+      "display": "Classroom",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "The room where lessons happen"
+    },
+    {
+      "word": "DICTIONARY",
+      "display": "Dictionary",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "A book full of word meanings"
+    },
+    {
+      "word": "GEOGRAPHY",
+      "display": "Geography",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "The subject about maps and places"
+    },
+    {
+      "word": "CALCULATOR",
+      "display": "Calculator",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "A machine that does math"
+    },
+    {
+      "word": "BACKPACK",
+      "display": "Backpack",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "You wear it full of books"
+    },
+    {
+      "word": "SCISSORS",
+      "display": "Scissors",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "They cut paper"
+    },
+    {
+      "word": "PRINCIPAL",
+      "display": "Principal",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "The leader of the school"
+    },
+    {
+      "word": "ASSEMBLY",
+      "display": "Assembly",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "When the whole school gathers"
+    },
+    {
+      "word": "UNIFORM",
+      "display": "Uniform",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "Matching school clothes"
+    },
+    {
+      "word": "TIMETABLE",
+      "display": "Timetable",
+      "category": "school",
+      "difficulty": "hard",
+      "hint": "Your schedule of classes"
+    },
+    {
+      "word": "TREE",
+      "display": "Tree",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "Tall plant with leaves and bark"
+    },
+    {
+      "word": "LEAF",
+      "display": "Leaf",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "It grows green on branches"
+    },
+    {
+      "word": "ROCK",
+      "display": "Rock",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "A hard piece of stone"
+    },
+    {
+      "word": "RAIN",
+      "display": "Rain",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "Water falling from clouds"
+    },
+    {
+      "word": "SNOW",
+      "display": "Snow",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "Cold white flakes"
+    },
+    {
+      "word": "WIND",
+      "display": "Wind",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "Moving air you can feel"
+    },
+    {
+      "word": "STAR",
+      "display": "Star",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "It twinkles at night"
+    },
+    {
+      "word": "MOON",
+      "display": "Moon",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "It glows in the night sky"
+    },
+    {
+      "word": "LAKE",
+      "display": "Lake",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "A big pool of fresh water"
+    },
+    {
+      "word": "HILL",
+      "display": "Hill",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "A small mountain"
+    },
+    {
+      "word": "SEED",
+      "display": "Seed",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "A plant starts from this"
+    },
+    {
+      "word": "ROSE",
+      "display": "Rose",
+      "category": "nature",
+      "difficulty": "easy",
+      "hint": "A flower with thorns"
+    },
+    {
+      "word": "FLOWER",
+      "display": "Flower",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "The colorful part of a plant"
+    },
+    {
+      "word": "FOREST",
+      "display": "Forest",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "A place full of trees"
+    },
+    {
+      "word": "RIVER",
+      "display": "River",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "Water flowing to the sea"
+    },
+    {
+      "word": "GARDEN",
+      "display": "Garden",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "Where flowers are planted"
+    },
+    {
+      "word": "ISLAND",
+      "display": "Island",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "Land surrounded by water"
+    },
+    {
+      "word": "DESERT",
+      "display": "Desert",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "A hot sandy place"
+    },
+    {
+      "word": "VALLEY",
+      "display": "Valley",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "Low land between mountains"
+    },
+    {
+      "word": "MEADOW",
+      "display": "Meadow",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "A grassy open field"
+    },
+    {
+      "word": "SUNSET",
+      "display": "Sunset",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "When the sun goes down"
+    },
+    {
+      "word": "BREEZE",
+      "display": "Breeze",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "A soft gentle wind"
+    },
+    {
+      "word": "PEBBLE",
+      "display": "Pebble",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "A small smooth stone"
+    },
+    {
+      "word": "SPRING",
+      "display": "Spring",
+      "category": "nature",
+      "difficulty": "medium",
+      "hint": "The season of new flowers"
+    },
+    {
+      "word": "MOUNTAIN",
+      "display": "Mountain",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A very tall rocky peak"
+    },
+    {
+      "word": "RAINBOW",
+      "display": "Rainbow",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "Colors in the sky after rain"
+    },
+    {
+      "word": "WATERFALL",
+      "display": "Waterfall",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "Water falling off a cliff"
+    },
+    {
+      "word": "VOLCANO",
+      "display": "Volcano",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A mountain that erupts"
+    },
+    {
+      "word": "GLACIER",
+      "display": "Glacier",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A slow river of ice"
+    },
+    {
+      "word": "HURRICANE",
+      "display": "Hurricane",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A giant spinning storm"
+    },
+    {
+      "word": "BUTTERFLY",
+      "display": "Butterfly",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A colorful insect with wings"
+    },
+    {
+      "word": "SUNFLOWER",
+      "display": "Sunflower",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A tall yellow flower"
+    },
+    {
+      "word": "EVERGREEN",
+      "display": "Evergreen",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A tree that stays green all year"
+    },
+    {
+      "word": "WILDERNESS",
+      "display": "Wilderness",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "Wild untouched nature"
+    },
+    {
+      "word": "LANDSCAPE",
+      "display": "Landscape",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "A wide view of nature"
+    },
+    {
+      "word": "HORIZON",
+      "display": "Horizon",
+      "category": "nature",
+      "difficulty": "hard",
+      "hint": "Where sky meets land"
+    },
+    {
+      "word": "MOM",
+      "display": "Mom",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "She loves and cares for you"
+    },
+    {
+      "word": "DAD",
+      "display": "Dad",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "Your father"
+    },
+    {
+      "word": "BABY",
+      "display": "Baby",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "The youngest family member"
+    },
+    {
+      "word": "AUNT",
+      "display": "Aunt",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "Your parent's sister"
+    },
+    {
+      "word": "SON",
+      "display": "Son",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "A parent's boy"
+    },
+    {
+      "word": "HOME",
+      "display": "Home",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "Where the family lives"
+    },
+    {
+      "word": "LOVE",
+      "display": "Love",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "What families share"
+    },
+    {
+      "word": "HUG",
+      "display": "Hug",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "A warm squeeze"
+    },
+    {
+      "word": "PLAY",
+      "display": "Play",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "What kids do for fun"
+    },
+    {
+      "word": "MEAL",
+      "display": "Meal",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "Food shared together"
+    },
+    {
+      "word": "GIFT",
+      "display": "Gift",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "A wrapped surprise"
+    },
+    {
+      "word": "TRIP",
+      "display": "Trip",
+      "category": "family",
+      "difficulty": "easy",
+      "hint": "A family journey"
+    },
+    {
+      "word": "MOTHER",
+      "display": "Mother",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Another word for mom"
+    },
+    {
+      "word": "FATHER",
+      "display": "Father",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Another word for dad"
+    },
+    {
+      "word": "SISTER",
+      "display": "Sister",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "A girl with the same parents"
+    },
+    {
+      "word": "BROTHER",
+      "display": "Brother",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "A boy with the same parents"
+    },
+    {
+      "word": "COUSIN",
+      "display": "Cousin",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Your aunt's child"
+    },
+    {
+      "word": "UNCLE",
+      "display": "Uncle",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Your parent's brother"
+    },
+    {
+      "word": "FRIEND",
+      "display": "Friend",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Someone you love to play with"
+    },
+    {
+      "word": "PARENT",
+      "display": "Parent",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "A mom or a dad"
+    },
+    {
+      "word": "WEDDING",
+      "display": "Wedding",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "When two people marry"
+    },
+    {
+      "word": "PICNIC",
+      "display": "Picnic",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "A meal outdoors"
+    },
+    {
+      "word": "VISIT",
+      "display": "Visit",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "Going to see someone"
+    },
+    {
+      "word": "STORY",
+      "display": "Story",
+      "category": "family",
+      "difficulty": "medium",
+      "hint": "What grandparents tell at night"
+    },
+    {
+      "word": "GRANDMOTHER",
+      "display": "Grandmother",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Your parent's mother"
+    },
+    {
+      "word": "GRANDFATHER",
+      "display": "Grandfather",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Your parent's father"
+    },
+    {
+      "word": "DAUGHTER",
+      "display": "Daughter",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "A parent's girl"
+    },
+    {
+      "word": "RELATIVES",
+      "display": "Relatives",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "All the people in your family"
+    },
+    {
+      "word": "TOGETHER",
+      "display": "Together",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "How families do things"
+    },
+    {
+      "word": "BIRTHDAY",
+      "display": "Birthday",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Your special yearly day"
+    },
+    {
+      "word": "CELEBRATION",
+      "display": "Celebration",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "A happy family event"
+    },
+    {
+      "word": "TRADITION",
+      "display": "Tradition",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Something families always do"
+    },
+    {
+      "word": "HOUSEHOLD",
+      "display": "Household",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Everyone living in one home"
+    },
+    {
+      "word": "MEMORIES",
+      "display": "Memories",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Special moments you remember"
+    },
+    {
+      "word": "REUNION",
+      "display": "Reunion",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "When the whole family meets"
+    },
+    {
+      "word": "KINDNESS",
+      "display": "Kindness",
+      "category": "family",
+      "difficulty": "hard",
+      "hint": "Being gentle and caring"
+    },
+    {
+      "word": "RED",
+      "display": "Red",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of tomatoes"
+    },
+    {
+      "word": "BLUE",
+      "display": "Blue",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of the sky"
+    },
+    {
+      "word": "PINK",
+      "display": "Pink",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "A light shade of red"
+    },
+    {
+      "word": "GOLD",
+      "display": "Gold",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of treasure"
+    },
+    {
+      "word": "GRAY",
+      "display": "Gray",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of rain clouds"
+    },
+    {
+      "word": "TEAL",
+      "display": "Teal",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "A blue-green color"
+    },
+    {
+      "word": "LIME",
+      "display": "Lime",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "A bright green fruit color"
+    },
+    {
+      "word": "NAVY",
+      "display": "Navy",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "A dark blue"
+    },
+    {
+      "word": "CYAN",
+      "display": "Cyan",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "A bright sky blue"
+    },
+    {
+      "word": "BROWN",
+      "display": "Brown",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of chocolate"
+    },
+    {
+      "word": "BLACK",
+      "display": "Black",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The darkest color"
+    },
+    {
+      "word": "WHITE",
+      "display": "White",
+      "category": "colors",
+      "difficulty": "easy",
+      "hint": "The color of snow"
+    },
+    {
+      "word": "PURPLE",
+      "display": "Purple",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "Mix red and blue"
+    },
+    {
+      "word": "ORANGE",
+      "display": "Orange",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A fruit and a color"
+    },
+    {
+      "word": "YELLOW",
+      "display": "Yellow",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "The color of the sun"
+    },
+    {
+      "word": "SILVER",
+      "display": "Silver",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A shiny gray metal color"
+    },
+    {
+      "word": "VIOLET",
+      "display": "Violet",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A purple flower color"
+    },
+    {
+      "word": "INDIGO",
+      "display": "Indigo",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A deep blue in the rainbow"
+    },
+    {
+      "word": "MAROON",
+      "display": "Maroon",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A dark brownish red"
+    },
+    {
+      "word": "CORAL",
+      "display": "Coral",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A pinkish ocean color"
+    },
+    {
+      "word": "BEIGE",
+      "display": "Beige",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A light sandy color"
+    },
+    {
+      "word": "CRIMSON",
+      "display": "Crimson",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A deep rich red"
+    },
+    {
+      "word": "MAGENTA",
+      "display": "Magenta",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A bright pinkish purple"
+    },
+    {
+      "word": "COPPER",
+      "display": "Copper",
+      "category": "colors",
+      "difficulty": "medium",
+      "hint": "A reddish metal color"
+    },
+    {
+      "word": "TURQUOISE",
+      "display": "Turquoise",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A blue-green gemstone color"
+    },
+    {
+      "word": "LAVENDER",
+      "display": "Lavender",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A soft purple flower color"
+    },
+    {
+      "word": "BURGUNDY",
+      "display": "Burgundy",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A deep red wine color"
+    },
+    {
+      "word": "EMERALD",
+      "display": "Emerald",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A bright green gem color"
+    },
+    {
+      "word": "SAPPHIRE",
+      "display": "Sapphire",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A deep blue gem color"
+    },
+    {
+      "word": "CHARCOAL",
+      "display": "Charcoal",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A very dark gray"
+    },
+    {
+      "word": "MULBERRY",
+      "display": "Mulberry",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A dark purple berry color"
+    },
+    {
+      "word": "PLATINUM",
+      "display": "Platinum",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A pale silvery color"
+    },
+    {
+      "word": "PERIWINKLE",
+      "display": "Periwinkle",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A pale bluish purple"
+    },
+    {
+      "word": "AQUAMARINE",
+      "display": "Aquamarine",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A light sea-blue color"
+    },
+    {
+      "word": "CHESTNUT",
+      "display": "Chestnut",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A reddish brown"
+    },
+    {
+      "word": "ROSEWOOD",
+      "display": "Rosewood",
+      "category": "colors",
+      "difficulty": "hard",
+      "hint": "A deep reddish wood color"
+    },
+    {
+      "word": "BALL",
+      "display": "Ball",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "You kick or throw it"
+    },
+    {
+      "word": "GOAL",
+      "display": "Goal",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Score one to win"
+    },
+    {
+      "word": "SWIM",
+      "display": "Swim",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Moving through water"
+    },
+    {
+      "word": "RUN",
+      "display": "Run",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Faster than walking"
+    },
+    {
+      "word": "JUMP",
+      "display": "Jump",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Leap into the air"
+    },
+    {
+      "word": "RACE",
+      "display": "Race",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "A contest of speed"
+    },
+    {
+      "word": "TEAM",
+      "display": "Team",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Players working together"
+    },
+    {
+      "word": "BAT",
+      "display": "Bat",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "It hits the ball"
+    },
+    {
+      "word": "KICK",
+      "display": "Kick",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Hit with your foot"
+    },
+    {
+      "word": "SURF",
+      "display": "Surf",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Ride the waves"
+    },
+    {
+      "word": "SKI",
+      "display": "Ski",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Glide on snow"
+    },
+    {
+      "word": "GYM",
+      "display": "Gym",
+      "category": "sports",
+      "difficulty": "easy",
+      "hint": "Where you exercise"
+    },
+    {
+      "word": "SOCCER",
+      "display": "Soccer",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "The world's favorite football"
+    },
+    {
+      "word": "TENNIS",
+      "display": "Tennis",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Rackets over a net"
+    },
+    {
+      "word": "HOCKEY",
+      "display": "Hockey",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Sticks and a puck"
+    },
+    {
+      "word": "BOXING",
+      "display": "Boxing",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "A sport with gloves"
+    },
+    {
+      "word": "CYCLING",
+      "display": "Cycling",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Riding a bicycle fast"
+    },
+    {
+      "word": "RUNNING",
+      "display": "Running",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "A race on foot"
+    },
+    {
+      "word": "CRICKET",
+      "display": "Cricket",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Bat, ball, and wickets"
+    },
+    {
+      "word": "ARCHERY",
+      "display": "Archery",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Shooting arrows at a target"
+    },
+    {
+      "word": "SKATING",
+      "display": "Skating",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Gliding on wheels or ice"
+    },
+    {
+      "word": "ROWING",
+      "display": "Rowing",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Racing with oars"
+    },
+    {
+      "word": "KARATE",
+      "display": "Karate",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "A martial art from Japan"
+    },
+    {
+      "word": "BOWLING",
+      "display": "Bowling",
+      "category": "sports",
+      "difficulty": "medium",
+      "hint": "Knock down all ten pins"
+    },
+    {
+      "word": "BASKETBALL",
+      "display": "Basketball",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Shoot hoops to score"
+    },
+    {
+      "word": "FOOTBALL",
+      "display": "Football",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Touchdowns and tackles"
+    },
+    {
+      "word": "BADMINTON",
+      "display": "Badminton",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Rackets and a shuttlecock"
+    },
+    {
+      "word": "VOLLEYBALL",
+      "display": "Volleyball",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Hit the ball over the net"
+    },
+    {
+      "word": "SWIMMING",
+      "display": "Swimming",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Racing through water"
+    },
+    {
+      "word": "MARATHON",
+      "display": "Marathon",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "A very long running race"
+    },
+    {
+      "word": "GYMNASTICS",
+      "display": "Gymnastics",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Flips, balance, and grace"
+    },
+    {
+      "word": "WRESTLING",
+      "display": "Wrestling",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "A grappling sport"
+    },
+    {
+      "word": "BASEBALL",
+      "display": "Baseball",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Home runs and bases"
+    },
+    {
+      "word": "CHAMPIONS",
+      "display": "Champions",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "The winners of it all"
+    },
+    {
+      "word": "ATHLETICS",
+      "display": "Athletics",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Track and field sports"
+    },
+    {
+      "word": "TRIATHLON",
+      "display": "Triathlon",
+      "category": "sports",
+      "difficulty": "hard",
+      "hint": "Swim, cycle, then run"
+    },
+    {
+      "word": "SUN",
+      "display": "Sun",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "Our closest star"
+    },
+    {
+      "word": "MOON",
+      "display": "Moon",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "Earth's night light"
+    },
+    {
+      "word": "STAR",
+      "display": "Star",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "A twinkling light in space"
+    },
+    {
+      "word": "MARS",
+      "display": "Mars",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "The red planet"
+    },
+    {
+      "word": "SKY",
+      "display": "Sky",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "Look up to see it"
+    },
+    {
+      "word": "ROCKET",
+      "display": "Rocket",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "It blasts off to space"
+    },
+    {
+      "word": "COMET",
+      "display": "Comet",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "A snowball with a glowing tail"
+    },
+    {
+      "word": "ALIEN",
+      "display": "Alien",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "A visitor from another world"
+    },
+    {
+      "word": "EARTH",
+      "display": "Earth",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "Our home planet"
+    },
+    {
+      "word": "VENUS",
+      "display": "Venus",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "The hottest planet"
+    },
+    {
+      "word": "PLUTO",
+      "display": "Pluto",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "A famous dwarf planet"
+    },
+    {
+      "word": "ORBIT",
+      "display": "Orbit",
+      "category": "space",
+      "difficulty": "easy",
+      "hint": "The path around a planet"
+    },
+    {
+      "word": "PLANET",
+      "display": "Planet",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "A world that orbits a star"
+    },
+    {
+      "word": "GALAXY",
+      "display": "Galaxy",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "Billions of stars together"
+    },
+    {
+      "word": "SATURN",
+      "display": "Saturn",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "The planet with rings"
+    },
+    {
+      "word": "JUPITER",
+      "display": "Jupiter",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "The biggest planet"
+    },
+    {
+      "word": "METEOR",
+      "display": "Meteor",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "A shooting star"
+    },
+    {
+      "word": "GRAVITY",
+      "display": "Gravity",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "The force that pulls you down"
+    },
+    {
+      "word": "ECLIPSE",
+      "display": "Eclipse",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "When the moon hides the sun"
+    },
+    {
+      "word": "MERCURY",
+      "display": "Mercury",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "The planet closest to the sun"
+    },
+    {
+      "word": "NEPTUNE",
+      "display": "Neptune",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "The farthest blue planet"
+    },
+    {
+      "word": "COSMOS",
+      "display": "Cosmos",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "Another word for universe"
+    },
+    {
+      "word": "LAUNCH",
+      "display": "Launch",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "When a rocket takes off"
+    },
+    {
+      "word": "NEBULA",
+      "display": "Nebula",
+      "category": "space",
+      "difficulty": "medium",
+      "hint": "A colorful space cloud"
+    },
+    {
+      "word": "ASTRONAUT",
+      "display": "Astronaut",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A person who travels to space"
+    },
+    {
+      "word": "TELESCOPE",
+      "display": "Telescope",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "It helps you see far stars"
+    },
+    {
+      "word": "SATELLITE",
+      "display": "Satellite",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "It circles Earth in space"
+    },
+    {
+      "word": "UNIVERSE",
+      "display": "Universe",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "Everything that exists"
+    },
+    {
+      "word": "ASTEROID",
+      "display": "Asteroid",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A big space rock"
+    },
+    {
+      "word": "SPACESHIP",
+      "display": "Spaceship",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A vehicle for space travel"
+    },
+    {
+      "word": "SUPERNOVA",
+      "display": "Supernova",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A giant exploding star"
+    },
+    {
+      "word": "OBSERVATORY",
+      "display": "Observatory",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A building for watching stars"
+    },
+    {
+      "word": "COSMONAUT",
+      "display": "Cosmonaut",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A Russian space traveler"
+    },
+    {
+      "word": "STARGAZING",
+      "display": "Stargazing",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "Watching the night sky"
+    },
+    {
+      "word": "METEORITE",
+      "display": "Meteorite",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "A space rock that lands on Earth"
+    },
+    {
+      "word": "SPACESUIT",
+      "display": "Spacesuit",
+      "category": "space",
+      "difficulty": "hard",
+      "hint": "What astronauts wear"
+    },
+    {
+      "word": "SEA",
+      "display": "Sea",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A big body of salt water"
+    },
+    {
+      "word": "WAVE",
+      "display": "Wave",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "Water that rises and falls"
+    },
+    {
+      "word": "CRAB",
+      "display": "Crab",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "It walks sideways"
+    },
+    {
+      "word": "FISH",
+      "display": "Fish",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "It breathes through gills"
+    },
+    {
+      "word": "SAND",
+      "display": "Sand",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "Tiny grains on the beach"
+    },
+    {
+      "word": "REEF",
+      "display": "Reef",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A colorful coral home"
+    },
+    {
+      "word": "SHIP",
+      "display": "Ship",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A big boat"
+    },
+    {
+      "word": "BOAT",
+      "display": "Boat",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "It floats on water"
+    },
+    {
+      "word": "TIDE",
+      "display": "Tide",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "The sea rising and falling"
+    },
+    {
+      "word": "SHELL",
+      "display": "Shell",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A sea creature's home"
+    },
+    {
+      "word": "CORAL",
+      "display": "Coral",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A colorful reef builder"
+    },
+    {
+      "word": "PEARL",
+      "display": "Pearl",
+      "category": "ocean",
+      "difficulty": "easy",
+      "hint": "A treasure inside an oyster"
+    },
+    {
+      "word": "DOLPHIN",
+      "display": "Dolphin",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A playful, clever sea mammal"
+    },
+    {
+      "word": "OCTOPUS",
+      "display": "Octopus",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "It has eight arms"
+    },
+    {
+      "word": "SEAWEED",
+      "display": "Seaweed",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A plant that grows in the sea"
+    },
+    {
+      "word": "WALRUS",
+      "display": "Walrus",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A sea animal with big tusks"
+    },
+    {
+      "word": "TURTLE",
+      "display": "Turtle",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "It swims with a shell"
+    },
+    {
+      "word": "SAILOR",
+      "display": "Sailor",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A person who works at sea"
+    },
+    {
+      "word": "ANCHOR",
+      "display": "Anchor",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "It keeps a ship in place"
+    },
+    {
+      "word": "LAGOON",
+      "display": "Lagoon",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A calm shallow pool by the sea"
+    },
+    {
+      "word": "MARINE",
+      "display": "Marine",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A word meaning of the sea"
+    },
+    {
+      "word": "URCHIN",
+      "display": "Urchin",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A spiky sea ball"
+    },
+    {
+      "word": "OYSTER",
+      "display": "Oyster",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "It may hold a pearl"
+    },
+    {
+      "word": "STARFISH",
+      "display": "Starfish",
+      "category": "ocean",
+      "difficulty": "medium",
+      "hint": "A five-armed sea star"
+    },
+    {
+      "word": "JELLYFISH",
+      "display": "Jellyfish",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A see-through floating stinger"
+    },
+    {
+      "word": "SEAHORSE",
+      "display": "Seahorse",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A tiny horse-shaped fish"
+    },
+    {
+      "word": "SWORDFISH",
+      "display": "Swordfish",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A fish with a long sharp bill"
+    },
+    {
+      "word": "LIGHTHOUSE",
+      "display": "Lighthouse",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "It guides ships at night"
+    },
+    {
+      "word": "SUBMARINE",
+      "display": "Submarine",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A ship that travels underwater"
+    },
+    {
+      "word": "SHIPWRECK",
+      "display": "Shipwreck",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A sunken ship"
+    },
+    {
+      "word": "PLANKTON",
+      "display": "Plankton",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "Tiny drifting sea life"
+    },
+    {
+      "word": "BARNACLE",
+      "display": "Barnacle",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "It sticks to ships and rocks"
+    },
+    {
+      "word": "STINGRAY",
+      "display": "Stingray",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A flat fish with a long tail"
+    },
+    {
+      "word": "ANEMONE",
+      "display": "Anemone",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A flower-like sea creature"
+    },
+    {
+      "word": "MACKEREL",
+      "display": "Mackerel",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "A striped silvery fish"
+    },
+    {
+      "word": "NARWHAL",
+      "display": "Narwhal",
+      "category": "ocean",
+      "difficulty": "hard",
+      "hint": "The unicorn of the sea"
+    },
+    {
+      "word": "RAIN",
+      "display": "Rain",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Drops falling from clouds"
+    },
+    {
+      "word": "SNOW",
+      "display": "Snow",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "White winter flakes"
+    },
+    {
+      "word": "WIND",
+      "display": "Wind",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "You feel it but cannot see it"
+    },
+    {
+      "word": "FOG",
+      "display": "Fog",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "A cloud near the ground"
+    },
+    {
+      "word": "HAIL",
+      "display": "Hail",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Ice balls falling from the sky"
+    },
+    {
+      "word": "SUNNY",
+      "display": "Sunny",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Bright with no clouds"
+    },
+    {
+      "word": "CLOUD",
+      "display": "Cloud",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "White and fluffy in the sky"
+    },
+    {
+      "word": "STORM",
+      "display": "Storm",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Wild wind and rain"
+    },
+    {
+      "word": "MIST",
+      "display": "Mist",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "A thin light fog"
+    },
+    {
+      "word": "HEAT",
+      "display": "Heat",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "A very warm feeling"
+    },
+    {
+      "word": "COLD",
+      "display": "Cold",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Brrr! The opposite of hot"
+    },
+    {
+      "word": "ICE",
+      "display": "Ice",
+      "category": "weather",
+      "difficulty": "easy",
+      "hint": "Frozen water"
+    },
+    {
+      "word": "THUNDER",
+      "display": "Thunder",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "The rumble after lightning"
+    },
+    {
+      "word": "DRIZZLE",
+      "display": "Drizzle",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "Very light rain"
+    },
+    {
+      "word": "TORNADO",
+      "display": "Tornado",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "A spinning funnel of wind"
+    },
+    {
+      "word": "CYCLONE",
+      "display": "Cyclone",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "A huge spinning storm"
+    },
+    {
+      "word": "MONSOON",
+      "display": "Monsoon",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "A season of heavy rain"
+    },
+    {
+      "word": "FORECAST",
+      "display": "Forecast",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "Tomorrow's weather guess"
+    },
+    {
+      "word": "HUMIDITY",
+      "display": "Humidity",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "How damp the air feels"
+    },
+    {
+      "word": "RAINFALL",
+      "display": "Rainfall",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "How much rain has fallen"
+    },
+    {
+      "word": "SNOWFALL",
+      "display": "Snowfall",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "Snow coming down"
+    },
+    {
+      "word": "SUNSHINE",
+      "display": "Sunshine",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "Warm light from the sun"
+    },
+    {
+      "word": "BLIZZARD",
+      "display": "Blizzard",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "A fierce snowstorm"
+    },
+    {
+      "word": "TEMPEST",
+      "display": "Tempest",
+      "category": "weather",
+      "difficulty": "medium",
+      "hint": "A violent windy storm"
+    },
+    {
+      "word": "LIGHTNING",
+      "display": "Lightning",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "An electric flash in the sky"
+    },
+    {
+      "word": "HURRICANE",
+      "display": "Hurricane",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "A giant ocean-born storm"
+    },
+    {
+      "word": "AVALANCHE",
+      "display": "Avalanche",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "Snow sliding down a mountain"
+    },
+    {
+      "word": "HEATWAVE",
+      "display": "Heatwave",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "Days of very hot weather"
+    },
+    {
+      "word": "RAINSTORM",
+      "display": "Rainstorm",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "Heavy rain with wind"
+    },
+    {
+      "word": "SNOWSTORM",
+      "display": "Snowstorm",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "Heavy snow with wind"
+    },
+    {
+      "word": "DOWNPOUR",
+      "display": "Downpour",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "Sudden very heavy rain"
+    },
+    {
+      "word": "OVERCAST",
+      "display": "Overcast",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "A sky fully covered in cloud"
+    },
+    {
+      "word": "BAROMETER",
+      "display": "Barometer",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "It measures air pressure"
+    },
+    {
+      "word": "HAILSTORM",
+      "display": "Hailstorm",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "A storm of falling ice"
+    },
+    {
+      "word": "WHIRLWIND",
+      "display": "Whirlwind",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "A small spinning windstorm"
+    },
+    {
+      "word": "THERMOMETER",
+      "display": "Thermometer",
+      "category": "weather",
+      "difficulty": "hard",
+      "hint": "It measures temperature"
+    }
   ],
   "spelling": [
-    { "word": "CAT", "emoji": "", "category": "animals", "difficulty": "beginner", "clue": "A small furry pet that says meow" },
-    { "word": "DOG", "emoji": "", "category": "animals", "difficulty": "beginner", "clue": "A loyal pet that barks" },
-    { "word": "FISH", "emoji": "", "category": "animals", "difficulty": "easy", "clue": "A swimming animal with fins" },
-    { "word": "APPLE", "emoji": "", "category": "food", "difficulty": "beginner", "clue": "A healthy fruit often packed in lunchboxes" },
-    { "word": "BREAD", "emoji": "", "category": "food", "difficulty": "easy", "clue": "A food used for sandwiches and toast" },
-    { "word": "CHEESE", "emoji": "", "category": "food", "difficulty": "easy", "clue": "A dairy food that can be sliced or melted" },
-    { "word": "BOOK", "emoji": "", "category": "school", "difficulty": "beginner", "clue": "You read this in class or at home" },
-    { "word": "PENCIL", "emoji": "", "category": "school", "difficulty": "easy", "clue": "A tool for writing and drawing" },
-    { "word": "CLASSROOM", "emoji": "", "category": "school", "difficulty": "challenge", "clue": "The room where a teacher teaches lessons" },
-    { "word": "TREE", "emoji": "", "category": "nature", "difficulty": "beginner", "clue": "A plant with a trunk and branches" },
-    { "word": "FLOWER", "emoji": "", "category": "nature", "difficulty": "easy", "clue": "A colorful plant with petals" },
-    { "word": "RAINBOW", "emoji": "", "category": "nature", "difficulty": "challenge", "clue": "A colorful arc seen after rain" },
-    { "word": "MOM", "emoji": "", "category": "family", "difficulty": "beginner", "clue": "One parent in many families" },
-    { "word": "DAD", "emoji": "", "category": "family", "difficulty": "beginner", "clue": "The other parent in many families" },
-    { "word": "FAMILY", "emoji": "", "category": "family", "difficulty": "easy", "clue": "People who love and care for one another at home" },
-    { "word": "RED", "emoji": "", "category": "colors", "difficulty": "beginner", "clue": "The color of a stop sign" },
-    { "word": "BLUE", "emoji": "", "category": "colors", "difficulty": "beginner", "clue": "The color of the sky on a clear day" },
-    { "word": "PURPLE", "emoji": "", "category": "colors", "difficulty": "easy", "clue": "A mix of red and blue" },
-    { "word": "SPACE", "emoji": "", "category": "space", "difficulty": "challenge", "clue": "The huge place where planets and stars live" }
+    {
+      "word": "CAT",
+      "emoji": "",
+      "category": "animals",
+      "difficulty": "beginner",
+      "clue": "A small furry pet that says meow"
+    },
+    {
+      "word": "DOG",
+      "emoji": "",
+      "category": "animals",
+      "difficulty": "beginner",
+      "clue": "A loyal pet that barks"
+    },
+    {
+      "word": "FISH",
+      "emoji": "",
+      "category": "animals",
+      "difficulty": "easy",
+      "clue": "A swimming animal with fins"
+    },
+    {
+      "word": "APPLE",
+      "emoji": "",
+      "category": "food",
+      "difficulty": "beginner",
+      "clue": "A healthy fruit often packed in lunchboxes"
+    },
+    {
+      "word": "BREAD",
+      "emoji": "",
+      "category": "food",
+      "difficulty": "easy",
+      "clue": "A food used for sandwiches and toast"
+    },
+    {
+      "word": "CHEESE",
+      "emoji": "",
+      "category": "food",
+      "difficulty": "easy",
+      "clue": "A dairy food that can be sliced or melted"
+    },
+    {
+      "word": "BOOK",
+      "emoji": "",
+      "category": "school",
+      "difficulty": "beginner",
+      "clue": "You read this in class or at home"
+    },
+    {
+      "word": "PENCIL",
+      "emoji": "",
+      "category": "school",
+      "difficulty": "easy",
+      "clue": "A tool for writing and drawing"
+    },
+    {
+      "word": "CLASSROOM",
+      "emoji": "",
+      "category": "school",
+      "difficulty": "challenge",
+      "clue": "The room where a teacher teaches lessons"
+    },
+    {
+      "word": "TREE",
+      "emoji": "",
+      "category": "nature",
+      "difficulty": "beginner",
+      "clue": "A plant with a trunk and branches"
+    },
+    {
+      "word": "FLOWER",
+      "emoji": "",
+      "category": "nature",
+      "difficulty": "easy",
+      "clue": "A colorful plant with petals"
+    },
+    {
+      "word": "RAINBOW",
+      "emoji": "",
+      "category": "nature",
+      "difficulty": "challenge",
+      "clue": "A colorful arc seen after rain"
+    },
+    {
+      "word": "MOM",
+      "emoji": "",
+      "category": "family",
+      "difficulty": "beginner",
+      "clue": "One parent in many families"
+    },
+    {
+      "word": "DAD",
+      "emoji": "",
+      "category": "family",
+      "difficulty": "beginner",
+      "clue": "The other parent in many families"
+    },
+    {
+      "word": "FAMILY",
+      "emoji": "",
+      "category": "family",
+      "difficulty": "easy",
+      "clue": "People who love and care for one another at home"
+    },
+    {
+      "word": "RED",
+      "emoji": "",
+      "category": "colors",
+      "difficulty": "beginner",
+      "clue": "The color of a stop sign"
+    },
+    {
+      "word": "BLUE",
+      "emoji": "",
+      "category": "colors",
+      "difficulty": "beginner",
+      "clue": "The color of the sky on a clear day"
+    },
+    {
+      "word": "PURPLE",
+      "emoji": "",
+      "category": "colors",
+      "difficulty": "easy",
+      "clue": "A mix of red and blue"
+    },
+    {
+      "word": "SPACE",
+      "emoji": "",
+      "category": "space",
+      "difficulty": "challenge",
+      "clue": "The huge place where planets and stars live"
+    }
   ]
 }
