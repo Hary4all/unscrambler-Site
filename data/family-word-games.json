@@ -46,8 +46,8 @@
     { "word": "SISTER", "display": "Sister", "category": "family", "difficulty": "medium", "hint": "A female sibling" },
     { "word": "BROTHER", "display": "Brother", "category": "family", "difficulty": "medium", "hint": "A male sibling" },
     { "word": "FAMILY", "display": "Family", "category": "family", "difficulty": "medium", "hint": "People who care for each other at home" },
-    { "word": "GRANDMA", "display": "Grandma", "category": "family", "difficulty": "hard", "hint": "Your mother or father\'s mother" },
-    { "word": "GRANDPA", "display": "Grandpa", "category": "family", "difficulty": "hard", "hint": "Your mother or father\'s father" },
+    { "word": "GRANDMA", "display": "Grandma", "category": "family", "difficulty": "hard", "hint": "Your mother or father's mother" },
+    { "word": "GRANDPA", "display": "Grandpa", "category": "family", "difficulty": "hard", "hint": "Your mother or father's father" },
     { "word": "CELEBRATION", "display": "Celebration", "category": "family", "difficulty": "hard", "hint": "A happy family event" },
 
     { "word": "RED", "display": "Red", "category": "colors", "difficulty": "easy", "hint": "The color of apples and stop signs" },
