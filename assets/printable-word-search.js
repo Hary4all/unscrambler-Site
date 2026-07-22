@@ -1,7 +1,7 @@
 import { FACEBOOK_PAGE_URL, copyLink, openFacebookShare, wireShareGroup } from "/assets/family-social.js";
 import { getFamilyPreferences, saveFamilyPreferences } from "/assets/family-storage.js";
 
-const DATA_URL = "/data/family-word-games.json?v=20260519";
+const DATA_URL = "/data/family-word-games.json?v=20260716";
 const SIZE_BY_DIFFICULTY = { easy: 10, medium: 12, hard: 14 };
 const WORD_COUNT_BY_DIFFICULTY = { easy: 6, medium: 8, hard: 10 };
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
