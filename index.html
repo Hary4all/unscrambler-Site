@@ -91,7 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 <script src="/assets/noindex-query.js?v=20260518"></script>
-<link rel="stylesheet" href="/assets/premium.css?v=20260711">
+<link rel="stylesheet" href="/assets/premium.css?v=20260723">
 <link rel="stylesheet" href="/assets/home.css?v=20260710b">
 </head>
 <body class="home-page">
@@ -741,17 +741,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 
 function trackWFL(eventName, data = {}) {
-  if (typeof window.trackWFL === "function") {
-    return window.trackWFL(eventName, data);
+  const ext = (window.WFLMeasurement && typeof window.WFLMeasurement.track === "function")
+    ? window.WFLMeasurement.track
+    : null;
+  if (ext) {
+    try { ext(eventName, { page_path: window.location.pathname, page_title: document.title || "", ...data }); }
+    catch (err) { /* measurement must never break the tools */ }
   }
-  window.dataLayer = window.dataLayer || [];
   const payload = {
     event: eventName,
     page_path: window.location.pathname,
     page_title: document.title || "",
     ...data
   };
-  window.dataLayer.push(payload);
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
+  } catch (err) { /* measurement must never break the tools */ }
   return payload;
 }
 
