@@ -259,16 +259,20 @@
     slot.dataset.adsterraMounted = "1";
     normalizeSpacing(slot, placement);
 
-    if (
-      placement === "top" ||
-      placement === "mid" ||
-      placement === "sidebar" ||
-      placement === "skyscraper" ||
-      placement === "mobile-inline" ||
-      placement === "mobile-bottom" ||
-      placement === "ignore"
-    ) {
+    if (placement === "mobile-bottom" || placement === "ignore") {
       collapseSlot(slot);
+      return;
+    }
+
+    // Leaderboard 728x90 on desktop, 320x50 on mobile
+    if (placement === "top") {
+      mountTop(slot);
+      return;
+    }
+
+    // Medium rectangle 300x250
+    if (placement === "mid") {
+      mountBox(slot);
       return;
     }
 
