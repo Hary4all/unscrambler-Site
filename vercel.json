@@ -3,6 +3,36 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/word-unscrambler",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/word-unscrambler/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wordle-helper",
+      "destination": "/wordle-solver/",
+      "permanent": true
+    },
+    {
+      "source": "/wordle-helper/",
+      "destination": "/wordle-solver/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with-b",
+      "destination": "/5-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
+      "source": "/5-letter-words-starting-with-b/",
+      "destination": "/5-letter-words-starting-with/b/",
+      "permanent": true
+    },
+    {
       "source": "/5-letter-words-ending-with/k.html",
       "destination": "/5-letter-words-ending-with/k/",
       "permanent": true

@@ -355,6 +355,7 @@ function renderHubPage() {
       <div class="programmatic-kicker">Pattern Hub</div>
       <h1>Word Patterns</h1>
       <p class="lede">Explore thousands of clean, indexable pages built around letters, prefixes, suffixes, categories, and common questions. Every page stays aligned with WordFindLab and keeps the layout useful for readers.</p>
+      <p>Know some letters but not others? Use the <a href="/words-with-pattern/"><b>word pattern finder</b></a> to match any letter pattern &mdash; enter _ for unknown letters, e.g. _A_E_ finds BAKED, CAGED, and PAVED.</p>
       <div class="programmatic-summary">
         <span class="summary-pill">Start pages: ${PREFIX_LIST.length} patterns</span>
         <span class="summary-pill">End pages: ${SUFFIX_LIST.length} patterns</span>
