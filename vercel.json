@@ -3,6 +3,156 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/word-patterns/start/anti/",
+      "destination": "/words-starting-with-anti/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/un/",
+      "destination": "/words-starting-with-un/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/dis/",
+      "destination": "/words-starting-with-dis/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/de/",
+      "destination": "/words-starting-with-de/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/pre/",
+      "destination": "/words-starting-with-pre/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/super/",
+      "destination": "/words-starting-with-super/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/mis/",
+      "destination": "/words-starting-with-mis/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/over/",
+      "destination": "/words-starting-with-over/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/ex/",
+      "destination": "/words-starting-with-ex/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/re/",
+      "destination": "/words-starting-with-re/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/out/",
+      "destination": "/words-starting-with-out/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/non/",
+      "destination": "/words-starting-with-non/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/under/",
+      "destination": "/words-starting-with-under/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/inter/",
+      "destination": "/words-starting-with-inter/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/in/",
+      "destination": "/words-starting-with-in/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/able/",
+      "destination": "/words-ending-with-able/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ly/",
+      "destination": "/words-ending-with-ly/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ed/",
+      "destination": "/words-ending-with-ed/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ous/",
+      "destination": "/words-ending-with-ous/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ful/",
+      "destination": "/words-ending-with-ful/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ic/",
+      "destination": "/words-ending-with-ic/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ish/",
+      "destination": "/words-ending-with-ish/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/tion/",
+      "destination": "/words-ending-with-tion/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/er/",
+      "destination": "/words-ending-with-er/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/al/",
+      "destination": "/words-ending-with-al/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ness/",
+      "destination": "/words-ending-with-ness/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ary/",
+      "destination": "/words-ending-with-ary/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ment/",
+      "destination": "/words-ending-with-ment/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/less/",
+      "destination": "/words-ending-with-less/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/ing/",
+      "destination": "/words-ending-with-ing/",
+      "permanent": true
+    },
+    {
       "source": "/10-letter-words-starting-with/a/",
       "destination": "/words-starting-with/a/",
       "permanent": true

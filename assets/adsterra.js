@@ -109,6 +109,17 @@
     slot.style.overflow = "hidden";
   }
 
+  function labelSlot(slot) {
+    const wrapper = getWrapper(slot) || slot;
+    if (!wrapper || !wrapper.parentNode || wrapper.dataset.wflLabelled === "1") return;
+    wrapper.dataset.wflLabelled = "1";
+    const label = document.createElement("div");
+    label.className = "wfl-ad-label";
+    label.textContent = "Advertisement";
+    label.style.cssText = "font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8;text-align:center;margin:12px 0 4px;";
+    wrapper.parentNode.insertBefore(label, wrapper);
+  }
+
   function waitForAd(slot, timeoutMs) {
     let done = false;
     let observer = null;
@@ -121,6 +132,7 @@
       if (observer) observer.disconnect();
       if (timer) window.clearTimeout(timer);
       if (state !== "ad") collapseSlot(slot);
+      if (state === "ad") labelSlot(slot);
     };
 
     observer = new MutationObserver(() => {
@@ -313,6 +325,12 @@
       return;
     }
 
+    // Bottom-of-content: leaderboard on desktop, rectangle on mobile
+    if (placement === "footer") {
+      mountFrameAd(slot, isMobileWidth() ? ADS.box : ADS.desktopTop);
+      return;
+    }
+
     collapseSlot(slot);
   }
 
@@ -324,8 +342,26 @@
     const slots = Array.from(document.querySelectorAll(".ad-slot"));
     if (!slots.length) return;
 
+    const lazy = typeof window.IntersectionObserver === "function";
+    const io = lazy ? new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        mountSlot(entry.target, entry.target.dataset.wflPlacement);
+      });
+    }, { rootMargin: "600px 0px" }) : null;
+
     for (let i = 0; i < slots.length; i++) {
-      mountSlot(slots[i], inferPlacement(slots[i], i));
+      const slot = slots[i];
+      if (slot.dataset.adsterraMounted === "1" || slot.dataset.wflQueued === "1") continue;
+      const placement = inferPlacement(slot, i);
+      if (!io || placement === "top") {
+        mountSlot(slot, placement);
+      } else {
+        slot.dataset.wflQueued = "1";
+        slot.dataset.wflPlacement = placement;
+        io.observe(slot);
+      }
     }
   }
 

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20260522";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20261013";
   const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
   const WFL_GTM_ID = "GTM-T55GC2PM";
 
@@ -88,7 +88,7 @@
     const block = document.createElement("div");
     block.className = "ad-supplemental-ads";
     block.style.width = "100%";
-    block.style.maxWidth = "468px";
+    block.style.maxWidth = "760px";
     block.style.margin = "24px auto";
     block.style.padding = "0 16px";
     block.style.boxSizing = "border-box";
@@ -98,13 +98,53 @@
     block.style.alignItems = "center";
     block.style.gap = "0";
 
-    const wide = createSlot("wide", "ad-slot-wide");
-    wide.style.maxWidth = "468px";
-    wide.style.minHeight = "60px";
+    const bottom = createSlot("footer", "ad-slot-footer");
+    bottom.style.maxWidth = "728px";
 
-    block.appendChild(wrapSlot(wide, "468px"));
+    block.appendChild(wrapSlot(bottom, "728px"));
     insertBeforeFooter(block);
     return true;
+  }
+
+  function inContentSlotCount() {
+    const main = document.querySelector("main") || document.body;
+    return Array.from(main.querySelectorAll(".ad-slot")).length;
+  }
+
+  function insertAfter(ref, node) {
+    if (ref && ref.parentNode) ref.parentNode.insertBefore(node, ref.nextSibling);
+  }
+
+  function ensureInContentSlots() {
+    if (document.querySelector(".ad-incontent")) return false;
+    if (inContentSlotCount() >= 2) return false;
+    const main = document.querySelector("main");
+    if (!main) return false;
+
+    const make = (placement, maxWidth) => {
+      const slot = createSlot(placement, "ad-incontent");
+      const wrap = wrapSlot(slot, maxWidth);
+      wrap.style.margin = "8px auto 24px";
+      return wrap;
+    };
+
+    // Blog posts: native after 2nd section, rectangle before the CTA
+    const sections = Array.from(main.querySelectorAll(".article-section"));
+    if (sections.length >= 2) {
+      insertAfter(sections[1], make("lower", "100%"));
+      const later = main.querySelector(".post-cta") || sections[sections.length - 1];
+      if (later && later.parentNode) later.parentNode.insertBefore(make("mid", "300px"), later);
+      return true;
+    }
+
+    // Other pages (homepage, guides, hubs): rectangle after 1st block, native further down
+    const blocks = Array.from(main.children).filter((el) => el.tagName === "SECTION" || el.classList.contains("card"));
+    if (blocks.length >= 2) {
+      insertAfter(blocks[0], make("mid", "300px"));
+      if (blocks.length >= 4) insertAfter(blocks[Math.min(3, blocks.length - 2)], make("lower", "100%"));
+      return true;
+    }
+    return false;
   }
 
   function refreshMountedAds() {
@@ -123,7 +163,8 @@
   }
 
   function injectAdsterra() {
-    const addedSlots = ensureSupplementalAdSlots();
+    const addedInContent = ensureInContentSlots();
+    const addedSlots = ensureSupplementalAdSlots() || addedInContent;
     if (hasScript(AD_STERRA_SRC)) {
       if (addedSlots) refreshMountedAds();
       return;
