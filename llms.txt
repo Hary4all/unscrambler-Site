@@ -17,6 +17,7 @@ Key facts:
 - [Jumble Solver](https://wordfindlab.com/jumble-solver/): Solve daily Jumble puzzles and word scrambles.
 - [Words With Friends Cheat](https://wordfindlab.com/words-with-friends-cheat/): WWF-scored word finding with the WWF letter values.
 - [Dictionary](https://wordfindlab.com/dictionary/): Definitions, pronunciation, examples, and synonyms.
+- [Word Pattern Finder](https://wordfindlab.com/words-with-pattern/): Find words matching a letter pattern such as _A_E_ (use _ or ? for unknown letters, * for any length), with include/exclude letters for Wordle and crosswords.
 
 ## Word Lists
 
@@ -26,6 +27,8 @@ Key facts:
 - [Words by Length](https://wordfindlab.com/words-by-length/): Word lists from 2 to 15 letters.
 - [Words Starting With](https://wordfindlab.com/words-starting-with/): Lists by starting letter, prefix, or combination.
 - [Words Ending With](https://wordfindlab.com/words-ending-with/): Lists by ending letter or suffix.
+- [5 Letter Words Starting With](https://wordfindlab.com/5-letter-words-starting-with/a/): Five-letter words for each starting letter (A-Z), for Wordle when the first tile is green.
+- [Words Starting With DE](https://wordfindlab.com/words-starting-with-de/): 6,316 DE words plus the meaning of the DE- prefix.
 
 ## Games & Learning
 

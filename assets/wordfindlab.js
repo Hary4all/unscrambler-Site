@@ -395,6 +395,7 @@ const SIDEBAR_TOOLS = [
   { href: "/words-with-friends-cheat/", badge: "WWF", icon: "WWF", label: "Words With Friends" },
   { href: "/jumble-solver/",            badge: "JS",  icon: "JS",  label: "Jumble Solver"      },
   { href: "/crossword-game/",           badge: "CW",  icon: "CW",  label: "Crossword Game"     },
+  { href: "/words-with-pattern/",       badge: "PF",  icon: "PF",  label: "Pattern Finder"     },
   { href: "/word-patterns/",            badge: "WP",  icon: "WP",  label: "Word Patterns"      },
 ];
 

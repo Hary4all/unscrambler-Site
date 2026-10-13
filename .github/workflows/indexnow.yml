@@ -1,0 +1,28 @@
+name: IndexNow ping
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Wait for Vercel deploy
+        run: sleep 120
+      - name: Submit changed URLs to IndexNow (Bing, Yandex, etc.)
+        env:
+          KEY: e9f56a6dc6bd1105041db84c3da8ca47
+          HOST: wordfindlab.com
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's#<loc>##;s#</loc>##')
+          else
+            URLS=$(git diff --name-only HEAD~1 HEAD | grep '/index.html$\|^index.html$' | sed 's#index.html$##' | sed "s#^#https://$HOST/#")
+          fi
+          [ -z "$URLS" ] && { echo "No page changes"; exit 0; }
+          echo "$URLS" | head -10000 | jq -R . | jq -s --arg h "$HOST" --arg k "$KEY" '{host:$h,key:$k,keyLocation:("https://"+$h+"/"+$k+".txt"),urlList:.}' > body.json
+          echo "Submitting $(jq '.urlList|length' body.json) URLs"
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" -H "Content-Type: application/json; charset=utf-8" -X POST https://api.indexnow.org/indexnow --data @body.json
