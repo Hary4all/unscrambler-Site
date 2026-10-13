@@ -604,3 +604,9 @@ body .homepage-hub-grid { grid-template-columns: 1fr; }
 @media (max-width: 480px) {
   .pr-practice-tile { width: 34px; height: 38px; font-size: 17px; }
 }
+
+/* Mobile overflow guards */
+.top-words-table { display: block; max-width: 100%; overflow-x: auto; }
+@media (max-width: 420px) {
+  .grid-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}

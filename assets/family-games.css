@@ -2043,3 +2043,14 @@ body.family-page--spelling .game-link {
     padding: 12px;
   }
 }
+
+/* Mobile: keep the spelling score row inside the screen */
+@media (max-width: 560px) {
+  body.family-page--spelling .family-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.family-page--spelling .family-stat strong {
+    font-size: 1.35rem;
+    overflow-wrap: anywhere;
+  }
+}

@@ -5783,3 +5783,18 @@ body.home-page .affiliate-button {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Tablet: keep the 11-link top nav inside the screen (scrolls within itself) */
+@media (min-width: 761px) and (max-width: 1240px) {
+  .nav-inner { min-width: 0; }
+  .nav-links {
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { flex-shrink: 0; }
+}
