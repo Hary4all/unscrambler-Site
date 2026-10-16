@@ -118,6 +118,8 @@
   function ensureInContentSlots() {
     if (document.querySelector(".ad-incontent")) return false;
     if (inContentSlotCount() >= 2) return false;
+    // Tool pages get the after-results slot instead; list pages get the in-list slot
+    if (document.querySelector("#patternResultsCard, #step1Card, .ad-inlist")) return false;
     const main = document.querySelector("main");
     if (!main) return false;
 
@@ -147,6 +149,42 @@
     return false;
   }
 
+  // Ad right after search results, shown once results appear (highest engagement)
+  function ensureResultsSlot() {
+    const ids = ["resultsCard", "patternResultsCard", "step1Card"];
+    const cards = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!cards.length) return;
+    const place = (card) => {
+      if (card.hidden || card.dataset.wflResultsAd === "1") return;
+      card.dataset.wflResultsAd = "1";
+      if (document.querySelector(".ad-after-results")) return;
+      const slot = createSlot("mid", "ad-after-results");
+      const wrap = wrapSlot(slot, "300px");
+      wrap.style.margin = "16px auto";
+      card.parentNode.insertBefore(wrap, card.nextSibling);
+      refreshMountedAds();
+    };
+    cards.forEach((card) => {
+      place(card);
+      try {
+        new MutationObserver(() => place(card)).observe(card, { attributes: true, attributeFilter: ["hidden", "style", "class"] });
+      } catch (err) {}
+    });
+  }
+
+  // Ad inside long pre-rendered word lists (pattern / vowel pages)
+  function ensureInListSlot() {
+    const list = document.getElementById("word-list");
+    if (!list || list.querySelector(".ad-inlist")) return false;
+    const groups = list.querySelectorAll("p.static-word-list");
+    if (groups.length < 4) return false;
+    const slot = createSlot("mid", "ad-inlist");
+    const wrap = wrapSlot(slot, "300px");
+    wrap.style.margin = "16px auto";
+    groups[1].parentNode.insertBefore(wrap, groups[1].nextSibling);
+    return true;
+  }
+
   function refreshMountedAds() {
     if (window.WordFindLabAds && typeof window.WordFindLabAds.refresh === "function") {
       window.WordFindLabAds.refresh();
@@ -163,7 +201,9 @@
   }
 
   function injectAdsterra() {
-    const addedInContent = ensureInContentSlots();
+    const addedInList = ensureInListSlot();
+    const addedInContent = ensureInContentSlots() || addedInList;
+    ensureResultsSlot();
     const addedSlots = ensureSupplementalAdSlots() || addedInContent;
     if (hasScript(AD_STERRA_SRC)) {
       if (addedSlots) refreshMountedAds();
