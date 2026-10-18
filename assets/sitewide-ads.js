@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20261013";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20261018";
   const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
   const WFL_GTM_ID = "GTM-T55GC2PM";
 
@@ -88,7 +88,7 @@
     const block = document.createElement("div");
     block.className = "ad-supplemental-ads";
     block.style.width = "100%";
-    block.style.maxWidth = "760px";
+    block.style.maxWidth = "468px";
     block.style.margin = "24px auto";
     block.style.padding = "0 16px";
     block.style.boxSizing = "border-box";
@@ -98,90 +98,12 @@
     block.style.alignItems = "center";
     block.style.gap = "0";
 
-    const bottom = createSlot("footer", "ad-slot-footer");
-    bottom.style.maxWidth = "728px";
+    const wide = createSlot("wide", "ad-slot-wide");
+    wide.style.maxWidth = "468px";
+    wide.style.minHeight = "60px";
 
-    block.appendChild(wrapSlot(bottom, "728px"));
+    block.appendChild(wrapSlot(wide, "468px"));
     insertBeforeFooter(block);
-    return true;
-  }
-
-  function inContentSlotCount() {
-    const main = document.querySelector("main") || document.body;
-    return Array.from(main.querySelectorAll(".ad-slot")).length;
-  }
-
-  function insertAfter(ref, node) {
-    if (ref && ref.parentNode) ref.parentNode.insertBefore(node, ref.nextSibling);
-  }
-
-  function ensureInContentSlots() {
-    if (document.querySelector(".ad-incontent")) return false;
-    if (inContentSlotCount() >= 2) return false;
-    // Tool pages get the after-results slot instead; list pages get the in-list slot
-    if (document.querySelector("#patternResultsCard, #step1Card, .ad-inlist")) return false;
-    const main = document.querySelector("main");
-    if (!main) return false;
-
-    const make = (placement, maxWidth) => {
-      const slot = createSlot(placement, "ad-incontent");
-      const wrap = wrapSlot(slot, maxWidth);
-      wrap.style.margin = "8px auto 24px";
-      return wrap;
-    };
-
-    // Blog posts: native after 2nd section, rectangle before the CTA
-    const sections = Array.from(main.querySelectorAll(".article-section"));
-    if (sections.length >= 2) {
-      insertAfter(sections[1], make("lower", "100%"));
-      const later = main.querySelector(".post-cta") || sections[sections.length - 1];
-      if (later && later.parentNode) later.parentNode.insertBefore(make("mid", "300px"), later);
-      return true;
-    }
-
-    // Other pages (homepage, guides, hubs): rectangle after 1st block, native further down
-    const blocks = Array.from(main.children).filter((el) => el.tagName === "SECTION" || el.classList.contains("card"));
-    if (blocks.length >= 2) {
-      insertAfter(blocks[0], make("mid", "300px"));
-      if (blocks.length >= 4) insertAfter(blocks[Math.min(3, blocks.length - 2)], make("lower", "100%"));
-      return true;
-    }
-    return false;
-  }
-
-  // Ad right after search results, shown once results appear (highest engagement)
-  function ensureResultsSlot() {
-    const ids = ["resultsCard", "patternResultsCard", "step1Card"];
-    const cards = ids.map((id) => document.getElementById(id)).filter(Boolean);
-    if (!cards.length) return;
-    const place = (card) => {
-      if (card.hidden || card.dataset.wflResultsAd === "1") return;
-      card.dataset.wflResultsAd = "1";
-      if (document.querySelector(".ad-after-results")) return;
-      const slot = createSlot("mid", "ad-after-results");
-      const wrap = wrapSlot(slot, "300px");
-      wrap.style.margin = "16px auto";
-      card.parentNode.insertBefore(wrap, card.nextSibling);
-      refreshMountedAds();
-    };
-    cards.forEach((card) => {
-      place(card);
-      try {
-        new MutationObserver(() => place(card)).observe(card, { attributes: true, attributeFilter: ["hidden", "style", "class"] });
-      } catch (err) {}
-    });
-  }
-
-  // Ad inside long pre-rendered word lists (pattern / vowel pages)
-  function ensureInListSlot() {
-    const list = document.getElementById("word-list");
-    if (!list || list.querySelector(".ad-inlist")) return false;
-    const groups = list.querySelectorAll("p.static-word-list");
-    if (groups.length < 4) return false;
-    const slot = createSlot("mid", "ad-inlist");
-    const wrap = wrapSlot(slot, "300px");
-    wrap.style.margin = "16px auto";
-    groups[1].parentNode.insertBefore(wrap, groups[1].nextSibling);
     return true;
   }
 
@@ -201,10 +123,7 @@
   }
 
   function injectAdsterra() {
-    const addedInList = ensureInListSlot();
-    const addedInContent = ensureInContentSlots() || addedInList;
-    ensureResultsSlot();
-    const addedSlots = ensureSupplementalAdSlots() || addedInContent;
+    const addedSlots = ensureSupplementalAdSlots();
     if (hasScript(AD_STERRA_SRC)) {
       if (addedSlots) refreshMountedAds();
       return;
