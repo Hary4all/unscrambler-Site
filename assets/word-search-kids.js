@@ -229,13 +229,14 @@ function buildPuzzle() {
 
 function setHeroText() {
   const kids = document.body.classList.contains("family-kids-mode");
-  els.heroTitle.textContent = kids ? "Play, Learn & Have Fun!" : "Sharpen Your Mind. Solve the Puzzle.";
-  els.heroSubtitle.textContent = kids
+  const setText = (el, text) => { if (el) el.textContent = text; };
+  setText(els.heroTitle, kids ? "Play, Learn & Have Fun!" : "Sharpen Your Mind. Solve the Puzzle.");
+  setText(els.heroSubtitle, kids
     ? "Fun word adventures for smart kids and families."
-    : "Premium puzzle play for calm, focused word lovers.";
-  els.heroPrimary.textContent = kids ? "Start Playing" : "Start Puzzle";
-  els.heroSecondary.textContent = kids ? "Daily Puzzle" : "Daily Challenge";
-  els.modeLabel.textContent = kids ? "Kids Mode" : "Adults Mode";
+    : "Premium puzzle play for calm, focused word lovers.");
+  setText(els.heroPrimary, kids ? "Start Playing" : "Start Puzzle");
+  setText(els.heroSecondary, kids ? "Daily Puzzle" : "Daily Challenge");
+  setText(els.modeLabel, kids ? "Kids Mode" : "Adults Mode");
   els.modeCopy.textContent = kids
     ? "Pastel colors, bigger squares, easy clues, and cheerful rewards."
     : "Clean colors, smarter clues, and a real challenge.";
@@ -260,7 +261,7 @@ function setMode(mode) {
   if (els.category) els.category.value = state.settings.category;
   if (els.difficulty) els.difficulty.value = state.settings.difficulty;
   if (els.timerToggle) els.timerToggle.value = state.settings.timer ? "true" : "false";
-  generateNewPuzzle();
+  newPuzzle();
 }
 
 function setThemeClasses() {
@@ -618,7 +619,7 @@ function newPuzzle() {
   els.puzzleTitle.textContent = `${getCategoryLabel(state.settings.category)} ${state.settings.mode === "kids" ? "Kids" : "Family"} Search`;
   els.puzzleMeta.textContent = `${getDifficultyMeta().minutes} minutes - ${state.puzzle.placements.length} words - ${getCategoryLabel(state.settings.category)}`;
   els.timerText.textContent = formatTime(getDifficultyMeta().minutes * 60);
-  els.hintToggle.textContent = state.settings.mode === "kids" ? "Hint" : "Hint";
+  if (els.hint) els.hint.textContent = "Hint";
   renderPuzzle();
   if (state.puzzle) {
     trackWFL("word_search_started", {
@@ -741,6 +742,8 @@ async function init() {
   els.modalFacebook = $("wordSearchModalFacebook");
   els.modalShareBtn = $("wordSearchModalShare");
   els.modalCopyBtn = $("wordSearchModalCopy");
+  // Older layout ids may be missing from the page; use detached stand-ins so the game still starts
+  Object.keys(els).forEach((k) => { if (!els[k]) els[k] = document.createElement("div"); });
 
   const prefs = getFamilyPreferences();
   if (prefs.mode === "adult" || location.search.includes("mode=adult")) setMode("adult");
