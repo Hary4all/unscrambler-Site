@@ -118,7 +118,38 @@ let DICT_INDEX  = {};     // sorted-key -> [UPPERCASE words]
 let DICT_SET    = new Set();
 let CURRENT_DICT = null;
 
-async function loadDictionary(which) {
+const _DICT_LOADS = {};
+function loadDictionary(which) {
+  which = which || "all";
+  if (CURRENT_DICT === which) return Promise.resolve(true);
+  if (!_DICT_LOADS[which]) {
+    _DICT_LOADS[which] = _loadDictionaryNow(which).then((ok) => {
+      if (!ok) delete _DICT_LOADS[which];
+      return ok;
+    });
+  }
+  return _DICT_LOADS[which];
+}
+
+// Start loading after the visitor interacts, or when the browser is idle
+function preloadDictionaryWhenIdle(which) {
+  let started = false;
+  const go = () => {
+    if (started) return;
+    started = true;
+    ["pointerdown", "keydown", "touchstart", "focusin", "scroll"].forEach((ev) => window.removeEventListener(ev, go, true));
+    loadDictionary(which || "all");
+    if (window.WordFindLabDictionary && typeof WordFindLabDictionary.preloadMeaningfulWords === "function") {
+      try { WordFindLabDictionary.preloadMeaningfulWords(); } catch (e) {}
+    }
+  };
+  ["pointerdown", "keydown", "touchstart", "focusin", "scroll"].forEach((ev) => window.addEventListener(ev, go, { capture: true, passive: true, once: true }));
+  const idle = () => (window.requestIdleCallback ? requestIdleCallback(go, { timeout: 4000 }) : setTimeout(go, 3000));
+  if (document.readyState === "complete") setTimeout(idle, 4000);
+  else window.addEventListener("load", () => setTimeout(idle, 4000), { once: true });
+}
+
+async function _loadDictionaryNow(which) {
   which = which || "all";
   if (CURRENT_DICT === which) return true;
 
@@ -156,25 +187,33 @@ async function loadDictionary(which) {
     return false;
   }
 
-  _buildIndex(raw);
+  await _buildIndex(raw);
   CURRENT_DICT = which;
   setStatus("Dictionary ready.", "good");
   return true;
 }
 
-function _buildIndex(text) {
-  DICT_INDEX = {};
-  DICT_SET   = new Set();
+async function _buildIndex(text) {
+  // Build in small chunks and yield between them so the page never freezes
+  const index = {};
+  const set = new Set();
   const lines = text.split(/\r?\n/);
-  for (let i = 0; i < lines.length; i++) {
-    const w = lines[i].trim().toUpperCase();
-    if (w.length < 2 || w.length > 15) continue;
-    if (!/^[A-Z]+$/.test(w)) continue;
-    DICT_SET.add(w);
-    const key = w.split("").sort().join("");
-    if (!DICT_INDEX[key]) DICT_INDEX[key] = [];
-    DICT_INDEX[key].push(w);
+  const CHUNK = 12000;
+  for (let start = 0; start < lines.length; start += CHUNK) {
+    const end = Math.min(lines.length, start + CHUNK);
+    for (let i = start; i < end; i++) {
+      const w = lines[i].trim().toUpperCase();
+      if (w.length < 2 || w.length > 15) continue;
+      if (!/^[A-Z]+$/.test(w)) continue;
+      set.add(w);
+      const key = w.split("").sort().join("");
+      if (!index[key]) index[key] = [];
+      index[key].push(w);
+    }
+    if (end < lines.length) await new Promise((r) => setTimeout(r, 0));
   }
+  DICT_INDEX = index;
+  DICT_SET = set;
 }
 
 /* ---------- Algorithm ---------- */
