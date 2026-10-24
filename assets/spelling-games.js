@@ -73,7 +73,7 @@ function trackWFL(eventName, data = {}) {
 
 async function loadData() {
   if (state.data) return state.data;
-  const res = await fetch(DATA_URL, { cache: "no-store" });
+  const res = await fetch(DATA_URL);
   if (!res.ok) throw new Error("Unable to load spelling game data");
   state.data = await res.json();
   return state.data;
@@ -96,13 +96,17 @@ function createQueue() {
   return queue;
 }
 
+function setText(el, text) {
+  if (el && el.textContent !== text) el.textContent = text;
+}
+
 function updateTopBar() {
-  els.modeTitle.textContent = MODE_META[state.settings.difficulty]?.title || "Beginner";
-  els.modeCopy.textContent = MODE_META[state.settings.difficulty]?.copy || "Friendly spelling fun.";
-  els.categoryLabel.textContent = CATEGORY_LABELS[state.settings.category] || "All Categories";
-  els.scoreText.textContent = String(state.score);
-  els.bestText.textContent = String(state.best);
-  els.streakText.textContent = String(state.streak);
+  setText(els.modeTitle, MODE_META[state.settings.difficulty]?.title || "Beginner");
+  setText(els.modeCopy, MODE_META[state.settings.difficulty]?.copy || "Friendly spelling fun.");
+  setText(els.categoryLabel, CATEGORY_LABELS[state.settings.category] || "All Categories");
+  setText(els.scoreText, String(state.score));
+  setText(els.bestText, String(state.best));
+  setText(els.streakText, String(state.streak));
   const totalRounds = state.queue.length || MODE_META[state.settings.difficulty]?.rounds || 0;
   const currentRound = state.queue.length ? Math.min(state.index + 1, state.queue.length) : 0;
   els.progressText.textContent = `${currentRound}/${totalRounds}`;
