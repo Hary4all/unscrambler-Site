@@ -557,9 +557,14 @@ function injectNav() {
   inner.appendChild(toggle);
   nav.appendChild(inner);
 
-  // Insert before first element or hero section
-  const firstEl = document.body.firstElementChild;
-  document.body.insertBefore(nav, firstEl);
+  // Replace the reserved slot (no layout shift); otherwise insert at the top
+  const slot = document.querySelector(".wfl-nav-slot");
+  if (slot && slot.parentNode) {
+    slot.parentNode.replaceChild(nav, slot);
+  } else {
+    const firstEl = document.body.firstElementChild;
+    document.body.insertBefore(nav, firstEl);
+  }
 }
 
 function injectFooterLinks() {

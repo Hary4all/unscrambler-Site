@@ -610,3 +610,4 @@ body .homepage-hub-grid { grid-template-columns: 1fr; }
 @media (max-width: 420px) {
   .grid-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
+@media (max-width: 767px) { .ad-slot-banner:empty { min-height: 50px; } }

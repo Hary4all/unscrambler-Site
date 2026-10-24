@@ -2054,3 +2054,22 @@ body.family-page--spelling .game-link {
     overflow-wrap: anywhere;
   }
 }
+
+/* Family pages have no sidebar: use the full width instead of an empty 324px column */
+body.family-page .page-wrap { grid-template-columns: minmax(0, 1fr); max-width: 1200px; }
+/* Spelling: game board gets the larger column now that the page is full width */
+@media (min-width: 1181px) {
+  body.family-page--spelling .spelling-game-layout { grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr); }
+}
+body.family-page--spelling .family-stat strong { overflow-wrap: anywhere; }
+body.family-page--spelling #spellingCategoryLabel { font-size: 1.15rem; line-height: 1.15; display: block; }
+/* Hero: equal columns that cannot be squeezed by the large title */
+@media (min-width: 1181px) {
+  body.family-page--spelling .spelling-hero { grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr); }
+}
+/* Mascot scene must fill its column (parent centres items, which shrank it to ~38px) */
+body.family-page--spelling .spelling-hero__mascot { justify-items: stretch; }
+body.family-page--spelling .scene-shell { width: 100%; max-width: 620px; justify-self: center; }
+body.family-page--spelling .mascot-stage { width: 100%; }
+/* Facebook follow link carries text, not an icon: render as a pill */
+.family-follow-link { width: auto; height: auto; min-height: 42px; padding: 0 18px; font-weight: 800; font-size: 0.95rem; white-space: nowrap; }
