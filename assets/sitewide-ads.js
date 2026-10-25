@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const AD_STERRA_SRC = "/assets/adsterra.js?v=20261018";
+  const AD_STERRA_SRC = "/assets/adsterra.js?v=20261025";
   const WFL_MEASUREMENT_SRC = "/assets/wfl-measurement.js?v=20260601";
   const WFL_GTM_ID = "GTM-T55GC2PM";
 

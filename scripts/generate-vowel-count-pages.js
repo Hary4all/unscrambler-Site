@@ -471,8 +471,8 @@ function renderHubPage() {
   })}
 ${main}
 ${renderFooter()}
-<script src="/assets/adsterra.js?v=20260522" defer></script>
-<script src="/assets/sitewide-ads.js?v=20260601"></script>
+<script src="/assets/adsterra.js?v=20261025" defer></script>
+<script src="/assets/sitewide-ads.js?v=20261025"></script>
 </body>
 </html>`;
 }
@@ -646,8 +646,8 @@ function renderCountPage(page) {
 ${main}
 ${renderFooter()}
 ${pageScript}
-<script src="/assets/adsterra.js?v=20260522" defer></script>
-<script src="/assets/sitewide-ads.js?v=20260601"></script>
+<script src="/assets/adsterra.js?v=20261025" defer></script>
+<script src="/assets/sitewide-ads.js?v=20261025"></script>
 </body>
 </html>`;
 }

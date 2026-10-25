@@ -5,48 +5,48 @@
   const ADS = {
     desktopTop: {
       key: "9290d6da1f5eaf36924877067c84b899",
-      src: "https://www.highperformanceformat.com/9290d6da1f5eaf36924877067c84b899/invoke.js",
+      src: "https://bauval.org/22/9290d6da1f5eaf36924877067c84b899",
       width: 728,
       height: 90
     },
     mobileTop: {
       key: "41a12246620488db5d5241a65f9b3372",
-      src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
+      src: "https://bauval.org/22/41a12246620488db5d5241a65f9b3372",
       width: 320,
       height: 50
     },
     box: {
       key: "8e4f3bf9d26244ae79af5b834c747fba",
-      src: "https://www.highperformanceformat.com/8e4f3bf9d26244ae79af5b834c747fba/invoke.js",
+      src: "https://bauval.org/22/8e4f3bf9d26244ae79af5b834c747fba",
       width: 300,
       height: 250
     },
     wide: {
       key: "8d14233f0707295292121a6d3f5159fd",
-      src: "https://www.highperformanceformat.com/8d14233f0707295292121a6d3f5159fd/invoke.js",
+      src: "https://bauval.org/22/8d14233f0707295292121a6d3f5159fd",
       width: 468,
       height: 60
     },
     sidebar: {
       key: "fc13f3bf6abc69107ab30ae8fd51e8a7",
-      src: "https://www.highperformanceformat.com/fc13f3bf6abc69107ab30ae8fd51e8a7/invoke.js",
+      src: "https://bauval.org/22/fc13f3bf6abc69107ab30ae8fd51e8a7",
       width: 160,
       height: 300
     },
     skyscraper: {
       key: "b22523f470988b1b897c1c4767a04ceb",
-      src: "https://www.highperformanceformat.com/b22523f470988b1b897c1c4767a04ceb/invoke.js",
+      src: "https://bauval.org/22/b22523f470988b1b897c1c4767a04ceb",
       width: 160,
       height: 600
     },
     mobileInline: {
       key: "41a12246620488db5d5241a65f9b3372",
-      src: "https://www.highperformanceformat.com/41a12246620488db5d5241a65f9b3372/invoke.js",
+      src: "https://bauval.org/22/41a12246620488db5d5241a65f9b3372",
       width: 320,
       height: 50
     },
     native: {
-      src: "https://pl29436369.effectivecpmnetwork.com/45c605ec5d3e652b4f213084a41b650b/invoke.js",
+      src: "https://bauval.org/21/45c605ec5d3e652b4f213084a41b650b",
       containerId: "container-45c605ec5d3e652b4f213084a41b650b"
     }
   };
