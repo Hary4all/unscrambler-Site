@@ -9586,6 +9586,71 @@
       "source": "/words-ending-with/ing/",
       "destination": "/words-ending-with-ing/",
       "permanent": true
+    },
+    {
+      "source": "/word-patterns/contains/:p(a|ac|acy|age|archy|ary|end|eous|et|free|ful|graphy|ial|ie|ish|ist|istic|ive|less|like|ling|ly|oid|ory|ous|s|worthy|y)/",
+      "destination": "/word-patterns/end/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/contains/:p(ab|anti|ap|arch|com|cr|dia|dr|gl|micro|mis|out|pan|per|post|pre|pro|quin|semi|sl|sm|sp|tele|tr|tw|uni|up)/",
+      "destination": "/word-patterns/start/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/:p(ab|ag|ap|arch|bi|co|contra|cr|fr|gl|infra|micro|mis|out|pan|per|pl|post|pre|quin|sl|sm|sp|sub|sw|syn|uni|vice|wr)/",
+      "destination": "/word-patterns/start/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/:p(be|ce|dd|dge|io|is|it|kk|kn|me|nd|nt|ou|ph|se|spr|te|ti|yy|zz)/",
+      "destination": "/word-patterns/contains/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/:p(acy|age|ard|ed|el|er|es|et|free|ful|graphy|hood|ial|ing|ist|istic|ive|like|ling|ly|minded|ness|oid|or|ory|ous|proof|s|scopy|sion|tion|ward|wise|worthy)/",
+      "destination": "/word-patterns/end/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/:p(be|ch|ck|dd|ea|ha|is|it|kk|kn|me|nd|ne|nt|of|ou|ph|ra|se|spr|tch|te|thr|ti|yy|zz)/",
+      "destination": "/word-patterns/contains/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/con/",
+      "destination": "/word-patterns/start/co/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/con/:v/",
+      "destination": "/word-patterns/start/co/",
+      "permanent": true
+    },
+    {
+      "source": "/family-word-games/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)",
+      "destination": "/family-word-games/",
+      "permanent": true
+    },
+    {
+      "source": "/word-search-for-kids/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)",
+      "destination": "/word-search-for-kids/",
+      "permanent": true
+    },
+    {
+      "source": "/kids-word-search/",
+      "destination": "/word-search-for-kids/",
+      "permanent": true
+    },
+    {
+      "source": "/printable/",
+      "destination": "/printable-word-search/",
+      "permanent": true
+    },
+    {
+      "source": "/play/",
+      "destination": "/family-word-games/",
+      "permanent": true
     }
   ]
 }
