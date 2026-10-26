@@ -2,18 +2,18 @@
   "use strict";
 
   const DICTIONARY_API_URLS = [
-    "/api/dictionary?word=",
+    "/api/dictionary/?word=",
     "https://api.dictionaryapi.dev/api/v2/entries/en/",
   ];
   const COMMON_WORDS_URLS = [
-    "/api/meaningful-words?format=text",
+    "/api/meaningful-words/?format=text",
     "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english@master/google-10000-english-usa-no-swears.txt",
   ];
   const COMMON_WORDS_CACHE_KEY = "wordfindlab:meaningful-words:v1";
-  const COMMON_WORDS_LIMIT = 2000;
-  const WOTD_API_URL = "/api/wotd";
+  const COMMON_WORDS_LIMIT = 10000;
+  const WOTD_API_URL = "/api/wotd/";
 
   const WOTD_LIST = [
     "serendipity", "ephemeral", "melancholy", "eloquent", "resilience",

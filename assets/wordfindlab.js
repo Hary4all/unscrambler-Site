@@ -100,13 +100,13 @@ function injectGtmFallback() {
 
 const DICT_URLS = {
   all: [
-    "/api/words?set=all&format=text",
+    "/api/words/?set=all&format=text",
     "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt",
     "https://cdn.jsdelivr.net/gh/dwyl/english-words/words_alpha.txt",
     "https://cdn.jsdelivr.net/gh/dwyl/english-words@master/words_alpha.txt",
   ],
   common: [
-    "/api/meaningful-words?format=text",
+    "/api/meaningful-words/?format=text",
     "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english/google-10000-english-usa-no-swears.txt",
     "https://cdn.jsdelivr.net/gh/first20hours/google-10000-english@master/google-10000-english-usa-no-swears.txt",
