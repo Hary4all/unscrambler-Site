@@ -9628,12 +9628,12 @@
       "permanent": true
     },
     {
-      "source": "/family-word-games/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)",
+      "source": "/family-word-games/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)/",
       "destination": "/family-word-games/",
       "permanent": true
     },
     {
-      "source": "/word-search-for-kids/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)",
+      "source": "/word-search-for-kids/:x([A-Z_]+_AFFILIATE_LINK[0-9]*)/",
       "destination": "/word-search-for-kids/",
       "permanent": true
     },
