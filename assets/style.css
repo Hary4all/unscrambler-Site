@@ -5813,3 +5813,12 @@ body.home-page .affiliate-button {
   .ad-slot-banner { height: 50px; }
   .ad-slot-banner:empty { min-height: 50px; }
 }
+
+/* Homepage Word of the Day: stack on phones (desktop rule above had no mobile override) */
+@media (max-width: 760px) {
+  body .homepage-wotd--featured .wotd-featured-layout { grid-template-columns: 1fr; padding: 16px; }
+  body .homepage-wotd--featured .wotd-featured-aside { grid-template-columns: 1fr; }
+  body .homepage-wotd--featured .wotd-featured-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body .homepage-wotd--featured .wotd-featured-links a { white-space: normal; text-align: center; }
+  .wotd-word, [data-wotd-word] { overflow-wrap: anywhere; }
+}

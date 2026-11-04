@@ -80,6 +80,12 @@
     return payload;
   }
 
+  // Family-friendly site: drop crude or slang synonyms (e.g. from open dictionary data)
+  const CRUDE = /\b(ass|arse|kisser|butt|damn|hell|crap|piss|shit|bitch|bastard|suck|screw|dick|cock|boob|sex|sexy|whore|slut|fart|bugger)(es|s)?\b|brown[- ]?nos/i;
+  function cleanWords(items) {
+    return (Array.isArray(items) ? items : []).filter(w => typeof w === "string" && !CRUDE.test(w));
+  }
+
   function uniqueList(items) {
     const out = [];
     const seen = new Set();
@@ -198,11 +204,11 @@
     });
 
     const synonyms = uniqueList(
-      meanings.flatMap(m => Array.isArray(m.synonyms) ? m.synonyms : [])
+      cleanWords(meanings.flatMap(m => Array.isArray(m.synonyms) ? m.synonyms : []))
     ).slice(0, 4);
 
     const antonyms = uniqueList(
-      meanings.flatMap(m => Array.isArray(m.antonyms) ? m.antonyms : [])
+      cleanWords(meanings.flatMap(m => Array.isArray(m.antonyms) ? m.antonyms : []))
     ).slice(0, 4);
 
     const phonetic = phonetics.find(p => p && p.text && String(p.text).trim())?.text || entry.phonetic || "";
@@ -414,7 +420,7 @@
       }
     }
 
-    renderPills(synonymsEl, data?.synonyms || [], "No synonyms listed.");
+    renderPills(synonymsEl, cleanWords(data?.synonyms), "No synonyms listed.");
     renderPills(antonymsEl, data?.antonyms || [], "");
 
     if (noteEl) {
@@ -528,7 +534,14 @@
     const dateLabel = `Word of the Day - ${formatWordOfTheDayDate()}`;
     if (dateEl) dateEl.textContent = dateLabel;
 
-    const apiEntry = await fetchJson(WOTD_API_URL, 5000);
+    let apiEntry = await fetchJson(WOTD_API_URL, 5000);
+    // The API sometimes returns the word without a definition: look it up directly
+    if (apiEntry && apiEntry.word && !apiEntry.primaryDefinition) {
+      const looked = await fetchDefinition(apiEntry.word);
+      if (looked && looked.primaryDefinition) {
+        apiEntry = Object.assign({}, looked, { word: apiEntry.word, source: "live" });
+      }
+    }
     if (apiEntry && apiEntry.word) {
       if (wordEl) wordEl.textContent = apiEntry.word;
       if (phoneticEl) phoneticEl.textContent = apiEntry.phonetic || "";
@@ -540,7 +553,7 @@
           : "";
       }
       if (synonymsEl) {
-        const pills = (apiEntry.synonyms || []).slice(0, widget.dataset.wotdCompact === "true" ? 3 : 4);
+        const pills = cleanWords(apiEntry.synonyms).slice(0, widget.dataset.wotdCompact === "true" ? 3 : 4);
         synonymsEl.innerHTML = pills.map(item => `<span class="wotd-pill">${escapeHtml(item)}</span>`).join("");
       }
       if (stateEl) stateEl.textContent = apiEntry.source === "db" ? "Synced from database" : "Live dictionary lookup";
@@ -566,7 +579,7 @@
         : "";
     }
     if (synonymsEl) {
-      const pills = entry.synonyms.slice(0, widget.dataset.wotdCompact === "true" ? 3 : 4);
+      const pills = cleanWords(entry.synonyms).slice(0, widget.dataset.wotdCompact === "true" ? 3 : 4);
       synonymsEl.innerHTML = pills.map(item => `<span class="wotd-pill">${escapeHtml(item)}</span>`).join("");
     }
   }
