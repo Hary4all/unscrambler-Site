@@ -50,8 +50,13 @@ async function loadDatabaseWordOfTheDay() {
   return rows[index] && (rows[index].word || rows[index].word_lower) || null;
 }
 
+let SAVED_DEFS = {};
+try { SAVED_DEFS = require("./_lib/wotd-defs.json"); } catch (err) { SAVED_DEFS = {}; }
+
 async function buildWordOfTheDayPayload(word, source) {
-  const entry = await getDictionaryEntry(word);
+  const key = String(word || "").toLowerCase();
+  let entry = SAVED_DEFS[key] && SAVED_DEFS[key].primaryDefinition ? SAVED_DEFS[key] : null;
+  if (!entry) entry = await getDictionaryEntry(word);
   const date = formatWordOfTheDayDate();
   return {
     word: entry?.word || word,
