@@ -148,6 +148,7 @@ function renderPuzzle() {
   }
   const { size, grid, placements } = state.puzzle;
   els.sheet.style.setProperty("--family-grid-size", size);
+  els.answerSheet.style.setProperty("--family-grid-size", size);
   els.grid.innerHTML = "";
   els.answerGrid.innerHTML = "";
 
