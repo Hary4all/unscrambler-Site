@@ -9661,6 +9661,26 @@
       "source": "/play/",
       "destination": "/family-word-games/",
       "permanent": true
+    },
+    {
+      "source": "/word-patterns/contains/:p(bl|infra|under)/",
+      "destination": "/word-patterns/start/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/contains/:p(id|ify|scopy|wise)/",
+      "destination": "/word-patterns/end/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/end/:p(bl|de|tele|under)/",
+      "destination": "/word-patterns/start/:p/",
+      "permanent": true
+    },
+    {
+      "source": "/word-patterns/start/:p(id|ify)/",
+      "destination": "/word-patterns/end/:p/",
+      "permanent": true
     }
   ]
 }
