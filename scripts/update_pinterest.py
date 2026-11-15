@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Replace the Pinterest domain-verify code sitewide. Idempotent."""
 import os, io, sys
-OLD = "ce85f169c38454cb352a510f074a7c62"
-NEW = "196635fd4c2245d1e8708d913a4bd4ac"
+OLD = "196635fd4c2245d1e8708d913a4bd4ac"
+NEW = "6e75993339ef3ea10024d7c2b4ad28fa"
 limit = int(sys.argv[1]) if len(sys.argv) > 1 else 0
 changed = 0
 ROOT = sys.argv[2] if len(sys.argv) > 2 else '.'
