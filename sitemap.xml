@@ -16439,6 +16439,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://wordfindlab.com/blog/thanksgiving-pictionary-charades-words/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/daily-word-scramble/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wordfindlab.com/countdown-solver/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://wordfindlab.com/spelling-bee-solver/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
