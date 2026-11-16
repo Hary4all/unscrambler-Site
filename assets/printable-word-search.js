@@ -12,6 +12,7 @@ const DIRECTIONS = [
 
 const state = {
   data: null,
+  custom: null,
   puzzle: null,
   settings: {
     category: "animals",
@@ -58,7 +59,25 @@ function randomChoice(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
+function readCustomWords() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const raw = q.get("words");
+    if (!raw) return null;
+    const seen = new Set();
+    const words = raw.split(",").map((w) => ({ word: cleanWord(w), display: cleanWord(w) }))
+      .filter((w) => w.word.length >= 3 && w.word.length <= 14 && !seen.has(w.word) && seen.add(w.word))
+      .slice(0, 15);
+    if (words.length < 3) return null;
+    const title = (q.get("title") || "Custom").replace(/[<>]/g, "").slice(0, 60);
+    return { words, title };
+  } catch (err) {
+    return null;
+  }
+}
+
 function filteredWords() {
+  if (state.custom) return shuffle(state.custom.words);
   const pool = (state.data?.wordSearch || []).filter((item) => {
     if (item.difficulty !== state.settings.difficulty) return false;
     if (state.settings.category !== "all" && item.category !== state.settings.category) return false;
@@ -116,8 +135,13 @@ function fillGrid(grid) {
 }
 
 function buildPuzzle() {
-  const size = SIZE_BY_DIFFICULTY[state.settings.difficulty] || 10;
-  const count = WORD_COUNT_BY_DIFFICULTY[state.settings.difficulty] || 6;
+  let size = SIZE_BY_DIFFICULTY[state.settings.difficulty] || 10;
+  let count = WORD_COUNT_BY_DIFFICULTY[state.settings.difficulty] || 6;
+  if (state.custom) {
+    const longest = Math.max(...state.custom.words.map((w) => w.word.length));
+    size = Math.min(15, Math.max(size, longest + 1));
+    count = Math.min(12, state.custom.words.length);
+  }
   const pool = filteredWords();
   for (let attempt = 0; attempt < 60; attempt++) {
     const chosen = shuffle(pool).slice(0, count).map((item) => ({ ...item, word: cleanWord(item.word) }));
@@ -174,7 +198,7 @@ function renderPuzzle() {
   els.wordList.innerHTML = placements.map((item) => `<span class="family-word-pill">${item.display || item.word}</span>`).join("");
   els.answerWords.innerHTML = placements.map((item) => `<span class="family-word-pill is-found">${item.display || item.word}</span>`).join("");
   els.answerSheet.hidden = !state.settings.answerKey;
-  els.title.textContent = `${els.category.options[els.category.selectedIndex].text} Word Search`;
+  els.title.textContent = state.custom ? `${state.custom.title} Word Search` : `${els.category.options[els.category.selectedIndex].text} Word Search`;
   els.meta.textContent = `${state.settings.difficulty.charAt(0).toUpperCase() + state.settings.difficulty.slice(1)} - ${placements.length} words - A4 printable`;
   els.status.textContent = state.settings.answerKey ? "Answer key is visible for easy checking." : "Hidden words ready to print and solve.";
   trackWFL("pdf_tool_clicked", {
@@ -215,6 +239,7 @@ function printSheets() {
 
 function bindControls() {
   els.category.addEventListener("change", () => {
+    state.custom = null;
     state.settings.category = els.category.value;
     saveFamilyPreferences({ printableCategory: state.settings.category });
     trackWFL("filter_used", {
@@ -303,6 +328,7 @@ async function init() {
   els.category.value = state.settings.category;
   els.difficulty.value = state.settings.difficulty;
   els.answerKey.checked = state.settings.answerKey;
+  state.custom = readCustomWords();
   bindControls();
   wireShareGroup(document);
   renderPuzzle();
